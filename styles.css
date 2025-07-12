@@ -432,3 +432,82 @@ footer {
         margin-top: 0.5rem;
     }
 }
+
+/* Crypto address styling */
+.crypto-addresses {
+    margin-top: 1rem;
+}
+
+.address-item {
+    margin-bottom: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.chain-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.crypto-address {
+    background-color: #f1f3f4;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-block;
+    max-width: 100%;
+    word-break: break-all;
+    position: relative;
+}
+
+.crypto-address:hover {
+    background-color: #e3f2fd;
+    border-color: #2196f3;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.2);
+}
+
+.crypto-address:active {
+    transform: translateY(0);
+    background-color: #bbdefb;
+}
+
+.copy-feedback {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4caf50;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    z-index: 1000;
+    opacity: 0;
+    animation: copyFeedback 2s ease-in-out;
+}
+
+@keyframes copyFeedback {
+    0% { opacity: 0; transform: translateX(-50%) translateY(5px); }
+    20% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-5px); }
+}
+
+@media (max-width: 768px) {
+    .crypto-address {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.8rem;
+        word-break: break-all;
+    }
+}

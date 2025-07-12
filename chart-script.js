@@ -538,6 +538,30 @@ class ChartDashboard {
     }
 }
 
+// Copy to clipboard functionality
+function copyToClipboard(text, element) {
+    navigator.clipboard.writeText(text).then(function() {
+        // Create and show feedback
+        const feedback = document.createElement('div');
+        feedback.className = 'copy-feedback';
+        feedback.textContent = 'Copied!';
+        
+        // Position relative to the clicked element
+        element.style.position = 'relative';
+        element.appendChild(feedback);
+        
+        // Remove feedback after animation
+        setTimeout(() => {
+            if (feedback.parentNode) {
+                feedback.parentNode.removeChild(feedback);
+            }
+        }, 2000);
+    }).catch(function(err) {
+        console.error('Could not copy text: ', err);
+        alert('Address copied to clipboard!');
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     new ChartDashboard();
 });

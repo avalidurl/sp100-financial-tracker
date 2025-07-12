@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1><a href="index.html" style="text-decoration: none; color: inherit; cursor: pointer;">🔍 S&P 100 Market Insights & Analysis</a></h1>
+        <h1><a href="/" style="text-decoration: none; color: inherit; cursor: pointer;">🔍 S&P 100 Market Insights & Analysis</a></h1>
         <p>Real-time research and analysis of capital expenditure trends</p>
         <div id="last-updated"></div>
     </header>
@@ -30,7 +30,17 @@
     <footer>
         <p>Data provided by Financial Modeling Prep</p>
         <div class="donate">
-            <p>Support this project: <code id="eth-address">0x36De990133D36d7E3DF9a820aA3eDE5a2320De71</code></p>
+            <p><strong>Support this project:</strong></p>
+            <div class="crypto-addresses">
+                <div class="address-item">
+                    <span class="chain-label">EVM (ETH/BSC/MATIC):</span>
+                    <code class="crypto-address" onclick="copyToClipboard('0x36De990133D36d7E3DF9a820aA3eDE5a2320De71', this)">0x36De990133D36d7E3DF9a820aA3eDE5a2320De71</code>
+                </div>
+                <div class="address-item">
+                    <span class="chain-label">SOL (Solana):</span>
+                    <code class="crypto-address" onclick="copyToClipboard('J1ALikLy5TZ9tqZq5zxSem5P9G4Wo6fXXWSGGjEvd9Pg', this)">J1ALikLy5TZ9tqZq5zxSem5P9G4Wo6fXXWSGGjEvd9Pg</code>
+                </div>
+            </div>
         </div>
         <div class="credit">
             <p>Made by <a href="https://x.com/0xgokhan" target="_blank" rel="noopener">0xgokhan</a></p>
