@@ -13,21 +13,34 @@ class SP500CapexApp {
             this.updateStats();
             this.render();
         } catch (error) {
+            console.error('Error initializing app:', error);
             this.showError();
         }
     }
 
     async loadData() {
-        const [capexResponse, updateResponse] = await Promise.all([
-            fetch('/data/capex_data.json'),
-            fetch('/data/last_updated.json')
-        ]);
+        const capexResponse = await fetch('/data/capex_data.json');
+        
+        if (!capexResponse.ok) {
+            throw new Error(`Failed to fetch capex data: ${capexResponse.status}`);
+        }
 
         this.data = await capexResponse.json();
         this.filteredData = [...this.data];
         
-        const updateInfo = await updateResponse.json();
-        this.updateLastUpdated(updateInfo.timestamp);
+        // Try to get update timestamp, but don't fail if it's missing
+        try {
+            const updateResponse = await fetch('/data/last_updated.json');
+            if (updateResponse.ok) {
+                const updateInfo = await updateResponse.json();
+                this.updateLastUpdated(updateInfo.timestamp);
+            } else {
+                this.updateLastUpdated(new Date().toISOString());
+            }
+        } catch (updateError) {
+            console.warn('Could not load update timestamp:', updateError);
+            this.updateLastUpdated(new Date().toISOString());
+        }
         
         // Generate insights from data
         this.generateInsights();

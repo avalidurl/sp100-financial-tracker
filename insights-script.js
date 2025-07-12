@@ -18,21 +18,29 @@ class InsightsApp {
 
     async loadData() {
         try {
-            const [capexResponse, updateResponse] = await Promise.all([
-                fetch('/data/capex_data.json'),
-                fetch('/data/last_updated.json')
-            ]);
-
-            if (!capexResponse.ok || !updateResponse.ok) {
-                throw new Error('Failed to fetch data');
+            const capexResponse = await fetch('/data/capex_data.json');
+            
+            if (!capexResponse.ok) {
+                throw new Error(`Failed to fetch capex data: ${capexResponse.status}`);
             }
 
             this.data = await capexResponse.json();
             
-            const updateInfo = await updateResponse.json();
-            this.updateLastUpdated(updateInfo.timestamp);
+            // Try to get update timestamp, but don't fail if it's missing
+            try {
+                const updateResponse = await fetch('/data/last_updated.json');
+                if (updateResponse.ok) {
+                    const updateInfo = await updateResponse.json();
+                    this.updateLastUpdated(updateInfo.timestamp);
+                } else {
+                    this.updateLastUpdated(new Date().toISOString());
+                }
+            } catch (updateError) {
+                console.warn('Could not load update timestamp:', updateError);
+                this.updateLastUpdated(new Date().toISOString());
+            }
         } catch (error) {
-            console.error('Error loading data:', error);
+            console.error('Error loading insights data:', error);
             throw error;
         }
     }
