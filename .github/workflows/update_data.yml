@@ -22,6 +22,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
+    - name: Verify API key is configured
+      run: |
+        if [ -z "${{ secrets.FMP_API_KEY }}" ]; then
+          echo "ERROR: FMP_API_KEY secret not configured!"
+          echo "Please configure the FMP_API_KEY secret in GitHub repository settings."
+          exit 1
+        fi
+        echo "API key secret is properly configured ✓"
+    
     - name: Run data collection
       env:
         FMP_API_KEY: ${{ secrets.FMP_API_KEY }}

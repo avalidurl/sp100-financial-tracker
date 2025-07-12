@@ -1,6 +1,36 @@
+# Dependencies
 node_modules/
+
+# Python
 *.pyc
 __pycache__/
+venv/
+.venv/
+
+# Environment Variables - NEVER COMMIT THESE!
 .env
-.vercel
+.env.local
+.env.development
+.env.test
+.env.production
+*.env
+
+# Deployment
+.vercel/
+*.vercel
+
+# OS
 .DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# API Keys and Secrets - CRITICAL SECURITY
+*api*key*
+*secret*
+*token*
+config/secrets.json
