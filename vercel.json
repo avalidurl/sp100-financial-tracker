@@ -1,9 +1,4 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false,
-  "build": {
-    "env": {
-      "VERCEL_INCLUDE_FILES": "data"
-    }
-  }
+  "trailingSlash": false
 }
