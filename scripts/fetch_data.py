@@ -100,12 +100,12 @@ def main():
     
     capex_data.sort(key=lambda x: abs(x['capex']), reverse=True)
     
-    os.makedirs('../data', exist_ok=True)
+    os.makedirs('../public/data', exist_ok=True)
     
-    with open('../data/capex_data.json', 'w') as f:
+    with open('../public/data/capex_data.json', 'w') as f:
         json.dump(capex_data, f, indent=2)
     
-    with open('../data/last_updated.json', 'w') as f:
+    with open('../public/data/last_updated.json', 'w') as f:
         json.dump({
             'timestamp': datetime.now().isoformat(),
             'total_companies': len(capex_data),

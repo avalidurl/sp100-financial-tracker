@@ -18,7 +18,7 @@ class InsightsApp {
 
     async loadData() {
         try {
-            const capexResponse = await fetch('/data/capex_data.json');
+            const capexResponse = await fetch('./data/capex_data.json');
             
             if (!capexResponse.ok) {
                 throw new Error(`Failed to fetch capex data: ${capexResponse.status}`);
@@ -28,7 +28,7 @@ class InsightsApp {
             
             // Try to get update timestamp, but don't fail if it's missing
             try {
-                const updateResponse = await fetch('/data/last_updated.json');
+                const updateResponse = await fetch('./data/last_updated.json');
                 if (updateResponse.ok) {
                     const updateInfo = await updateResponse.json();
                     this.updateLastUpdated(updateInfo.timestamp);
