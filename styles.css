@@ -1,0 +1,434 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #fafafa;
+}
+
+header {
+    background: white;
+    padding: 2rem 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+#last-updated {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#search {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    min-width: 200px;
+}
+
+#sort-by, #filter-sector {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    background: white;
+    min-width: 150px;
+}
+
+.nav-btn {
+    padding: 0.75rem 1rem;
+    border: 1px solid #2563eb;
+    border-radius: 4px;
+    background: #2563eb;
+    color: white;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    display: inline-block;
+}
+
+.nav-btn:hover {
+    background: #1d4ed8;
+    color: white;
+}
+
+.info-note {
+    background: #f0f9ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.info-note strong {
+    color: #2563eb;
+}
+
+.stats-bar {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    flex-wrap: wrap;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+}
+
+.stat span:last-child {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2563eb;
+}
+
+#chart-view {
+    background: white;
+    padding: 2rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#capex-chart {
+    max-width: 100%;
+    height: auto;
+}
+
+#company-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.company-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    transition: box-shadow 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 80px;
+}
+
+.company-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.company-info {
+    flex: 1;
+}
+
+.company-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.company-symbol {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.company-metrics {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.capex-amount {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 0.25rem;
+}
+
+.company-sector {
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+}
+
+.company-year {
+    color: #888;
+    font-size: 0.8rem;
+}
+
+.revenue-amount {
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.market-cap-amount {
+    color: #059669;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 0.25rem;
+}
+
+.rank-number {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #888;
+    min-width: 40px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+#loading, #error {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.1rem;
+}
+
+#error {
+    color: #dc2626;
+}
+
+footer {
+    margin-top: 4rem;
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid #eee;
+    color: #666;
+}
+
+.donate {
+    margin-top: 1rem;
+}
+
+.credit {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.credit a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.credit a:hover {
+    text-decoration: underline;
+}
+
+#eth-address {
+    background: #f3f4f6;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* Insights View Styles */
+.insights-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.insight-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.insight-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #2563eb;
+}
+
+.insight-card p {
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.insight-data {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.insight-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background: #f8fafc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.insight-item .rank {
+    color: #666;
+    font-weight: 600;
+    min-width: 30px;
+}
+
+.insight-item .company {
+    font-weight: 600;
+    color: #2563eb;
+}
+
+.insight-item .sector {
+    font-weight: 500;
+    color: #333;
+}
+
+.insight-item .value {
+    font-weight: 600;
+    color: #059669;
+}
+
+.insight-item .ratio {
+    font-weight: 600;
+    color: #dc2626;
+    font-size: 0.85rem;
+}
+
+.key-insights {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.insight-point {
+    padding: 1rem;
+    background: #f0f9ff;
+    border-left: 4px solid #2563eb;
+    border-radius: 4px;
+    line-height: 1.6;
+}
+
+.insight-point strong {
+    color: #1e40af;
+}
+
+/* Chart Dashboard Styles */
+#charts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.chart-section {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.chart-section h2 {
+    margin: 0 0 1rem 0;
+    color: #2563eb;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.chart-wrapper {
+    position: relative;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart-wrapper canvas {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    #charts-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-wrapper {
+        height: 350px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .controls {
+        flex-direction: column;
+    }
+    
+    .company-card {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .company-metrics {
+        align-items: flex-start;
+        text-align: left;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+}
