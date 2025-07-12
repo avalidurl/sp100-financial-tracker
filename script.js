@@ -19,8 +19,8 @@ class SP500CapexApp {
 
     async loadData() {
         const [capexResponse, updateResponse] = await Promise.all([
-            fetch('./data/capex_data.json'),
-            fetch('./data/last_updated.json')
+            fetch('/data/capex_data.json'),
+            fetch('/data/last_updated.json')
         ]);
 
         this.data = await capexResponse.json();

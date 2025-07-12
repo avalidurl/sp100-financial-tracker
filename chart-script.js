@@ -20,15 +20,24 @@ class ChartDashboard {
     }
 
     async loadData() {
-        const [capexResponse, updateResponse] = await Promise.all([
-            fetch('./data/capex_data.json'),
-            fetch('./data/last_updated.json')
-        ]);
+        try {
+            const [capexResponse, updateResponse] = await Promise.all([
+                fetch('/data/capex_data.json'),
+                fetch('/data/last_updated.json')
+            ]);
 
-        this.data = await capexResponse.json();
-        
-        const updateInfo = await updateResponse.json();
-        this.updateLastUpdated(updateInfo.timestamp);
+            if (!capexResponse.ok || !updateResponse.ok) {
+                throw new Error('Failed to fetch data');
+            }
+
+            this.data = await capexResponse.json();
+            
+            const updateInfo = await updateResponse.json();
+            this.updateLastUpdated(updateInfo.timestamp);
+        } catch (error) {
+            console.error('Error loading data:', error);
+            throw error;
+        }
     }
 
     setupEventListeners() {
