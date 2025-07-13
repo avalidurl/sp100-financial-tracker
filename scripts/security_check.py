@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Security verification script for sp500-capex project.
+Security verification script for sp100-capex project.
 Checks for any potential API key leaks or security vulnerabilities.
 """
 
@@ -138,7 +138,7 @@ def check_git_tracking():
 
 def main():
     """Run comprehensive security check."""
-    print("🔒 SP500-CapEx Security Check")
+    print("🔒 SP100-CapEx Security Check")
     print("=" * 50)
     
     # Get project root

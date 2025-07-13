@@ -1,4 +1,4 @@
-class SP500CapexApp {
+class SP100CapexApp {
     constructor() {
         this.data = [];
         this.filteredData = [];
@@ -404,5 +404,5 @@ function copyToClipboard(text, element) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    new SP500CapexApp();
+    new SP100CapexApp();
 });

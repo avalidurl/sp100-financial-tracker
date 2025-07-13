@@ -51,7 +51,7 @@ def update_market_caps():
     print("Loading existing capex data...")
     
     # Load existing data
-    data_path = '../data/capex_data.json'
+    data_path = '../public/data/capex_data.json'
     if not os.path.exists(data_path):
         print("No existing capex data found!")
         return
@@ -102,13 +102,13 @@ def update_market_caps():
     updated_companies.sort(key=lambda x: x.get('market_cap', 0), reverse=True)
     
     # Save updated data
-    os.makedirs('../data', exist_ok=True)
+    os.makedirs('../public/data', exist_ok=True)
     
     with open(data_path, 'w') as f:
         json.dump(updated_companies, f, indent=2)
     
     # Update metadata
-    with open('../data/market_cap_updated.json', 'w') as f:
+    with open('../public/data/last_updated.json', 'w') as f:
         json.dump({
             'timestamp': datetime.now().isoformat(),
             'total_companies': len(updated_companies),

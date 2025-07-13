@@ -41,8 +41,8 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/avalidurl/sp500-capex.git
-   cd sp500-capex
+   git clone https://github.com/avalidurl/sp100-capex.git
+   cd sp100-capex
    ```
 
 2. **Setup Python environment**
@@ -100,7 +100,7 @@ grep -r "your_secret_pattern" . --exclude-dir=.git
 ## 📁 Project Structure
 
 ```
-sp500-capex/
+sp100-capex/
 ├── 🏠 Frontend
 │   ├── index.html              # Main dashboard
 │   ├── chart.html             # Chart visualizations
@@ -143,7 +143,7 @@ sp500-capex/
 ### Key Endpoints
 ```python
 # Company list
-GET /sp500_constituent?apikey={key}
+GET /sp500_constituent?apikey={key} # Used for SP100 data
 
 # Financial data  
 GET /cash-flow-statement/{symbol}?period=annual&limit=5&apikey={key}

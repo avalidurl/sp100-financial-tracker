@@ -7,8 +7,8 @@ This project implements **zero-tolerance security** for API key management. Foll
 ### 1. One-Command Setup
 ```bash
 # Clone and set up the project securely
-git clone https://github.com/your-username/sp500-capex.git
-cd sp500-capex
+git clone https://github.com/your-username/sp100-capex.git
+cd sp100-capex
 ./setup.sh
 ```
 

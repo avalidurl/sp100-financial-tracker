@@ -33,7 +33,7 @@ def update_market_caps():
     print("Loading existing data...")
     
     # Load existing data
-    data_path = '../data/capex_data.json'
+    data_path = '../public/data/capex_data.json'
     if not os.path.exists(data_path):
         print("No data file found!")
         return

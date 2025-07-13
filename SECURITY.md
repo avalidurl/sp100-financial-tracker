@@ -1,4 +1,4 @@
-# 🔒 Security Guide for SP500 CapEx Project
+# 🔒 Security Guide for SP100 CapEx Project
 
 This document outlines the security measures implemented to protect API keys and sensitive data in this project.
 

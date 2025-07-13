@@ -1,4 +1,9 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false
+  "public": false,
+  "rewrites": [
+    {
+      "source": "/data/(.*)",
+      "destination": "/public/data/$1"
+    }
+  ]
 }

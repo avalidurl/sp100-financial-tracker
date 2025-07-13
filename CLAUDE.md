@@ -1,4 +1,4 @@
-# SP500 CapEx Tracker - Claude Code Context
+# SP100 CapEx Tracker - Claude Code Context
 
 ## Project Overview
 A real-time S&P 100 Capital Expenditure tracking dashboard that displays company investment data with market cap integration. Built with vanilla JavaScript frontend and Python data collection scripts.
@@ -39,7 +39,7 @@ A real-time S&P 100 Capital Expenditure tracking dashboard that displays company
 ```bash
 # 1. Clone repository
 git clone <repo-url>
-cd sp500-capex
+cd sp100-capex
 
 # 2. Setup environment
 python3 -m venv venv
@@ -221,4 +221,4 @@ env | grep FMP_API_KEY
 - [ ] Test local development with environment variables
 - [ ] Confirm no API keys in any committed files
 
-This documentation provides Claude Code with complete context for working effectively with the sp500-capex project while maintaining the highest security standards.
+This documentation provides Claude Code with complete context for working effectively with the sp100-capex project while maintaining the highest security standards.
