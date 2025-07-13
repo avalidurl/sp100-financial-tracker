@@ -34,3 +34,4 @@ Thumbs.db
 *secret*
 *token*
 config/secrets.json
+.vercel
