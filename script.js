@@ -336,10 +336,18 @@ class SP100CapexApp {
             timeZoneName: 'short'
         });
         
+        const utcTime = now.toLocaleString('en-US', {
+            timeZone: 'UTC',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true,
+            timeZoneName: 'short'
+        });
+        
         marketStatusEl.innerHTML = `
             <div class="market-status ${isOpen ? 'open' : 'closed'}">
                 <span class="status-indicator">${statusText}</span>
-                <span class="market-time">${timeText}</span>
+                <span class="market-time">${timeText} (${utcTime})</span>
             </div>
         `;
     }
