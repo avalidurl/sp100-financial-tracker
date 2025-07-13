@@ -511,3 +511,129 @@ footer {
         word-break: break-all;
     }
 }
+/* Sector Grouping Styles */
+.sector-group {
+    margin-bottom: 20px;
+    border: 1px solid #e1e5e9;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.sector-header {
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e1e5e9;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: background-color 0.2s ease;
+}
+
+.sector-header:hover {
+    background: #e9ecef;
+}
+
+.sector-header.collapsed {
+    border-bottom: none;
+}
+
+.sector-toggle {
+    font-size: 12px;
+    color: #666;
+    transition: transform 0.2s ease;
+    width: 16px;
+    text-align: center;
+}
+
+.sector-info {
+    flex: 1;
+}
+
+.sector-name {
+    font-weight: 600;
+    font-size: 16px;
+    color: #2c3e50;
+    margin-bottom: 4px;
+}
+
+.sector-stats {
+    font-size: 14px;
+    color: #666;
+}
+
+.sector-companies {
+    padding: 0;
+}
+
+.sector-company {
+    margin: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #f1f3f4;
+}
+
+.sector-company:last-child {
+    border-bottom: none;
+}
+
+/* Market Status Styles */
+.header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.market-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.market-status.open {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.market-status.closed {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.status-indicator {
+    font-weight: 600;
+}
+
+.market-time {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .header-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .sector-header {
+        padding: 12px 15px;
+    }
+    
+    .sector-name {
+        font-size: 15px;
+    }
+    
+    .sector-stats {
+        font-size: 13px;
+    }
+}
+EOF < /dev/null

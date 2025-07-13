@@ -93,6 +93,7 @@ class SP100CapexApp {
         });
         
         this.updateStats();
+        this.updateMarketStatus();
         this.render();
     }
 
@@ -230,21 +231,117 @@ class SP100CapexApp {
         loading.classList.add('hidden');
         list.classList.remove('hidden');
 
-        list.innerHTML = this.filteredData.map((company, index) => `
-            <div class="company-card">
-                <div class="rank-number">#${index + 1}</div>
-                <div class="company-info">
-                    <div class="company-name">${company.name}</div>
-                    <div class="company-symbol">${company.symbol} • ${company.sector}</div>
+        // Check if sorting by sector to use grouped view
+        const sortBy = document.getElementById('sort-by')?.value;
+        
+        if (sortBy === 'sector') {
+            this.renderGroupedBySector();
+        } else {
+            list.innerHTML = this.filteredData.map((company, index) => `
+                <div class="company-card">
+                    <div class="rank-number">#${index + 1}</div>
+                    <div class="company-info">
+                        <div class="company-name">${company.name}</div>
+                        <div class="company-symbol">${company.symbol} • ${company.sector}</div>
+                    </div>
+                    <div class="company-metrics">
+                        <div class="capex-amount">${this.formatCurrency(company.capex)}</div>
+                        <div class="company-year">${company.year} Annual</div>
+                        <div class="revenue-amount">Revenue: ${this.formatCurrency(company.revenue)}</div>
+                        <div class="market-cap-amount">Market Cap: ${this.formatCurrency(company.market_cap)}</div>
+                    </div>
                 </div>
-                <div class="company-metrics">
-                    <div class="capex-amount">${this.formatCurrency(company.capex)}</div>
-                    <div class="company-year">${company.year} Annual</div>
-                    <div class="revenue-amount">Revenue: ${this.formatCurrency(company.revenue)}</div>
-                    <div class="market-cap-amount">Market Cap: ${this.formatCurrency(company.market_cap)}</div>
+            `).join('');
+        }
+    }
+
+    renderGroupedBySector() {
+        const list = document.getElementById('company-list');
+        
+        // Group companies by sector
+        const sectors = {};
+        this.filteredData.forEach(company => {
+            if (!sectors[company.sector]) {
+                sectors[company.sector] = [];
+            }
+            sectors[company.sector].push(company);
+        });
+
+        // Sort sectors by total capex
+        const sortedSectors = Object.entries(sectors)
+            .map(([sector, companies]) => ({
+                sector,
+                companies: companies.sort((a, b) => Math.abs(b.capex) - Math.abs(a.capex)),
+                totalCapex: companies.reduce((sum, c) => sum + Math.abs(c.capex), 0),
+                count: companies.length
+            }))
+            .sort((a, b) => b.totalCapex - a.totalCapex);
+
+        list.innerHTML = sortedSectors.map(({sector, companies, totalCapex, count}) => `
+            <div class="sector-group">
+                <div class="sector-header" onclick="toggleSector('${sector.replace(/'/g, "\\'")}')"> 
+                    <div class="sector-toggle">▼</div>
+                    <div class="sector-info">
+                        <div class="sector-name">${sector}</div>
+                        <div class="sector-stats">${count} companies • Total: ${this.formatCurrency(totalCapex)}</div>
+                    </div>
+                </div>
+                <div class="sector-companies" id="sector-${sector.replace(/[^a-zA-Z0-9]/g, '-')}">
+                    ${companies.map((company, index) => `
+                        <div class="company-card sector-company">
+                            <div class="rank-number">#${index + 1}</div>
+                            <div class="company-info">
+                                <div class="company-name">${company.name}</div>
+                                <div class="company-symbol">${company.symbol}</div>
+                            </div>
+                            <div class="company-metrics">
+                                <div class="capex-amount">${this.formatCurrency(company.capex)}</div>
+                                <div class="company-year">${company.year} Annual</div>
+                                <div class="revenue-amount">Revenue: ${this.formatCurrency(company.revenue)}</div>
+                                <div class="market-cap-amount">Market Cap: ${this.formatCurrency(company.market_cap)}</div>
+                            </div>
+                        </div>
+                    `).join('')}
                 </div>
             </div>
         `).join('');
+    }
+
+    // Market status functionality
+    updateMarketStatus() {
+        const marketStatusEl = document.getElementById('market-status');
+        if (!marketStatusEl) return;
+        
+        const now = new Date();
+        const easternTime = new Date(now.toLocaleString("en-US", {timeZone: "America/New_York"}));
+        const day = easternTime.getDay(); // 0 = Sunday, 6 = Saturday
+        const hour = easternTime.getHours();
+        const minute = easternTime.getMinutes();
+        const currentTime = hour * 60 + minute; // minutes since midnight
+        
+        // Market hours: Monday-Friday 9:30 AM - 4:00 PM ET
+        const marketOpen = 9 * 60 + 30;  // 9:30 AM
+        const marketClose = 16 * 60;     // 4:00 PM
+        
+        const isWeekday = day >= 1 && day <= 5;
+        const isDuringHours = currentTime >= marketOpen && currentTime < marketClose;
+        const isOpen = isWeekday && isDuringHours;
+        
+        const statusText = isOpen ? '🟢 Markets Open' : '🔴 Markets Closed';
+        const timeText = easternTime.toLocaleString('en-US', {
+            timeZone: 'America/New_York',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true,
+            timeZoneName: 'short'
+        });
+        
+        marketStatusEl.innerHTML = `
+            <div class="market-status ${isOpen ? 'open' : 'closed'}">
+                <span class="status-indicator">${statusText}</span>
+                <span class="market-time">${timeText}</span>
+            </div>
+        `;
     }
 
     generateInsights() {
@@ -409,6 +506,24 @@ function copyToClipboard(text, element) {
         }
         document.body.removeChild(textArea);
     });
+}
+
+// Global function for sector toggling
+function toggleSector(sector) {
+    const sectorId = 'sector-' + sector.replace(/[^a-zA-Z0-9]/g, '-');
+    const companiesDiv = document.getElementById(sectorId);
+    const header = companiesDiv.previousElementSibling;
+    const toggle = header.querySelector('.sector-toggle');
+    
+    if (companiesDiv.style.display === 'none') {
+        companiesDiv.style.display = 'block';
+        toggle.textContent = '▼';
+        header.classList.remove('collapsed');
+    } else {
+        companiesDiv.style.display = 'none';
+        toggle.textContent = '▶';
+        header.classList.add('collapsed');
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
