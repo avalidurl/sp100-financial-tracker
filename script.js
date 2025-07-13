@@ -52,21 +52,29 @@ class SP100CapexApp {
         const filterSector = document.getElementById('filter-sector');
         const ethAddress = document.getElementById('eth-address');
 
-        search.addEventListener('input', (e) => {
-            this.filterData();
-        });
+        if (search) {
+            search.addEventListener('input', (e) => {
+                this.filterData();
+            });
+        }
 
-        sortBy.addEventListener('change', (e) => {
-            this.sortData(e.target.value);
-        });
+        if (sortBy) {
+            sortBy.addEventListener('change', (e) => {
+                this.sortData(e.target.value);
+            });
+        }
 
-        filterSector.addEventListener('change', (e) => {
-            this.filterData();
-        });
+        if (filterSector) {
+            filterSector.addEventListener('change', (e) => {
+                this.filterData();
+            });
+        }
 
-        ethAddress.addEventListener('click', () => {
-            navigator.clipboard.writeText(ethAddress.textContent);
-        });
+        if (ethAddress) {
+            ethAddress.addEventListener('click', () => {
+                navigator.clipboard.writeText(ethAddress.textContent);
+            });
+        }
     }
 
     filterData() {

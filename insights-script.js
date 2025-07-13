@@ -47,9 +47,11 @@ class InsightsApp {
 
     setupEventListeners() {
         const ethAddress = document.getElementById('eth-address');
-        ethAddress.addEventListener('click', () => {
-            navigator.clipboard.writeText(ethAddress.textContent);
-        });
+        if (ethAddress) {
+            ethAddress.addEventListener('click', () => {
+                navigator.clipboard.writeText(ethAddress.textContent);
+            });
+        }
     }
 
     generateInsights() {
