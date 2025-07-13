@@ -248,7 +248,7 @@ class SP100CapexApp {
                         <div class="capex-amount">${this.formatCurrency(company.capex)}</div>
                         <div class="company-year">${company.year} Annual</div>
                         <div class="revenue-amount">Revenue: ${this.formatCurrency(company.revenue)}</div>
-                        <div class="market-cap-amount">Market Cap: ${this.formatCurrency(company.market_cap)}</div>
+                        <div class="market-cap-amount">Current Market Cap: ${this.formatCurrency(company.market_cap)}</div>
                     </div>
                 </div>
             `).join('');
@@ -298,7 +298,7 @@ class SP100CapexApp {
                                 <div class="capex-amount">${this.formatCurrency(company.capex)}</div>
                                 <div class="company-year">${company.year} Annual</div>
                                 <div class="revenue-amount">Revenue: ${this.formatCurrency(company.revenue)}</div>
-                                <div class="market-cap-amount">Market Cap: ${this.formatCurrency(company.market_cap)}</div>
+                                <div class="market-cap-amount">Current Market Cap: ${this.formatCurrency(company.market_cap)}</div>
                             </div>
                         </div>
                     `).join('')}
