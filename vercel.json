@@ -1,5 +1,8 @@
 {
-  "public": false,
+  "buildCommand": null,
+  "outputDirectory": "./",
+  "installCommand": null,
+  "framework": null,
   "rewrites": [
     {
       "source": "/data/(.*)",
