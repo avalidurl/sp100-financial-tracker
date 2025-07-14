@@ -1331,8 +1331,8 @@ function openPriceModal(symbol, companyName) {
         existingWidget.remove();
     }
     
-    // Create TradingView widget container with unique ID
-    // Using TradingView's free embedding widgets - https://www.tradingview.com/widget/
+    // Create TradingView widget with proper timing
+    // Using TradingView's most reliable widget - Single Quote
     const uniqueId = `tradingview_${symbol}_${Date.now()}`;
     
     const widgetContainer = document.createElement('div');
@@ -1340,52 +1340,40 @@ function openPriceModal(symbol, companyName) {
     widgetContainer.style.height = '100%';
     widgetContainer.style.width = '100%';
     
-    const widgetInner = document.createElement('div');
-    widgetInner.id = uniqueId;
-    widgetInner.style.height = 'calc(100% - 32px)';
-    widgetInner.style.width = '100%';
+    // Create the exact structure TradingView expects
+    widgetContainer.innerHTML = `
+        <div class="tradingview-widget" style="height: 100%; width: 100%;">
+            <div id="${uniqueId}" style="height: 100%; width: 100%;"></div>
+        </div>
+    `;
     
-    widgetContainer.appendChild(widgetInner);
-    
-    // Add widget to modal first
+    // Add container to DOM first
     body.appendChild(widgetContainer);
     
-    // Then create and add the script with the correct container_id
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js';
-    script.async = true;
-    script.innerHTML = JSON.stringify({
-        "symbols": [
-            [`NASDAQ:${symbol}|1D`]
-        ],
-        "chartOnly": false,
-        "width": "100%",
-        "height": "100%",
-        "locale": "en",
-        "colorTheme": "light",
-        "autosize": true,
-        "showVolume": true,
-        "showMA": false,
-        "hideDateRanges": false,
-        "hideMarketStatus": false,
-        "hideSymbolLogo": false,
-        "scalePosition": "right",
-        "scaleMode": "Normal",
-        "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-        "fontSize": "10",
-        "noTimeScale": false,
-        "valuesTracking": "1",
-        "changeMode": "price-and-percent",
-        "chartType": "area",
-        "maLineColor": "#2962FF",
-        "maLineWidth": 1,
-        "maLength": 9,
-        "container_id": uniqueId
-    });
-    
-    // Append script after container is in DOM
-    widgetContainer.appendChild(script);
+    // Wait for DOM to be ready, then load widget
+    setTimeout(() => {
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js';
+        script.async = true;
+        script.innerHTML = JSON.stringify({
+            "symbol": `NASDAQ:${symbol}`,
+            "width": "100%",
+            "height": "100%",
+            "locale": "en",
+            "dateRange": "12M",
+            "colorTheme": "light",
+            "trendLineColor": "rgba(41, 98, 255, 1)",
+            "underLineColor": "rgba(41, 98, 255, 0.3)",
+            "underLineBottomColor": "rgba(41, 98, 255, 0)",
+            "isTransparent": false,
+            "displayMode": "adaptive",
+            "container_id": uniqueId
+        });
+        
+        // Append script to head for better loading
+        document.head.appendChild(script);
+    }, 100);
     
     // Hide loading after a short delay
     setTimeout(() => {
@@ -1399,10 +1387,10 @@ function closePriceModal() {
     
     modal.style.display = 'none';
     
-    // Remove TradingView widget to stop loading and clean up
-    const widget = body.querySelector('.tradingview-widget-container');
-    if (widget) {
-        widget.remove();
+    // Remove TradingView widget container to stop loading and clean up
+    const container = body.querySelector('.tradingview-widget-container');
+    if (container) {
+        container.remove();
     }
 }
 
