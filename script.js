@@ -281,7 +281,7 @@ class SP100CapexApp {
         } else {
             console.log(`Rendering list view: ${this.displayedData.length} companies`);
             list.innerHTML = this.displayedData.map((company, index) => `
-                <div class="company-card">
+                <div class="company-card" onclick="openNewsModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}')">
                     <div class="rank-number">#${index + 1}</div>
                     <div class="company-info">
                         <div class="company-name">${company.name}</div>
@@ -331,7 +331,7 @@ class SP100CapexApp {
                 </div>
                 <div class="sector-companies" id="sector-${sector.replace(/[^a-zA-Z0-9]/g, '-')}">
                     ${companies.map((company, index) => `
-                        <div class="company-card sector-company">
+                        <div class="company-card sector-company" onclick="openNewsModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}')">
                             <div class="rank-number">#${index + 1}</div>
                             <div class="company-info">
                                 <div class="company-name">${company.name}</div>
@@ -605,6 +605,187 @@ function toggleSector(sector) {
         header.classList.add('collapsed');
     }
 }
+
+// News Modal Functions
+async function openNewsModal(symbol, companyName) {
+    console.log(`Opening news modal for ${symbol} - ${companyName}`);
+    
+    const modal = document.getElementById('news-modal');
+    const title = document.getElementById('news-modal-title');
+    const loading = document.getElementById('news-loading');
+    const error = document.getElementById('news-error');
+    const newsList = document.getElementById('news-list');
+    const empty = document.getElementById('news-empty');
+    
+    // Update title and show modal
+    title.innerHTML = `📰 ${companyName} (${symbol}) - Latest News`;
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Reset states
+    loading.classList.remove('hidden');
+    error.classList.add('hidden');
+    newsList.classList.add('hidden');
+    empty.classList.add('hidden');
+    
+    try {
+        const articles = await fetchCompanyNews(symbol, companyName);
+        loading.classList.add('hidden');
+        
+        if (articles && articles.length > 0) {
+            renderNewsArticles(articles);
+            newsList.classList.remove('hidden');
+        } else {
+            empty.classList.remove('hidden');
+        }
+    } catch (err) {
+        console.error('Error fetching news:', err);
+        loading.classList.add('hidden');
+        error.classList.remove('hidden');
+    }
+}
+
+function closeNewsModal() {
+    const modal = document.getElementById('news-modal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restore scrolling
+}
+
+async function fetchCompanyNews(symbol, companyName) {
+    console.log(`Fetching news for ${symbol}...`);
+    
+    // Check cache first (1 hour cache)
+    const cacheKey = `news_${symbol}`;
+    const cached = localStorage.getItem(cacheKey);
+    if (cached) {
+        const { data, timestamp } = JSON.parse(cached);
+        const isExpired = Date.now() - timestamp > 60 * 60 * 1000; // 1 hour
+        if (!isExpired) {
+            console.log(`Using cached news for ${symbol}`);
+            return data;
+        }
+    }
+    
+    // Use a CORS proxy to fetch Google News RSS
+    const query = encodeURIComponent(`${companyName} ${symbol} stock`);
+    const rssUrl = `https://news.google.com/rss/search?q=${query}&hl=en-US&gl=US&ceid=US:en`;
+    
+    // We need to use a CORS proxy since we can't directly fetch from Google News
+    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(rssUrl)}`;
+    
+    try {
+        const response = await fetch(proxyUrl);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        
+        const xmlText = await response.text();
+        const articles = parseRSSFeed(xmlText, symbol);
+        
+        // Cache the results
+        localStorage.setItem(cacheKey, JSON.stringify({
+            data: articles,
+            timestamp: Date.now()
+        }));
+        
+        return articles;
+    } catch (error) {
+        console.error('Error fetching news:', error);
+        throw error;
+    }
+}
+
+function parseRSSFeed(xmlText, symbol) {
+    try {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(xmlText, 'application/xml');
+        const items = doc.querySelectorAll('item');
+        
+        const articles = [];
+        items.forEach((item, index) => {
+            if (index >= 10) return; // Limit to 10 articles
+            
+            const title = item.querySelector('title')?.textContent || 'No title';
+            const link = item.querySelector('link')?.textContent || '#';
+            const pubDate = item.querySelector('pubDate')?.textContent;
+            const description = item.querySelector('description')?.textContent || '';
+            
+            // Clean up description (remove HTML tags)
+            const cleanDescription = description.replace(/<[^>]*>/g, '').trim();
+            const summary = cleanDescription.length > 200 
+                ? cleanDescription.substring(0, 200) + '...' 
+                : cleanDescription;
+            
+            // Extract source from title (usually at the end)
+            const sourceMatch = title.match(/- ([^-]+)$/);
+            const source = sourceMatch ? sourceMatch[1].trim() : 'Google News';
+            const cleanTitle = sourceMatch ? title.replace(/ - [^-]+$/, '') : title;
+            
+            articles.push({
+                title: cleanTitle,
+                summary: summary || 'No summary available',
+                link: link,
+                source: source,
+                publishedDate: pubDate ? new Date(pubDate) : new Date(),
+                timeAgo: pubDate ? getTimeAgo(new Date(pubDate)) : 'Recently'
+            });
+        });
+        
+        return articles;
+    } catch (error) {
+        console.error('Error parsing RSS:', error);
+        return [];
+    }
+}
+
+function renderNewsArticles(articles) {
+    const newsList = document.getElementById('news-list');
+    
+    newsList.innerHTML = articles.map(article => `
+        <div class="news-item">
+            <div class="news-item-header">
+                <div class="news-item-icon">📰</div>
+                <div>
+                    <h3 class="news-item-title">${article.title}</h3>
+                </div>
+            </div>
+            <p class="news-item-summary">${article.summary}</p>
+            <div class="news-item-meta">
+                <div>
+                    <span class="news-item-time">${article.timeAgo}</span>
+                    <span class="news-item-source"> • ${article.source}</span>
+                </div>
+                <a href="${article.link}" target="_blank" rel="noopener" class="news-item-link">Read More</a>
+            </div>
+        </div>
+    `).join('');
+}
+
+function getTimeAgo(date) {
+    const now = new Date();
+    const diffMs = now - date;
+    const diffMins = Math.floor(diffMs / 60000);
+    const diffHours = Math.floor(diffMs / 3600000);
+    const diffDays = Math.floor(diffMs / 86400000);
+    
+    if (diffMins < 60) return `${diffMins}m ago`;
+    if (diffHours < 24) return `${diffHours}h ago`;
+    if (diffDays < 7) return `${diffDays}d ago`;
+    return date.toLocaleDateString();
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', (e) => {
+    const modal = document.getElementById('news-modal');
+    if (e.target === modal) {
+        closeNewsModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeNewsModal();
+    }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     window.app = new SP100CapexApp();

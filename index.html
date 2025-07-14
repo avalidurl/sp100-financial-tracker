@@ -85,6 +85,37 @@
         </div>
     </footer>
 
-    <script src="script.js?v=2"></script>
+    <!-- News Modal -->
+    <div id="news-modal" class="news-modal">
+        <div class="news-modal-content">
+            <div class="news-modal-header">
+                <h2 class="news-modal-title" id="news-modal-title">
+                    📰 Company News
+                </h2>
+                <button class="news-modal-close" onclick="closeNewsModal()">&times;</button>
+            </div>
+            <div class="news-modal-body" id="news-modal-body">
+                <div class="news-loading" id="news-loading">
+                    <div class="news-loading-spinner"></div>
+                    <p>Loading latest news...</p>
+                </div>
+                <div class="news-error hidden" id="news-error">
+                    <div class="news-error-icon">⚠️</div>
+                    <p>Unable to load news at this time</p>
+                    <p><small>Please try again later</small></p>
+                </div>
+                <div class="news-list hidden" id="news-list">
+                    <!-- News articles will be populated here -->
+                </div>
+                <div class="news-empty hidden" id="news-empty">
+                    <div class="news-empty-icon">📰</div>
+                    <p>No recent news found</p>
+                    <p><small>Try checking back later for updates</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=3"></script>
 </body>
 </html>
