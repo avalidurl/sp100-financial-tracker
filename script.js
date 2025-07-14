@@ -1331,47 +1331,61 @@ function openPriceModal(symbol, companyName) {
         existingWidget.remove();
     }
     
-    // Create TradingView widget container
+    // Create TradingView widget container with unique ID
     // Using TradingView's free embedding widgets - https://www.tradingview.com/widget/
+    const uniqueId = `tradingview_${symbol}_${Date.now()}`;
+    
     const widgetContainer = document.createElement('div');
     widgetContainer.className = 'tradingview-widget-container';
     widgetContainer.style.height = '100%';
     widgetContainer.style.width = '100%';
     
     const widgetInner = document.createElement('div');
-    widgetInner.className = 'tradingview-widget';
+    widgetInner.id = uniqueId;
     widgetInner.style.height = 'calc(100% - 32px)';
     widgetInner.style.width = '100%';
     
+    widgetContainer.appendChild(widgetInner);
+    
+    // Add widget to modal first
+    body.appendChild(widgetContainer);
+    
+    // Then create and add the script with the correct container_id
     const script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js';
     script.async = true;
     script.innerHTML = JSON.stringify({
-        "autosize": true,
-        "symbol": `NASDAQ:${symbol}`,
-        "interval": "D",
-        "timezone": "Etc/UTC",
-        "theme": "light",
-        "style": "1",
-        "locale": "en",
-        "toolbar_bg": "#f1f3f6",
-        "enable_publishing": false,
-        "allow_symbol_change": false,
-        "details": true,
-        "hotlist": true,
-        "calendar": false,
-        "studies": [
-            "Volume@tv-basicstudies"
+        "symbols": [
+            [`NASDAQ:${symbol}|1D`]
         ],
-        "container_id": "tradingview_chart"
+        "chartOnly": false,
+        "width": "100%",
+        "height": "100%",
+        "locale": "en",
+        "colorTheme": "light",
+        "autosize": true,
+        "showVolume": true,
+        "showMA": false,
+        "hideDateRanges": false,
+        "hideMarketStatus": false,
+        "hideSymbolLogo": false,
+        "scalePosition": "right",
+        "scaleMode": "Normal",
+        "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+        "fontSize": "10",
+        "noTimeScale": false,
+        "valuesTracking": "1",
+        "changeMode": "price-and-percent",
+        "chartType": "area",
+        "maLineColor": "#2962FF",
+        "maLineWidth": 1,
+        "maLength": 9,
+        "container_id": uniqueId
     });
     
-    widgetContainer.appendChild(widgetInner);
+    // Append script after container is in DOM
     widgetContainer.appendChild(script);
-    
-    // Add widget to modal
-    body.appendChild(widgetContainer);
     
     // Hide loading after a short delay
     setTimeout(() => {
