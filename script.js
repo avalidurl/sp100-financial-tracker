@@ -6,6 +6,7 @@ class SP100CapexApp {
         this.displayedData = [];
         this.itemsPerPage = 10;
         this.currentPage = 1;
+        console.log('SP100CapexApp initialized with pagination:', this.itemsPerPage, 'items per page');
         this.init();
     }
 
@@ -133,12 +134,27 @@ class SP100CapexApp {
         const startIndex = 0;
         const endIndex = this.currentPage * this.itemsPerPage;
         this.displayedData = this.filteredData.slice(startIndex, endIndex);
+        console.log(`updateDisplayedData: page=${this.currentPage}, itemsPerPage=${this.itemsPerPage}, showing ${startIndex}-${endIndex} of ${this.filteredData.length} companies`);
+        console.log(`Result: displayedData.length = ${this.displayedData.length}`);
     }
 
     loadMore() {
+        console.log('Load More clicked! Current page:', this.currentPage, '-> New page:', this.currentPage + 1);
         this.currentPage++;
         this.updateDisplayedData();
         this.render();
+    }
+
+    // Debug method for manual testing
+    testPagination() {
+        console.log('=== PAGINATION TEST ===');
+        console.log('Total data:', this.data.length);
+        console.log('Filtered data:', this.filteredData.length);
+        console.log('Displayed data:', this.displayedData.length);
+        console.log('Current page:', this.currentPage);
+        console.log('Items per page:', this.itemsPerPage);
+        console.log('Should show Load More?', this.displayedData.length < this.filteredData.length);
+        console.log('=======================');
     }
 
     updateStats() {
