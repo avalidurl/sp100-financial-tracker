@@ -3,6 +3,9 @@ class SP100CapexApp {
         this.data = [];
         this.filteredData = [];
         this.insights = [];
+        this.displayedData = [];
+        this.itemsPerPage = 10;
+        this.currentPage = 1;
         this.init();
     }
 
@@ -27,6 +30,7 @@ class SP100CapexApp {
 
         this.data = await capexResponse.json();
         this.filteredData = [...this.data];
+        this.updateDisplayedData();
         
         // Try to get update timestamp, but don't fail if it's missing
         try {
@@ -92,6 +96,9 @@ class SP100CapexApp {
             return matchesSearch && matchesSector;
         });
         
+        // Reset pagination when filtering
+        this.currentPage = 1;
+        this.updateDisplayedData();
         this.updateStats();
         this.updateMarketStatus();
         this.render();
@@ -114,6 +121,21 @@ class SP100CapexApp {
                     return 0;
             }
         });
+        // Reset pagination when sorting
+        this.currentPage = 1;
+        this.updateDisplayedData();
+        this.render();
+    }
+
+    updateDisplayedData() {
+        const startIndex = 0;
+        const endIndex = this.currentPage * this.itemsPerPage;
+        this.displayedData = this.filteredData.slice(startIndex, endIndex);
+    }
+
+    loadMore() {
+        this.currentPage++;
+        this.updateDisplayedData();
         this.render();
     }
 
@@ -222,6 +244,7 @@ class SP100CapexApp {
 
     render() {
         this.renderList();
+        this.renderLoadMoreButton();
     }
 
     renderList() {
@@ -237,7 +260,7 @@ class SP100CapexApp {
         if (sortBy === 'sector') {
             this.renderGroupedBySector();
         } else {
-            list.innerHTML = this.filteredData.map((company, index) => `
+            list.innerHTML = this.displayedData.map((company, index) => `
                 <div class="company-card">
                     <div class="rank-number">#${index + 1}</div>
                     <div class="company-info">
@@ -305,6 +328,28 @@ class SP100CapexApp {
                 </div>
             </div>
         `).join('');
+    }
+
+    renderLoadMoreButton() {
+        const hasMoreData = this.displayedData.length < this.filteredData.length;
+        const existingButton = document.getElementById('load-more-btn');
+        
+        if (existingButton) {
+            existingButton.remove();
+        }
+        
+        if (hasMoreData) {
+            const button = document.createElement('div');
+            button.id = 'load-more-btn';
+            button.innerHTML = `
+                <button class="load-more-button" onclick="window.app.loadMore()">
+                    Load More Companies (${this.displayedData.length} of ${this.filteredData.length})
+                </button>
+            `;
+            
+            const companyList = document.getElementById('company-list');
+            companyList.parentNode.insertBefore(button, companyList.nextSibling);
+        }
     }
 
     // Market status functionality
@@ -535,5 +580,5 @@ function toggleSector(sector) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    new SP100CapexApp();
+    window.app = new SP100CapexApp();
 });

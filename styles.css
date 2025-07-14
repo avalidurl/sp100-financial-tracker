@@ -889,4 +889,43 @@ footer {
         gap: 8px;
     }
 }
-EOF < /dev/null
+
+/* Load More Button Styles */
+#load-more-btn {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 1rem 0;
+}
+
+.load-more-button {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.load-more-button:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+.load-more-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+@media (max-width: 768px) {
+    .load-more-button {
+        width: 100%;
+        max-width: 300px;
+        font-size: 15px;
+        padding: 14px 20px;
+    }
+}
