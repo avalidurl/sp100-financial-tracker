@@ -25,7 +25,7 @@ class SP100CapexApp {
     }
 
     async loadData() {
-        const capexResponse = await fetch('/data/capex_data.json');
+        const capexResponse = await fetch('/public/data/capex_data.json');
         
         if (!capexResponse.ok) {
             throw new Error(`Failed to fetch capex data: ${capexResponse.status}`);
@@ -37,7 +37,7 @@ class SP100CapexApp {
         
         // Try to get update timestamp, but don't fail if it's missing
         try {
-            const updateResponse = await fetch('/data/last_updated.json');
+            const updateResponse = await fetch('/public/data/last_updated.json');
             if (updateResponse.ok) {
                 const updateInfo = await updateResponse.json();
                 this.updateLastUpdated(updateInfo.timestamp);
@@ -1354,20 +1354,15 @@ function openPriceModal(symbol, companyName) {
     setTimeout(() => {
         const script = document.createElement('script');
         script.type = 'text/javascript';
-        script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js';
+        script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js';
         script.async = true;
         script.innerHTML = JSON.stringify({
             "symbol": `NASDAQ:${symbol}`,
             "width": "100%",
             "height": "100%",
             "locale": "en",
-            "dateRange": "12M",
             "colorTheme": "light",
-            "trendLineColor": "rgba(41, 98, 255, 1)",
-            "underLineColor": "rgba(41, 98, 255, 0.3)",
-            "underLineBottomColor": "rgba(41, 98, 255, 0)",
             "isTransparent": false,
-            "displayMode": "adaptive",
             "container_id": uniqueId
         });
         
