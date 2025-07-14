@@ -14,7 +14,9 @@ class SP100CapexApp {
             await this.loadData();
             this.setupEventListeners();
             this.updateStats();
+            this.updateMarketStatus();
             this.render();
+            console.log(`Pagination: Showing ${this.displayedData.length} of ${this.filteredData.length} companies`);
         } catch (error) {
             console.error('Error initializing app:', error);
             this.showError();
@@ -258,8 +260,10 @@ class SP100CapexApp {
         const sortBy = document.getElementById('sort-by')?.value;
         
         if (sortBy === 'sector') {
+            console.log('Rendering grouped by sector - pagination disabled for this view');
             this.renderGroupedBySector();
         } else {
+            console.log(`Rendering list view: ${this.displayedData.length} companies`);
             list.innerHTML = this.displayedData.map((company, index) => `
                 <div class="company-card">
                     <div class="rank-number">#${index + 1}</div>
@@ -331,14 +335,18 @@ class SP100CapexApp {
     }
 
     renderLoadMoreButton() {
+        const sortBy = document.getElementById('sort-by')?.value;
         const hasMoreData = this.displayedData.length < this.filteredData.length;
         const existingButton = document.getElementById('load-more-btn');
+        
+        console.log(`Render Load More: displayed=${this.displayedData.length}, total=${this.filteredData.length}, hasMore=${hasMoreData}, sortBy=${sortBy}`);
         
         if (existingButton) {
             existingButton.remove();
         }
         
-        if (hasMoreData) {
+        // Don't show load more button in sector grouped view
+        if (hasMoreData && sortBy !== 'sector') {
             const button = document.createElement('div');
             button.id = 'load-more-btn';
             button.innerHTML = `
@@ -349,6 +357,9 @@ class SP100CapexApp {
             
             const companyList = document.getElementById('company-list');
             companyList.parentNode.insertBefore(button, companyList.nextSibling);
+            console.log('Load More button added to DOM');
+        } else {
+            console.log('No Load More button needed - all data displayed');
         }
     }
 
