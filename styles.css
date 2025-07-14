@@ -841,10 +841,7 @@ footer {
 }
 
 .news-button {
-    /* Option 1: Integrated with company name header */
-    position: absolute;
-    top: 12px;
-    right: 60px; /* Space away from rank number */
+    /* Inline button below stock price */
     background: linear-gradient(135deg, #2563eb, #1d4ed8);
     color: white;
     border: none;
@@ -855,8 +852,9 @@ footer {
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
-    z-index: 10;
-    opacity: 0.9;
+    margin-top: 6px;
+    display: block;
+    width: fit-content;
 }
 
 .news-button:hover {

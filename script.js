@@ -294,10 +294,10 @@ class SP100CapexApp {
                         <div class="revenue-amount">Revenue: ${this.formatCurrency(company.revenue)}</div>
                         <div class="market-cap-amount">Current Market Cap: ${this.formatCurrency(company.market_cap)}</div>
                         <div class="stock-price" id="price-${company.symbol}">Loading price...</div>
+                        <button class="news-button" onclick="openNewsModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Click to view latest news for ${company.name}">
+                            📰 News
+                        </button>
                     </div>
-                    <button class="news-button" onclick="openNewsModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Click to view latest news for ${company.name}">
-                        📰 News
-                    </button>
                 </div>
             `).join('');
         }
@@ -348,10 +348,10 @@ class SP100CapexApp {
                                 <div class="revenue-amount">Revenue: ${this.formatCurrency(company.revenue)}</div>
                                 <div class="market-cap-amount">Current Market Cap: ${this.formatCurrency(company.market_cap)}</div>
                                 <div class="stock-price" id="price-${company.symbol}">Loading price...</div>
+                                <button class="news-button" onclick="openNewsModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Click to view latest news for ${company.name}">
+                                    📰 News
+                                </button>
                             </div>
-                            <button class="news-button" onclick="openNewsModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Click to view latest news for ${company.name}">
-                                📰 News
-                            </button>
                         </div>
                     `).join('')}
                 </div>
@@ -614,18 +614,12 @@ class SP100CapexApp {
         if (!priceElement) return;
 
         try {
-            // Try multiple sources in order
             let price = null;
             
-            // 1. Try Finnhub with CORS proxy
-            price = await this.fetchFromFinnhub(symbol);
+            // 1. Try Google Finance (simple and reliable)
+            price = await this.fetchFromGoogleFinance(symbol);
             
-            // 2. Try Yahoo Finance with CORS proxy
-            if (!price) {
-                price = await this.fetchFromSimpleYahoo(symbol);
-            }
-            
-            // 3. Last resort: Use realistic demo data that works
+            // 2. Fallback to realistic demo data 
             if (!price) {
                 price = await this.getRealisticDemoPrice(symbol);
             }
@@ -654,6 +648,40 @@ class SP100CapexApp {
             priceElement.innerHTML = '<span class="price-unavailable">Price unavailable</span>';
             priceElement.className = 'stock-price unavailable';
         }
+    }
+
+    async fetchFromGoogleFinance(symbol) {
+        try {
+            // Google Finance API endpoint
+            const url = `https://www.google.com/finance/quote/${symbol}:NASDAQ`;
+            const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(url)}`;
+            
+            const response = await fetch(proxyUrl);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            
+            const htmlText = await response.text();
+            
+            // Parse HTML to extract price data
+            const priceMatch = htmlText.match(/data-last-price="([^"]+)"/);
+            const changeMatch = htmlText.match(/data-last-change="([^"]+)"/);
+            
+            if (priceMatch && priceMatch[1]) {
+                const currentPrice = parseFloat(priceMatch[1]);
+                const priceChange = changeMatch ? parseFloat(changeMatch[1]) : 0;
+                const changePercent = currentPrice > 0 ? (priceChange / (currentPrice - priceChange)) * 100 : 0;
+                
+                if (currentPrice > 0) {
+                    return {
+                        price: currentPrice,
+                        changePercent: changePercent,
+                        source: 'Google Finance'
+                    };
+                }
+            }
+        } catch (error) {
+            console.warn(`Google Finance failed for ${symbol}:`, error);
+        }
+        return null;
     }
 
     async fetchFromFinnhub(symbol) {
