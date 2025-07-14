@@ -902,6 +902,8 @@ footer {
     box-shadow: 0 2px 4px rgba(5, 150, 105, 0.3);
     margin-top: 6px;
     width: fit-content;
+    cursor: pointer;
+    border: none;
 }
 
 .google-finance-link:hover {
@@ -914,6 +916,128 @@ footer {
 
 .google-finance-link:active {
     transform: translateY(0);
+}
+
+/* Price Modal Styles */
+.price-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+.price-modal-content {
+    background-color: white;
+    margin: 3% auto;
+    padding: 0;
+    border-radius: 12px;
+    width: 95%;
+    max-width: 1200px;
+    max-height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+.price-modal-header {
+    background: linear-gradient(135deg, #059669, #047857);
+    color: white;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.price-modal-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.price-modal-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.price-modal-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.price-modal-body {
+    padding: 0;
+    height: 80vh;
+    max-height: 80vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.price-loading {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.price-loading-spinner {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #059669;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+/* TradingView widget styles */
+.tradingview-widget-container {
+    background: white;
+}
+
+.tradingview-widget {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Mobile responsiveness for price modal */
+@media (max-width: 768px) {
+    .price-modal-content {
+        margin: 5px;
+        width: calc(100% - 10px);
+        max-height: 95vh;
+    }
+    
+    .price-modal-header {
+        padding: 16px 20px;
+    }
+    
+    .price-modal-title {
+        font-size: 18px;
+    }
+    
+    .price-modal-body {
+        height: 85vh;
+        max-height: 85vh;
+    }
 }
 
 /* Mobile responsiveness for news modal */

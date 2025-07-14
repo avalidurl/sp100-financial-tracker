@@ -66,7 +66,7 @@
     </main>
 
     <footer>
-        <p>Data provided by Financial Modeling Prep</p>
+        <p>Data: <a href="https://financialmodelingprep.com/" target="_blank" rel="noopener">Financial Modeling Prep</a> • Charts: <a href="https://www.tradingview.com/" target="_blank" rel="noopener">TradingView</a> • Hosting: <a href="https://vercel.com/" target="_blank" rel="noopener">Vercel</a></p>
         <div class="donate">
             <p><strong>Support this project so the dev can subscribe to real-time data tiers to serve your needs the best:</strong></p>
             <div class="crypto-addresses">
@@ -88,6 +88,25 @@
             <p><strong>⚠️ Financial Disclaimer:</strong> Nothing on this website constitutes financial investment advice or recommendations whatsoever. All data is provided for informational and educational purposes only. Always consult with a qualified financial advisor before making investment decisions.</p>
         </div>
     </footer>
+
+    <!-- Price Modal -->
+    <div id="price-modal" class="price-modal">
+        <div class="price-modal-content">
+            <div class="price-modal-header">
+                <h2 class="price-modal-title" id="price-modal-title">
+                    📈 Live Stock Price
+                </h2>
+                <button class="price-modal-close" onclick="closePriceModal()">&times;</button>
+            </div>
+            <div class="price-modal-body" id="price-modal-body">
+                <div class="price-loading" id="price-loading">
+                    <div class="price-loading-spinner"></div>
+                    <p>Loading live price data...</p>
+                </div>
+                <!-- TradingView widget will be inserted here dynamically -->
+            </div>
+        </div>
+    </div>
 
     <!-- News Modal -->
     <div id="news-modal" class="news-modal">

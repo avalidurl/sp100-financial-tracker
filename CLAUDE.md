@@ -222,3 +222,24 @@ env | grep FMP_API_KEY
 - [ ] Confirm no API keys in any committed files
 
 This documentation provides Claude Code with complete context for working effectively with the sp100-capex project while maintaining the highest security standards.
+
+## Third-Party Services & Attributions
+
+### External APIs & Data Sources
+- **Financial Modeling Prep**: Primary financial data API (capex, market cap, company info)
+- **TradingView**: Live stock price charts and widgets (free embedding)
+- **Yahoo Finance**: Backup price data source (via CORS proxy)
+- **Google Finance**: Alternative price data (via CORS proxy) 
+- **Finnhub**: Demo stock quotes API (fallback)
+
+### Infrastructure & Services
+- **Vercel**: Static site hosting and deployment
+- **GitHub Actions**: Automated data update workflows
+- **CORS Proxies**: corsproxy.io, api.allorigins.win, thingproxy.freeboard.io
+
+### Development Dependencies
+- **Python Requests**: HTTP client library for data collection scripts
+- **GitHub Actions**: checkout@v4, setup-python@v4 marketplace actions
+
+### Attribution Compliance
+All services are properly attributed in website footers and documentation per their respective terms of service. The project uses only free tiers and publicly available APIs with appropriate rate limiting and usage patterns.

@@ -292,9 +292,9 @@ class SP100CapexApp {
                         <div class="company-year">${company.period || company.year + ' Annual'}</div>
                         <div class="revenue-amount">Revenue: ${this.formatCurrency(company.revenue)}</div>
                         <div class="market-cap-amount">Current Market Cap: ${this.formatCurrency(company.market_cap)}</div>
-                        <a href="https://www.google.com/finance/quote/${company.symbol}:NASDAQ" target="_blank" rel="noopener" class="google-finance-link" title="View live price on Google Finance">
+                        <button class="google-finance-link" onclick="openPriceModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="View live price data for ${company.name}">
                             📈 Live Price
-                        </a>
+                        </button>
                         <button class="news-button" onclick="openNewsModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Click to view latest news for ${company.name}">
                             📰 News
                         </button>
@@ -348,9 +348,9 @@ class SP100CapexApp {
                                 <div class="company-year">${company.period || company.year + ' Annual'}</div>
                                 <div class="revenue-amount">Revenue: ${this.formatCurrency(company.revenue)}</div>
                                 <div class="market-cap-amount">Current Market Cap: ${this.formatCurrency(company.market_cap)}</div>
-                                <a href="https://www.google.com/finance/quote/${company.symbol}:NASDAQ" target="_blank" rel="noopener" class="google-finance-link" title="View live price on Google Finance">
+                                <button class="google-finance-link" onclick="openPriceModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="View live price data for ${company.name}">
                                     📈 Live Price
-                                </a>
+                                </button>
                                 <button class="news-button" onclick="openNewsModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Click to view latest news for ${company.name}">
                                     📰 News
                                 </button>
@@ -1311,11 +1311,97 @@ function getTimeAgo(date) {
     return date.toLocaleDateString();
 }
 
+// Price Modal Functions
+function openPriceModal(symbol, companyName) {
+    const modal = document.getElementById('price-modal');
+    const title = document.getElementById('price-modal-title');
+    const body = document.getElementById('price-modal-body');
+    const loading = document.getElementById('price-loading');
+    
+    // Set modal title
+    title.innerHTML = `📈 ${companyName} (${symbol}) - Live Price`;
+    
+    // Show modal and loading
+    modal.style.display = 'block';
+    loading.style.display = 'block';
+    
+    // Clear previous content
+    const existingWidget = body.querySelector('.tradingview-widget-container');
+    if (existingWidget) {
+        existingWidget.remove();
+    }
+    
+    // Create TradingView widget container
+    // Using TradingView's free embedding widgets - https://www.tradingview.com/widget/
+    const widgetContainer = document.createElement('div');
+    widgetContainer.className = 'tradingview-widget-container';
+    widgetContainer.style.height = '100%';
+    widgetContainer.style.width = '100%';
+    
+    const widgetInner = document.createElement('div');
+    widgetInner.className = 'tradingview-widget';
+    widgetInner.style.height = 'calc(100% - 32px)';
+    widgetInner.style.width = '100%';
+    
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+        "autosize": true,
+        "symbol": `NASDAQ:${symbol}`,
+        "interval": "D",
+        "timezone": "Etc/UTC",
+        "theme": "light",
+        "style": "1",
+        "locale": "en",
+        "toolbar_bg": "#f1f3f6",
+        "enable_publishing": false,
+        "allow_symbol_change": false,
+        "details": true,
+        "hotlist": true,
+        "calendar": false,
+        "studies": [
+            "Volume@tv-basicstudies"
+        ],
+        "container_id": "tradingview_chart"
+    });
+    
+    widgetContainer.appendChild(widgetInner);
+    widgetContainer.appendChild(script);
+    
+    // Add widget to modal
+    body.appendChild(widgetContainer);
+    
+    // Hide loading after a short delay
+    setTimeout(() => {
+        loading.style.display = 'none';
+    }, 2000);
+}
+
+function closePriceModal() {
+    const modal = document.getElementById('price-modal');
+    const body = document.getElementById('price-modal-body');
+    
+    modal.style.display = 'none';
+    
+    // Remove TradingView widget to stop loading and clean up
+    const widget = body.querySelector('.tradingview-widget-container');
+    if (widget) {
+        widget.remove();
+    }
+}
+
 // Close modal when clicking outside
 document.addEventListener('click', (e) => {
-    const modal = document.getElementById('news-modal');
-    if (e.target === modal) {
+    const newsModal = document.getElementById('news-modal');
+    const priceModal = document.getElementById('price-modal');
+    
+    if (e.target === newsModal) {
         closeNewsModal();
+    }
+    if (e.target === priceModal) {
+        closePriceModal();
     }
 });
 
@@ -1323,6 +1409,7 @@ document.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeNewsModal();
+        closePriceModal();
     }
 });
 
