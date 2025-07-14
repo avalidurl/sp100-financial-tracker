@@ -282,7 +282,7 @@ class SP100CapexApp {
         } else {
             console.log(`Rendering list view: ${this.displayedData.length} companies`);
             list.innerHTML = this.displayedData.map((company, index) => `
-                <div class="company-card" onclick="openNewsModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}')">
+                <div class="company-card">
                     <div class="rank-number">#${index + 1}</div>
                     <div class="company-info">
                         <div class="company-name">${company.name}</div>
@@ -295,6 +295,9 @@ class SP100CapexApp {
                         <div class="market-cap-amount">Current Market Cap: ${this.formatCurrency(company.market_cap)}</div>
                         <div class="stock-price" id="price-${company.symbol}">Loading price...</div>
                     </div>
+                    <button class="news-button" onclick="openNewsModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Click to view latest news for ${company.name}">
+                        📰 News
+                    </button>
                 </div>
             `).join('');
         }
@@ -333,7 +336,7 @@ class SP100CapexApp {
                 </div>
                 <div class="sector-companies" id="sector-${sector.replace(/[^a-zA-Z0-9]/g, '-')}">
                     ${companies.map((company, index) => `
-                        <div class="company-card sector-company" onclick="openNewsModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}')">
+                        <div class="company-card sector-company">
                             <div class="rank-number">#${index + 1}</div>
                             <div class="company-info">
                                 <div class="company-name">${company.name}</div>
@@ -344,8 +347,11 @@ class SP100CapexApp {
                                 <div class="company-year">${company.period || company.year + ' Annual'}</div>
                                 <div class="revenue-amount">Revenue: ${this.formatCurrency(company.revenue)}</div>
                                 <div class="market-cap-amount">Current Market Cap: ${this.formatCurrency(company.market_cap)}</div>
-                        <div class="stock-price" id="price-${company.symbol}">Loading price...</div>
+                                <div class="stock-price" id="price-${company.symbol}">Loading price...</div>
                             </div>
+                            <button class="news-button" onclick="openNewsModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Click to view latest news for ${company.name}">
+                                📰 News
+                            </button>
                         </div>
                     `).join('')}
                 </div>
@@ -563,16 +569,8 @@ class SP100CapexApp {
         if (!priceElement) return;
 
         try {
-            // Try multiple free APIs in order of preference
+            // Use Yahoo Finance exclusively (most reliable and unlimited)
             let price = await this.fetchFromYahooFinance(symbol);
-            
-            if (!price) {
-                price = await this.fetchFromAlphaVantage(symbol);
-            }
-            
-            if (!price) {
-                price = await this.fetchFromFinancialModelingPrep(symbol);
-            }
 
             if (price) {
                 const changePercent = price.changePercent || 0;
@@ -597,18 +595,21 @@ class SP100CapexApp {
 
     async fetchFromYahooFinance(symbol) {
         try {
-            // Using a free proxy service for Yahoo Finance
-            const proxyUrl = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}`;
-            const response = await fetch(proxyUrl);
+            // Add delay to prevent rate limiting
+            await new Promise(resolve => setTimeout(resolve, 200));
+            
+            // Try Yahoo Finance quote API directly
+            const url = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbol}`;
+            const response = await fetch(url);
             
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             
             const data = await response.json();
-            const result = data.chart?.result?.[0];
+            const quote = data.quoteResponse?.result?.[0];
             
-            if (result) {
-                const currentPrice = result.meta?.regularMarketPrice;
-                const previousClose = result.meta?.previousClose;
+            if (quote) {
+                const currentPrice = quote.regularMarketPrice;
+                const previousClose = quote.regularMarketPreviousClose;
                 
                 if (currentPrice && previousClose) {
                     const changePercent = ((currentPrice - previousClose) / previousClose) * 100;
@@ -621,6 +622,33 @@ class SP100CapexApp {
             }
         } catch (error) {
             console.warn(`Yahoo Finance failed for ${symbol}:`, error);
+            
+            // Fallback to chart API
+            try {
+                const chartUrl = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}`;
+                const chartResponse = await fetch(chartUrl);
+                
+                if (chartResponse.ok) {
+                    const chartData = await chartResponse.json();
+                    const result = chartData.chart?.result?.[0];
+                    
+                    if (result) {
+                        const currentPrice = result.meta?.regularMarketPrice;
+                        const previousClose = result.meta?.previousClose;
+                        
+                        if (currentPrice && previousClose) {
+                            const changePercent = ((currentPrice - previousClose) / previousClose) * 100;
+                            return {
+                                price: currentPrice,
+                                changePercent: changePercent,
+                                source: 'Yahoo Finance (Chart)'
+                            };
+                        }
+                    }
+                }
+            } catch (fallbackError) {
+                console.warn(`Yahoo Finance fallback failed for ${symbol}:`, fallbackError);
+            }
         }
         return null;
     }
@@ -798,30 +826,46 @@ async function fetchCompanyNews(symbol, companyName) {
     }
     
     // Use a CORS proxy to fetch Google News RSS
-    const query = encodeURIComponent(`${companyName} ${symbol} stock`);
+    const query = encodeURIComponent(`${symbol} stock news`);
     const rssUrl = `https://news.google.com/rss/search?q=${query}&hl=en-US&gl=US&ceid=US:en`;
     
-    // We need to use a CORS proxy since we can't directly fetch from Google News
-    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(rssUrl)}`;
+    // Use a more reliable CORS proxy
+    const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(rssUrl)}`;
     
-    try {
-        const response = await fetch(proxyUrl);
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        
-        const xmlText = await response.text();
-        const articles = parseRSSFeed(xmlText, symbol);
-        
-        // Cache the results
-        localStorage.setItem(cacheKey, JSON.stringify({
-            data: articles,
-            timestamp: Date.now()
-        }));
-        
-        return articles;
-    } catch (error) {
-        console.error('Error fetching news:', error);
-        throw error;
+    // Try multiple CORS proxies for better reliability
+    const proxies = [
+        `https://corsproxy.io/?${encodeURIComponent(rssUrl)}`,
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(rssUrl)}`,
+        `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(rssUrl)}`
+    ];
+    
+    for (const proxyUrl of proxies) {
+        try {
+            console.log(`Trying proxy: ${proxyUrl.split('?')[0]}`);
+            const response = await fetch(proxyUrl);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            
+            const xmlText = await response.text();
+            if (xmlText && xmlText.includes('<rss') || xmlText.includes('<feed')) {
+                const articles = parseRSSFeed(xmlText, symbol);
+                
+                if (articles && articles.length > 0) {
+                    // Cache the results
+                    localStorage.setItem(cacheKey, JSON.stringify({
+                        data: articles,
+                        timestamp: Date.now()
+                    }));
+                    
+                    return articles;
+                }
+            }
+        } catch (error) {
+            console.warn(`Proxy failed: ${proxyUrl.split('?')[0]} - ${error.message}`);
+            continue;
+        }
     }
+    
+    throw new Error('All news sources failed');
 }
 
 function parseRSSFeed(xmlText, symbol) {

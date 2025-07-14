@@ -834,24 +834,36 @@ footer {
     color: #d1d5db;
 }
 
-/* Company card hover for news feature */
+/* News Button Styles */
 .company-card {
-    cursor: pointer;
     position: relative;
 }
 
-.company-card::after {
-    content: '📰';
+.news-button {
     position: absolute;
     top: 12px;
     right: 12px;
-    font-size: 16px;
-    opacity: 0;
-    transition: opacity 0.2s;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
+    z-index: 10;
 }
 
-.company-card:hover::after {
-    opacity: 0.6;
+.news-button:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.4);
+}
+
+.news-button:active {
+    transform: translateY(0);
 }
 
 /* Mobile responsiveness for news modal */
