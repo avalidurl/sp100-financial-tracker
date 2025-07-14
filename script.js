@@ -1331,44 +1331,40 @@ function openPriceModal(symbol, companyName) {
         existingWidget.remove();
     }
     
-    // Create TradingView widget with proper timing
-    // Using TradingView's most reliable widget - Single Quote
-    const uniqueId = `tradingview_${symbol}_${Date.now()}`;
+    // Create simple price info display with external link
+    const priceContainer = document.createElement('div');
+    priceContainer.className = 'simple-price-container';
+    priceContainer.style.height = '100%';
+    priceContainer.style.width = '100%';
+    priceContainer.style.padding = '40px';
+    priceContainer.style.textAlign = 'center';
+    priceContainer.style.display = 'flex';
+    priceContainer.style.flexDirection = 'column';
+    priceContainer.style.justifyContent = 'center';
+    priceContainer.style.alignItems = 'center';
+    priceContainer.style.gap = '20px';
     
-    const widgetContainer = document.createElement('div');
-    widgetContainer.className = 'tradingview-widget-container';
-    widgetContainer.style.height = '100%';
-    widgetContainer.style.width = '100%';
-    
-    // Create the exact structure TradingView expects
-    widgetContainer.innerHTML = `
-        <div class="tradingview-widget" style="height: 100%; width: 100%;">
-            <div id="${uniqueId}" style="height: 100%; width: 100%;"></div>
-        </div>
+    priceContainer.innerHTML = `
+        <h3 style="margin: 0; color: #333;">Live Price for ${companyName}</h3>
+        <p style="color: #666; margin: 0;">Click below to view live price data and charts:</p>
+        <a href="https://www.google.com/finance/quote/${symbol}:NASDAQ" target="_blank" rel="noopener" 
+           style="background: linear-gradient(135deg, #059669, #047857); color: white; text-decoration: none; 
+                  padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 16px; transition: all 0.2s ease;"
+           onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(5, 150, 105, 0.3)';"
+           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+            📈 View Live Price on Google Finance
+        </a>
+        <a href="https://finance.yahoo.com/quote/${symbol}" target="_blank" rel="noopener" 
+           style="background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; text-decoration: none; 
+                  padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 16px; transition: all 0.2s ease;"
+           onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(37, 99, 235, 0.3)';"
+           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+            📊 View on Yahoo Finance
+        </a>
+        <p style="color: #888; font-size: 14px; margin: 0;">Real-time data, charts, and financial information</p>
     `;
     
-    // Add container to DOM first
-    body.appendChild(widgetContainer);
-    
-    // Wait for DOM to be ready, then load widget
-    setTimeout(() => {
-        const script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js';
-        script.async = true;
-        script.innerHTML = JSON.stringify({
-            "symbol": `NASDAQ:${symbol}`,
-            "width": "100%",
-            "height": "100%",
-            "locale": "en",
-            "colorTheme": "light",
-            "isTransparent": false,
-            "container_id": uniqueId
-        });
-        
-        // Append script to head for better loading
-        document.head.appendChild(script);
-    }, 100);
+    body.appendChild(priceContainer);
     
     // Hide loading after a short delay
     setTimeout(() => {
@@ -1382,8 +1378,8 @@ function closePriceModal() {
     
     modal.style.display = 'none';
     
-    // Remove TradingView widget container to stop loading and clean up
-    const container = body.querySelector('.tradingview-widget-container');
+    // Remove simple price container to clean up
+    const container = body.querySelector('.simple-price-container');
     if (container) {
         container.remove();
     }
