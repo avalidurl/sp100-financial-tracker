@@ -265,7 +265,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**[Live Dashboard](https://your-vercel-url.vercel.app)** • **[Documentation](./CLAUDE.md)** • **[Security Guide](./CLAUDE.md#security-implementation)**
+**[🚀 Live Dashboard](https://sp100-capex.vercel.app)** • **[📖 Documentation](./CLAUDE.md)** • **[🔒 Security Guide](./CLAUDE.md#security-implementation)**
 
 Made with 💼 for financial analysis and 🔒 security
 

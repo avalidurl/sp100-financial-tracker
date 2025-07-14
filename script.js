@@ -263,6 +263,7 @@ class SP100CapexApp {
     render() {
         this.renderList();
         this.renderLoadMoreButton();
+        this.loadStockPrices();
     }
 
     renderList() {
@@ -292,6 +293,7 @@ class SP100CapexApp {
                         <div class="company-year">${company.period || company.year + ' Annual'}</div>
                         <div class="revenue-amount">Revenue: ${this.formatCurrency(company.revenue)}</div>
                         <div class="market-cap-amount">Current Market Cap: ${this.formatCurrency(company.market_cap)}</div>
+                        <div class="stock-price" id="price-${company.symbol}">Loading price...</div>
                     </div>
                 </div>
             `).join('');
@@ -342,6 +344,7 @@ class SP100CapexApp {
                                 <div class="company-year">${company.period || company.year + ' Annual'}</div>
                                 <div class="revenue-amount">Revenue: ${this.formatCurrency(company.revenue)}</div>
                                 <div class="market-cap-amount">Current Market Cap: ${this.formatCurrency(company.market_cap)}</div>
+                        <div class="stock-price" id="price-${company.symbol}">Loading price...</div>
                             </div>
                         </div>
                     `).join('')}
@@ -544,6 +547,134 @@ class SP100CapexApp {
                 </div>
             </div>
         `;
+    }
+
+    async loadStockPrices() {
+        // Load prices for currently displayed companies only
+        const symbolsToLoad = this.displayedData.map(company => company.symbol);
+        
+        for (const symbol of symbolsToLoad) {
+            this.loadSingleStockPrice(symbol);
+        }
+    }
+
+    async loadSingleStockPrice(symbol) {
+        const priceElement = document.getElementById(`price-${symbol}`);
+        if (!priceElement) return;
+
+        try {
+            // Try multiple free APIs in order of preference
+            let price = await this.fetchFromYahooFinance(symbol);
+            
+            if (!price) {
+                price = await this.fetchFromAlphaVantage(symbol);
+            }
+            
+            if (!price) {
+                price = await this.fetchFromFinancialModelingPrep(symbol);
+            }
+
+            if (price) {
+                const changePercent = price.changePercent || 0;
+                const changeClass = changePercent >= 0 ? 'positive' : 'negative';
+                const changeSymbol = changePercent >= 0 ? '+' : '';
+                
+                priceElement.innerHTML = `
+                    <span class="current-price">$${price.price.toFixed(2)}</span>
+                    <span class="price-change ${changeClass}">${changeSymbol}${changePercent.toFixed(2)}%</span>
+                `;
+                priceElement.className = `stock-price ${changeClass}`;
+            } else {
+                priceElement.innerHTML = '<span class="price-unavailable">Price unavailable</span>';
+                priceElement.className = 'stock-price unavailable';
+            }
+        } catch (error) {
+            console.warn(`Failed to load price for ${symbol}:`, error);
+            priceElement.innerHTML = '<span class="price-unavailable">Price unavailable</span>';
+            priceElement.className = 'stock-price unavailable';
+        }
+    }
+
+    async fetchFromYahooFinance(symbol) {
+        try {
+            // Using a free proxy service for Yahoo Finance
+            const proxyUrl = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}`;
+            const response = await fetch(proxyUrl);
+            
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            
+            const data = await response.json();
+            const result = data.chart?.result?.[0];
+            
+            if (result) {
+                const currentPrice = result.meta?.regularMarketPrice;
+                const previousClose = result.meta?.previousClose;
+                
+                if (currentPrice && previousClose) {
+                    const changePercent = ((currentPrice - previousClose) / previousClose) * 100;
+                    return {
+                        price: currentPrice,
+                        changePercent: changePercent,
+                        source: 'Yahoo Finance'
+                    };
+                }
+            }
+        } catch (error) {
+            console.warn(`Yahoo Finance failed for ${symbol}:`, error);
+        }
+        return null;
+    }
+
+    async fetchFromAlphaVantage(symbol) {
+        try {
+            // Free tier: 25 requests per day
+            const API_KEY = 'demo'; // Replace with actual key if available
+            const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${API_KEY}`;
+            
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            
+            const data = await response.json();
+            const quote = data['Global Quote'];
+            
+            if (quote && quote['05. price']) {
+                const price = parseFloat(quote['05. price']);
+                const changePercent = parseFloat(quote['10. change percent'].replace('%', ''));
+                
+                return {
+                    price: price,
+                    changePercent: changePercent,
+                    source: 'Alpha Vantage'
+                };
+            }
+        } catch (error) {
+            console.warn(`Alpha Vantage failed for ${symbol}:`, error);
+        }
+        return null;
+    }
+
+    async fetchFromFinancialModelingPrep(symbol) {
+        try {
+            // Use our existing FMP API for price data (if available)
+            const API_KEY = 'demo'; // This would need to be passed from environment
+            const url = `https://financialmodelingprep.com/api/v3/quote-short/${symbol}?apikey=${API_KEY}`;
+            
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            
+            const data = await response.json();
+            
+            if (data && data[0] && data[0].price) {
+                return {
+                    price: data[0].price,
+                    changePercent: 0, // FMP quote-short doesn't include change percent
+                    source: 'Financial Modeling Prep'
+                };
+            }
+        } catch (error) {
+            console.warn(`FMP failed for ${symbol}:`, error);
+        }
+        return null;
     }
 
     showError() {
