@@ -152,7 +152,7 @@ main {
     background: white;
     border: 1px solid #eee;
     border-radius: 8px;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem 3rem 1.5rem;
     transition: box-shadow 0.2s;
     display: flex;
     justify-content: space-between;
@@ -424,6 +424,7 @@ footer {
         flex-direction: column;
         align-items: flex-start;
         text-align: left;
+        padding: 1rem 1rem 3rem 1rem;
     }
     
     .company-metrics {
@@ -841,8 +842,8 @@ footer {
 
 .news-button {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    bottom: 12px;
+    left: 12px;
     background: linear-gradient(135deg, #2563eb, #1d4ed8);
     color: white;
     border: none;
@@ -899,6 +900,14 @@ footer {
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
+    }
+    
+    /* Ensure news button has proper spacing on mobile */
+    .news-button {
+        left: 8px;
+        bottom: 8px;
+        font-size: 11px;
+        padding: 5px 8px;
     }
 }
 
@@ -990,6 +999,14 @@ footer {
 .price-unavailable {
     font-size: 0.75rem;
     color: #9ca3af;
+}
+
+.price-source {
+    display: block;
+    font-size: 0.7rem;
+    color: #888;
+    margin-top: 2px;
+    font-style: italic;
 }
 
 /* Loading animation for prices */
