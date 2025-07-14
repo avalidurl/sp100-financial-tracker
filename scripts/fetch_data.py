@@ -23,19 +23,27 @@ def get_sp100_companies():
         return []
 
 def get_company_capex(symbol):
-    """Get capex data for a company"""
-    url = f"{BASE_URL}/cash-flow-statement/{symbol}?period=annual&limit=5&apikey={API_KEY}"
+    """Get latest quarterly capex data for a company"""
+    url = f"{BASE_URL}/cash-flow-statement/{symbol}?period=quarterly&limit=5&apikey={API_KEY}"
     try:
         response = requests.get(url, timeout=30)
         response.raise_for_status()
         data = response.json()
         
         if data and len(data) > 0:
-            latest = data[0]
+            latest = data[0]  # Most recent quarter
+            # Create a more descriptive period label
+            date = latest.get('date', '')
+            year = latest.get('calendarYear', 2025)
+            quarter = latest.get('period', 'Q1')
+            
             return {
                 'symbol': symbol,
                 'capex': latest.get('capitalExpenditure', 0),
-                'year': latest.get('calendarYear', 2024),
+                'year': year,
+                'quarter': quarter,
+                'period': f"{quarter} {year}",
+                'date': date,
                 'revenue': latest.get('revenue', 0)
             }
         return None

@@ -1,8 +1,8 @@
-name: Update S&P 500 Data
+name: Update S&P 100 Quarterly Data
 
 on:
   schedule:
-    - cron: '0 2 * * 0'  # Weekly on Sundays at 2 AM UTC
+    - cron: '0 6 * * 1,4'  # Twice weekly: Mondays & Thursdays at 6 AM UTC
   workflow_dispatch:
 
 jobs:
@@ -43,5 +43,5 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add public/data/
-        git diff --staged --quiet || git commit -m "Update S&P 500 data $(date)"
+        git diff --staged --quiet || git commit -m "Update S&P 100 quarterly data $(date)"
         git push
