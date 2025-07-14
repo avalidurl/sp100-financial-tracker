@@ -841,20 +841,22 @@ footer {
 }
 
 .news-button {
+    /* Option 1: Integrated with company name header */
     position: absolute;
-    bottom: 12px;
-    left: 12px;
+    top: 12px;
+    right: 60px; /* Space away from rank number */
     background: linear-gradient(135deg, #2563eb, #1d4ed8);
     color: white;
     border: none;
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
     z-index: 10;
+    opacity: 0.9;
 }
 
 .news-button:hover {
