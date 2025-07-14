@@ -394,10 +394,30 @@ class SP100CapexApp {
         if (!marketStatusEl) return;
         
         const now = new Date();
+        
+        // Get current time in Eastern timezone properly
         const easternTime = new Date(now.toLocaleString("en-US", {timeZone: "America/New_York"}));
-        const day = easternTime.getDay(); // 0 = Sunday, 6 = Saturday
-        const hour = easternTime.getHours();
-        const minute = easternTime.getMinutes();
+        
+        // Fix timezone conversion bug by using Intl.DateTimeFormat
+        const formatter = new Intl.DateTimeFormat('en-US', {
+            timeZone: 'America/New_York',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: false
+        });
+        
+        const easternParts = formatter.formatToParts(now);
+        const hour = parseInt(easternParts.find(part => part.type === 'hour').value);
+        const minute = parseInt(easternParts.find(part => part.type === 'minute').value);
+        
+        // Get day of week in Eastern timezone
+        const dayFormatter = new Intl.DateTimeFormat('en-US', {
+            timeZone: 'America/New_York',
+            weekday: 'short'
+        });
+        const dayName = dayFormatter.format(now);
+        const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(dayName);
+        
         const currentTime = hour * 60 + minute; // minutes since midnight
         
         // Market hours: Monday-Friday 9:30 AM - 4:00 PM ET
@@ -409,7 +429,9 @@ class SP100CapexApp {
         const isOpen = isWeekday && isDuringHours;
         
         const statusText = isOpen ? '🟢 Markets Open' : '🔴 Markets Closed';
-        const timeText = easternTime.toLocaleString('en-US', {
+        
+        // Format Eastern time display properly  
+        const timeText = now.toLocaleString('en-US', {
             timeZone: 'America/New_York',
             hour: 'numeric',
             minute: '2-digit',
