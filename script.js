@@ -1315,6 +1315,9 @@ function getTimeAgo(date) {
 function openPriceModal(symbol, companyName) {
     console.log('Opening price modal for:', symbol, companyName);
     
+    // Add visible debugging info
+    alert(`DEBUG: Opening price modal for symbol: ${symbol}, company: ${companyName}`);
+    
     const modal = document.getElementById('price-modal');
     const title = document.getElementById('price-modal-title');
     const body = document.getElementById('price-modal-body');
