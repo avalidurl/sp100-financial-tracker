@@ -1253,68 +1253,21 @@ async function fetchRealNews(symbol, companyName) {
 }
 
 async function fetchActualNews(symbol, companyName) {
-    console.log(`🔄 Fetching ACTUAL news for ${symbol}...`);
+    console.log(`🔄 Fetching news for ${symbol}...`);
     
-    // Try free news APIs that actually work
-    const sources = [
-        {
-            name: 'NewsAPI (Free)',
-            url: `https://newsapi.org/v2/everything?q=${encodeURIComponent(companyName + ' ' + symbol)}&sortBy=publishedAt&pageSize=5&apiKey=demo`,
-            type: 'newsapi'
-        },
-        {
-            name: 'MediaStack API',
-            url: `http://api.mediastack.com/v1/news?access_key=demo&keywords=${encodeURIComponent(companyName)}&languages=en&limit=5`,
-            type: 'mediastack'
-        }
-    ];
-    
-    // Also try RSS feeds with a different approach - use a working CORS proxy
-    const rssFeeds = [
-        {
-            name: 'Yahoo Finance RSS',
-            url: `https://feeds.finance.yahoo.com/rss/2.0/headline?s=${symbol}&region=US&lang=en-US`,
-            type: 'rss'
-        },
-        {
-            name: 'Google News RSS',
-            url: `https://news.google.com/rss/search?q=${encodeURIComponent(companyName + ' ' + symbol)}&hl=en-US&gl=US&ceid=US:en`,
-            type: 'rss'
-        }
-    ];
-    
-    // Try RSS feeds first with allorigins proxy (more reliable)
-    for (const feed of rssFeeds) {
-        try {
-            console.log(`Trying RSS: ${feed.name}...`);
-            const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`;
-            const response = await fetch(proxyUrl);
-            
-            if (!response.ok) continue;
-            
-            const data = await response.json();
-            const articles = parseRSSFeed(data.contents, symbol, feed.name);
-            
-            if (articles && articles.length > 0) {
-                console.log(`✅ Got ${articles.length} real articles from ${feed.name}`);
-                return articles.map(article => ({
-                    ...article,
-                    isReal: true
-                }));
-            }
-        } catch (error) {
-            console.warn(`RSS ${feed.name} failed:`, error.message);
-            continue;
-        }
-    }
-    
-    // If RSS fails, try free APIs with no-cors mode or JSONP
+    // Prioritize fastest, most reliable source first
     try {
-        console.log('Trying free news APIs...');
+        console.log('Trying RSS2JSON (fastest)...');
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 second timeout
         
-        // Use a working free news aggregator
         const freeNewsUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent('https://news.google.com/rss/search?q=' + encodeURIComponent(companyName + ' ' + symbol) + '&hl=en-US&gl=US&ceid=US:en')}`;
-        const response = await fetch(freeNewsUrl);
+        const response = await fetch(freeNewsUrl, { 
+            signal: controller.signal,
+            headers: { 'Accept': 'application/json' }
+        });
+        
+        clearTimeout(timeoutId);
         
         if (response.ok) {
             const data = await response.json();
@@ -1329,15 +1282,19 @@ async function fetchActualNews(symbol, companyName) {
                     isReal: true
                 }));
                 
-                console.log(`✅ Got ${articles.length} real articles from RSS2JSON`);
+                console.log(`✅ Fast: ${articles.length} articles from RSS2JSON`);
                 return articles;
             }
         }
     } catch (error) {
-        console.warn('RSS2JSON failed:', error.message);
+        if (error.name === 'AbortError') {
+            console.warn('RSS2JSON timeout after 3s');
+        } else {
+            console.warn('RSS2JSON failed:', error.message);
+        }
     }
     
-    console.log('⚠️ All real news sources failed');
+    console.log('⚠️ Fast news source failed, using curated sources');
     return null;
 }
 
@@ -1395,16 +1352,17 @@ async function createNewsWidgets(symbol, companyName) {
 }
 
 async function fetchCompanyNews(symbol, companyName) {
-    console.log(`📰 Fetching real-time news for ${symbol}...`);
+    console.log(`📰 Loading news for ${symbol}...`);
     
-    // Use very short cache for real-time feel (5 minutes)
+    // Smart cache: 2 minutes for real news, 10 minutes for curated
     const cacheKey = `news_${symbol}`;
     const cached = localStorage.getItem(cacheKey);
     if (cached) {
-        const { data, timestamp } = JSON.parse(cached);
-        const isExpired = Date.now() - timestamp > 5 * 60 * 1000; // 5 minutes for real-time feel
+        const { data, timestamp, isReal } = JSON.parse(cached);
+        const cacheTime = isReal ? 2 * 60 * 1000 : 10 * 60 * 1000; // 2min for real, 10min for curated
+        const isExpired = Date.now() - timestamp > cacheTime;
         if (!isExpired) {
-            console.log(`📋 Using cached news for ${symbol} (${data.length} articles)`);
+            console.log(`⚡ Cached: ${data.length} items (${isReal ? 'real' : 'curated'})`);
             return data;
         }
     }
@@ -1413,11 +1371,13 @@ async function fetchCompanyNews(symbol, companyName) {
     try {
         const realNews = await fetchActualNews(symbol, companyName);
         if (realNews && realNews.length > 0) {
-            // Cache the real results with shorter expiry
+            // Cache the real results
             localStorage.setItem(cacheKey, JSON.stringify({
                 data: realNews,
-                timestamp: Date.now()
+                timestamp: Date.now(),
+                isReal: true
             }));
+            console.log(`✅ Real: ${realNews.length} articles for ${symbol}`);
             return realNews;
         }
     } catch (error) {
@@ -1473,13 +1433,14 @@ async function fetchCompanyNews(symbol, companyName) {
         }
     ];
     
-    // Cache the curated results with shorter expiry
+    // Cache the curated results
     localStorage.setItem(cacheKey, JSON.stringify({
         data: curatedSources,
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        isReal: false
     }));
     
-    console.log(`📰 Returning ${curatedSources.length} curated news sources for ${symbol}`);
+    console.log(`🔗 Curated: ${curatedSources.length} sources for ${symbol}`);
     return curatedSources;
 }
 
@@ -1494,27 +1455,26 @@ function renderNewsArticles(articles) {
     
     let headerIcon, headerText, footerText;
     if (hasRealNews) {
-        headerIcon = '✅';
-        headerText = 'Real-Time News Articles';
-        footerText = '✅ These are actual news articles from live sources';
+        headerIcon = '📰';
+        headerText = 'Latest News';
+        footerText = 'Live news articles from various sources';
     } else if (allCurated) {
         headerIcon = '🔗';
-        headerText = 'Financial News Sources';
-        footerText = '🔗 Click links to browse current news coverage';
+        headerText = 'News Sources';
+        footerText = 'Browse current news coverage from trusted sources';
     } else {
         headerIcon = '📰';
-        headerText = 'Latest Updates';
-        footerText = '📰 Mixed news content and sources';
+        headerText = 'News Updates';
+        footerText = 'Mixed news content and sources';
     }
     
     newsList.innerHTML = `
-        <div class="news-header ${hasRealNews ? 'real-news-header' : 'curated-header'}">
+        <div class="news-header">
             <div class="news-count">${headerIcon} ${articles.length} ${headerText}</div>
             <div class="news-timestamp">Updated: ${new Date().toLocaleTimeString()}</div>
-            ${hasRealNews ? '<div class="real-indicator">● REAL-TIME</div>' : ''}
         </div>
         ${articles.map((article, index) => `
-            <div class="news-item ${article.isReal ? 'real-news-item' : 'curated-item'}">
+            <div class="news-item">
                 <div class="news-item-header">
                     <div class="news-item-number">${index + 1}</div>
                     <div class="news-item-icon">${article.isReal ? '📰' : '🔗'}</div>
@@ -1527,7 +1487,6 @@ function renderNewsArticles(articles) {
                         <div class="news-item-meta-inline">
                             <span class="news-item-time">${article.timeAgo}</span>
                             <span class="news-item-source"> • ${article.source}</span>
-                            ${article.isReal ? '<span class="real-badge">REAL</span>' : ''}
                         </div>
                     </div>
                 </div>
