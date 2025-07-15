@@ -1470,7 +1470,7 @@ function renderNewsArticles(articles) {
     
     newsList.innerHTML = `
         <div class="news-header">
-            <div class="news-count">${headerIcon} ${articles.length} ${headerText}</div>
+            <div class="news-count">${headerIcon} ${headerText}</div>
             <div class="news-timestamp">Updated: ${new Date().toLocaleTimeString()}</div>
         </div>
         ${articles.map((article, index) => `
