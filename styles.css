@@ -1008,7 +1008,39 @@ footer {
     margin-bottom: 16px;
 }
 
-/* TradingView widget styles */
+/* Price iframe styles */
+.price-iframe-container {
+    background: white;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.price-iframe-container iframe {
+    border-radius: 8px;
+}
+
+.price-attribution {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    border-top: 1px solid #eee;
+}
+
+.price-attribution a {
+    color: #2962FF;
+    text-decoration: none;
+}
+
+.price-attribution a:hover {
+    text-decoration: underline;
+}
+
+/* Legacy TradingView widget styles (kept for compatibility) */
 .tradingview-widget-container {
     background: white;
     height: 100%;
@@ -1021,28 +1053,6 @@ footer {
     overflow: hidden;
     height: 100%;
     width: 100%;
-}
-
-.tradingview-widget__copyright {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    font-size: 12px;
-    color: #666;
-    padding: 4px;
-    background: rgba(255, 255, 255, 0.9);
-    border-top: 1px solid #eee;
-}
-
-.tradingview-widget__copyright a {
-    color: #2962FF;
-    text-decoration: none;
-}
-
-.tradingview-widget__copyright a:hover {
-    text-decoration: underline;
 }
 
 .blue-text {
