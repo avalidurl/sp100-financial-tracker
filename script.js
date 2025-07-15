@@ -1326,143 +1326,53 @@ function openPriceModal(symbol, companyName) {
     loading.style.display = 'block';
     
     // Clear previous content
-    const existingWidget = body.querySelector('.tradingview-widget-container');
-    if (existingWidget) {
-        existingWidget.remove();
-    }
+    body.innerHTML = '<div class="price-loading" id="price-loading"><div class="price-loading-spinner"></div><p>Loading live price data...</p></div>';
     
-    // Create TradingView widget container
-    const widgetContainer = document.createElement('div');
-    widgetContainer.className = 'tradingview-widget-container';
-    widgetContainer.style.height = '100%';
-    widgetContainer.style.width = '100%';
+    // Create simple iframe container
+    const iframeContainer = document.createElement('div');
+    iframeContainer.className = 'price-iframe-container';
+    iframeContainer.style.height = '100%';
+    iframeContainer.style.width = '100%';
+    iframeContainer.style.position = 'relative';
     
-    // Create unique widget ID to avoid conflicts
-    const widgetId = `tradingview-widget-${symbol}-${Date.now()}`;
+    // Create TradingView iframe
+    const iframe = document.createElement('iframe');
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = 'none';
+    iframe.style.borderRadius = '8px';
+    iframe.frameBorder = '0';
+    iframe.allowTransparency = 'true';
+    iframe.scrolling = 'no';
+    iframe.src = `https://s.tradingview.com/embed-widget/symbol-overview/?symbol=${symbol}&locale=en&colorTheme=light&autosize=true&width=100%25&height=100%25&hideDateRanges=false&hideMarketStatus=false&hideSymbolLogo=false&scalePosition=right&scaleMode=Normal&fontFamily=Trebuchet%20MS%2C%20sans-serif&fontSize=10&noTimeScale=false&valuesTracking=1&changeMode=price-and-percent&chartType=area&lineWidth=2&lineColor=rgba(41%2C%2098%2C%20255%2C%201)&gridLineColor=rgba(240%2C%20243%2C%20250%2C%200)&backgroundColor=rgba(255%2C%20255%2C%20255%2C%200)&referenceLineColor=rgba(0%2C%200%2C%200%2C%200)&utm_source=localhost&utm_medium=widget_new&utm_campaign=symbol-overview`;
     
-    widgetContainer.innerHTML = `
-        <div class="tradingview-widget" id="${widgetId}" style="height: calc(100% - 30px); width: 100%;"></div>
-        <div class="tradingview-widget__copyright">
-            <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
-                <span class="blue-text">Track all markets on TradingView</span>
-            </a>
-        </div>
+    // Add attribution
+    const attribution = document.createElement('div');
+    attribution.className = 'price-attribution';
+    attribution.innerHTML = `
+        <p style="font-size: 12px; color: #666; text-align: center; margin: 8px 0 0 0; padding: 8px;">
+            Chart powered by <a href="https://www.tradingview.com/" target="_blank" rel="noopener" style="color: #2962FF; text-decoration: none;">TradingView</a>
+        </p>
     `;
     
-    body.appendChild(widgetContainer);
+    iframeContainer.appendChild(iframe);
+    iframeContainer.appendChild(attribution);
     
-    // Load TradingView script and initialize widget
-    loadTradingViewWidget(symbol, widgetId, () => {
-        // Hide loading when widget loads
+    // Handle iframe load
+    iframe.onload = () => {
+        setTimeout(() => {
+            loading.style.display = 'none';
+        }, 1000);
+    };
+    
+    // Handle iframe error
+    iframe.onerror = () => {
         loading.style.display = 'none';
-    });
-}
-
-function loadTradingViewWidget(symbol, containerId, onLoad) {
-    try {
-        const container = document.getElementById(containerId);
-        if (!container) {
-            console.error('Container not found:', containerId);
-            showTradingViewError(containerId, symbol);
-            onLoad();
-            return;
-        }
-        
-        // Clear any existing content
-        container.innerHTML = '';
-        
-        // Create the TradingView widget HTML structure
-        const widgetHTML = `
-            <div class="tradingview-widget" style="height: 100%; width: 100%;">
-                <div class="tradingview-widget-container" style="height: 100%; width: 100%;">
-                    <div class="tradingview-widget-container__widget" style="height: calc(100% - 32px); width: 100%;"></div>
-                    <div class="tradingview-widget-copyright">
-                        <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
-                            <span class="blue-text">Track all markets on TradingView</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        `;
-        
-        container.innerHTML = widgetHTML;
-        
-        // Add the configuration script first
-        const configScript = document.createElement('script');
-        configScript.type = 'text/javascript';
-        configScript.innerHTML = JSON.stringify({
-            "symbols": [
-                [`${symbol}`, `${symbol}|1D`]
-            ],
-            "chartOnly": false,
-            "width": "100%",
-            "height": "100%",
-            "locale": "en",
-            "colorTheme": "light",
-            "autosize": true,
-            "showVolume": false,
-            "showMA": false,
-            "hideDateRanges": false,
-            "hideMarketStatus": false,
-            "hideSymbolLogo": false,
-            "scalePosition": "right",
-            "scaleMode": "Normal",
-            "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
-            "fontSize": "10",
-            "noTimeScale": false,
-            "valuesTracking": "1",
-            "changeMode": "price-and-percent",
-            "chartType": "area",
-            "lineWidth": 2,
-            "dateRanges": [
-                "1d|1",
-                "1m|30",
-                "3m|60",
-                "12m|1D",
-                "60m|1W",
-                "all|1M"
-            ],
-            "container_id": containerId
-        });
-        
-        container.appendChild(configScript);
-        
-        // Add the TradingView widget script
-        const widgetScript = document.createElement('script');
-        widgetScript.type = 'text/javascript';
-        widgetScript.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js';
-        widgetScript.async = true;
-        
-        widgetScript.onload = () => {
-            console.log('TradingView script loaded successfully for', symbol);
-            setTimeout(onLoad, 1500); // Give more time for the widget to render
-        };
-        
-        widgetScript.onerror = () => {
-            console.error('Failed to load TradingView script for', symbol);
-            showTradingViewError(containerId, symbol);
-            onLoad();
-        };
-        
-        // Insert the script into the container
-        container.appendChild(widgetScript);
-        
-    } catch (error) {
-        console.error('Error loading TradingView widget:', error);
-        showTradingViewError(containerId, symbol);
-        onLoad();
-    }
-}
-
-
-function showTradingViewError(containerId, symbol) {
-    const container = document.getElementById(containerId);
-    if (container) {
-        container.innerHTML = `
+        iframeContainer.innerHTML = `
             <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; 
                         height: 100%; text-align: center; padding: 40px; gap: 20px;">
                 <h3 style="margin: 0; color: #333;">Live Price Chart</h3>
-                <p style="color: #666; margin: 0;">Unable to load interactive chart. View live data on:</p>
+                <p style="color: #666; margin: 0;">Unable to load chart. View live data on:</p>
                 <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
                     <a href="https://www.tradingview.com/symbols/${symbol}/" target="_blank" rel="noopener" 
                        style="background: linear-gradient(135deg, #2962FF, #1E53E5); color: white; text-decoration: none; 
@@ -1477,8 +1387,16 @@ function showTradingViewError(containerId, symbol) {
                 </div>
             </div>
         `;
-    }
+    };
+    
+    body.appendChild(iframeContainer);
+    
+    // Hide loading after maximum wait time
+    setTimeout(() => {
+        loading.style.display = 'none';
+    }, 5000);
 }
+
 
 function closePriceModal() {
     const modal = document.getElementById('price-modal');
@@ -1486,17 +1404,15 @@ function closePriceModal() {
     
     modal.style.display = 'none';
     
-    // Clean up TradingView widget containers
-    const widgetContainer = body.querySelector('.tradingview-widget-container');
-    if (widgetContainer) {
-        widgetContainer.remove();
+    // Clean up iframe containers
+    const iframeContainer = body.querySelector('.price-iframe-container');
+    if (iframeContainer) {
+        iframeContainer.remove();
     }
     
-    // Also clean up any simple price containers (fallback)
-    const container = body.querySelector('.simple-price-container');
-    if (container) {
-        container.remove();
-    }
+    // Clean up any remaining containers
+    const containers = body.querySelectorAll('.tradingview-widget-container, .simple-price-container');
+    containers.forEach(container => container.remove());
 }
 
 // Close modal when clicking outside
