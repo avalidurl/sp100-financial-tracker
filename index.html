@@ -139,6 +139,68 @@
         </div>
     </div>
 
+    <!-- Filings Modal -->
+    <div id="filings-modal" class="news-modal">
+        <div class="news-modal-content">
+            <div class="news-modal-header">
+                <h2 class="news-modal-title" id="filings-modal-title">
+                    📋 SEC Filings
+                </h2>
+                <button class="news-modal-close" onclick="closeFilingsModal()">&times;</button>
+            </div>
+            <div class="news-modal-body" id="filings-modal-body">
+                <div class="news-loading" id="filings-loading">
+                    <div class="news-loading-spinner"></div>
+                    <p>Loading SEC filings...</p>
+                </div>
+                <div class="news-error hidden" id="filings-error">
+                    <div class="news-error-icon">⚠️</div>
+                    <p>Unable to load filings at this time</p>
+                    <p><small>Please try again later</small></p>
+                </div>
+                <div class="news-list hidden" id="filings-list">
+                    <!-- Filings will be populated here -->
+                </div>
+                <div class="news-empty hidden" id="filings-empty">
+                    <div class="news-empty-icon">📋</div>
+                    <p>No recent filings found</p>
+                    <p><small>Check SEC EDGAR database for historical filings</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statements Modal -->
+    <div id="statements-modal" class="news-modal">
+        <div class="news-modal-content">
+            <div class="news-modal-header">
+                <h2 class="news-modal-title" id="statements-modal-title">
+                    📊 Financial Statements
+                </h2>
+                <button class="news-modal-close" onclick="closeStatementsModal()">&times;</button>
+            </div>
+            <div class="news-modal-body" id="statements-modal-body">
+                <div class="news-loading" id="statements-loading">
+                    <div class="news-loading-spinner"></div>
+                    <p>Loading financial data...</p>
+                </div>
+                <div class="news-error hidden" id="statements-error">
+                    <div class="news-error-icon">⚠️</div>
+                    <p>Financial statements will be available soon</p>
+                    <p><small>Coming in next update</small></p>
+                </div>
+                <div class="news-list hidden" id="statements-list">
+                    <!-- Statements will be populated here -->
+                </div>
+                <div class="news-empty hidden" id="statements-empty">
+                    <div class="news-empty-icon">📊</div>
+                    <p>Financial statements coming soon</p>
+                    <p><small>Check back for quarterly earnings data</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js?v=11"></script>
 </body>
 </html>

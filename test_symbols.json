@@ -1,0 +1,62 @@
+[
+  {
+    "symbol": "AAPL",
+    "name": "Apple Inc.",
+    "capex": -11100000000,
+    "year": 2024,
+    "revenue": 394328000000,
+    "sector": "Technology",
+    "market_cap": 3153843528000,
+    "market_cap_updated": "2025-07-12T17:11:49.685247"
+  },
+  {
+    "symbol": "BRK.B",
+    "name": "Berkshire Hathaway Inc. Class B",
+    "capex": -15000000000,
+    "year": 2024,
+    "revenue": 350000000000,
+    "sector": "Financial Services",
+    "market_cap": 900000000000,
+    "market_cap_updated": "2025-07-12T17:11:49.685247"
+  },
+  {
+    "symbol": "NEW-COMPANY",
+    "name": "New Company with Dash",
+    "capex": -5000000000,
+    "year": 2024,
+    "revenue": 20000000000,
+    "sector": "Technology",
+    "market_cap": 100000000000,
+    "market_cap_updated": "2025-07-12T17:11:49.685247"
+  },
+  {
+    "symbol": "UNKNOWN123",
+    "name": "Unknown Symbol with Numbers",
+    "capex": -2000000000,
+    "year": 2024,
+    "revenue": 10000000000,
+    "sector": "Technology",
+    "market_cap": 50000000000,
+    "market_cap_updated": "2025-07-12T17:11:49.685247"
+  },
+  {
+    "symbol": "MISSING.DATA",
+    "name": "Company with Missing Data",
+    "capex": null,
+    "year": 2024,
+    "revenue": null,
+    "sector": "Technology",
+    "market_cap": null,
+    "market_cap_updated": "2025-07-12T17:11:49.685247"
+  },
+  {
+    "symbol": "SPECIAL@CHARS",
+    "name": "Company with Special Characters",
+    "capex": -1000000000,
+    "year": 2024,
+    "revenue": 5000000000,
+    "sector": "Technology",
+    "market_cap": 25000000000,
+    "market_cap_updated": "2025-07-12T17:11:49.685247"
+  }
+]

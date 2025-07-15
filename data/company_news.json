@@ -1,0 +1,37 @@
+{
+  "timestamp": "2025-01-15T12:00:00.000Z",
+  "companies": {
+    "AAPL": {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "news": [
+        {
+          "title": "Apple Reports Strong iPhone Sales in Q4",
+          "link": "https://www.cnbc.com/2025/01/15/apple-iphone-sales-q4.html",
+          "summary": "Apple Inc. reported stronger-than-expected iPhone sales in the fourth quarter, driven by demand for the iPhone 15 series...",
+          "source": "CNBC",
+          "published": "2025-01-15T10:30:00Z",
+          "timestamp": "2025-01-15T12:00:00.000Z"
+        }
+      ],
+      "updated": "2025-01-15T12:00:00.000Z"
+    },
+    "MSFT": {
+      "symbol": "MSFT", 
+      "name": "Microsoft Corporation",
+      "news": [
+        {
+          "title": "Microsoft Azure Cloud Growth Accelerates",
+          "link": "https://www.marketwatch.com/story/microsoft-azure-growth-2025",
+          "summary": "Microsoft's Azure cloud services continue to see strong growth as enterprise customers increase their cloud adoption...",
+          "source": "MarketWatch",
+          "published": "2025-01-15T09:15:00Z", 
+          "timestamp": "2025-01-15T12:00:00.000Z"
+        }
+      ],
+      "updated": "2025-01-15T12:00:00.000Z"
+    }
+  },
+  "total_companies": 2,
+  "total_articles": 2
+}

@@ -36,7 +36,7 @@ class SP100CapexApp {
     }
 
     async loadData() {
-        const capexResponse = await fetch('/public/data/capex_data.json');
+        const capexResponse = await fetch('./data/capex_data.json');
         
         if (!capexResponse.ok) {
             throw new Error(`Failed to fetch capex data: ${capexResponse.status}`);
@@ -48,7 +48,7 @@ class SP100CapexApp {
         
         // Try to get update timestamp, but don't fail if it's missing
         try {
-            const updateResponse = await fetch('/public/data/last_updated.json');
+            const updateResponse = await fetch('./data/last_updated.json');
             if (updateResponse.ok) {
                 const updateInfo = await updateResponse.json();
                 this.updateLastUpdated(updateInfo.timestamp);
@@ -303,12 +303,20 @@ class SP100CapexApp {
                         <div class="company-year">${company.period || company.year + ' Annual'}</div>
                         <div class="revenue-amount">Revenue: ${this.formatCurrency(company.revenue)}</div>
                         <div class="market-cap-amount">Current Market Cap: ${this.formatCurrency(company.market_cap)}</div>
-                        <button class="google-finance-link" onclick="openPriceModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="View live price data for ${company.name}">
-                            📈 Live Price
-                        </button>
-                        <button class="news-button" onclick="openNewsModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Click to view latest news for ${company.name}">
-                            📰 News
-                        </button>
+                        <div class="company-actions">
+                            <button class="action-btn price-btn" onclick="openPriceModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Live price chart">
+                                📈 Price
+                            </button>
+                            <button class="action-btn news-btn" onclick="openDataModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}', 'news'); event.stopPropagation();" title="Latest news">
+                                📰 News
+                            </button>
+                            <button class="action-btn filings-btn" onclick="openDataModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}', 'filings'); event.stopPropagation();" title="SEC filings">
+                                📋 Filings
+                            </button>
+                            <button class="action-btn statements-btn" onclick="openDataModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}', 'statements'); event.stopPropagation();" title="Financial statements">
+                                📊 Data
+                            </button>
+                        </div>
                     </div>
                 </div>
             `).join('');
@@ -359,12 +367,20 @@ class SP100CapexApp {
                                 <div class="company-year">${company.period || company.year + ' Annual'}</div>
                                 <div class="revenue-amount">Revenue: ${this.formatCurrency(company.revenue)}</div>
                                 <div class="market-cap-amount">Current Market Cap: ${this.formatCurrency(company.market_cap)}</div>
-                                <button class="google-finance-link" onclick="openPriceModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="View live price data for ${company.name}">
-                                    📈 Live Price
-                                </button>
-                                <button class="news-button" onclick="openNewsModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Click to view latest news for ${company.name}">
-                                    📰 News
-                                </button>
+                                <div class="company-actions">
+                                    <button class="action-btn price-btn" onclick="openPriceModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Live price chart">
+                                        📈 Price
+                                    </button>
+                                    <button class="action-btn news-btn" onclick="openDataModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}', 'news'); event.stopPropagation();" title="Latest news">
+                                        📰 News
+                                    </button>
+                                    <button class="action-btn filings-btn" onclick="openDataModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}', 'filings'); event.stopPropagation();" title="SEC filings">
+                                        📋 Filings
+                                    </button>
+                                    <button class="action-btn statements-btn" onclick="openDataModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}', 'statements'); event.stopPropagation();" title="Financial statements">
+                                        📊 Data
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     `).join('')}
@@ -1646,6 +1662,337 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// Global data cache for news and filings
+let newsData = null;
+let filingsData = null;
+
+// Load pre-fetched data
+async function loadPreFetchedData() {
+    try {
+        // Load news data
+        const newsResponse = await fetch('./data/company_news.json');
+        if (newsResponse.ok) {
+            newsData = await newsResponse.json();
+            console.log('✅ Loaded pre-fetched news data:', newsData.total_articles, 'articles');
+        } else {
+            console.warn('⚠️ Could not load news data');
+        }
+
+        // Load filings data
+        const filingsResponse = await fetch('./data/company_filings.json');
+        if (filingsResponse.ok) {
+            filingsData = await filingsResponse.json();
+            console.log('✅ Loaded pre-fetched filings data:', filingsData.total_filings, 'filings');
+        } else {
+            console.warn('⚠️ Could not load filings data');
+        }
+    } catch (error) {
+        console.error('❌ Error loading pre-fetched data:', error);
+    }
+}
+
+// Main data modal handler
+async function openDataModal(symbol, companyName, type) {
+    console.log(`📊 Opening ${type} modal for ${symbol} - ${companyName}`);
+    
+    switch (type) {
+        case 'news':
+            await openNewsModalNew(symbol, companyName);
+            break;
+        case 'filings':
+            await openFilingsModal(symbol, companyName);
+            break;
+        case 'statements':
+            await openStatementsModal(symbol, companyName);
+            break;
+        default:
+            console.error('Unknown modal type:', type);
+    }
+}
+
+// Updated news modal using pre-fetched data
+async function openNewsModalNew(symbol, companyName) {
+    const modal = document.getElementById('news-modal');
+    const title = document.getElementById('news-modal-title');
+    const loading = document.getElementById('news-loading');
+    const error = document.getElementById('news-error');
+    const newsList = document.getElementById('news-list');
+    const empty = document.getElementById('news-empty');
+
+    // Show modal and loading state
+    modal.style.display = 'block';
+    title.innerHTML = `📰 ${companyName} (${symbol}) News`;
+    
+    // Reset states
+    loading.classList.remove('hidden');
+    error.classList.add('hidden');
+    newsList.classList.add('hidden');
+    empty.classList.add('hidden');
+
+    try {
+        // If no news data is loaded, try to load it
+        if (!newsData) {
+            await loadPreFetchedData();
+        }
+
+        // Get company news from pre-fetched data
+        const companyNews = newsData?.companies?.[symbol];
+        
+        if (companyNews && companyNews.news && companyNews.news.length > 0) {
+            renderNewsItems(companyNews.news, newsList);
+            loading.classList.add('hidden');
+            newsList.classList.remove('hidden');
+        } else {
+            // Show fallback news sources
+            renderFallbackNews(symbol, companyName, newsList);
+            loading.classList.add('hidden');
+            newsList.classList.remove('hidden');
+        }
+    } catch (err) {
+        console.error('❌ Error loading news:', err);
+        loading.classList.add('hidden');
+        error.classList.remove('hidden');
+    }
+}
+
+// Filings modal
+async function openFilingsModal(symbol, companyName) {
+    const modal = document.getElementById('filings-modal');
+    const title = document.getElementById('filings-modal-title');
+    const loading = document.getElementById('filings-loading');
+    const error = document.getElementById('filings-error');
+    const filingsList = document.getElementById('filings-list');
+    const empty = document.getElementById('filings-empty');
+
+    // Show modal and loading state
+    modal.style.display = 'block';
+    title.innerHTML = `📋 ${companyName} (${symbol}) SEC Filings`;
+    
+    // Reset states
+    loading.classList.remove('hidden');
+    error.classList.add('hidden');
+    filingsList.classList.add('hidden');
+    empty.classList.add('hidden');
+
+    try {
+        // If no filings data is loaded, try to load it
+        if (!filingsData) {
+            await loadPreFetchedData();
+        }
+
+        // Get company filings from pre-fetched data
+        const companyFilings = filingsData?.companies?.[symbol];
+        
+        if (companyFilings && companyFilings.filings && companyFilings.filings.length > 0) {
+            renderFilingsItems(companyFilings.filings, filingsList);
+            loading.classList.add('hidden');
+            filingsList.classList.remove('hidden');
+        } else {
+            // Show fallback SEC links
+            renderFallbackFilings(symbol, companyName, filingsList);
+            loading.classList.add('hidden');
+            filingsList.classList.remove('hidden');
+        }
+    } catch (err) {
+        console.error('❌ Error loading filings:', err);
+        loading.classList.add('hidden');
+        error.classList.remove('hidden');
+    }
+}
+
+// Statements modal (placeholder for now)
+async function openStatementsModal(symbol, companyName) {
+    const modal = document.getElementById('statements-modal');
+    const title = document.getElementById('statements-modal-title');
+    const loading = document.getElementById('statements-loading');
+    const error = document.getElementById('statements-error');
+
+    // Show modal
+    modal.style.display = 'block';
+    title.innerHTML = `📊 ${companyName} (${symbol}) Financial Data`;
+    
+    // Show coming soon message
+    setTimeout(() => {
+        loading.classList.add('hidden');
+        error.classList.remove('hidden');
+    }, 1000);
+}
+
+// Render news items
+function renderNewsItems(newsItems, container) {
+    const newsHtml = newsItems.map((article, index) => `
+        <div class="news-item">
+            <div class="news-item-header">
+                <div class="news-item-number">${index + 1}</div>
+                <div class="news-item-title-container">
+                    <h3 class="news-item-title">
+                        <a href="${article.link}" target="_blank" rel="noopener" class="news-title-link">
+                            ${article.title}
+                        </a>
+                    </h3>
+                    <div class="news-item-meta-inline">
+                        <span class="news-item-source">${article.source}</span> • 
+                        <span class="news-item-time">${formatTimeAgo(article.published)}</span>
+                    </div>
+                </div>
+            </div>
+            ${article.summary ? `<p class="news-item-summary">${article.summary}</p>` : ''}
+        </div>
+    `).join('');
+
+    container.innerHTML = `
+        <div class="news-header">
+            <div class="news-count">${newsItems.length} Recent Articles</div>
+            <div class="news-timestamp">Updated: ${formatTimeAgo(newsItems[0]?.timestamp)}</div>
+        </div>
+        ${newsHtml}
+        <div class="news-footer">
+            <small>News sourced from RSS feeds and financial news APIs</small>
+        </div>
+    `;
+}
+
+// Render fallback news sources
+function renderFallbackNews(symbol, companyName, container) {
+    const fallbackSources = [
+        {
+            title: `${companyName} Live News Feed`,
+            link: `https://www.google.com/search?q=${encodeURIComponent(companyName)} ${symbol} news&tbm=nws&source=lnt&tbs=qdr:d`,
+            source: 'Google News',
+            summary: 'Latest news and updates from Google News'
+        },
+        {
+            title: `${symbol} Company News`,
+            link: `https://finance.yahoo.com/quote/${symbol}/news/`,
+            source: 'Yahoo Finance',
+            summary: 'Financial news and analysis'
+        },
+        {
+            title: `${companyName} Market Coverage`,
+            link: `https://www.cnbc.com/quotes/${symbol}?tab=news`,
+            source: 'CNBC',
+            summary: 'Business news and market analysis'
+        },
+        {
+            title: `${symbol} Investment News`,
+            link: `https://seekingalpha.com/symbol/${symbol}/news`,
+            source: 'Seeking Alpha',
+            summary: 'Investment research and analysis'
+        }
+    ];
+
+    renderNewsItems(fallbackSources, container);
+}
+
+// Render filings items
+function renderFilingsItems(filings, container) {
+    const filingsHtml = filings.map((filing, index) => `
+        <div class="news-item">
+            <div class="news-item-header">
+                <div class="news-item-number">${index + 1}</div>
+                <div class="news-item-title-container">
+                    <h3 class="news-item-title">
+                        <a href="${filing.url}" target="_blank" rel="noopener" class="news-title-link">
+                            Form ${filing.form} - ${filing.date}
+                        </a>
+                    </h3>
+                    <div class="news-item-meta-inline">
+                        <span class="news-item-source">SEC EDGAR</span> • 
+                        <span class="news-item-time">${formatTimeAgo(filing.date)}</span>
+                    </div>
+                </div>
+            </div>
+            <p class="news-item-summary">SEC Filing ${filing.form} filed on ${filing.date}</p>
+        </div>
+    `).join('');
+
+    container.innerHTML = `
+        <div class="news-header">
+            <div class="news-count">${filings.length} Recent Filings</div>
+            <div class="news-timestamp">Updated: ${formatTimeAgo(filings[0]?.timestamp)}</div>
+        </div>
+        ${filingsHtml}
+        <div class="news-footer">
+            <small>Data from SEC EDGAR database</small>
+        </div>
+    `;
+}
+
+// Render fallback filings
+function renderFallbackFilings(symbol, companyName, container) {
+    const fallbackFilings = [
+        {
+            form: 'All Filings',
+            date: 'Latest',
+            url: `https://www.sec.gov/edgar/search/#/q=${symbol}&entityName=${encodeURIComponent(companyName)}`,
+            timestamp: new Date().toISOString()
+        },
+        {
+            form: '10-K Annual',
+            date: 'Latest',
+            url: `https://www.sec.gov/edgar/search/#/q=${symbol}&forms=10-K`,
+            timestamp: new Date().toISOString()
+        },
+        {
+            form: '10-Q Quarterly',
+            date: 'Latest', 
+            url: `https://www.sec.gov/edgar/search/#/q=${symbol}&forms=10-Q`,
+            timestamp: new Date().toISOString()
+        }
+    ];
+
+    renderFilingsItems(fallbackFilings, container);
+}
+
+// Helper function to format time ago
+function formatTimeAgo(dateString) {
+    if (!dateString) return 'Recently';
+    
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffMs = now - date;
+    const diffMins = Math.floor(diffMs / (1000 * 60));
+    const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+    const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+    if (diffMins < 60) return `${diffMins}m ago`;
+    if (diffHours < 24) return `${diffHours}h ago`;
+    if (diffDays < 7) return `${diffDays}d ago`;
+    return date.toLocaleDateString();
+}
+
+// Modal close functions
+function closeFilingsModal() {
+    document.getElementById('filings-modal').style.display = 'none';
+}
+
+function closeStatementsModal() {
+    document.getElementById('statements-modal').style.display = 'none';
+}
+
+// Add event listeners for new modals
+document.addEventListener('click', (e) => {
+    const filingsModal = document.getElementById('filings-modal');
+    const statementsModal = document.getElementById('statements-modal');
+    
+    if (e.target === filingsModal) {
+        closeFilingsModal();
+    }
+    if (e.target === statementsModal) {
+        closeStatementsModal();
+    }
+});
+
+// Close modals with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeFilingsModal();
+        closeStatementsModal();
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     window.app = new SP100CapexApp();
+    // Load pre-fetched data on page load
+    loadPreFetchedData();
 });
