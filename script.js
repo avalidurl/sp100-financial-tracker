@@ -1331,45 +1331,153 @@ function openPriceModal(symbol, companyName) {
         existingWidget.remove();
     }
     
-    // Create simple price info display with external link
-    const priceContainer = document.createElement('div');
-    priceContainer.className = 'simple-price-container';
-    priceContainer.style.height = '100%';
-    priceContainer.style.width = '100%';
-    priceContainer.style.padding = '40px';
-    priceContainer.style.textAlign = 'center';
-    priceContainer.style.display = 'flex';
-    priceContainer.style.flexDirection = 'column';
-    priceContainer.style.justifyContent = 'center';
-    priceContainer.style.alignItems = 'center';
-    priceContainer.style.gap = '20px';
+    // Create TradingView widget container
+    const widgetContainer = document.createElement('div');
+    widgetContainer.className = 'tradingview-widget-container';
+    widgetContainer.style.height = '100%';
+    widgetContainer.style.width = '100%';
     
-    priceContainer.innerHTML = `
-        <h3 style="margin: 0; color: #333;">Live Price for ${companyName}</h3>
-        <p style="color: #666; margin: 0;">Click below to view live price data and charts:</p>
-        <a href="https://www.google.com/finance/quote/${symbol}:NASDAQ" target="_blank" rel="noopener" 
-           style="background: linear-gradient(135deg, #059669, #047857); color: white; text-decoration: none; 
-                  padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 16px; transition: all 0.2s ease;"
-           onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(5, 150, 105, 0.3)';"
-           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-            📈 View Live Price on Google Finance
-        </a>
-        <a href="https://finance.yahoo.com/quote/${symbol}" target="_blank" rel="noopener" 
-           style="background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; text-decoration: none; 
-                  padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 16px; transition: all 0.2s ease;"
-           onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(37, 99, 235, 0.3)';"
-           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-            📊 View on Yahoo Finance
-        </a>
-        <p style="color: #888; font-size: 14px; margin: 0;">Real-time data, charts, and financial information</p>
+    // Create unique widget ID to avoid conflicts
+    const widgetId = `tradingview-widget-${symbol}-${Date.now()}`;
+    
+    widgetContainer.innerHTML = `
+        <div class="tradingview-widget" id="${widgetId}" style="height: calc(100% - 30px); width: 100%;"></div>
+        <div class="tradingview-widget__copyright">
+            <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
+                <span class="blue-text">Track all markets on TradingView</span>
+            </a>
+        </div>
     `;
     
-    body.appendChild(priceContainer);
+    body.appendChild(widgetContainer);
     
-    // Hide loading after a short delay
-    setTimeout(() => {
+    // Load TradingView script and initialize widget
+    loadTradingViewWidget(symbol, widgetId, () => {
+        // Hide loading when widget loads
         loading.style.display = 'none';
-    }, 2000);
+    });
+}
+
+function loadTradingViewWidget(symbol, containerId, onLoad) {
+    try {
+        const container = document.getElementById(containerId);
+        if (!container) {
+            console.error('Container not found:', containerId);
+            showTradingViewError(containerId, symbol);
+            onLoad();
+            return;
+        }
+        
+        // Clear any existing content
+        container.innerHTML = '';
+        
+        // Create the TradingView widget HTML structure
+        const widgetHTML = `
+            <div class="tradingview-widget" style="height: 100%; width: 100%;">
+                <div class="tradingview-widget-container" style="height: 100%; width: 100%;">
+                    <div class="tradingview-widget-container__widget" style="height: calc(100% - 32px); width: 100%;"></div>
+                    <div class="tradingview-widget-copyright">
+                        <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
+                            <span class="blue-text">Track all markets on TradingView</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        container.innerHTML = widgetHTML;
+        
+        // Add the configuration script first
+        const configScript = document.createElement('script');
+        configScript.type = 'text/javascript';
+        configScript.innerHTML = JSON.stringify({
+            "symbols": [
+                [`${symbol}`, `${symbol}|1D`]
+            ],
+            "chartOnly": false,
+            "width": "100%",
+            "height": "100%",
+            "locale": "en",
+            "colorTheme": "light",
+            "autosize": true,
+            "showVolume": false,
+            "showMA": false,
+            "hideDateRanges": false,
+            "hideMarketStatus": false,
+            "hideSymbolLogo": false,
+            "scalePosition": "right",
+            "scaleMode": "Normal",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+            "fontSize": "10",
+            "noTimeScale": false,
+            "valuesTracking": "1",
+            "changeMode": "price-and-percent",
+            "chartType": "area",
+            "lineWidth": 2,
+            "dateRanges": [
+                "1d|1",
+                "1m|30",
+                "3m|60",
+                "12m|1D",
+                "60m|1W",
+                "all|1M"
+            ],
+            "container_id": containerId
+        });
+        
+        container.appendChild(configScript);
+        
+        // Add the TradingView widget script
+        const widgetScript = document.createElement('script');
+        widgetScript.type = 'text/javascript';
+        widgetScript.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js';
+        widgetScript.async = true;
+        
+        widgetScript.onload = () => {
+            console.log('TradingView script loaded successfully for', symbol);
+            setTimeout(onLoad, 1500); // Give more time for the widget to render
+        };
+        
+        widgetScript.onerror = () => {
+            console.error('Failed to load TradingView script for', symbol);
+            showTradingViewError(containerId, symbol);
+            onLoad();
+        };
+        
+        // Insert the script into the container
+        container.appendChild(widgetScript);
+        
+    } catch (error) {
+        console.error('Error loading TradingView widget:', error);
+        showTradingViewError(containerId, symbol);
+        onLoad();
+    }
+}
+
+
+function showTradingViewError(containerId, symbol) {
+    const container = document.getElementById(containerId);
+    if (container) {
+        container.innerHTML = `
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; 
+                        height: 100%; text-align: center; padding: 40px; gap: 20px;">
+                <h3 style="margin: 0; color: #333;">Live Price Chart</h3>
+                <p style="color: #666; margin: 0;">Unable to load interactive chart. View live data on:</p>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+                    <a href="https://www.tradingview.com/symbols/${symbol}/" target="_blank" rel="noopener" 
+                       style="background: linear-gradient(135deg, #2962FF, #1E53E5); color: white; text-decoration: none; 
+                              padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 14px;">
+                        📈 TradingView
+                    </a>
+                    <a href="https://finance.yahoo.com/quote/${symbol}" target="_blank" rel="noopener" 
+                       style="background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; text-decoration: none; 
+                              padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 14px;">
+                        📊 Yahoo Finance
+                    </a>
+                </div>
+            </div>
+        `;
+    }
 }
 
 function closePriceModal() {
@@ -1378,7 +1486,13 @@ function closePriceModal() {
     
     modal.style.display = 'none';
     
-    // Remove simple price container to clean up
+    // Clean up TradingView widget containers
+    const widgetContainer = body.querySelector('.tradingview-widget-container');
+    if (widgetContainer) {
+        widgetContainer.remove();
+    }
+    
+    // Also clean up any simple price containers (fallback)
     const container = body.querySelector('.simple-price-container');
     if (container) {
         container.remove();
