@@ -1313,6 +1313,8 @@ function getTimeAgo(date) {
 
 // Price Modal Functions
 function openPriceModal(symbol, companyName) {
+    console.log('Opening price modal for:', symbol, companyName);
+    
     const modal = document.getElementById('price-modal');
     const title = document.getElementById('price-modal-title');
     const body = document.getElementById('price-modal-body');
@@ -1344,7 +1346,11 @@ function openPriceModal(symbol, companyName) {
     iframe.frameBorder = '0';
     iframe.allowTransparency = 'true';
     iframe.scrolling = 'no';
-    iframe.src = `https://s.tradingview.com/embed-widget/symbol-overview/?symbol=${symbol}&locale=en&colorTheme=light&autosize=true&width=100%25&height=100%25&hideDateRanges=false&hideMarketStatus=false&hideSymbolLogo=false&scalePosition=right&scaleMode=Normal&fontFamily=Trebuchet%20MS%2C%20sans-serif&fontSize=10&noTimeScale=false&valuesTracking=1&changeMode=price-and-percent&chartType=area&lineWidth=2&lineColor=rgba(41%2C%2098%2C%20255%2C%201)&gridLineColor=rgba(240%2C%20243%2C%20250%2C%200)&backgroundColor=rgba(255%2C%20255%2C%20255%2C%200)&referenceLineColor=rgba(0%2C%200%2C%200%2C%200)&utm_source=localhost&utm_medium=widget_new&utm_campaign=symbol-overview`;
+    
+    const iframeUrl = `https://s.tradingview.com/embed-widget/symbol-overview/?symbol=${symbol}&locale=en&colorTheme=light&autosize=true&width=100%25&height=100%25&hideDateRanges=false&hideMarketStatus=false&hideSymbolLogo=false&scalePosition=right&scaleMode=Normal&fontFamily=Trebuchet%20MS%2C%20sans-serif&fontSize=10&noTimeScale=false&valuesTracking=1&changeMode=price-and-percent&chartType=area&lineWidth=2&lineColor=rgba(41%2C%2098%2C%20255%2C%201)&gridLineColor=rgba(240%2C%20243%2C%20250%2C%200)&backgroundColor=rgba(255%2C%20255%2C%20255%2C%200)&referenceLineColor=rgba(0%2C%200%2C%200%2C%200)&utm_source=localhost&utm_medium=widget_new&utm_campaign=symbol-overview`;
+    
+    console.log('TradingView iframe URL:', iframeUrl);
+    iframe.src = iframeUrl;
     
     // Add attribution
     const attribution = document.createElement('div');
