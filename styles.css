@@ -968,6 +968,62 @@ footer {
     transform: translateY(0);
 }
 
+/* Live News Indicators */
+.live-indicator {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 12px;
+    animation: pulse 2s infinite;
+}
+
+.live-badge {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 8px;
+    margin-left: 8px;
+    animation: pulse 2s infinite;
+}
+
+.live-news {
+    border-left: 4px solid #ef4444;
+    background: linear-gradient(135deg, #fef2f2, #fafafa);
+}
+
+.live-link {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    animation: pulse 2s infinite;
+}
+
+.live-link:hover {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+}
+
+.news-footer {
+    text-align: center;
+    padding: 16px 0 0 0;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 16px;
+}
+
+.news-footer small {
+    color: #6b7280;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
 /* Google Finance Link Styles */
 .google-finance-link {
     display: block;
