@@ -1252,6 +1252,95 @@ async function fetchRealNews(symbol, companyName) {
     return null;
 }
 
+async function fetchActualNews(symbol, companyName) {
+    console.log(`🔄 Fetching ACTUAL news for ${symbol}...`);
+    
+    // Try free news APIs that actually work
+    const sources = [
+        {
+            name: 'NewsAPI (Free)',
+            url: `https://newsapi.org/v2/everything?q=${encodeURIComponent(companyName + ' ' + symbol)}&sortBy=publishedAt&pageSize=5&apiKey=demo`,
+            type: 'newsapi'
+        },
+        {
+            name: 'MediaStack API',
+            url: `http://api.mediastack.com/v1/news?access_key=demo&keywords=${encodeURIComponent(companyName)}&languages=en&limit=5`,
+            type: 'mediastack'
+        }
+    ];
+    
+    // Also try RSS feeds with a different approach - use a working CORS proxy
+    const rssFeeds = [
+        {
+            name: 'Yahoo Finance RSS',
+            url: `https://feeds.finance.yahoo.com/rss/2.0/headline?s=${symbol}&region=US&lang=en-US`,
+            type: 'rss'
+        },
+        {
+            name: 'Google News RSS',
+            url: `https://news.google.com/rss/search?q=${encodeURIComponent(companyName + ' ' + symbol)}&hl=en-US&gl=US&ceid=US:en`,
+            type: 'rss'
+        }
+    ];
+    
+    // Try RSS feeds first with allorigins proxy (more reliable)
+    for (const feed of rssFeeds) {
+        try {
+            console.log(`Trying RSS: ${feed.name}...`);
+            const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feed.url)}`;
+            const response = await fetch(proxyUrl);
+            
+            if (!response.ok) continue;
+            
+            const data = await response.json();
+            const articles = parseRSSFeed(data.contents, symbol, feed.name);
+            
+            if (articles && articles.length > 0) {
+                console.log(`✅ Got ${articles.length} real articles from ${feed.name}`);
+                return articles.map(article => ({
+                    ...article,
+                    isReal: true
+                }));
+            }
+        } catch (error) {
+            console.warn(`RSS ${feed.name} failed:`, error.message);
+            continue;
+        }
+    }
+    
+    // If RSS fails, try free APIs with no-cors mode or JSONP
+    try {
+        console.log('Trying free news APIs...');
+        
+        // Use a working free news aggregator
+        const freeNewsUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent('https://news.google.com/rss/search?q=' + encodeURIComponent(companyName + ' ' + symbol) + '&hl=en-US&gl=US&ceid=US:en')}`;
+        const response = await fetch(freeNewsUrl);
+        
+        if (response.ok) {
+            const data = await response.json();
+            if (data.status === 'ok' && data.items && data.items.length > 0) {
+                const articles = data.items.slice(0, 5).map(item => ({
+                    title: item.title,
+                    summary: item.description || item.content || 'No summary available',
+                    link: item.link,
+                    source: item.source || 'Google News',
+                    publishedDate: new Date(item.pubDate),
+                    timeAgo: getTimeAgo(new Date(item.pubDate)),
+                    isReal: true
+                }));
+                
+                console.log(`✅ Got ${articles.length} real articles from RSS2JSON`);
+                return articles;
+            }
+        }
+    } catch (error) {
+        console.warn('RSS2JSON failed:', error.message);
+    }
+    
+    console.log('⚠️ All real news sources failed');
+    return null;
+}
+
 async function createNewsWidgets(symbol, companyName) {
     // Create reliable news links that actually work
     const newsWidgets = [
@@ -1322,7 +1411,7 @@ async function fetchCompanyNews(symbol, companyName) {
     
     // Always try to fetch real news first
     try {
-        const realNews = await fetchRealNews(symbol, companyName);
+        const realNews = await fetchActualNews(symbol, companyName);
         if (realNews && realNews.length > 0) {
             // Cache the real results with shorter expiry
             localStorage.setItem(cacheKey, JSON.stringify({
@@ -1335,58 +1424,63 @@ async function fetchCompanyNews(symbol, companyName) {
         console.warn('⚠️ Real news fetch failed, using fallback:', error);
     }
     
-    // Fallback to reliable news aggregation links that actually work
-    const fallbackNews = [
+    // Curated news sources (when real-time APIs fail)
+    const curatedSources = [
         {
-            title: `${companyName} Daily News Summary`,
-            summary: `Today's top news stories and analysis for ${companyName} (${symbol}) from Google News.`,
-            link: `https://www.google.com/search?q=${encodeURIComponent(companyName + ' ' + symbol + ' news')}&tbm=nws&source=lnt&tbs=qdr:d`,
+            title: `${companyName} News Search`,
+            summary: `Browse latest news articles about ${companyName} from various financial news sources.`,
+            link: `https://www.google.com/search?q=${encodeURIComponent(companyName + ' ' + symbol + ' news')}&tbm=nws`,
             source: 'Google News',
-            publishedDate: new Date(Date.now() - 2 * 60 * 60 * 1000),
-            timeAgo: '2h ago'
+            publishedDate: new Date(),
+            timeAgo: 'News Search',
+            isCurated: true
         },
         {
-            title: `${symbol} Financial News & Earnings Updates`,
-            summary: `Latest earnings reports, financial analysis, and market coverage for ${companyName}.`,
+            title: `${symbol} Financial Coverage`,
+            summary: `Access ${companyName} earnings reports, analyst coverage, and financial news.`,
             link: `https://finance.yahoo.com/quote/${symbol}/news/`,
             source: 'Yahoo Finance',
-            publishedDate: new Date(Date.now() - 4 * 60 * 60 * 1000),
-            timeAgo: '4h ago'
+            publishedDate: new Date(),
+            timeAgo: 'News Section',
+            isCurated: true
         },
         {
-            title: `${companyName} Business News & Market Analysis`,
-            summary: `Professional market coverage and business insights for ${symbol} from CNBC.`,
+            title: `${companyName} Business News`,
+            summary: `Read business news coverage and market analysis for ${companyName}.`,
             link: `https://www.cnbc.com/quotes/${symbol}?tab=news`,
             source: 'CNBC',
-            publishedDate: new Date(Date.now() - 6 * 60 * 60 * 1000),
-            timeAgo: '6h ago'
+            publishedDate: new Date(),
+            timeAgo: 'News Section',
+            isCurated: true
         },
         {
-            title: `${symbol} Stock Research & Investment News`,
-            summary: `Investment research, analyst reports, and stock recommendations for ${companyName}.`,
+            title: `${symbol} Investment Research`,
+            summary: `View investment analysis, ratings, and research reports for ${companyName}.`,
             link: `https://seekingalpha.com/symbol/${symbol}/news`,
             source: 'Seeking Alpha',
-            publishedDate: new Date(Date.now() - 8 * 60 * 60 * 1000),
-            timeAgo: '8h ago'
+            publishedDate: new Date(),
+            timeAgo: 'Research Hub',
+            isCurated: true
         },
         {
-            title: `${companyName} Weekly Market Roundup`,
-            summary: `Weekly market analysis and corporate developments for ${symbol} investors.`,
-            link: `https://www.marketwatch.com/investing/stock/${symbol.toLowerCase()}?mod=search_symbol`,
+            title: `${companyName} Market Data`,
+            summary: `Access ${companyName} stock data, charts, and professional market analysis.`,
+            link: `https://www.marketwatch.com/investing/stock/${symbol.toLowerCase()}`,
             source: 'MarketWatch',
-            publishedDate: new Date(Date.now() - 12 * 60 * 60 * 1000),
-            timeAgo: '12h ago'
+            publishedDate: new Date(),
+            timeAgo: 'Market Data',
+            isCurated: true
         }
     ];
     
-    // Cache the fallback results with shorter expiry
+    // Cache the curated results with shorter expiry
     localStorage.setItem(cacheKey, JSON.stringify({
-        data: fallbackNews,
+        data: curatedSources,
         timestamp: Date.now()
     }));
     
-    console.log(`📰 Returning ${fallbackNews.length} fallback articles for ${symbol}`);
-    return fallbackNews;
+    console.log(`📰 Returning ${curatedSources.length} curated news sources for ${symbol}`);
+    return curatedSources;
 }
 
 // RSS parsing function removed - now using direct news links for better reliability
@@ -1394,41 +1488,55 @@ async function fetchCompanyNews(symbol, companyName) {
 function renderNewsArticles(articles) {
     const newsList = document.getElementById('news-list');
     
-    // Check if we have "live" news widgets vs fallback
-    const hasLiveNews = articles.some(article => article.isWidget);
-    const headerIcon = hasLiveNews ? '🔴' : '📰';
-    const headerText = hasLiveNews ? 'Live News Sources' : 'Latest Articles';
+    // Determine content type (real news vs curated sources)
+    const hasRealNews = articles.some(article => article.isReal);
+    const allCurated = articles.every(article => article.isCurated);
+    
+    let headerIcon, headerText, footerText;
+    if (hasRealNews) {
+        headerIcon = '✅';
+        headerText = 'Real-Time News Articles';
+        footerText = '✅ These are actual news articles from live sources';
+    } else if (allCurated) {
+        headerIcon = '🔗';
+        headerText = 'Financial News Sources';
+        footerText = '🔗 Click links to browse current news coverage';
+    } else {
+        headerIcon = '📰';
+        headerText = 'Latest Updates';
+        footerText = '📰 Mixed news content and sources';
+    }
     
     newsList.innerHTML = `
-        <div class="news-header">
+        <div class="news-header ${hasRealNews ? 'real-news-header' : 'curated-header'}">
             <div class="news-count">${headerIcon} ${articles.length} ${headerText}</div>
             <div class="news-timestamp">Updated: ${new Date().toLocaleTimeString()}</div>
-            ${hasLiveNews ? '<div class="live-indicator">● LIVE</div>' : ''}
+            ${hasRealNews ? '<div class="real-indicator">● REAL-TIME</div>' : ''}
         </div>
         ${articles.map((article, index) => `
-            <div class="news-item ${article.isWidget ? 'live-news' : ''}">
+            <div class="news-item ${article.isReal ? 'real-news-item' : 'curated-item'}">
                 <div class="news-item-header">
                     <div class="news-item-number">${index + 1}</div>
-                    <div class="news-item-icon">${article.isWidget ? '🔴' : '📄'}</div>
+                    <div class="news-item-icon">${article.isReal ? '📰' : '🔗'}</div>
                     <div class="news-item-title-container">
                         <h3 class="news-item-title">${article.title}</h3>
                         <div class="news-item-meta-inline">
                             <span class="news-item-time">${article.timeAgo}</span>
                             <span class="news-item-source"> • ${article.source}</span>
-                            ${article.isWidget ? '<span class="live-badge">LIVE</span>' : ''}
+                            ${article.isReal ? '<span class="real-badge">REAL</span>' : ''}
                         </div>
                     </div>
                 </div>
                 <p class="news-item-summary">${article.summary}</p>
                 <div class="news-item-actions">
-                    <a href="${article.link}" target="_blank" rel="noopener" class="news-item-link ${article.isWidget ? 'live-link' : ''}">
-                        ${article.isWidget ? '🔗 View Live News →' : '📖 Read Article →'}
+                    <a href="${article.link}" target="_blank" rel="noopener" class="news-item-link">
+                        ${article.isReal ? '📰 Read Full Article →' : '🔗 Browse News →'}
                     </a>
                 </div>
             </div>
         `).join('')}
         <div class="news-footer">
-            <p><small>💡 Click any link above to view live news coverage from trusted financial sources</small></p>
+            <p><small>${footerText}</small></p>
         </div>
     `;
 }
