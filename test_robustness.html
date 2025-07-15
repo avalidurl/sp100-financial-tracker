@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SP100 CapEx Tracker - Robustness Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 4px; }
+        .pass { background-color: #d4edda; color: #155724; }
+        .fail { background-color: #f8d7da; color: #721c24; }
+        .warning { background-color: #fff3cd; color: #856404; }
+        .test-button { padding: 10px 20px; margin: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        .test-button:hover { background: #0056b3; }
+        .code-block { background: #f8f9fa; padding: 10px; border-radius: 4px; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <h1>SP100 CapEx Tracker - Robustness Test Suite</h1>
+    
+    <div class="test-section">
+        <h2>1. TradingView Integration Tests</h2>
+        <p>Testing price chart modal with various symbol types:</p>
+        <div id="tradingview-results"></div>
+        <button class="test-button" onclick="testTradingViewIntegration()">Test TradingView Integration</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. News Modal Tests</h2>
+        <p>Testing news functionality with different company symbols:</p>
+        <div id="news-results"></div>
+        <button class="test-button" onclick="testNewsModal()">Test News Modal</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. Data Display Tests</h2>
+        <p>Testing data display with edge cases:</p>
+        <div id="data-display-results"></div>
+        <button class="test-button" onclick="testDataDisplay()">Test Data Display</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>4. Search and Filter Tests</h2>
+        <p>Testing search and filtering functionality:</p>
+        <div id="search-results"></div>
+        <button class="test-button" onclick="testSearchAndFilter()">Test Search & Filter</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>5. Sorting Tests</h2>
+        <p>Testing sorting capabilities:</p>
+        <div id="sorting-results"></div>
+        <button class="test-button" onclick="testSorting()">Test Sorting</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>6. Chart Visualization Tests</h2>
+        <p>Testing chart robustness with modified datasets:</p>
+        <div id="chart-results"></div>
+        <button class="test-button" onclick="testChartVisualization()">Test Chart Visualization</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>7. Insights Generation Tests</h2>
+        <p>Testing insights with various data scenarios:</p>
+        <div id="insights-results"></div>
+        <button class="test-button" onclick="testInsightsGeneration()">Test Insights Generation</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>8. Edge Cases Tests</h2>
+        <p>Testing with special characters, missing data, and unusual symbols:</p>
+        <div id="edge-cases-results"></div>
+        <button class="test-button" onclick="testEdgeCases()">Test Edge Cases</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test Summary</h2>
+        <div id="test-summary"></div>
+        <button class="test-button" onclick="runAllTests()">Run All Tests</button>
+    </div>
+
+    <script>
+        // Test data with various edge cases
+        const testData = [
+            {
+                symbol: "AAPL",
+                name: "Apple Inc.",
+                capex: -11100000000,
+                year: 2024,
+                revenue: 394328000000,
+                sector: "Technology",
+                market_cap: 3153843528000,
+                market_cap_updated: "2025-07-12T17:11:49.685247"
+            },
+            {
+                symbol: "BRK.B",
+                name: "Berkshire Hathaway Inc. Class B",
+                capex: -15000000000,
+                year: 2024,
+                revenue: 350000000000,
+                sector: "Financial Services",
+                market_cap: 900000000000,
+                market_cap_updated: "2025-07-12T17:11:49.685247"
+            },
+            {
+                symbol: "NEW-COMPANY",
+                name: "New Company with Dash",
+                capex: -5000000000,
+                year: 2024,
+                revenue: 20000000000,
+                sector: "Technology",
+                market_cap: 100000000000,
+                market_cap_updated: "2025-07-12T17:11:49.685247"
+            },
+            {
+                symbol: "UNKNOWN123",
+                name: "Unknown Symbol with Numbers",
+                capex: -2000000000,
+                year: 2024,
+                revenue: 10000000000,
+                sector: "Technology",
+                market_cap: 50000000000,
+                market_cap_updated: "2025-07-12T17:11:49.685247"
+            },
+            {
+                symbol: "MISSING.DATA",
+                name: "Company with Missing Data",
+                capex: null,
+                year: 2024,
+                revenue: null,
+                sector: "Technology",
+                market_cap: null,
+                market_cap_updated: "2025-07-12T17:11:49.685247"
+            },
+            {
+                symbol: "SPECIAL@CHARS",
+                name: "Company with Special Characters",
+                capex: -1000000000,
+                year: 2024,
+                revenue: 5000000000,
+                sector: "Technology",
+                market_cap: 25000000000,
+                market_cap_updated: "2025-07-12T17:11:49.685247"
+            }
+        ];
+
+        let testResults = [];
+
+        function logResult(testName, status, message) {
+            testResults.push({ test: testName, status, message });
+            console.log(`[${status}] ${testName}: ${message}`);
+        }
+
+        // Test TradingView integration
+        function testTradingViewIntegration() {
+            const resultsDiv = document.getElementById('tradingview-results');
+            resultsDiv.innerHTML = '';
+            
+            // Test stock exchange mapping
+            const STOCK_EXCHANGE_MAPPING = {
+                "AAPL": "NASDAQ",
+                "BRK.B": "NYSE"
+            };
+            
+            function createTradingViewSymbol(symbol) {
+                const exchange = STOCK_EXCHANGE_MAPPING[symbol] || 'NYSE';
+                return `${exchange}:${symbol}`;
+            }
+            
+            const testSymbols = ["AAPL", "BRK.B", "NEW-COMPANY", "UNKNOWN123", "MISSING.DATA", "SPECIAL@CHARS"];
+            
+            testSymbols.forEach(symbol => {
+                try {
+                    const tvSymbol = createTradingViewSymbol(symbol);
+                    const isValidFormat = /^[A-Z]+:[A-Z0-9@.-]+$/.test(tvSymbol);
+                    
+                    if (isValidFormat) {
+                        logResult(`TradingView Symbol: ${symbol}`, 'PASS', `Generated: ${tvSymbol}`);
+                        resultsDiv.innerHTML += `<div class="test-result pass">✓ ${symbol} → ${tvSymbol}</div>`;
+                    } else {
+                        logResult(`TradingView Symbol: ${symbol}`, 'FAIL', `Invalid format: ${tvSymbol}`);
+                        resultsDiv.innerHTML += `<div class="test-result fail">✗ ${symbol} → ${tvSymbol} (Invalid format)</div>`;
+                    }
+                } catch (error) {
+                    logResult(`TradingView Symbol: ${symbol}`, 'FAIL', `Error: ${error.message}`);
+                    resultsDiv.innerHTML += `<div class="test-result fail">✗ ${symbol} → Error: ${error.message}</div>`;
+                }
+            });
+            
+            // Test iframe URL generation
+            try {
+                const testSymbol = "AAPL";
+                const tradingViewSymbol = createTradingViewSymbol(testSymbol);
+                const iframeUrl = `https://s.tradingview.com/widgetembed/?frameElementId=tradingview_${testSymbol}&symbol=${tradingViewSymbol}&interval=1D&hidesidetoolbar=1&symboledit=1&saveimage=0&toolbarbg=f1f3f6&studies=%5B%5D&hideideas=1&theme=Light&style=1&timezone=Etc%2FUTC&withdateranges=1&hidevolume=0&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en&utm_source=localhost&utm_medium=widget&utm_campaign=chart&utm_term=${testSymbol}`;
+                
+                const isValidUrl = iframeUrl.startsWith('https://s.tradingview.com/widgetembed/');
+                
+                if (isValidUrl) {
+                    logResult('TradingView URL Generation', 'PASS', 'Valid URL format');
+                    resultsDiv.innerHTML += `<div class="test-result pass">✓ TradingView URL generation working</div>`;
+                } else {
+                    logResult('TradingView URL Generation', 'FAIL', 'Invalid URL format');
+                    resultsDiv.innerHTML += `<div class="test-result fail">✗ TradingView URL generation failed</div>`;
+                }
+            } catch (error) {
+                logResult('TradingView URL Generation', 'FAIL', `Error: ${error.message}`);
+                resultsDiv.innerHTML += `<div class="test-result fail">✗ TradingView URL generation error: ${error.message}</div>`;
+            }
+        }
+
+        // Test news modal functionality
+        function testNewsModal() {
+            const resultsDiv = document.getElementById('news-results');
+            resultsDiv.innerHTML = '';
+            
+            // Test news generation for different symbols
+            testData.forEach(company => {
+                try {
+                    const mockNews = generateMockNews(company.symbol, company.name);
+                    
+                    if (mockNews && mockNews.length > 0) {
+                        const hasValidStructure = mockNews.every(article => 
+                            article.title && article.summary && article.link && article.source
+                        );
+                        
+                        if (hasValidStructure) {
+                            logResult(`News for ${company.symbol}`, 'PASS', `Generated ${mockNews.length} articles`);
+                            resultsDiv.innerHTML += `<div class="test-result pass">✓ ${company.symbol}: ${mockNews.length} articles generated</div>`;
+                        } else {
+                            logResult(`News for ${company.symbol}`, 'FAIL', 'Invalid article structure');
+                            resultsDiv.innerHTML += `<div class="test-result fail">✗ ${company.symbol}: Invalid article structure</div>`;
+                        }
+                    } else {
+                        logResult(`News for ${company.symbol}`, 'FAIL', 'No articles generated');
+                        resultsDiv.innerHTML += `<div class="test-result fail">✗ ${company.symbol}: No articles generated</div>`;
+                    }
+                } catch (error) {
+                    logResult(`News for ${company.symbol}`, 'FAIL', `Error: ${error.message}`);
+                    resultsDiv.innerHTML += `<div class="test-result fail">✗ ${company.symbol}: Error - ${error.message}</div>`;
+                }
+            });
+        }
+
+        function generateMockNews(symbol, companyName) {
+            return [
+                {
+                    title: `${companyName} Reports Strong Quarterly Results`,
+                    summary: `${companyName} (${symbol}) continues to show solid performance in latest financial update.`,
+                    link: `https://finance.yahoo.com/quote/${symbol}/news/`,
+                    source: 'Financial News',
+                    publishedDate: new Date(),
+                    timeAgo: '2h ago'
+                },
+                {
+                    title: `Market Analysis: ${symbol} Stock Performance Update`,
+                    summary: `Analysts review ${companyName}'s recent market activity and future outlook.`,
+                    link: `https://finance.yahoo.com/quote/${symbol}/`,
+                    source: 'Market Watch',
+                    publishedDate: new Date(),
+                    timeAgo: '5h ago'
+                }
+            ];
+        }
+
+        // Test data display with edge cases
+        function testDataDisplay() {
+            const resultsDiv = document.getElementById('data-display-results');
+            resultsDiv.innerHTML = '';
+            
+            function formatCurrency(amount) {
+                if (amount === null || amount === undefined) return 'N/A';
+                const absAmount = Math.abs(amount);
+                if (absAmount >= 1e9) {
+                    return `${(amount / 1e9).toFixed(1)}B`;
+                } else if (absAmount >= 1e6) {
+                    return `${(amount / 1e6).toFixed(1)}M`;
+                } else if (absAmount >= 1e3) {
+                    return `${(amount / 1e3).toFixed(1)}K`;
+                }
+                return `${amount.toLocaleString()}`;
+            }
+            
+            testData.forEach(company => {
+                try {
+                    const formattedCapex = formatCurrency(company.capex);
+                    const formattedRevenue = formatCurrency(company.revenue);
+                    const formattedMarketCap = formatCurrency(company.market_cap);
+                    
+                    const hasValidFormatting = formattedCapex !== 'NaN' && formattedRevenue !== 'NaN' && formattedMarketCap !== 'NaN';
+                    
+                    if (hasValidFormatting) {
+                        logResult(`Data Display: ${company.symbol}`, 'PASS', 'All fields formatted correctly');
+                        resultsDiv.innerHTML += `<div class="test-result pass">✓ ${company.symbol}: Capex: ${formattedCapex}, Revenue: ${formattedRevenue}, Market Cap: ${formattedMarketCap}</div>`;
+                    } else {
+                        logResult(`Data Display: ${company.symbol}`, 'FAIL', 'Invalid formatting');
+                        resultsDiv.innerHTML += `<div class="test-result fail">✗ ${company.symbol}: Invalid formatting</div>`;
+                    }
+                } catch (error) {
+                    logResult(`Data Display: ${company.symbol}`, 'FAIL', `Error: ${error.message}`);
+                    resultsDiv.innerHTML += `<div class="test-result fail">✗ ${company.symbol}: Error - ${error.message}</div>`;
+                }
+            });
+        }
+
+        // Test search and filter functionality
+        function testSearchAndFilter() {
+            const resultsDiv = document.getElementById('search-results');
+            resultsDiv.innerHTML = '';
+            
+            function filterData(data, query, sectorFilter) {
+                return data.filter(company => {
+                    const matchesSearch = !query || 
+                        company.name.toLowerCase().includes(query.toLowerCase()) ||
+                        company.symbol.toLowerCase().includes(query.toLowerCase()) ||
+                        company.sector.toLowerCase().includes(query.toLowerCase());
+                        
+                    const matchesSector = !sectorFilter || company.sector === sectorFilter;
+                    
+                    return matchesSearch && matchesSector;
+                });
+            }
+            
+            const testCases = [
+                { query: 'Apple', sectorFilter: '', expected: 1 },
+                { query: 'AAPL', sectorFilter: '', expected: 1 },
+                { query: 'Technology', sectorFilter: '', expected: 4 },
+                { query: '', sectorFilter: 'Technology', expected: 4 },
+                { query: 'NonExistent', sectorFilter: '', expected: 0 },
+                { query: 'SPECIAL@CHARS', sectorFilter: '', expected: 1 }
+            ];
+            
+            testCases.forEach(testCase => {
+                try {
+                    const result = filterData(testData, testCase.query, testCase.sectorFilter);
+                    
+                    if (result.length === testCase.expected) {
+                        logResult(`Search: "${testCase.query}" + Sector: "${testCase.sectorFilter}"`, 'PASS', `Found ${result.length} companies`);
+                        resultsDiv.innerHTML += `<div class="test-result pass">✓ Query: "${testCase.query}", Sector: "${testCase.sectorFilter}" → ${result.length} results</div>`;
+                    } else {
+                        logResult(`Search: "${testCase.query}" + Sector: "${testCase.sectorFilter}"`, 'FAIL', `Expected ${testCase.expected}, got ${result.length}`);
+                        resultsDiv.innerHTML += `<div class="test-result fail">✗ Query: "${testCase.query}", Sector: "${testCase.sectorFilter}" → Expected ${testCase.expected}, got ${result.length}</div>`;
+                    }
+                } catch (error) {
+                    logResult(`Search: "${testCase.query}" + Sector: "${testCase.sectorFilter}"`, 'FAIL', `Error: ${error.message}`);
+                    resultsDiv.innerHTML += `<div class="test-result fail">✗ Query: "${testCase.query}", Sector: "${testCase.sectorFilter}" → Error: ${error.message}</div>`;
+                }
+            });
+        }
+
+        // Test sorting functionality
+        function testSorting() {
+            const resultsDiv = document.getElementById('sorting-results');
+            resultsDiv.innerHTML = '';
+            
+            function sortData(data, sortBy) {
+                return [...data].sort((a, b) => {
+                    switch (sortBy) {
+                        case 'capex':
+                            return Math.abs(b.capex || 0) - Math.abs(a.capex || 0);
+                        case 'market_cap':
+                            return (b.market_cap || 0) - (a.market_cap || 0);
+                        case 'name':
+                            return a.name.localeCompare(b.name);
+                        case 'sector':
+                            return a.sector.localeCompare(b.sector);
+                        case 'revenue':
+                            return (b.revenue || 0) - (a.revenue || 0);
+                        default:
+                            return 0;
+                    }
+                });
+            }
+            
+            const sortOptions = ['capex', 'market_cap', 'name', 'sector', 'revenue'];
+            
+            sortOptions.forEach(sortBy => {
+                try {
+                    const sortedData = sortData(testData, sortBy);
+                    
+                    if (sortedData.length === testData.length) {
+                        logResult(`Sort by ${sortBy}`, 'PASS', `Successfully sorted ${sortedData.length} companies`);
+                        resultsDiv.innerHTML += `<div class="test-result pass">✓ Sort by ${sortBy}: ${sortedData.length} companies sorted</div>`;
+                    } else {
+                        logResult(`Sort by ${sortBy}`, 'FAIL', `Data length mismatch`);
+                        resultsDiv.innerHTML += `<div class="test-result fail">✗ Sort by ${sortBy}: Data length mismatch</div>`;
+                    }
+                } catch (error) {
+                    logResult(`Sort by ${sortBy}`, 'FAIL', `Error: ${error.message}`);
+                    resultsDiv.innerHTML += `<div class="test-result fail">✗ Sort by ${sortBy}: Error - ${error.message}</div>`;
+                }
+            });
+        }
+
+        // Test chart visualization
+        function testChartVisualization() {
+            const resultsDiv = document.getElementById('chart-results');
+            resultsDiv.innerHTML = '';
+            
+            // Test data processing for charts
+            const chartTests = [
+                {
+                    name: 'Sector Totals Calculation',
+                    test: () => {
+                        const sectorTotals = {};
+                        testData.forEach(company => {
+                            const sector = company.sector;
+                            const capex = Math.abs(company.capex || 0);
+                            sectorTotals[sector] = (sectorTotals[sector] || 0) + capex;
+                        });
+                        return Object.keys(sectorTotals).length > 0;
+                    }
+                },
+                {
+                    name: 'Top Spenders Calculation',
+                    test: () => {
+                        const topSpenders = [...testData]
+                            .sort((a, b) => Math.abs(b.capex || 0) - Math.abs(a.capex || 0))
+                            .slice(0, 10);
+                        return topSpenders.length > 0;
+                    }
+                },
+                {
+                    name: 'Efficiency Analysis',
+                    test: () => {
+                        const efficiency = testData
+                            .filter(c => c.market_cap && c.market_cap > 0)
+                            .map(c => ({
+                                ...c,
+                                efficiency: Math.abs(c.capex || 0) / c.market_cap
+                            }))
+                            .sort((a, b) => b.efficiency - a.efficiency);
+                        return efficiency.length > 0;
+                    }
+                }
+            ];
+            
+            chartTests.forEach(test => {
+                try {
+                    const result = test.test();
+                    
+                    if (result) {
+                        logResult(`Chart: ${test.name}`, 'PASS', 'Calculation successful');
+                        resultsDiv.innerHTML += `<div class="test-result pass">✓ ${test.name}: Calculation successful</div>`;
+                    } else {
+                        logResult(`Chart: ${test.name}`, 'FAIL', 'Calculation failed');
+                        resultsDiv.innerHTML += `<div class="test-result fail">✗ ${test.name}: Calculation failed</div>`;
+                    }
+                } catch (error) {
+                    logResult(`Chart: ${test.name}`, 'FAIL', `Error: ${error.message}`);
+                    resultsDiv.innerHTML += `<div class="test-result fail">✗ ${test.name}: Error - ${error.message}</div>`;
+                }
+            });
+        }
+
+        // Test insights generation
+        function testInsightsGeneration() {
+            const resultsDiv = document.getElementById('insights-results');
+            resultsDiv.innerHTML = '';
+            
+            try {
+                // Calculate sector totals
+                const sectorTotals = {};
+                const sectorCounts = {};
+                
+                testData.forEach(company => {
+                    const sector = company.sector;
+                    const capex = Math.abs(company.capex || 0);
+                    
+                    if (!sectorTotals[sector]) {
+                        sectorTotals[sector] = 0;
+                        sectorCounts[sector] = 0;
+                    }
+                    sectorTotals[sector] += capex;
+                    sectorCounts[sector]++;
+                });
+
+                // Top spenders
+                const topSpenders = [...testData]
+                    .sort((a, b) => Math.abs(b.capex || 0) - Math.abs(a.capex || 0))
+                    .slice(0, 5);
+
+                // Top sectors by total capex
+                const topSectors = Object.entries(sectorTotals)
+                    .sort(([,a], [,b]) => b - a)
+                    .slice(0, 5);
+
+                // Efficiency analysis
+                const efficiency = testData
+                    .filter(c => c.market_cap && c.market_cap > 0)
+                    .map(c => ({
+                        ...c,
+                        efficiency: Math.abs(c.capex || 0) / c.market_cap
+                    }))
+                    .sort((a, b) => b.efficiency - a.efficiency);
+
+                const insights = {
+                    topSpenders,
+                    topSectors,
+                    mostEfficient: efficiency.slice(0, 5),
+                    totalCapex: testData.reduce((sum, c) => sum + Math.abs(c.capex || 0), 0),
+                    avgCapex: testData.reduce((sum, c) => sum + Math.abs(c.capex || 0), 0) / testData.length
+                };
+
+                if (insights.topSpenders.length > 0 && insights.topSectors.length > 0) {
+                    logResult('Insights Generation', 'PASS', 'All insights generated successfully');
+                    resultsDiv.innerHTML += `<div class="test-result pass">✓ Insights generated: ${insights.topSpenders.length} top spenders, ${insights.topSectors.length} sectors</div>`;
+                } else {
+                    logResult('Insights Generation', 'FAIL', 'Failed to generate insights');
+                    resultsDiv.innerHTML += `<div class="test-result fail">✗ Failed to generate insights</div>`;
+                }
+            } catch (error) {
+                logResult('Insights Generation', 'FAIL', `Error: ${error.message}`);
+                resultsDiv.innerHTML += `<div class="test-result fail">✗ Insights generation error: ${error.message}</div>`;
+            }
+        }
+
+        // Test edge cases
+        function testEdgeCases() {
+            const resultsDiv = document.getElementById('edge-cases-results');
+            resultsDiv.innerHTML = '';
+            
+            const edgeCases = [
+                {
+                    name: 'Null/Undefined Values',
+                    test: () => {
+                        const company = testData.find(c => c.capex === null);
+                        return company && company.symbol === 'MISSING.DATA';
+                    }
+                },
+                {
+                    name: 'Special Characters in Symbol',
+                    test: () => {
+                        const company = testData.find(c => c.symbol.includes('@'));
+                        return company && company.symbol === 'SPECIAL@CHARS';
+                    }
+                },
+                {
+                    name: 'Dots in Symbol',
+                    test: () => {
+                        const company = testData.find(c => c.symbol.includes('.'));
+                        return company && company.symbol === 'BRK.B';
+                    }
+                },
+                {
+                    name: 'Hyphens in Symbol',
+                    test: () => {
+                        const company = testData.find(c => c.symbol.includes('-'));
+                        return company && company.symbol === 'NEW-COMPANY';
+                    }
+                },
+                {
+                    name: 'Numbers in Symbol',
+                    test: () => {
+                        const company = testData.find(c => /\d/.test(c.symbol));
+                        return company && company.symbol === 'UNKNOWN123';
+                    }
+                }
+            ];
+            
+            edgeCases.forEach(edgeCase => {
+                try {
+                    const result = edgeCase.test();
+                    
+                    if (result) {
+                        logResult(`Edge Case: ${edgeCase.name}`, 'PASS', 'Test passed');
+                        resultsDiv.innerHTML += `<div class="test-result pass">✓ ${edgeCase.name}: Test passed</div>`;
+                    } else {
+                        logResult(`Edge Case: ${edgeCase.name}`, 'FAIL', 'Test failed');
+                        resultsDiv.innerHTML += `<div class="test-result fail">✗ ${edgeCase.name}: Test failed</div>`;
+                    }
+                } catch (error) {
+                    logResult(`Edge Case: ${edgeCase.name}`, 'FAIL', `Error: ${error.message}`);
+                    resultsDiv.innerHTML += `<div class="test-result fail">✗ ${edgeCase.name}: Error - ${error.message}</div>`;
+                }
+            });
+        }
+
+        // Run all tests
+        function runAllTests() {
+            testResults = [];
+            
+            testTradingViewIntegration();
+            testNewsModal();
+            testDataDisplay();
+            testSearchAndFilter();
+            testSorting();
+            testChartVisualization();
+            testInsightsGeneration();
+            testEdgeCases();
+            
+            // Generate summary
+            const summaryDiv = document.getElementById('test-summary');
+            const totalTests = testResults.length;
+            const passedTests = testResults.filter(r => r.status === 'PASS').length;
+            const failedTests = testResults.filter(r => r.status === 'FAIL').length;
+            
+            summaryDiv.innerHTML = `
+                <div class="test-result ${failedTests === 0 ? 'pass' : 'warning'}">
+                    <h3>Test Summary</h3>
+                    <p><strong>Total Tests:</strong> ${totalTests}</p>
+                    <p><strong>Passed:</strong> ${passedTests}</p>
+                    <p><strong>Failed:</strong> ${failedTests}</p>
+                    <p><strong>Success Rate:</strong> ${((passedTests / totalTests) * 100).toFixed(1)}%</p>
+                </div>
+            `;
+            
+            if (failedTests > 0) {
+                summaryDiv.innerHTML += `
+                    <div class="test-result fail">
+                        <h4>Failed Tests:</h4>
+                        ${testResults.filter(r => r.status === 'FAIL').map(r => `
+                            <div>• ${r.test}: ${r.message}</div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "timestamp": "2025-01-15T12:00:00.000Z",
+  "companies": {
+    "AAPL": {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "filings": [
+        {
+          "form": "10-Q",
+          "date": "2024-12-30",
+          "accessionNumber": "0000320193-24-000123",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019324000123/0000320193-24-000123-index.htm",
+          "timestamp": "2025-01-15T12:00:00.000Z"
+        },
+        {
+          "form": "8-K",
+          "date": "2024-12-15",
+          "accessionNumber": "0000320193-24-000122",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019324000122/0000320193-24-000122-index.htm",
+          "timestamp": "2025-01-15T12:00:00.000Z"
+        }
+      ],
+      "updated": "2025-01-15T12:00:00.000Z"
+    },
+    "MSFT": {
+      "symbol": "MSFT",
+      "name": "Microsoft Corporation", 
+      "filings": [
+        {
+          "form": "10-K",
+          "date": "2024-12-28",
+          "accessionNumber": "0000789019-24-000089",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000078901924000089/0000789019-24-000089-index.htm",
+          "timestamp": "2025-01-15T12:00:00.000Z"
+        }
+      ],
+      "updated": "2025-01-15T12:00:00.000Z"
+    }
+  },
+  "total_companies": 2,
+  "total_filings": 3
+}

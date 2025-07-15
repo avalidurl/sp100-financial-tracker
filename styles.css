@@ -1380,3 +1380,67 @@ footer {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }
 }
+
+/* Company Action Buttons */
+.company-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
+}
+
+.action-btn:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e40af);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.4);
+    color: white;
+}
+
+.action-btn:active {
+    transform: translateY(0);
+}
+
+.action-btn.news-btn {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.action-btn.filings-btn {
+    background: linear-gradient(135deg, #7c3aed, #6d28d9);
+}
+
+.action-btn.filings-btn:hover {
+    background: linear-gradient(135deg, #6d28d9, #5b21b6);
+}
+
+.action-btn.statements-btn {
+    background: linear-gradient(135deg, #059669, #047857);
+}
+
+.action-btn.statements-btn:hover {
+    background: linear-gradient(135deg, #047857, #065f46);
+}
+
+.action-btn.price-btn {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+}
+
+.action-btn.price-btn:hover {
+    background: linear-gradient(135deg, #b91c1c, #991b1b);
+}
