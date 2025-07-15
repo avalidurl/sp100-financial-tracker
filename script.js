@@ -1350,9 +1350,10 @@ function openPriceModal(symbol, companyName) {
     iframe.allowTransparency = 'true';
     iframe.scrolling = 'no';
     
-    const iframeUrl = `https://s.tradingview.com/embed-widget/symbol-overview/?symbol=${symbol}&locale=en&colorTheme=light&autosize=true&width=100%25&height=100%25&hideDateRanges=false&hideMarketStatus=false&hideSymbolLogo=false&scalePosition=right&scaleMode=Normal&fontFamily=Trebuchet%20MS%2C%20sans-serif&fontSize=10&noTimeScale=false&valuesTracking=1&changeMode=price-and-percent&chartType=area&lineWidth=2&lineColor=rgba(41%2C%2098%2C%20255%2C%201)&gridLineColor=rgba(240%2C%20243%2C%20250%2C%200)&backgroundColor=rgba(255%2C%20255%2C%20255%2C%200)&referenceLineColor=rgba(0%2C%200%2C%200%2C%200)&utm_source=localhost&utm_medium=widget_new&utm_campaign=symbol-overview`;
+    // Use the standard TradingView chart embed URL with proper symbol parameter
+    const iframeUrl = `https://s.tradingview.com/widgetembed/?frameElementId=tradingview_${symbol}&symbol=NASDAQ:${symbol}&interval=1D&hidesidetoolbar=1&symboledit=1&saveimage=0&toolbarbg=f1f3f6&studies=%5B%5D&hideideas=1&theme=Light&style=1&timezone=Etc%2FUTC&withdateranges=1&hidevolume=0&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en&utm_source=localhost&utm_medium=widget&utm_campaign=chart&utm_term=${symbol}`;
     
-    console.log('TradingView iframe URL:', iframeUrl);
+    console.log('TradingView iframe URL for symbol:', symbol, 'URL:', iframeUrl);
     iframe.src = iframeUrl;
     
     // Add attribution
