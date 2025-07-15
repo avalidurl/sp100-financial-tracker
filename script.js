@@ -1519,7 +1519,11 @@ function renderNewsArticles(articles) {
                     <div class="news-item-number">${index + 1}</div>
                     <div class="news-item-icon">${article.isReal ? '📰' : '🔗'}</div>
                     <div class="news-item-title-container">
-                        <h3 class="news-item-title">${article.title}</h3>
+                        <h3 class="news-item-title">
+                            <a href="${article.link}" target="_blank" rel="noopener" class="news-title-link">
+                                ${article.title}
+                            </a>
+                        </h3>
                         <div class="news-item-meta-inline">
                             <span class="news-item-time">${article.timeAgo}</span>
                             <span class="news-item-source"> • ${article.source}</span>
@@ -1528,11 +1532,6 @@ function renderNewsArticles(articles) {
                     </div>
                 </div>
                 <p class="news-item-summary">${article.summary}</p>
-                <div class="news-item-actions">
-                    <a href="${article.link}" target="_blank" rel="noopener" class="news-item-link">
-                        ${article.isReal ? '📰 Read Full Article →' : '🔗 Browse News →'}
-                    </a>
-                </div>
             </div>
         `).join('')}
         <div class="news-footer">
