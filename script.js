@@ -1,3 +1,14 @@
+// Stock Exchange Mapping for correct TradingView symbols
+const STOCK_EXCHANGE_MAPPING = {
+  "AAPL": "NASDAQ", "ABBV": "NYSE", "ABT": "NYSE", "ACN": "NYSE", "ADBE": "NASDAQ", "ADP": "NASDAQ", "AMD": "NASDAQ", "AMGN": "NYSE", "AMZN": "NASDAQ", "AON": "NYSE", "APD": "NYSE", "AVGO": "NASDAQ", "AXP": "NYSE", "BA": "NYSE", "BAC": "NYSE", "BLK": "NYSE", "BMY": "NYSE", "BRK.B": "NYSE", "C": "NYSE", "CAT": "NYSE", "CL": "NYSE", "CMCSA": "NASDAQ", "CME": "NYSE", "CMG": "NYSE", "CNC": "NYSE", "COF": "NYSE", "COP": "NYSE", "COST": "NASDAQ", "CRM": "NASDAQ", "CSCO": "NASDAQ", "CVS": "NYSE", "CVX": "NYSE", "DE": "NYSE", "DHR": "NYSE", "DIS": "NYSE", "DUK": "NYSE", "EMR": "NYSE", "EOG": "NYSE", "FDX": "NYSE", "GD": "NYSE", "GE": "NYSE", "GILD": "NASDAQ", "GOOGL": "NASDAQ", "GS": "NYSE", "HD": "NYSE", "HON": "NYSE", "IBM": "NYSE", "ICE": "NYSE", "INTC": "NASDAQ", "ISRG": "NASDAQ", "ITW": "NYSE", "JNJ": "NYSE", "JPM": "NYSE", "KO": "NYSE", "LIN": "NYSE", "LLY": "NYSE", "LOW": "NYSE", "MA": "NYSE", "MCD": "NYSE", "MCO": "NYSE", "MDLZ": "NASDAQ", "META": "NASDAQ", "MMC": "NYSE", "MMM": "NYSE", "MS": "NYSE", "MSFT": "NASDAQ", "NEE": "NYSE", "NFLX": "NASDAQ", "NKE": "NYSE", "NOW": "NASDAQ", "NSC": "NYSE", "NVDA": "NASDAQ", "ORCL": "NASDAQ", "PEP": "NYSE", "PFE": "NYSE", "PG": "NYSE", "PM": "NYSE", "PNC": "NYSE", "PYPL": "NASDAQ", "QCOM": "NASDAQ", "RTX": "NYSE", "SBUX": "NASDAQ", "SHW": "NYSE", "SLB": "NYSE", "SO": "NYSE", "SPGI": "NYSE", "T": "NYSE", "TFC": "NYSE", "TGT": "NYSE", "TJX": "NYSE", "TMO": "NYSE", "TSLA": "NASDAQ", "TXN": "NASDAQ", "UNH": "NYSE", "UNP": "NYSE", "UPS": "NYSE", "USB": "NYSE", "V": "NYSE", "VZ": "NYSE", "WFC": "NYSE", "WMT": "NYSE", "XOM": "NYSE"
+};
+
+// Helper function to create correct TradingView symbol
+function createTradingViewSymbol(symbol) {
+  const exchange = STOCK_EXCHANGE_MAPPING[symbol] || 'NYSE';
+  return `${exchange}:${symbol}`;
+}
+
 class SP100CapexApp {
     constructor() {
         this.data = [];
@@ -1347,10 +1358,11 @@ function openPriceModal(symbol, companyName) {
     iframe.allowTransparency = 'true';
     iframe.scrolling = 'no';
     
-    // Use the standard TradingView chart embed URL with proper symbol parameter
-    const iframeUrl = `https://s.tradingview.com/widgetembed/?frameElementId=tradingview_${symbol}&symbol=NASDAQ:${symbol}&interval=1D&hidesidetoolbar=1&symboledit=1&saveimage=0&toolbarbg=f1f3f6&studies=%5B%5D&hideideas=1&theme=Light&style=1&timezone=Etc%2FUTC&withdateranges=1&hidevolume=0&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en&utm_source=localhost&utm_medium=widget&utm_campaign=chart&utm_term=${symbol}`;
+    // Use the correct exchange mapping for TradingView
+    const tradingViewSymbol = createTradingViewSymbol(symbol);
+    const iframeUrl = `https://s.tradingview.com/widgetembed/?frameElementId=tradingview_${symbol}&symbol=${tradingViewSymbol}&interval=1D&hidesidetoolbar=1&symboledit=1&saveimage=0&toolbarbg=f1f3f6&studies=%5B%5D&hideideas=1&theme=Light&style=1&timezone=Etc%2FUTC&withdateranges=1&hidevolume=0&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en&utm_source=localhost&utm_medium=widget&utm_campaign=chart&utm_term=${symbol}`;
     
-    console.log('TradingView iframe URL for symbol:', symbol, 'URL:', iframeUrl);
+    console.log('TradingView iframe URL for symbol:', symbol, 'TradingView symbol:', tradingViewSymbol, 'URL:', iframeUrl);
     iframe.src = iframeUrl;
     
     // Add attribution
@@ -1375,13 +1387,14 @@ function openPriceModal(symbol, companyName) {
     // Handle iframe error
     iframe.onerror = () => {
         loading.style.display = 'none';
+        const tradingViewSymbol = createTradingViewSymbol(symbol);
         iframeContainer.innerHTML = `
             <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; 
                         height: 100%; text-align: center; padding: 40px; gap: 20px;">
                 <h3 style="margin: 0; color: #333;">Live Price Chart</h3>
                 <p style="color: #666; margin: 0;">Unable to load chart. View live data on:</p>
                 <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
-                    <a href="https://www.tradingview.com/symbols/${symbol}/" target="_blank" rel="noopener" 
+                    <a href="https://www.tradingview.com/symbols/${tradingViewSymbol}/" target="_blank" rel="noopener" 
                        style="background: linear-gradient(135deg, #2962FF, #1E53E5); color: white; text-decoration: none; 
                               padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 14px;">
                         📈 TradingView
