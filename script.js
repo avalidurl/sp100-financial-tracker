@@ -1738,10 +1738,7 @@ async function openNewsModalNew(symbol, companyName) {
 
     // Show modal and loading state
     modal.style.display = 'block';
-    title.innerHTML = `
-        📰 ${companyName} (${symbol}) Live Feed
-        <span class="live-indicator">🔴 LIVE</span>
-    `;
+    title.innerHTML = `📰 ${companyName} (${symbol}) News Feed`;
     
     // Reset states
     loading.classList.remove('hidden');
@@ -1832,7 +1829,7 @@ function addNewNewsItem(symbol, companyName) {
 
     const newArticle = {
         ...companySpecificNews,
-        source: "Live Feed",
+        source: "Market Feed",
         timestamp: new Date().toISOString(),
         published: new Date().toISOString(),
         isLive: true,
@@ -1927,24 +1924,31 @@ function renderNewsRain() {
                 <div class="news-item-number">${index + 1}</div>
                 <div class="news-item-title-container">
                     <h3 class="news-item-title">
-                        ${article.title}
-                        ${article.isLive ? '<span class="live-badge">LIVE</span>' : ''}
+                        <a href="${article.link || '#'}" target="_blank" rel="noopener" class="news-title-link">
+                            ${article.title}
+                        </a>
                     </h3>
                     <div class="news-item-meta-inline">
-                        <span class="news-item-source">${article.source}</span> • 
+                        <a href="${article.link || '#'}" target="_blank" rel="noopener" class="news-source-link">
+                            ${article.source}
+                        </a> • 
                         <span class="news-item-time">${formatTimeAgo(article.timestamp)}</span>
                     </div>
                 </div>
             </div>
             <p class="news-item-summary">${article.summary}</p>
+            <div class="news-item-actions">
+                <a href="${article.link || '#'}" target="_blank" rel="noopener" class="news-action-link">
+                    🔗 Read Full Article
+                </a>
+            </div>
         </div>
     `).join('');
 
     newsList.innerHTML = `
         <div class="news-header">
             <div class="news-count">
-                ${newsArticles.length} Live Updates
-                <span class="live-indicator">🔴 STREAMING</span>
+                ${newsArticles.length} News Updates
             </div>
             <div class="news-timestamp">Last update: ${formatTimeAgo(newsArticles[0]?.timestamp)}</div>
         </div>
@@ -1952,7 +1956,7 @@ function renderNewsRain() {
             ${newsHtml}
         </div>
         <div class="news-footer">
-            <small>🔴 Live market data and news feed • Updates every 15-30 seconds</small>
+            <small>Real-time market data and news feed • Updates every 15-30 seconds</small>
         </div>
     `;
 }
@@ -1977,10 +1981,7 @@ async function openFilingsModal(symbol, companyName) {
 
     // Show modal and loading state
     modal.style.display = 'block';
-    title.innerHTML = `
-        📋 ${companyName} (${symbol}) SEC Feed
-        <span class="live-indicator">🔴 LIVE</span>
-    `;
+    title.innerHTML = `📋 ${companyName} (${symbol}) SEC Filings`;
     
     // Reset states
     loading.classList.remove('hidden');
@@ -2206,7 +2207,7 @@ function addNewFilingItem(symbol, companyName) {
     
     const newFiling = {
         ...companySpecificFilings,
-        source: "SEC EDGAR Live",
+        source: "SEC EDGAR",
         timestamp: new Date().toISOString(),
         isLive: true,
         isNew: true,
@@ -2311,26 +2312,31 @@ function renderFilingsRain() {
                 <div class="news-item-number">${index + 1}</div>
                 <div class="news-item-title-container">
                     <h3 class="news-item-title">
-                        <a href="${filing.url}" target="_blank" rel="noopener" class="news-title-link">
+                        <a href="${filing.url || '#'}" target="_blank" rel="noopener" class="news-title-link">
                             Form ${filing.form}: ${filing.title}
                         </a>
-                        ${filing.isLive ? '<span class="live-badge">LIVE</span>' : ''}
                     </h3>
                     <div class="news-item-meta-inline">
-                        <span class="news-item-source">${filing.source}</span> • 
+                        <a href="${filing.url || 'https://www.sec.gov/edgar'}" target="_blank" rel="noopener" class="news-source-link">
+                            ${filing.source}
+                        </a> • 
                         <span class="news-item-time">${formatTimeAgo(filing.timestamp)}</span>
                     </div>
                 </div>
             </div>
             <p class="news-item-summary">${filing.description}</p>
+            <div class="news-item-actions">
+                <a href="${filing.url || '#'}" target="_blank" rel="noopener" class="news-action-link">
+                    📋 View SEC Filing
+                </a>
+            </div>
         </div>
     `).join('');
 
     filingsList.innerHTML = `
         <div class="news-header">
             <div class="news-count">
-                ${filingsItems.length} SEC Updates
-                <span class="live-indicator">🔴 STREAMING</span>
+                ${filingsItems.length} SEC Filings
             </div>
             <div class="news-timestamp">Last filing: ${formatTimeAgo(filingsItems[0]?.timestamp)}</div>
         </div>
@@ -2338,7 +2344,7 @@ function renderFilingsRain() {
             ${filingsHtml}
         </div>
         <div class="news-footer">
-            <small>🔴 Live SEC EDGAR filings feed • Updates every 20-45 seconds</small>
+            <small>SEC EDGAR filings database • Updates every 20-45 seconds</small>
         </div>
     `;
 }
@@ -2363,10 +2369,7 @@ async function openStatementsModal(symbol, companyName) {
 
     // Show modal and loading state
     modal.style.display = 'block';
-    title.innerHTML = `
-        📊 ${companyName} (${symbol}) Financial Feed
-        <span class="live-indicator">🔴 LIVE</span>
-    `;
+    title.innerHTML = `📊 ${companyName} (${symbol}) Financial Data`;
     
     // Reset states
     loading.classList.remove('hidden');
@@ -2509,7 +2512,7 @@ function addNewStatementItem(symbol, companyName) {
         value: value,
         change: change,
         description: randomDescription,
-        source: "Financial Analytics Live",
+        source: "Financial Analytics",
         timestamp: new Date().toISOString(),
         isLive: true,
         isNew: true
@@ -2537,18 +2540,31 @@ function renderStatementsRain() {
     const statementsList = document.getElementById('statements-list');
     if (!statementsList) return;
 
-    const statementsHtml = statementsItems.map((statement, index) => `
+    const statementsHtml = statementsItems.map((statement, index) => {
+        // Generate appropriate financial data source link
+        const sourceLink = statement.type === 'Revenue' ? 
+            `https://finance.yahoo.com/quote/${currentStatementsSymbol}/financials/` :
+            statement.type === 'EPS' ?
+            `https://finance.yahoo.com/quote/${currentStatementsSymbol}/key-statistics/` :
+            statement.type === 'Cash Flow' ?
+            `https://finance.yahoo.com/quote/${currentStatementsSymbol}/cash-flow/` :
+            `https://finance.yahoo.com/quote/${currentStatementsSymbol}/`;
+        
+        return `
         <div class="news-item ${statement.isLive ? 'live-news' : ''} ${statement.isNew ? 'news-item-new' : ''}"
              style="animation-delay: ${index * 0.1}s">
             <div class="news-item-header">
                 <div class="news-item-number">${index + 1}</div>
                 <div class="news-item-title-container">
                     <h3 class="news-item-title">
-                        ${statement.title}
-                        ${statement.isLive ? '<span class="live-badge">LIVE</span>' : ''}
+                        <a href="${sourceLink}" target="_blank" rel="noopener" class="news-title-link">
+                            ${statement.title}
+                        </a>
                     </h3>
                     <div class="news-item-meta-inline">
-                        <span class="news-item-source">${statement.source}</span> • 
+                        <a href="${sourceLink}" target="_blank" rel="noopener" class="news-source-link">
+                            ${statement.source}
+                        </a> • 
                         <span class="news-item-time">${formatTimeAgo(statement.timestamp)}</span>
                     </div>
                 </div>
@@ -2563,14 +2579,19 @@ function renderStatementsRain() {
                 </div>
             </div>
             <p class="news-item-summary">${statement.description}</p>
+            <div class="news-item-actions">
+                <a href="${sourceLink}" target="_blank" rel="noopener" class="news-action-link">
+                    📊 View Financial Data
+                </a>
+            </div>
         </div>
-    `).join('');
+        `;
+    }).join('');
 
     statementsList.innerHTML = `
         <div class="news-header">
             <div class="news-count">
-                ${statementsItems.length} Financial Updates
-                <span class="live-indicator">🔴 STREAMING</span>
+                ${statementsItems.length} Financial Metrics
             </div>
             <div class="news-timestamp">Last update: ${formatTimeAgo(statementsItems[0]?.timestamp)}</div>
         </div>
@@ -2578,7 +2599,7 @@ function renderStatementsRain() {
             ${statementsHtml}
         </div>
         <div class="news-footer">
-            <small>🔴 Live financial data and analytics feed • Updates every 25-40 seconds</small>
+            <small>Financial data and analytics feed • Updates every 25-40 seconds</small>
         </div>
     `;
 }
