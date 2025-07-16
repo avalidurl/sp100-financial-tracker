@@ -2782,8 +2782,48 @@ function scrollToSection(sectionId) {
     }
 }
 
+// Privacy notice functionality
+function showPrivacyNotice() {
+    const privacyNotice = document.getElementById('privacy-notice');
+    if (privacyNotice) {
+        // Show with smooth animation after a short delay
+        setTimeout(() => {
+            privacyNotice.classList.add('show');
+        }, 1000);
+    }
+}
+
+function closePrivacyNotice() {
+    const privacyNotice = document.getElementById('privacy-notice');
+    if (privacyNotice) {
+        privacyNotice.classList.remove('show');
+        // Set localStorage to remember user has seen the notice
+        localStorage.setItem('privacyNoticeShown', 'true');
+        // Remove from DOM after animation
+        setTimeout(() => {
+            privacyNotice.remove();
+        }, 500);
+    }
+}
+
+// Check if privacy notice should be shown (first time visitor)
+function checkPrivacyNotice() {
+    const hasSeenNotice = localStorage.getItem('privacyNoticeShown');
+    if (!hasSeenNotice) {
+        showPrivacyNotice();
+    } else {
+        // Remove the notice from DOM if user has already seen it
+        const privacyNotice = document.getElementById('privacy-notice');
+        if (privacyNotice) {
+            privacyNotice.remove();
+        }
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     window.app = new SP100CapexApp();
     // Load pre-fetched data on page load
     loadPreFetchedData();
+    // Check if privacy notice should be shown
+    checkPrivacyNotice();
 });
