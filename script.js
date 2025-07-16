@@ -392,29 +392,43 @@ class SP100CapexApp {
     renderLoadMoreButton() {
         const sortBy = document.getElementById('sort-by')?.value;
         const hasMoreData = this.displayedData.length < this.filteredData.length;
-        const existingButton = document.getElementById('load-more-btn');
+        let existingButton = document.getElementById('load-more-btn');
         
         console.log(`Render Load More: displayed=${this.displayedData.length}, total=${this.filteredData.length}, hasMore=${hasMoreData}, sortBy=${sortBy}`);
         
-        if (existingButton) {
-            existingButton.remove();
-        }
-        
         // Don't show load more button in sector grouped view
         if (hasMoreData && sortBy !== 'sector') {
-            const button = document.createElement('div');
-            button.id = 'load-more-btn';
-            button.innerHTML = `
-                <button class="load-more-button" onclick="window.app.loadMore()">
-                    Load More Companies (${this.displayedData.length} of ${this.filteredData.length})
-                </button>
-            `;
-            
-            const companyList = document.getElementById('company-list');
-            companyList.parentNode.insertBefore(button, companyList.nextSibling);
-            console.log('Load More button added to DOM');
+            if (!existingButton) {
+                // Create button only if it doesn't exist
+                const button = document.createElement('div');
+                button.id = 'load-more-btn';
+                button.innerHTML = `
+                    <button class="load-more-button" onclick="window.app.loadMore()">
+                        Load More Companies (${this.displayedData.length} of ${this.filteredData.length})
+                    </button>
+                `;
+                
+                const companyList = document.getElementById('company-list');
+                companyList.parentNode.insertBefore(button, companyList.nextSibling);
+                console.log('Load More button added to DOM');
+            } else {
+                // Update existing button text instead of recreating
+                const buttonElement = existingButton.querySelector('.load-more-button');
+                if (buttonElement) {
+                    buttonElement.textContent = `Load More Companies (${this.displayedData.length} of ${this.filteredData.length})`;
+                }
+            }
         } else {
+            // Hide button instead of removing it to prevent DOM manipulation
+            if (existingButton) {
+                existingButton.style.display = 'none';
+            }
             console.log('No Load More button needed - all data displayed');
+        }
+        
+        // Show button if it was hidden
+        if (existingButton && hasMoreData && sortBy !== 'sector') {
+            existingButton.style.display = 'block';
         }
     }
 
