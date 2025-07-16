@@ -7,20 +7,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="header-main">
-                <h1><a href="/" style="text-decoration: none; color: inherit; cursor: pointer;">S&P 100 Capital Expenditure</a></h1>
-                <p>Latest quarterly capex data for top 100 S&P companies</p>
-                <div id="last-updated"></div>
-                <div id="market-status"></div>
-            </div>
+    <div class="top-nav">
+        <div class="top-nav-content">
             <div class="header-actions">
                 <button onclick="scrollToSection('community-section')" class="header-btn community-btn">💬 Community</button>
                 <button onclick="scrollToSection('donate')" class="header-btn donate-btn">💰 Donate</button>
                 <button onclick="scrollToSection('disclaimer')" class="header-btn disclaimer-btn">⚠️ Disclaimer</button>
             </div>
         </div>
+    </div>
+
+    <header>
+        <h1><a href="/" style="text-decoration: none; color: inherit; cursor: pointer;">S&P 100 Capital Expenditure</a></h1>
+        <p>Latest quarterly capex data for top 100 S&P companies</p>
+        <div id="last-updated"></div>
+        <div id="market-status"></div>
     </header>
 
     <main>
