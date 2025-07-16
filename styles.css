@@ -2026,8 +2026,35 @@ footer {
 .privacy-notice-body li {
     margin: 0.25rem 0;
     font-size: 0.85rem;
-    color: #059669;
     font-weight: 500;
+    color: #374151;
+}
+
+.privacy-notice-body > ul > li {
+    color: #374151;
+}
+
+.privacy-notice-body > ul > li:nth-child(1),
+.privacy-notice-body > ul > li:nth-child(2),
+.privacy-notice-body > ul > li:nth-child(3) {
+    color: #059669;
+}
+
+.privacy-notice-body > ul > li:nth-child(4),
+.privacy-notice-body > ul > li:nth-child(5),
+.privacy-notice-body > ul > li:nth-child(6) {
+    color: #d97706;
+}
+
+.privacy-notice-body ul ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+.privacy-notice-body ul ul li {
+    color: #6b7280;
+    font-size: 0.8rem;
+    margin: 0.1rem 0;
 }
 
 .privacy-notice-footer {
