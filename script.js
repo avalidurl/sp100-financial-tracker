@@ -2757,6 +2757,17 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// Smooth scroll to section function
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     window.app = new SP100CapexApp();
     // Load pre-fetched data on page load

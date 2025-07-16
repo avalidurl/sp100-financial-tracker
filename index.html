@@ -8,10 +8,19 @@
 </head>
 <body>
     <header>
-        <h1><a href="/" style="text-decoration: none; color: inherit; cursor: pointer;">S&P 100 Capital Expenditure</a></h1>
-        <p>Latest quarterly capex data for top 100 S&P companies</p>
-        <div id="last-updated"></div>
-        <div id="market-status"></div>
+        <div class="header-content">
+            <div class="header-main">
+                <h1><a href="/" style="text-decoration: none; color: inherit; cursor: pointer;">S&P 100 Capital Expenditure</a></h1>
+                <p>Latest quarterly capex data for top 100 S&P companies</p>
+                <div id="last-updated"></div>
+                <div id="market-status"></div>
+            </div>
+            <div class="header-actions">
+                <button onclick="scrollToSection('community-section')" class="header-btn community-btn">💬 Community</button>
+                <button onclick="scrollToSection('donate')" class="header-btn donate-btn">💰 Donate</button>
+                <button onclick="scrollToSection('disclaimer')" class="header-btn disclaimer-btn">⚠️ Disclaimer</button>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -70,11 +79,11 @@
             <p>Made by <a href="https://x.com/0xgokhan" target="_blank" rel="noopener">0xgokhan</a></p>
         </div>
         
-        <div class="disclaimer">
+        <div class="disclaimer" id="disclaimer">
             <p><strong>⚠️ Financial Disclaimer:</strong> Nothing on this website constitutes financial investment advice or recommendations whatsoever. All data is provided for informational and educational purposes only. Always consult with a qualified financial advisor before making investment decisions.</p>
         </div>
 
-        <div class="community-section">
+        <div class="community-section" id="community-section">
             <h3>💬 Join Our Community</h3>
             <div class="community-links">
                 <a href="https://t.me/marketresearchunit" target="_blank" rel="noopener" class="community-link">
@@ -98,7 +107,7 @@
             </div>
         </div>
 
-        <div class="donate">
+        <div class="donate" id="donate">
             <p><strong>Support this project so the dev can subscribe to real-time data tiers to serve your needs the best:</strong></p>
             <div class="crypto-addresses">
                 <div class="address-item">
