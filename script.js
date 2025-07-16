@@ -1867,6 +1867,11 @@ function generateCompanySpecificNews(symbol, companyName) {
             link: `https://finance.yahoo.com/quote/${symbol}/news/`
         },
         {
+            title: `${companyName} Stock Performance`,
+            summary: `Real-time stock price movements and market analysis`,
+            link: `https://finance.yahoo.com/quote/${symbol}/`
+        },
+        {
             title: `${companyName} Analyst Coverage Update`,
             summary: `Wall Street analyst ratings and price target revisions`,
             link: `https://seekingalpha.com/symbol/${symbol}/news`
@@ -2654,6 +2659,14 @@ function renderFallbackNews(symbol, companyName, container) {
             link: `https://finance.yahoo.com/quote/${symbol}/news/`,
             source: 'Yahoo Finance',
             summary: 'Financial news and analysis',
+            published: new Date().toISOString(),
+            timestamp: new Date().toISOString()
+        },
+        {
+            title: `${companyName} Stock Analysis`,
+            link: `https://finance.yahoo.com/quote/${symbol}/`,
+            source: 'Yahoo Finance',
+            summary: 'Stock price, charts, and detailed financial analysis',
             published: new Date().toISOString(),
             timestamp: new Date().toISOString()
         },
