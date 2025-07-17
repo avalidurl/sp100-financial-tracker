@@ -1,0 +1,1021 @@
+[
+  {
+    "symbol": "NVDA",
+    "name": "NVIDIA Corporation",
+    "capex": -1069000000,
+    "year": 2024,
+    "revenue": 79774000000,
+    "sector": "Technology",
+    "market_cap": 4024048000000,
+    "market_cap_updated": "2025-07-12T17:11:47.551179"
+  },
+  {
+    "symbol": "MSFT",
+    "name": "Microsoft Corporation",
+    "capex": -28300000000,
+    "year": 2024,
+    "revenue": 245122000000,
+    "sector": "Technology",
+    "market_cap": 3740946032800,
+    "market_cap_updated": "2025-07-12T17:11:48.627520"
+  },
+  {
+    "symbol": "AAPL",
+    "name": "Apple Inc.",
+    "capex": -11100000000,
+    "year": 2024,
+    "revenue": 394328000000,
+    "sector": "Technology",
+    "market_cap": 3153843528000,
+    "market_cap_updated": "2025-07-12T17:11:49.685247"
+  },
+  {
+    "symbol": "AMZN",
+    "name": "Amazon.com Inc.",
+    "capex": -63061000000,
+    "year": 2024,
+    "revenue": 574785000000,
+    "sector": "Consumer Discretionary",
+    "market_cap": 2388902328000,
+    "market_cap_updated": "2025-07-12T17:11:50.757126"
+  },
+  {
+    "symbol": "GOOGL",
+    "name": "Alphabet Inc.",
+    "capex": -32250000000,
+    "year": 2024,
+    "revenue": 330697000000,
+    "sector": "Technology",
+    "market_cap": 2191650248519,
+    "market_cap_updated": "2025-07-12T17:11:51.848492"
+  },
+  {
+    "symbol": "META",
+    "name": "Meta Platforms Inc.",
+    "capex": -27830000000,
+    "year": 2024,
+    "revenue": 134902000000,
+    "sector": "Technology",
+    "market_cap": 1803926319282,
+    "market_cap_updated": "2025-07-12T17:11:52.930506"
+  },
+  {
+    "symbol": "AVGO",
+    "name": "Broadcom Inc.",
+    "capex": -1800000000,
+    "year": 2024,
+    "revenue": 51041000000,
+    "sector": "Technology",
+    "market_cap": 1290538098600,
+    "market_cap_updated": "2025-07-12T17:11:57.743701"
+  },
+  {
+    "symbol": "TSLA",
+    "name": "Tesla Inc.",
+    "capex": -8969000000,
+    "year": 2024,
+    "revenue": 96773000000,
+    "sector": "Consumer Discretionary",
+    "market_cap": 1008411185200,
+    "market_cap_updated": "2025-07-12T17:11:53.992515"
+  },
+  {
+    "symbol": "BRK.B",
+    "name": "Berkshire Hathaway Inc.",
+    "capex": -15400000000,
+    "year": 2024,
+    "revenue": 364482000000,
+    "sector": "Financials",
+    "market_cap": 880000000000
+  },
+  {
+    "symbol": "JPM",
+    "name": "JPMorgan Chase & Co.",
+    "capex": -4400000000,
+    "year": 2024,
+    "revenue": 173500000000,
+    "sector": "Financials",
+    "market_cap": 797209757400,
+    "market_cap_updated": "2025-07-12T17:11:58.830651"
+  },
+  {
+    "symbol": "WMT",
+    "name": "Walmart Inc.",
+    "capex": -10900000000,
+    "year": 2024,
+    "revenue": 648125000000,
+    "sector": "Consumer Staples",
+    "market_cap": 753351648000,
+    "market_cap_updated": "2025-07-12T17:12:02.146424"
+  },
+  {
+    "symbol": "LLY",
+    "name": "Eli Lilly and Co.",
+    "capex": -2800000000,
+    "year": 2024,
+    "revenue": 34124000000,
+    "sector": "Healthcare",
+    "market_cap": 751564125360,
+    "market_cap_updated": "2025-07-12T17:11:56.684396"
+  },
+  {
+    "symbol": "V",
+    "name": "Visa Inc.",
+    "capex": -900000000,
+    "year": 2024,
+    "revenue": 32653000000,
+    "sector": "Financial Services",
+    "market_cap": 674691670198,
+    "market_cap_updated": "2025-07-12T17:12:00.962454"
+  },
+  {
+    "symbol": "ORCL",
+    "name": "Oracle Corporation",
+    "capex": -2900000000,
+    "year": 2024,
+    "revenue": 50077000000,
+    "sector": "Technology",
+    "market_cap": 647603844800,
+    "market_cap_updated": "2025-07-12T17:12:09.911222"
+  },
+  {
+    "symbol": "NFLX",
+    "name": "Netflix Inc.",
+    "capex": -220000000,
+    "year": 2024,
+    "revenue": 33723000000,
+    "sector": "Technology",
+    "market_cap": 529882707810,
+    "market_cap_updated": "2025-07-12T17:12:28.277374"
+  },
+  {
+    "symbol": "XOM",
+    "name": "Exxon Mobil Corporation",
+    "capex": -17100000000,
+    "year": 2024,
+    "revenue": 413680000000,
+    "sector": "Energy",
+    "market_cap": 497461745200,
+    "market_cap_updated": "2025-07-12T17:12:03.210101"
+  },
+  {
+    "symbol": "MA",
+    "name": "Mastercard Inc.",
+    "capex": -950000000,
+    "year": 2024,
+    "revenue": 25100000000,
+    "sector": "Financial Services",
+    "market_cap": 495856877340,
+    "market_cap_updated": "2025-07-12T17:12:05.344904"
+  },
+  {
+    "symbol": "COST",
+    "name": "Costco Wholesale Corp.",
+    "capex": -4100000000,
+    "year": 2024,
+    "revenue": 249632000000,
+    "sector": "Consumer Staples",
+    "market_cap": 430319037410,
+    "market_cap_updated": "2025-07-12T17:12:07.656224"
+  },
+  {
+    "symbol": "JNJ",
+    "name": "Johnson & Johnson",
+    "capex": -3900000000,
+    "year": 2024,
+    "revenue": 85159000000,
+    "sector": "Healthcare",
+    "market_cap": 377512383000,
+    "market_cap_updated": "2025-07-12T17:12:04.271261"
+  },
+  {
+    "symbol": "PG",
+    "name": "Procter & Gamble Co.",
+    "capex": -3500000000,
+    "year": 2024,
+    "revenue": 84039000000,
+    "sector": "Consumer Staples",
+    "market_cap": 368210007000,
+    "market_cap_updated": "2025-07-12T17:12:08.843698"
+  },
+  {
+    "symbol": "HD",
+    "name": "Home Depot Inc.",
+    "capex": -2800000000,
+    "year": 2024,
+    "revenue": 157403000000,
+    "sector": "Consumer Discretionary",
+    "market_cap": 368193004960,
+    "market_cap_updated": "2025-07-12T17:12:06.478457"
+  },
+  {
+    "symbol": "BAC",
+    "name": "Bank of America Corp",
+    "capex": -3200000000,
+    "year": 2024,
+    "revenue": 91000000000,
+    "sector": "Financials",
+    "market_cap": 351964752400,
+    "market_cap_updated": "2025-07-12T17:12:11.000190"
+  },
+  {
+    "symbol": "ABBV",
+    "name": "AbbVie Inc.",
+    "capex": -2200000000,
+    "year": 2024,
+    "revenue": 58054000000,
+    "sector": "Healthcare",
+    "market_cap": 339943680000,
+    "market_cap_updated": "2025-07-12T17:12:12.079080"
+  },
+  {
+    "symbol": "KO",
+    "name": "Coca-Cola Co.",
+    "capex": -1300000000,
+    "year": 2024,
+    "revenue": 45754000000,
+    "sector": "Consumer Staples",
+    "market_cap": 300739344900,
+    "market_cap_updated": "2025-07-12T17:12:14.247086"
+  },
+  {
+    "symbol": "PM",
+    "name": "Philip Morris International Inc.",
+    "capex": -900000000,
+    "year": 2024,
+    "revenue": 33277000000,
+    "sector": "Consumer Staples",
+    "market_cap": 280033513200,
+    "market_cap_updated": "2025-07-12T17:12:40.241111"
+  },
+  {
+    "symbol": "UNH",
+    "name": "UnitedHealth Group Inc.",
+    "capex": -3400000000,
+    "year": 2024,
+    "revenue": 371622000000,
+    "sector": "Healthcare",
+    "market_cap": 275861274000,
+    "market_cap_updated": "2025-07-12T17:11:59.892675"
+  },
+  {
+    "symbol": "GE",
+    "name": "General Electric Co.",
+    "capex": -1900000000,
+    "year": 2024,
+    "revenue": 68235000000,
+    "sector": "Industrials",
+    "market_cap": 272377333800,
+    "market_cap_updated": "2025-07-12T17:12:27.185123"
+  },
+  {
+    "symbol": "CVX",
+    "name": "Chevron Corporation",
+    "capex": -14700000000,
+    "year": 2024,
+    "revenue": 200494000000,
+    "sector": "Energy",
+    "market_cap": 271231830900,
+    "market_cap_updated": "2025-07-12T17:12:13.169438"
+  },
+  {
+    "symbol": "CSCO",
+    "name": "Cisco Systems Inc.",
+    "capex": -1500000000,
+    "year": 2024,
+    "revenue": 57592000000,
+    "sector": "Technology",
+    "market_cap": 269082000000,
+    "market_cap_updated": "2025-07-12T17:12:25.005955"
+  },
+  {
+    "symbol": "WFC",
+    "name": "Wells Fargo & Co.",
+    "capex": -3500000000,
+    "year": 2024,
+    "revenue": 76000000000,
+    "sector": "Financials",
+    "market_cap": 268632559000,
+    "market_cap_updated": "2025-07-12T17:12:21.775353"
+  },
+  {
+    "symbol": "IBM",
+    "name": "International Business Machines Corp",
+    "capex": -4100000000,
+    "year": 2024,
+    "revenue": 62742000000,
+    "sector": "Technology",
+    "market_cap": 263567695230,
+    "market_cap_updated": "2025-07-12T17:12:35.858411"
+  },
+  {
+    "symbol": "CRM",
+    "name": "Salesforce Inc.",
+    "capex": -800000000,
+    "year": 2024,
+    "revenue": 31352000000,
+    "sector": "Technology",
+    "market_cap": 246714920000,
+    "market_cap_updated": "2025-07-12T17:12:15.323545"
+  },
+  {
+    "symbol": "AMD",
+    "name": "Advanced Micro Devices Inc.",
+    "capex": -400000000,
+    "year": 2024,
+    "revenue": 25353000000,
+    "sector": "Technology",
+    "market_cap": 237405388000,
+    "market_cap_updated": "2025-07-12T17:12:19.621571"
+  },
+  {
+    "symbol": "ABT",
+    "name": "Abbott Laboratories",
+    "capex": -2100000000,
+    "year": 2024,
+    "revenue": 40101000000,
+    "sector": "Healthcare",
+    "market_cap": 229693676800,
+    "market_cap_updated": "2025-07-12T17:12:31.537203"
+  },
+  {
+    "symbol": "MS",
+    "name": "Morgan Stanley",
+    "capex": -1900000000,
+    "year": 2024,
+    "revenue": 54071000000,
+    "sector": "Financials",
+    "market_cap": 228262649600,
+    "market_cap_updated": "2025-07-12T17:12:50.100392"
+  },
+  {
+    "symbol": "AXP",
+    "name": "American Express Co.",
+    "capex": -1800000000,
+    "year": 2024,
+    "revenue": 64035000000,
+    "sector": "Financial Services",
+    "market_cap": 223817167830,
+    "market_cap_updated": "2025-07-12T17:12:38.087489"
+  },
+  {
+    "symbol": "LIN",
+    "name": "Linde PLC",
+    "capex": -3200000000,
+    "year": 2024,
+    "revenue": 33584000000,
+    "sector": "Materials",
+    "market_cap": 220680118440,
+    "market_cap_updated": "2025-07-12T17:12:20.699444"
+  },
+  {
+    "symbol": "GS",
+    "name": "Goldman Sachs Group Inc.",
+    "capex": -2200000000,
+    "year": 2024,
+    "revenue": 46900000000,
+    "sector": "Financials",
+    "market_cap": 216307562950,
+    "market_cap_updated": "2025-07-12T17:12:51.190386"
+  },
+  {
+    "symbol": "DIS",
+    "name": "Walt Disney Co.",
+    "capex": -7800000000,
+    "year": 2024,
+    "revenue": 88898000000,
+    "sector": "Consumer Discretionary",
+    "market_cap": 215496292500,
+    "market_cap_updated": "2025-07-12T17:12:34.773661"
+  },
+  {
+    "symbol": "MCD",
+    "name": "McDonald's Corp.",
+    "capex": -2500000000,
+    "year": 2024,
+    "revenue": 25494000000,
+    "sector": "Consumer Discretionary",
+    "market_cap": 214445547030,
+    "market_cap_updated": "2025-07-12T17:12:17.465722"
+  },
+  {
+    "symbol": "TXN",
+    "name": "Texas Instruments Inc.",
+    "capex": -1600000000,
+    "year": 2024,
+    "revenue": 17521000000,
+    "sector": "Technology",
+    "market_cap": 200999430000,
+    "market_cap_updated": "2025-07-12T17:12:30.451019"
+  },
+  {
+    "symbol": "RTX",
+    "name": "Raytheon Technologies Corp.",
+    "capex": -3800000000,
+    "year": 2024,
+    "revenue": 79017000000,
+    "sector": "Industrials",
+    "market_cap": 196210976500,
+    "market_cap_updated": "2025-07-12T17:12:49.019407"
+  },
+  {
+    "symbol": "NOW",
+    "name": "ServiceNow Inc.",
+    "capex": -300000000,
+    "year": 2024,
+    "revenue": 8970000000,
+    "sector": "Technology",
+    "market_cap": 194470154560,
+    "market_cap_updated": "2025-07-12T17:12:43.580539"
+  },
+  {
+    "symbol": "T",
+    "name": "AT&T Inc.",
+    "capex": -20500000000,
+    "year": 2024,
+    "revenue": 122428000000,
+    "sector": "Telecommunications",
+    "market_cap": 194065332000,
+    "market_cap_updated": "2025-07-12T17:12:44.693073"
+  },
+  {
+    "symbol": "ACN",
+    "name": "Accenture PLC",
+    "capex": -800000000,
+    "year": 2024,
+    "revenue": 64112000000,
+    "sector": "Technology",
+    "market_cap": 191217203580,
+    "market_cap_updated": "2025-07-12T17:12:22.855229"
+  },
+  {
+    "symbol": "CAT",
+    "name": "Caterpillar Inc.",
+    "capex": -2200000000,
+    "year": 2024,
+    "revenue": 67060000000,
+    "sector": "Industrials",
+    "market_cap": 190910264800,
+    "market_cap_updated": "2025-07-12T17:12:36.943284"
+  },
+  {
+    "symbol": "PEP",
+    "name": "PepsiCo Inc.",
+    "capex": -4700000000,
+    "year": 2024,
+    "revenue": 91471000000,
+    "sector": "Consumer Staples",
+    "market_cap": 185452280800,
+    "market_cap_updated": "2025-07-12T17:12:16.396628"
+  },
+  {
+    "symbol": "ISRG",
+    "name": "Intuitive Surgical Inc.",
+    "capex": -800000000,
+    "year": 2024,
+    "revenue": 7672000000,
+    "sector": "Healthcare",
+    "market_cap": 183531521080,
+    "market_cap_updated": "2025-07-12T17:12:56.591160"
+  },
+  {
+    "symbol": "VZ",
+    "name": "Verizon Communications Inc.",
+    "capex": -18800000000,
+    "year": 2024,
+    "revenue": 134000000000,
+    "sector": "Telecommunications",
+    "market_cap": 175480741200,
+    "market_cap_updated": "2025-07-12T17:12:33.701712"
+  },
+  {
+    "symbol": "QCOM",
+    "name": "Qualcomm Inc.",
+    "capex": -900000000,
+    "year": 2024,
+    "revenue": 38731000000,
+    "sector": "Technology",
+    "market_cap": 172891080000,
+    "market_cap_updated": "2025-07-12T17:12:26.087966"
+  },
+  {
+    "symbol": "BA",
+    "name": "Boeing Co.",
+    "capex": -2800000000,
+    "year": 2024,
+    "revenue": 77794000000,
+    "sector": "Industrials",
+    "market_cap": 171038494200,
+    "market_cap_updated": "2025-07-12T17:12:45.763833"
+  },
+  {
+    "symbol": "BLK",
+    "name": "BlackRock Inc.",
+    "capex": -600000000,
+    "year": 2024,
+    "revenue": 20218000000,
+    "sector": "Financials",
+    "market_cap": 170672678640,
+    "market_cap_updated": "2025-07-12T17:13:03.218271"
+  },
+  {
+    "symbol": "TMO",
+    "name": "Thermo Fisher Scientific Inc.",
+    "capex": -1800000000,
+    "year": 2024,
+    "revenue": 42475000000,
+    "sector": "Healthcare",
+    "market_cap": 164157040840,
+    "market_cap_updated": "2025-07-12T17:12:23.935932"
+  },
+  {
+    "symbol": "C",
+    "name": "Citigroup Inc.",
+    "capex": -3100000000,
+    "year": 2024,
+    "revenue": 75338000000,
+    "sector": "Financials",
+    "market_cap": 161988222900,
+    "market_cap_updated": "2025-07-12T17:12:58.826751"
+  },
+  {
+    "symbol": "SPGI",
+    "name": "S&P Global Inc.",
+    "capex": -500000000,
+    "year": 2024,
+    "revenue": 10190000000,
+    "sector": "Financials",
+    "market_cap": 161652369000,
+    "market_cap_updated": "2025-07-12T17:12:55.510430"
+  },
+  {
+    "symbol": "AMGN",
+    "name": "Amgen Inc.",
+    "capex": -900000000,
+    "year": 2024,
+    "revenue": 28235000000,
+    "sector": "Healthcare",
+    "market_cap": 158768450620,
+    "market_cap_updated": "2025-07-12T17:12:46.845752"
+  },
+  {
+    "symbol": "ADBE",
+    "name": "Adobe Inc.",
+    "capex": -1200000000,
+    "year": 2024,
+    "revenue": 21051000000,
+    "sector": "Technology",
+    "market_cap": 154133070000,
+    "market_cap_updated": "2025-07-12T17:12:18.542463"
+  },
+  {
+    "symbol": "NEE",
+    "name": "NextEra Energy Inc.",
+    "capex": -13400000000,
+    "year": 2024,
+    "revenue": 28114000000,
+    "sector": "Utilities",
+    "market_cap": 153162072000,
+    "market_cap_updated": "2025-07-12T17:12:42.391605"
+  },
+  {
+    "symbol": "HON",
+    "name": "Honeywell International Inc.",
+    "capex": -1400000000,
+    "year": 2024,
+    "revenue": 38527000000,
+    "sector": "Industrials",
+    "market_cap": 151628200190,
+    "market_cap_updated": "2025-07-12T17:12:53.340937"
+  },
+  {
+    "symbol": "DHR",
+    "name": "Danaher Corp.",
+    "capex": -1800000000,
+    "year": 2024,
+    "revenue": 31471000000,
+    "sector": "Healthcare",
+    "market_cap": 146604999500,
+    "market_cap_updated": "2025-07-12T17:12:32.622067"
+  },
+  {
+    "symbol": "PFE",
+    "name": "Pfizer Inc.",
+    "capex": -2100000000,
+    "year": 2024,
+    "revenue": 58496000000,
+    "sector": "Healthcare",
+    "market_cap": 145829740500,
+    "market_cap_updated": "2025-07-12T17:12:39.175270"
+  },
+  {
+    "symbol": "COF",
+    "name": "Capital One Financial Corp.",
+    "capex": -1800000000,
+    "year": 2024,
+    "revenue": 35015000000,
+    "sector": "Financials",
+    "market_cap": 140695931020,
+    "market_cap_updated": "2025-07-12T17:13:33.374955"
+  },
+  {
+    "symbol": "UNP",
+    "name": "Union Pacific Corp.",
+    "capex": -3400000000,
+    "year": 2024,
+    "revenue": 24119000000,
+    "sector": "Industrials",
+    "market_cap": 140466607600,
+    "market_cap_updated": "2025-07-12T17:12:54.427559"
+  },
+  {
+    "symbol": "DE",
+    "name": "Deere & Co.",
+    "capex": -1800000000,
+    "year": 2024,
+    "revenue": 53266000000,
+    "sector": "Industrials",
+    "market_cap": 138774463070,
+    "market_cap_updated": "2025-07-12T17:13:04.315598"
+  },
+  {
+    "symbol": "TJX",
+    "name": "TJX Companies Inc.",
+    "capex": -1400000000,
+    "year": 2024,
+    "revenue": 54215000000,
+    "sector": "Consumer Discretionary",
+    "market_cap": 138013350200,
+    "market_cap_updated": "2025-07-12T17:13:06.453388"
+  },
+  {
+    "symbol": "GILD",
+    "name": "Gilead Sciences Inc.",
+    "capex": -500000000,
+    "year": 2024,
+    "revenue": 26274000000,
+    "sector": "Healthcare",
+    "market_cap": 136384485200,
+    "market_cap_updated": "2025-07-12T17:13:09.649538"
+  },
+  {
+    "symbol": "CMCSA",
+    "name": "Comcast Corp.",
+    "capex": -7700000000,
+    "year": 2024,
+    "revenue": 121427000000,
+    "sector": "Telecommunications",
+    "market_cap": 130311857400,
+    "market_cap_updated": "2025-07-12T17:12:41.315321"
+  },
+  {
+    "symbol": "LOW",
+    "name": "Lowe's Companies Inc.",
+    "capex": -2100000000,
+    "year": 2024,
+    "revenue": 86377000000,
+    "sector": "Consumer Discretionary",
+    "market_cap": 125610968940,
+    "market_cap_updated": "2025-07-12T17:12:52.271617"
+  },
+  {
+    "symbol": "ADP",
+    "name": "Automatic Data Processing Inc.",
+    "capex": -800000000,
+    "year": 2024,
+    "revenue": 18615000000,
+    "sector": "Technology",
+    "market_cap": 122852595950,
+    "market_cap_updated": "2025-07-12T17:13:05.388591"
+  },
+  {
+    "symbol": "COP",
+    "name": "ConocoPhillips",
+    "capex": -8500000000,
+    "year": 2024,
+    "revenue": 61594000000,
+    "sector": "Energy",
+    "market_cap": 120699020100,
+    "market_cap_updated": "2025-07-12T17:12:47.928230"
+  },
+  {
+    "symbol": "SBUX",
+    "name": "Starbucks Corp.",
+    "capex": -2000000000,
+    "year": 2024,
+    "revenue": 36017000000,
+    "sector": "Consumer Discretionary",
+    "market_cap": 107889816000,
+    "market_cap_updated": "2025-07-12T17:12:59.909090"
+  },
+  {
+    "symbol": "NKE",
+    "name": "Nike Inc.",
+    "capex": -1100000000,
+    "year": 2024,
+    "revenue": 51362000000,
+    "sector": "Consumer Discretionary",
+    "market_cap": 107201211877,
+    "market_cap_updated": "2025-07-12T17:12:57.749420"
+  },
+  {
+    "symbol": "MMC",
+    "name": "Marsh & McLennan Companies Inc.",
+    "capex": -300000000,
+    "year": 2024,
+    "revenue": 23491000000,
+    "sector": "Financials",
+    "market_cap": 104330226720,
+    "market_cap_updated": "2025-07-12T17:13:08.574662"
+  },
+  {
+    "symbol": "ICE",
+    "name": "Intercontinental Exchange Inc.",
+    "capex": -600000000,
+    "year": 2024,
+    "revenue": 8971000000,
+    "sector": "Financials",
+    "market_cap": 103545229260,
+    "market_cap_updated": "2025-07-12T17:13:13.925968"
+  },
+  {
+    "symbol": "INTC",
+    "name": "Intel Corporation",
+    "capex": -25200000000,
+    "year": 2024,
+    "revenue": 71900000000,
+    "sector": "Technology",
+    "market_cap": 102201660000,
+    "market_cap_updated": "2025-07-12T17:12:29.368581"
+  },
+  {
+    "symbol": "SO",
+    "name": "Southern Co.",
+    "capex": -6200000000,
+    "year": 2024,
+    "revenue": 25876000000,
+    "sector": "Utilities",
+    "market_cap": 101838899600,
+    "market_cap_updated": "2025-07-12T17:13:14.983077"
+  },
+  {
+    "symbol": "CME",
+    "name": "CME Group Inc.",
+    "capex": -300000000,
+    "year": 2024,
+    "revenue": 5900000000,
+    "sector": "Financials",
+    "market_cap": 99126728480,
+    "market_cap_updated": "2025-07-12T17:13:12.858146"
+  },
+  {
+    "symbol": "BMY",
+    "name": "Bristol-Myers Squibb Co.",
+    "capex": -1200000000,
+    "year": 2024,
+    "revenue": 45006000000,
+    "sector": "Healthcare",
+    "market_cap": 95363848800,
+    "market_cap_updated": "2025-07-12T17:13:00.977699"
+  },
+  {
+    "symbol": "DUK",
+    "name": "Duke Energy Corp.",
+    "capex": -8900000000,
+    "year": 2024,
+    "revenue": 29552000000,
+    "sector": "Utilities",
+    "market_cap": 91296607220,
+    "market_cap_updated": "2025-07-12T17:13:11.803972"
+  },
+  {
+    "symbol": "MCO",
+    "name": "Moody's Corp.",
+    "capex": -200000000,
+    "year": 2024,
+    "revenue": 6200000000,
+    "sector": "Financials",
+    "market_cap": 89865447000,
+    "market_cap_updated": "2025-07-12T17:13:19.462488"
+  },
+  {
+    "symbol": "MDLZ",
+    "name": "Mondelez International Inc.",
+    "capex": -1100000000,
+    "year": 2024,
+    "revenue": 36015000000,
+    "sector": "Consumer Staples",
+    "market_cap": 86986007600,
+    "market_cap_updated": "2025-07-12T17:13:07.515957"
+  },
+  {
+    "symbol": "SHW",
+    "name": "Sherwin-Williams Co.",
+    "capex": -600000000,
+    "year": 2024,
+    "revenue": 22150000000,
+    "sector": "Materials",
+    "market_cap": 86690403930,
+    "market_cap_updated": "2025-07-12T17:13:10.720311"
+  },
+  {
+    "symbol": "UPS",
+    "name": "United Parcel Service Inc.",
+    "capex": -4500000000,
+    "year": 2024,
+    "revenue": 90958000000,
+    "sector": "Industrials",
+    "market_cap": 85755211484,
+    "market_cap_updated": "2025-07-12T17:13:02.113940"
+  },
+  {
+    "symbol": "MMM",
+    "name": "3M Co.",
+    "capex": -1500000000,
+    "year": 2024,
+    "revenue": 32681000000,
+    "sector": "Industrials",
+    "market_cap": 83870127040,
+    "market_cap_updated": "2025-07-12T17:13:25.860049"
+  },
+  {
+    "symbol": "CVS",
+    "name": "CVS Health Corp.",
+    "capex": -2900000000,
+    "year": 2024,
+    "revenue": 322467000000,
+    "sector": "Healthcare",
+    "market_cap": 81947995600,
+    "market_cap_updated": "2025-07-12T17:13:27.998337"
+  },
+  {
+    "symbol": "GD",
+    "name": "General Dynamics Corp.",
+    "capex": -1200000000,
+    "year": 2024,
+    "revenue": 42295000000,
+    "sector": "Industrials",
+    "market_cap": 81109271200,
+    "market_cap_updated": "2025-07-12T17:13:17.137411"
+  },
+  {
+    "symbol": "EMR",
+    "name": "Emerson Electric Co.",
+    "capex": -900000000,
+    "year": 2024,
+    "revenue": 16781000000,
+    "sector": "Industrials",
+    "market_cap": 78806250000,
+    "market_cap_updated": "2025-07-12T17:13:32.295034"
+  },
+  {
+    "symbol": "PNC",
+    "name": "PNC Financial Services Group Inc.",
+    "capex": -1100000000,
+    "year": 2024,
+    "revenue": 21398000000,
+    "sector": "Financials",
+    "market_cap": 77934610340,
+    "market_cap_updated": "2025-07-12T17:13:31.227909"
+  },
+  {
+    "symbol": "AON",
+    "name": "Aon PLC",
+    "capex": -400000000,
+    "year": 2024,
+    "revenue": 13398000000,
+    "sector": "Financials",
+    "market_cap": 76803379800,
+    "market_cap_updated": "2025-07-12T17:13:16.053884"
+  },
+  {
+    "symbol": "ITW",
+    "name": "Illinois Tool Works Inc.",
+    "capex": -600000000,
+    "year": 2024,
+    "revenue": 16113000000,
+    "sector": "Industrials",
+    "market_cap": 76092100000,
+    "market_cap_updated": "2025-07-12T17:13:18.231244"
+  },
+  {
+    "symbol": "CMG",
+    "name": "Chipotle Mexican Grill Inc.",
+    "capex": -500000000,
+    "year": 2024,
+    "revenue": 8982000000,
+    "sector": "Consumer Discretionary",
+    "market_cap": 75452160000,
+    "market_cap_updated": "2025-07-12T17:13:24.795586"
+  },
+  {
+    "symbol": "USB",
+    "name": "U.S. Bancorp",
+    "capex": -2100000000,
+    "year": 2024,
+    "revenue": 23872000000,
+    "sector": "Financials",
+    "market_cap": 73445534200,
+    "market_cap_updated": "2025-07-12T17:13:30.146826"
+  },
+  {
+    "symbol": "CL",
+    "name": "Colgate-Palmolive Co.",
+    "capex": -800000000,
+    "year": 2024,
+    "revenue": 19457000000,
+    "sector": "Consumer Staples",
+    "market_cap": 72597423600,
+    "market_cap_updated": "2025-07-12T17:13:22.665085"
+  },
+  {
+    "symbol": "PYPL",
+    "name": "PayPal Holdings Inc.",
+    "capex": -1100000000,
+    "year": 2024,
+    "revenue": 31543000000,
+    "sector": "Financial Services",
+    "market_cap": 69399954880,
+    "market_cap_updated": "2025-07-12T17:13:20.537493"
+  },
+  {
+    "symbol": "EOG",
+    "name": "EOG Resources Inc.",
+    "capex": -4900000000,
+    "year": 2024,
+    "revenue": 24598000000,
+    "sector": "Energy",
+    "market_cap": 67153632480,
+    "market_cap_updated": "2025-07-12T17:13:23.729358"
+  },
+  {
+    "symbol": "APD",
+    "name": "Air Products and Chemicals Inc.",
+    "capex": -2100000000,
+    "year": 2024,
+    "revenue": 12604000000,
+    "sector": "Materials",
+    "market_cap": 64976171680,
+    "market_cap_updated": "2025-07-12T17:13:34.436557"
+  },
+  {
+    "symbol": "NSC",
+    "name": "Norfolk Southern Corp.",
+    "capex": -2200000000,
+    "year": 2024,
+    "revenue": 12703000000,
+    "sector": "Industrials",
+    "market_cap": 60096340510,
+    "market_cap_updated": "2025-07-12T17:13:35.509770"
+  },
+  {
+    "symbol": "TFC",
+    "name": "Truist Financial Corp.",
+    "capex": -1500000000,
+    "year": 2024,
+    "revenue": 20582000000,
+    "sector": "Financials",
+    "market_cap": 59492402200,
+    "market_cap_updated": "2025-07-12T17:13:36.587601"
+  },
+  {
+    "symbol": "FDX",
+    "name": "FedEx Corp.",
+    "capex": -5400000000,
+    "year": 2024,
+    "revenue": 87692000000,
+    "sector": "Industrials",
+    "market_cap": 56559739940,
+    "market_cap_updated": "2025-07-12T17:13:21.608416"
+  },
+  {
+    "symbol": "SLB",
+    "name": "Schlumberger NV",
+    "capex": -2200000000,
+    "year": 2024,
+    "revenue": 33135000000,
+    "sector": "Energy",
+    "market_cap": 50747569600,
+    "market_cap_updated": "2025-07-12T17:13:29.079254"
+  },
+  {
+    "symbol": "TGT",
+    "name": "Target Corp.",
+    "capex": -4200000000,
+    "year": 2024,
+    "revenue": 107588000000,
+    "sector": "Consumer Discretionary",
+    "market_cap": 47363111840,
+    "market_cap_updated": "2025-07-12T17:13:26.927486"
+  },
+  {
+    "symbol": "CNC",
+    "name": "Centene Corp.",
+    "capex": -800000000,
+    "year": 2024,
+    "revenue": 154218000000,
+    "sector": "Healthcare",
+    "market_cap": 15644638320,
+    "market_cap_updated": "2025-07-12T17:13:37.643798"
+  }
+]
