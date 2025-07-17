@@ -1,42 +1,1330 @@
 {
-  "timestamp": "2025-01-15T12:00:00.000Z",
+  "timestamp": "2025-07-17T15:53:27.625552",
   "companies": {
+    "NVDA": {
+      "symbol": "NVDA",
+      "name": "NVIDIA Corporation",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581025000179/nvda-20250625.htm",
+          "timestamp": "2025-07-17T15:53:28.359561"
+        }
+      ],
+      "updated": "2025-07-17T15:53:28.359902"
+    },
+    "MSFT": {
+      "symbol": "MSFT",
+      "name": "Microsoft Corporation",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312525154103/d84624d8k.htm",
+          "timestamp": "2025-07-17T15:53:29.261362"
+        }
+      ],
+      "updated": "2025-07-17T15:53:29.261615"
+    },
     "AAPL": {
       "symbol": "AAPL",
       "name": "Apple Inc.",
       "filings": [
         {
-          "form": "10-Q",
-          "date": "2024-12-30",
-          "accessionNumber": "0000320193-24-000123",
-          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019324000123/0000320193-24-000123-index.htm",
-          "timestamp": "2025-01-15T12:00:00.000Z"
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000114036125025275/ef20051741_8k.htm",
+          "timestamp": "2025-07-17T15:53:30.129263"
         },
         {
           "form": "8-K",
-          "date": "2024-12-15",
-          "accessionNumber": "0000320193-24-000122",
-          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019324000122/0000320193-24-000122-index.htm",
-          "timestamp": "2025-01-15T12:00:00.000Z"
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000114036125018400/ef20048691_8k.htm",
+          "timestamp": "2025-07-17T15:53:30.129288"
+        },
+        {
+          "form": "10-Q",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000057/aapl-20250329.htm",
+          "timestamp": "2025-07-17T15:53:30.129294"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000055/a8-kex991q2202503292025.htm",
+          "timestamp": "2025-07-17T15:53:30.129298"
         }
       ],
-      "updated": "2025-01-15T12:00:00.000Z"
+      "updated": "2025-07-17T15:53:30.129684"
     },
-    "MSFT": {
-      "symbol": "MSFT",
-      "name": "Microsoft Corporation", 
+    "AVGO": {
+      "symbol": "AVGO",
+      "name": "Broadcom Inc.",
       "filings": [
         {
-          "form": "10-K",
-          "date": "2024-12-28",
-          "accessionNumber": "0000789019-24-000089",
-          "url": "https://www.sec.gov/Archives/edgar/data/789019/000078901924000089/0000789019-24-000089-index.htm",
-          "timestamp": "2025-01-15T12:00:00.000Z"
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1730168/000119312525158202/d89787d8k.htm",
+          "timestamp": "2025-07-17T15:53:33.739029"
         }
       ],
-      "updated": "2025-01-15T12:00:00.000Z"
+      "updated": "2025-07-17T15:53:33.739496"
+    },
+    "TSLA": {
+      "symbol": "TSLA",
+      "name": "Tesla Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025034692/tsla-20250709.htm",
+          "timestamp": "2025-07-17T15:53:34.614274"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1318605/000162828025033842/exhibit99111.htm",
+          "timestamp": "2025-07-17T15:53:34.614291"
+        }
+      ],
+      "updated": "2025-07-17T15:53:34.614474"
+    },
+    "V": {
+      "symbol": "V",
+      "name": "Visa Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1403161/000162828025025899/v-20250430.htm",
+          "timestamp": "2025-07-17T15:53:39.876339"
+        }
+      ],
+      "updated": "2025-07-17T15:53:39.876690"
+    },
+    "ORCL": {
+      "symbol": "ORCL",
+      "name": "Oracle Corporation",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1341439/000119312525152035/d136779d8k.htm",
+          "timestamp": "2025-07-17T15:53:40.769229"
+        }
+      ],
+      "updated": "2025-07-17T15:53:40.769510"
+    },
+    "XOM": {
+      "symbol": "XOM",
+      "name": "Exxon Mobil Corporation",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000003408825000036/f8k2q991070725.htm",
+          "timestamp": "2025-07-17T15:53:42.682769"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/34088/000003408825000030/xom-20250528.htm",
+          "timestamp": "2025-07-17T15:53:42.682807"
+        }
+      ],
+      "updated": "2025-07-17T15:53:42.683294"
+    },
+    "MA": {
+      "symbol": "MA",
+      "name": "Mastercard Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1141391/000114139125000154/ma-20250624.htm",
+          "timestamp": "2025-07-17T15:53:43.605445"
+        }
+      ],
+      "updated": "2025-07-17T15:53:43.605836"
+    },
+    "COST": {
+      "symbol": "COST",
+      "name": "Costco Wholesale Corp.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000061/costex9918-k71625.htm",
+          "timestamp": "2025-07-17T15:53:44.485602"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000036/cost-20250610.htm",
+          "timestamp": "2025-07-17T15:53:44.485620"
+        },
+        {
+          "form": "10-Q",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000033/cost-20250511.htm",
+          "timestamp": "2025-07-17T15:53:44.485624"
+        }
+      ],
+      "updated": "2025-07-17T15:53:44.485893"
+    },
+    "JNJ": {
+      "symbol": "JNJ",
+      "name": "Johnson & Johnson",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040625000170/a2025q2exhibit992.htm",
+          "timestamp": "2025-07-17T15:53:45.387327"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/200406/000020040625000152/ex991-pressrelease.htm",
+          "timestamp": "2025-07-17T15:53:45.387359"
+        }
+      ],
+      "updated": "2025-07-17T15:53:45.387832"
+    },
+    "PG": {
+      "symbol": "PG",
+      "name": "Procter & Gamble Co.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000057/july2025dividend.htm",
+          "timestamp": "2025-07-17T15:53:46.281444"
+        }
+      ],
+      "updated": "2025-07-17T15:53:46.281590"
+    },
+    "ABBV": {
+      "symbol": "ABBV",
+      "name": "AbbVie Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1551152/000155115225000034/abbv-20250630nonxgaapxex991.htm",
+          "timestamp": "2025-07-17T15:53:48.998294"
+        }
+      ],
+      "updated": "2025-07-17T15:53:48.998463"
+    },
+    "KO": {
+      "symbol": "KO",
+      "name": "Coca-Cola Co.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000047/ko-20250626_d2.htm",
+          "timestamp": "2025-07-17T15:53:49.884613"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000033/ko-20250430.htm",
+          "timestamp": "2025-07-17T15:53:49.884632"
+        },
+        {
+          "form": "10-Q",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/21344/000002134425000029/ko-20250328.htm",
+          "timestamp": "2025-07-17T15:53:49.884636"
+        }
+      ],
+      "updated": "2025-07-17T15:53:49.884881"
+    },
+    "PM": {
+      "symbol": "PM",
+      "name": "Philip Morris International Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1413329/000141332925000141/europeinvestorfocusevent.htm",
+          "timestamp": "2025-07-17T15:53:50.775400"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1413329/000141332925000137/june2025dividend.htm",
+          "timestamp": "2025-07-17T15:53:50.775413"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1413329/000110465925057314/tm2517118d1_8k.htm",
+          "timestamp": "2025-07-17T15:53:50.775419"
+        }
+      ],
+      "updated": "2025-07-17T15:53:50.775697"
+    },
+    "GE": {
+      "symbol": "GE",
+      "name": "General Electric Co.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054525000108/ge2q2025earningsrelease.htm",
+          "timestamp": "2025-07-17T15:53:52.566259"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054525000091/ge-20250506.htm",
+          "timestamp": "2025-07-17T15:53:52.566269"
+        }
+      ],
+      "updated": "2025-07-17T15:53:52.566426"
+    },
+    "CVX": {
+      "symbol": "CVX",
+      "name": "Chevron Corporation",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/93410/000009341025000024/cvx-20250528.htm",
+          "timestamp": "2025-07-17T15:53:53.462329"
+        }
+      ],
+      "updated": "2025-07-17T15:53:53.462652"
+    },
+    "WFC": {
+      "symbol": "WFC",
+      "name": "Wells Fargo & Co.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/72971/000007297125000170/wfc2qer07-15x25ex992xsuppl.htm",
+          "timestamp": "2025-07-17T15:53:55.241569"
+        }
+      ],
+      "updated": "2025-07-17T15:53:55.241750"
+    },
+    "CRM": {
+      "symbol": "CRM",
+      "name": "Salesforce Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1108524/000110852425000040/exhibit991-july2025directo.htm",
+          "timestamp": "2025-07-17T15:53:57.020370"
+        }
+      ],
+      "updated": "2025-07-17T15:53:57.020827"
+    },
+    "AMD": {
+      "symbol": "AMD",
+      "name": "Advanced Micro Devices Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/2488/000000248825000099/amd-20250627.htm",
+          "timestamp": "2025-07-17T15:53:57.907498"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/2488/000119312525122121/d831221dex991.htm",
+          "timestamp": "2025-07-17T15:53:57.907521"
+        }
+      ],
+      "updated": "2025-07-17T15:53:57.908933"
+    },
+    "ABT": {
+      "symbol": "ABT",
+      "name": "Abbott Laboratories",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1800/000162828025035135/abt-2025q2xexhibitx991.htm",
+          "timestamp": "2025-07-17T15:53:58.854301"
+        }
+      ],
+      "updated": "2025-07-17T15:53:58.854628"
+    },
+    "AXP": {
+      "symbol": "AXP",
+      "name": "American Express Co.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/4962/000000496225000078/axp-20250715.htm",
+          "timestamp": "2025-07-17T15:54:00.626224"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/4962/000000496225000073/axpexhibit991ccar.htm",
+          "timestamp": "2025-07-17T15:54:00.626243"
+        }
+      ],
+      "updated": "2025-07-17T15:54:00.626485"
+    },
+    "LIN": {
+      "symbol": "LIN",
+      "name": "Linde PLC",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1707925/000119312525135992/d911230d8k.htm",
+          "timestamp": "2025-07-17T15:54:01.591603"
+        }
+      ],
+      "updated": "2025-07-17T15:54:01.592060"
+    },
+    "MCD": {
+      "symbol": "MCD",
+      "name": "McDonald's Corp.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/63908/000006390825000029/mcd-20250520.htm",
+          "timestamp": "2025-07-17T15:54:04.235107"
+        }
+      ],
+      "updated": "2025-07-17T15:54:04.235375"
+    },
+    "TXN": {
+      "symbol": "TXN",
+      "name": "Texas Instruments Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/97476/000119312525125915/d943827d8k.htm",
+          "timestamp": "2025-07-17T15:54:05.143218"
+        },
+        {
+          "form": "10-Q",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747625000027/txn-20250331.htm",
+          "timestamp": "2025-07-17T15:54:05.143229"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747625000025/txn-20250423.htm",
+          "timestamp": "2025-07-17T15:54:05.143231"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/97476/000009747625000022/txn-20250417.htm",
+          "timestamp": "2025-07-17T15:54:05.143232"
+        }
+      ],
+      "updated": "2025-07-17T15:54:05.143425"
+    },
+    "NOW": {
+      "symbol": "NOW",
+      "name": "ServiceNow Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1373715/000137371525000243/now-20250530.htm",
+          "timestamp": "2025-07-17T15:54:06.917372"
+        }
+      ],
+      "updated": "2025-07-17T15:54:06.917662"
+    },
+    "ACN": {
+      "symbol": "ACN",
+      "name": "Accenture PLC",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1467373/000146737325000170/acn-20250620.htm",
+          "timestamp": "2025-07-17T15:54:08.658845"
+        }
+      ],
+      "updated": "2025-07-17T15:54:08.659131"
+    },
+    "PEP": {
+      "symbol": "PEP",
+      "name": "PepsiCo Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/77476/000007747625000046/q220258-kxexhibit991.htm",
+          "timestamp": "2025-07-17T15:54:10.408320"
+        }
+      ],
+      "updated": "2025-07-17T15:54:10.408695"
+    },
+    "ISRG": {
+      "symbol": "ISRG",
+      "name": "Intuitive Surgical Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526725000161/q225ex-991leadershipchange.htm",
+          "timestamp": "2025-07-17T15:54:11.272163"
+        }
+      ],
+      "updated": "2025-07-17T15:54:11.272456"
+    },
+    "VZ": {
+      "symbol": "VZ",
+      "name": "Verizon Communications Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/732712/000119312525144362/d74877dex991.htm",
+          "timestamp": "2025-07-17T15:54:12.147250"
+        }
+      ],
+      "updated": "2025-07-17T15:54:12.147493"
+    },
+    "QCOM": {
+      "symbol": "QCOM",
+      "name": "Qualcomm Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/804328/000110465925057814/tm2517479d1_8k.htm",
+          "timestamp": "2025-07-17T15:54:13.021746"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/804328/000110465925051981/tm2515698d1_8k.htm",
+          "timestamp": "2025-07-17T15:54:13.021755"
+        }
+      ],
+      "updated": "2025-07-17T15:54:13.021954"
+    },
+    "TMO": {
+      "symbol": "TMO",
+      "name": "Thermo Fisher Scientific Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/97745/000009774525000069/tmo-20250521.htm",
+          "timestamp": "2025-07-17T15:54:15.675300"
+        }
+      ],
+      "updated": "2025-07-17T15:54:15.675989"
+    },
+    "SPGI": {
+      "symbol": "SPGI",
+      "name": "S&P Global Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/64040/000006404025000135/spgi-20250507.htm",
+          "timestamp": "2025-07-17T15:54:17.428194"
+        },
+        {
+          "form": "10-Q",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/64040/000006404025000126/spgi-20250331.htm",
+          "timestamp": "2025-07-17T15:54:17.428212"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/64040/000006404025000122/spgi1q2025-earningsrelease.htm",
+          "timestamp": "2025-07-17T15:54:17.428220"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/64040/000095010325004777/dp227635_8k.htm",
+          "timestamp": "2025-07-17T15:54:17.428224"
+        }
+      ],
+      "updated": "2025-07-17T15:54:17.428653"
+    },
+    "ADBE": {
+      "symbol": "ADBE",
+      "name": "Adobe Inc.",
+      "filings": [
+        {
+          "form": "10-Q",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634325000073/adbe-20250530.htm",
+          "timestamp": "2025-07-17T15:54:19.288678"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634325000064/adbeex991q225.htm",
+          "timestamp": "2025-07-17T15:54:19.288689"
+        }
+      ],
+      "updated": "2025-07-17T15:54:19.290984"
+    },
+    "NEE": {
+      "symbol": "NEE",
+      "name": "NextEra Energy Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/753308/000075330825000032/nee-20250612.htm",
+          "timestamp": "2025-07-17T15:54:20.176235"
+        }
+      ],
+      "updated": "2025-07-17T15:54:20.176664"
+    },
+    "HON": {
+      "symbol": "HON",
+      "name": "Honeywell International Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/773840/000077384025000054/exhibit992-amendmentno1tot.htm",
+          "timestamp": "2025-07-17T15:54:21.051238"
+        }
+      ],
+      "updated": "2025-07-17T15:54:21.051552"
+    },
+    "COF": {
+      "symbol": "COF",
+      "name": "Capital One Financial Corp.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/927628/000092762825000232/exhibit991-ccarpressreleas.htm",
+          "timestamp": "2025-07-17T15:54:23.719034"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/927628/000119312525152658/d926615d8k.htm",
+          "timestamp": "2025-07-17T15:54:23.719062"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/927628/000119312525146266/d837776dex991.htm",
+          "timestamp": "2025-07-17T15:54:23.719066"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/927628/000092762825000226/ex991may2025creditmetrics.htm",
+          "timestamp": "2025-07-17T15:54:23.719069"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/927628/000092762825000223/cof-20250609.htm",
+          "timestamp": "2025-07-17T15:54:23.719072"
+        }
+      ],
+      "updated": "2025-07-17T15:54:23.719772"
+    },
+    "DE": {
+      "symbol": "DE",
+      "name": "Deere & Co.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/315189/000155837025009102/de-20250707xex99d1.htm",
+          "timestamp": "2025-07-17T15:54:25.488263"
+        },
+        {
+          "form": "10-Q",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/315189/000155837025008218/de-20250427x10q.htm",
+          "timestamp": "2025-07-17T15:54:25.488279"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/315189/000155837025007795/de-20250515xex99d1.htm",
+          "timestamp": "2025-07-17T15:54:25.488283"
+        }
+      ],
+      "updated": "2025-07-17T15:54:25.488678"
+    },
+    "TJX": {
+      "symbol": "TJX",
+      "name": "TJX Companies Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/109198/000010919825000047/tjx-20250610.htm",
+          "timestamp": "2025-07-17T15:54:26.373725"
+        }
+      ],
+      "updated": "2025-07-17T15:54:26.374165"
+    },
+    "CMCSA": {
+      "symbol": "CMCSA",
+      "name": "Comcast Corp.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1166691/000116669125000027/cmcsa-20250618.htm",
+          "timestamp": "2025-07-17T15:54:28.136754"
+        }
+      ],
+      "updated": "2025-07-17T15:54:28.137064"
+    },
+    "ADP": {
+      "symbol": "ADP",
+      "name": "Automatic Data Processing Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/8670/000095014225001700/eh250647311_8k.htm",
+          "timestamp": "2025-07-17T15:54:29.912137"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/8670/000000867025000023/adp2025investorday-ex99.htm",
+          "timestamp": "2025-07-17T15:54:29.912154"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/8670/000119312525116011/d131432d8k.htm",
+          "timestamp": "2025-07-17T15:54:29.912157"
+        }
+      ],
+      "updated": "2025-07-17T15:54:29.912473"
+    },
+    "COP": {
+      "symbol": "COP",
+      "name": "ConocoPhillips",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1163165/000110465925064439/tm2519450d1_ex99-1.htm",
+          "timestamp": "2025-07-17T15:54:30.796626"
+        }
+      ],
+      "updated": "2025-07-17T15:54:30.797125"
+    },
+    "SBUX": {
+      "symbol": "SBUX",
+      "name": "Starbucks Corp.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000048/sbux-20250629.htm",
+          "timestamp": "2025-07-17T15:54:32.262546"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000046/sbux-20250625.htm",
+          "timestamp": "2025-07-17T15:54:32.262563"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/829224/000082922425000038/a20250625-boardannouncemen.htm",
+          "timestamp": "2025-07-17T15:54:32.262567"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/829224/000121390025054811/ea0245796-8k_starbucks.htm",
+          "timestamp": "2025-07-17T15:54:32.262571"
+        }
+      ],
+      "updated": "2025-07-17T15:54:32.262888"
+    },
+    "NKE": {
+      "symbol": "NKE",
+      "name": "Nike Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000034/q4fy25exhibit991er.htm",
+          "timestamp": "2025-07-17T15:54:33.158615"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000030/bodpressrelease.htm",
+          "timestamp": "2025-07-17T15:54:33.158645"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000026/nke-20250613.htm",
+          "timestamp": "2025-07-17T15:54:33.158653"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/320187/000032018725000020/q4fy258-kannouncement.htm",
+          "timestamp": "2025-07-17T15:54:33.158661"
+        }
+      ],
+      "updated": "2025-07-17T15:54:33.159371"
+    },
+    "MMC": {
+      "symbol": "MMC",
+      "name": "Marsh & McLennan Companies Inc.",
+      "filings": [
+        {
+          "form": "10-Q",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/62709/000006270925000069/mmc-20250630.htm",
+          "timestamp": "2025-07-17T15:54:34.041519"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/62709/000006270925000067/mmc2q2025ex991newsrelease.htm",
+          "timestamp": "2025-07-17T15:54:34.041545"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/62709/000006270925000057/ex_991brucebrousardpressre.htm",
+          "timestamp": "2025-07-17T15:54:34.041554"
+        }
+      ],
+      "updated": "2025-07-17T15:54:34.042025"
+    },
+    "INTC": {
+      "symbol": "INTC",
+      "name": "Intel Corporation",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/50863/000005086325000084/intc-20250506.htm",
+          "timestamp": "2025-07-17T15:54:35.849029"
+        }
+      ],
+      "updated": "2025-07-17T15:54:35.849401"
+    },
+    "SO": {
+      "symbol": "SO",
+      "name": "Southern Co.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/92122/000009212225000068/so-20250710.htm",
+          "timestamp": "2025-07-17T15:54:36.736374"
+        }
+      ],
+      "updated": "2025-07-17T15:54:36.736894"
+    },
+    "DUK": {
+      "symbol": "DUK",
+      "name": "Duke Energy Corp.",
+      "filings": [
+        {
+          "form": "10-Q",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1326160/000132616025000150/duk-20250331.htm",
+          "timestamp": "2025-07-17T15:54:39.529000"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1326160/000132616025000148/er-20250331xearningsreleas.htm",
+          "timestamp": "2025-07-17T15:54:39.529021"
+        }
+      ],
+      "updated": "2025-07-17T15:54:39.529815"
+    },
+    "MCO": {
+      "symbol": "MCO",
+      "name": "Moody's Corp.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1059556/000105955625000159/dhawan8-kforpressrelease.htm",
+          "timestamp": "2025-07-17T15:54:40.398695"
+        }
+      ],
+      "updated": "2025-07-17T15:54:40.398832"
+    },
+    "MDLZ": {
+      "symbol": "MDLZ",
+      "name": "Mondelez International Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1103982/000110398225000171/mdlz-20250520.htm",
+          "timestamp": "2025-07-17T15:54:41.267972"
+        }
+      ],
+      "updated": "2025-07-17T15:54:41.268365"
+    },
+    "SHW": {
+      "symbol": "SHW",
+      "name": "Sherwin-Williams Co.",
+      "filings": [
+        {
+          "form": "10-Q",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/89800/000008980025000087/shw-20250331.htm",
+          "timestamp": "2025-07-17T15:54:42.531747"
+        }
+      ],
+      "updated": "2025-07-17T15:54:42.532389"
+    },
+    "UPS": {
+      "symbol": "UPS",
+      "name": "United Parcel Service Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1090727/000109072725000054/exhibit991-jmorikisbodpres.htm",
+          "timestamp": "2025-07-17T15:54:43.419717"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1090727/000110465925050984/tm2514602d7_8k.htm",
+          "timestamp": "2025-07-17T15:54:43.419727"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1090727/000110465925048497/tm2514602d6_8k.htm",
+          "timestamp": "2025-07-17T15:54:43.419728"
+        }
+      ],
+      "updated": "2025-07-17T15:54:43.419896"
+    },
+    "MMM": {
+      "symbol": "MMM",
+      "name": "3M Co.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/66740/000006674025000052/mmm-20250513.htm",
+          "timestamp": "2025-07-17T15:54:44.298296"
+        }
+      ],
+      "updated": "2025-07-17T15:54:44.298723"
+    },
+    "CVS": {
+      "symbol": "CVS",
+      "name": "CVS Health Corp.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/64803/000006480325000015/cvs-20250515.htm",
+          "timestamp": "2025-07-17T15:54:45.173991"
+        }
+      ],
+      "updated": "2025-07-17T15:54:45.174296"
+    },
+    "EMR": {
+      "symbol": "EMR",
+      "name": "Emerson Electric Co.",
+      "filings": [
+        {
+          "form": "10-Q",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/32604/000003260425000064/emr-20250331.htm",
+          "timestamp": "2025-07-17T15:54:46.936811"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/32604/000003260425000061/a2025q2release_ex991.htm",
+          "timestamp": "2025-07-17T15:54:46.936828"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/32604/000095010325003340/0000950103-25-003340.txt",
+          "timestamp": "2025-07-17T15:54:46.936833"
+        }
+      ],
+      "updated": "2025-07-17T15:54:46.937182"
+    },
+    "PNC": {
+      "symbol": "PNC",
+      "name": "PNC Financial Services Group Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/713676/000071367625000051/a2q25earningsslides_fina.htm",
+          "timestamp": "2025-07-17T15:54:47.811232"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/713676/000071367625000048/q22025financialhighlightsa.htm",
+          "timestamp": "2025-07-17T15:54:47.811256"
+        }
+      ],
+      "updated": "2025-07-17T15:54:47.811754"
+    },
+    "AON": {
+      "symbol": "AON",
+      "name": "Aon PLC",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/315293/000119312525155525/d17498d8k.htm",
+          "timestamp": "2025-07-17T15:54:48.689735"
+        }
+      ],
+      "updated": "2025-07-17T15:54:48.690257"
+    },
+    "ITW": {
+      "symbol": "ITW",
+      "name": "Illinois Tool Works Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/49826/000004982625000023/itw-20250502.htm",
+          "timestamp": "2025-07-17T15:54:49.567198"
+        }
+      ],
+      "updated": "2025-07-17T15:54:49.567567"
+    },
+    "CMG": {
+      "symbol": "CMG",
+      "name": "Chipotle Mexican Grill Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1058090/000105809025000047/cmg-20250624.htm",
+          "timestamp": "2025-07-17T15:54:50.458910"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1058090/000105809025000041/cmg-20250611.htm",
+          "timestamp": "2025-07-17T15:54:50.458928"
+        }
+      ],
+      "updated": "2025-07-17T15:54:50.459207"
+    },
+    "USB": {
+      "symbol": "USB",
+      "name": "U.S. Bancorp",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/36104/000003610425000044/a2q25earningsrelease.htm",
+          "timestamp": "2025-07-17T15:54:51.349557"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/36104/000003610425000039/a991-2025stresstestpressre.htm",
+          "timestamp": "2025-07-17T15:54:51.349583"
+        }
+      ],
+      "updated": "2025-07-17T15:54:51.350055"
+    },
+    "CL": {
+      "symbol": "CL",
+      "name": "Colgate-Palmolive Co.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/21665/000002166525000025/cl-20250529.htm",
+          "timestamp": "2025-07-17T15:54:52.225737"
+        }
+      ],
+      "updated": "2025-07-17T15:54:52.226196"
+    },
+    "PYPL": {
+      "symbol": "PYPL",
+      "name": "PayPal Holdings Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1633917/000163391725000124/dspr.htm",
+          "timestamp": "2025-07-17T15:54:53.142668"
+        }
+      ],
+      "updated": "2025-07-17T15:54:53.142775"
+    },
+    "EOG": {
+      "symbol": "EOG",
+      "name": "EOG Resources Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/821189/000082118925000036/eog-20250709.htm",
+          "timestamp": "2025-07-17T15:54:54.024993"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/821189/000119312525154088/d24511d8k.htm",
+          "timestamp": "2025-07-17T15:54:54.025004"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/821189/000119312525143645/d46189d8k.htm",
+          "timestamp": "2025-07-17T15:54:54.025006"
+        }
+      ],
+      "updated": "2025-07-17T15:54:54.025243"
+    },
+    "APD": {
+      "symbol": "APD",
+      "name": "Air Products and Chemicals Inc.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/2969/000119312525156605/d931766d8k.htm",
+          "timestamp": "2025-07-17T15:54:54.905919"
+        }
+      ],
+      "updated": "2025-07-17T15:54:54.906428"
+    },
+    "NSC": {
+      "symbol": "NSC",
+      "name": "Norfolk Southern Corp.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/702165/000119312525140337/d948297dex991.htm",
+          "timestamp": "2025-07-17T15:54:55.787462"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/702165/000119312525133796/d35291dex991.htm",
+          "timestamp": "2025-07-17T15:54:55.787489"
+        }
+      ],
+      "updated": "2025-07-17T15:54:55.787852"
+    },
+    "SLB": {
+      "symbol": "SLB",
+      "name": "Schlumberger NV",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/87347/000119312525159859/d907006dex99.htm",
+          "timestamp": "2025-07-17T15:54:58.480828"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/87347/000119312525159123/d117904d8k.htm",
+          "timestamp": "2025-07-17T15:54:58.480837"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/87347/000119312525145388/d81921dex99.htm",
+          "timestamp": "2025-07-17T15:54:58.480839"
+        }
+      ],
+      "updated": "2025-07-17T15:54:58.480991"
+    },
+    "TGT": {
+      "symbol": "TGT",
+      "name": "Target Corp.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/27419/000002741925000110/tgt-20250611.htm",
+          "timestamp": "2025-07-17T15:54:59.393746"
+        },
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/27419/000162828025030471/tgt-20250610.htm",
+          "timestamp": "2025-07-17T15:54:59.393769"
+        }
+      ],
+      "updated": "2025-07-17T15:54:59.394101"
+    },
+    "CNC": {
+      "symbol": "CNC",
+      "name": "Centene Corp.",
+      "filings": [
+        {
+          "form": "8-K",
+          "date": "",
+          "accessionNumber": "",
+          "url": "https://www.sec.gov/Archives/edgar/data/1071739/000107173925000128/a7012025formex991pressrele.htm",
+          "timestamp": "2025-07-17T15:55:00.270122"
+        }
+      ],
+      "updated": "2025-07-17T15:55:00.270403"
     }
   },
-  "total_companies": 2,
-  "total_filings": 3
+  "total_companies": 68,
+  "total_filings": 121
 }
