@@ -1,0 +1,3169 @@
+{
+  "timestamp": "2025-07-17T16:06:39.882549",
+  "companies": {
+    "NVDA": {
+      "symbol": "NVDA",
+      "name": "NVIDIA Corporation",
+      "news": [
+        {
+          "title": "NVIDIA Corporation Reports Strong GPU sales",
+          "link": "https://finance.yahoo.com/news/nvda-gpu-sales-20250717",
+          "summary": "NVIDIA Corporation announced positive developments in gpu sales, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:39.882578",
+          "timestamp": "2025-07-17T16:06:39.882584"
+        },
+        {
+          "title": "NVIDIA Corporation Reports Strong AI chips",
+          "link": "https://finance.yahoo.com/news/nvda-ai-chips-20250717",
+          "summary": "NVIDIA Corporation announced positive developments in ai chips, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:39.882591",
+          "timestamp": "2025-07-17T16:06:39.882593"
+        },
+        {
+          "title": "NVIDIA Corporation Reports Strong Data center growth",
+          "link": "https://finance.yahoo.com/news/nvda-data-center-growth-20250717",
+          "summary": "NVIDIA Corporation announced positive developments in data center growth, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:39.882597",
+          "timestamp": "2025-07-17T16:06:39.882598"
+        }
+      ],
+      "updated": "2025-07-17T16:06:39.882600"
+    },
+    "MSFT": {
+      "symbol": "MSFT",
+      "name": "Microsoft Corporation",
+      "news": [
+        {
+          "title": "Microsoft Corporation Reports Strong Azure growth",
+          "link": "https://finance.yahoo.com/news/msft-azure-growth-20250717",
+          "summary": "Microsoft Corporation announced positive developments in azure growth, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:39.987700",
+          "timestamp": "2025-07-17T16:06:39.987708"
+        },
+        {
+          "title": "Microsoft Corporation Reports Strong Teams adoption",
+          "link": "https://finance.yahoo.com/news/msft-teams-adoption-20250717",
+          "summary": "Microsoft Corporation announced positive developments in teams adoption, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:39.987717",
+          "timestamp": "2025-07-17T16:06:39.987719"
+        },
+        {
+          "title": "Microsoft Corporation Reports Strong AI development",
+          "link": "https://finance.yahoo.com/news/msft-ai-development-20250717",
+          "summary": "Microsoft Corporation announced positive developments in ai development, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:39.987723",
+          "timestamp": "2025-07-17T16:06:39.987724"
+        }
+      ],
+      "updated": "2025-07-17T16:06:39.987726"
+    },
+    "AAPL": {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "news": [
+        {
+          "title": "Apple Inc. Reports Strong iPhone sales",
+          "link": "https://finance.yahoo.com/news/aapl-iphone-sales-20250717",
+          "summary": "Apple Inc. announced positive developments in iphone sales, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:40.091768",
+          "timestamp": "2025-07-17T16:06:40.091776"
+        },
+        {
+          "title": "Apple Inc. Reports Strong App Store revenue",
+          "link": "https://finance.yahoo.com/news/aapl-app-store-revenue-20250717",
+          "summary": "Apple Inc. announced positive developments in app store revenue, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:40.091817",
+          "timestamp": "2025-07-17T16:06:40.091821"
+        },
+        {
+          "title": "Apple Inc. Reports Strong AI integration",
+          "link": "https://finance.yahoo.com/news/aapl-ai-integration-20250717",
+          "summary": "Apple Inc. announced positive developments in ai integration, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:40.091827",
+          "timestamp": "2025-07-17T16:06:40.091829"
+        }
+      ],
+      "updated": "2025-07-17T16:06:40.091832"
+    },
+    "AMZN": {
+      "symbol": "AMZN",
+      "name": "Amazon.com Inc.",
+      "news": [
+        {
+          "title": "Amazon.com Inc. Reports Strong AWS growth",
+          "link": "https://finance.yahoo.com/news/amzn-aws-growth-20250717",
+          "summary": "Amazon.com Inc. announced positive developments in aws growth, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:40.196381",
+          "timestamp": "2025-07-17T16:06:40.196389"
+        },
+        {
+          "title": "Amazon.com Inc. Reports Strong E-commerce expansion",
+          "link": "https://finance.yahoo.com/news/amzn-e-commerce-expansion-20250717",
+          "summary": "Amazon.com Inc. announced positive developments in e-commerce expansion, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:40.196397",
+          "timestamp": "2025-07-17T16:06:40.196398"
+        },
+        {
+          "title": "Amazon.com Inc. Reports Strong Prime services",
+          "link": "https://finance.yahoo.com/news/amzn-prime-services-20250717",
+          "summary": "Amazon.com Inc. announced positive developments in prime services, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:40.196404",
+          "timestamp": "2025-07-17T16:06:40.196405"
+        }
+      ],
+      "updated": "2025-07-17T16:06:40.196408"
+    },
+    "GOOGL": {
+      "symbol": "GOOGL",
+      "name": "Alphabet Inc.",
+      "news": [
+        {
+          "title": "Alphabet Inc. Reports Strong Search updates",
+          "link": "https://finance.yahoo.com/news/googl-search-updates-20250717",
+          "summary": "Alphabet Inc. announced positive developments in search updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:40.300795",
+          "timestamp": "2025-07-17T16:06:40.300803"
+        },
+        {
+          "title": "Alphabet Inc. Reports Strong Cloud services",
+          "link": "https://finance.yahoo.com/news/googl-cloud-services-20250717",
+          "summary": "Alphabet Inc. announced positive developments in cloud services, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:40.300810",
+          "timestamp": "2025-07-17T16:06:40.300812"
+        },
+        {
+          "title": "Alphabet Inc. Reports Strong AI advances",
+          "link": "https://finance.yahoo.com/news/googl-ai-advances-20250717",
+          "summary": "Alphabet Inc. announced positive developments in ai advances, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:40.300820",
+          "timestamp": "2025-07-17T16:06:40.300822"
+        }
+      ],
+      "updated": "2025-07-17T16:06:40.300824"
+    },
+    "META": {
+      "symbol": "META",
+      "name": "Meta Platforms Inc.",
+      "news": [
+        {
+          "title": "Meta Platforms Inc. Reports Strong Social media",
+          "link": "https://finance.yahoo.com/news/meta-social-media-20250717",
+          "summary": "Meta Platforms Inc. announced positive developments in social media, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:40.404208",
+          "timestamp": "2025-07-17T16:06:40.404216"
+        },
+        {
+          "title": "Meta Platforms Inc. Reports Strong VR/AR technology",
+          "link": "https://finance.yahoo.com/news/meta-vr/ar-technology-20250717",
+          "summary": "Meta Platforms Inc. announced positive developments in vr/ar technology, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:40.404226",
+          "timestamp": "2025-07-17T16:06:40.404228"
+        },
+        {
+          "title": "Meta Platforms Inc. Reports Strong Metaverse",
+          "link": "https://finance.yahoo.com/news/meta-metaverse-20250717",
+          "summary": "Meta Platforms Inc. announced positive developments in metaverse, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:40.404234",
+          "timestamp": "2025-07-17T16:06:40.404235"
+        }
+      ],
+      "updated": "2025-07-17T16:06:40.404238"
+    },
+    "AVGO": {
+      "symbol": "AVGO",
+      "name": "Broadcom Inc.",
+      "news": [
+        {
+          "title": "Broadcom Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/avgo-business-performance-20250717",
+          "summary": "Broadcom Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:40.509407",
+          "timestamp": "2025-07-17T16:06:40.509428"
+        },
+        {
+          "title": "Broadcom Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/avgo-market-updates-20250717",
+          "summary": "Broadcom Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:40.509446",
+          "timestamp": "2025-07-17T16:06:40.509451"
+        },
+        {
+          "title": "Broadcom Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/avgo-financial-results-20250717",
+          "summary": "Broadcom Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:40.509467",
+          "timestamp": "2025-07-17T16:06:40.509471"
+        }
+      ],
+      "updated": "2025-07-17T16:06:40.509477"
+    },
+    "TSLA": {
+      "symbol": "TSLA",
+      "name": "Tesla Inc.",
+      "news": [
+        {
+          "title": "Tesla Inc. Reports Strong Vehicle deliveries",
+          "link": "https://finance.yahoo.com/news/tsla-vehicle-deliveries-20250717",
+          "summary": "Tesla Inc. announced positive developments in vehicle deliveries, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:40.611464",
+          "timestamp": "2025-07-17T16:06:40.611474"
+        },
+        {
+          "title": "Tesla Inc. Reports Strong Autonomous driving",
+          "link": "https://finance.yahoo.com/news/tsla-autonomous-driving-20250717",
+          "summary": "Tesla Inc. announced positive developments in autonomous driving, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:40.611481",
+          "timestamp": "2025-07-17T16:06:40.611483"
+        },
+        {
+          "title": "Tesla Inc. Reports Strong Energy storage",
+          "link": "https://finance.yahoo.com/news/tsla-energy-storage-20250717",
+          "summary": "Tesla Inc. announced positive developments in energy storage, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:40.611490",
+          "timestamp": "2025-07-17T16:06:40.611492"
+        }
+      ],
+      "updated": "2025-07-17T16:06:40.611494"
+    },
+    "BRK.B": {
+      "symbol": "BRK.B",
+      "name": "Berkshire Hathaway Inc.",
+      "news": [
+        {
+          "title": "Berkshire Hathaway Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/brk.b-business-performance-20250717",
+          "summary": "Berkshire Hathaway Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:40.716577",
+          "timestamp": "2025-07-17T16:06:40.716588"
+        },
+        {
+          "title": "Berkshire Hathaway Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/brk.b-market-updates-20250717",
+          "summary": "Berkshire Hathaway Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:40.716598",
+          "timestamp": "2025-07-17T16:06:40.716602"
+        },
+        {
+          "title": "Berkshire Hathaway Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/brk.b-financial-results-20250717",
+          "summary": "Berkshire Hathaway Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:40.716613",
+          "timestamp": "2025-07-17T16:06:40.716616"
+        }
+      ],
+      "updated": "2025-07-17T16:06:40.716620"
+    },
+    "JPM": {
+      "symbol": "JPM",
+      "name": "JPMorgan Chase & Co.",
+      "news": [
+        {
+          "title": "JPMorgan Chase & Co. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/jpm-business-performance-20250717",
+          "summary": "JPMorgan Chase & Co. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:40.821814",
+          "timestamp": "2025-07-17T16:06:40.821834"
+        },
+        {
+          "title": "JPMorgan Chase & Co. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/jpm-market-updates-20250717",
+          "summary": "JPMorgan Chase & Co. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:40.821852",
+          "timestamp": "2025-07-17T16:06:40.821857"
+        },
+        {
+          "title": "JPMorgan Chase & Co. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/jpm-financial-results-20250717",
+          "summary": "JPMorgan Chase & Co. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:40.821869",
+          "timestamp": "2025-07-17T16:06:40.821873"
+        }
+      ],
+      "updated": "2025-07-17T16:06:40.821878"
+    },
+    "WMT": {
+      "symbol": "WMT",
+      "name": "Walmart Inc.",
+      "news": [
+        {
+          "title": "Walmart Inc. Reports Strong Retail performance",
+          "link": "https://finance.yahoo.com/news/wmt-retail-performance-20250717",
+          "summary": "Walmart Inc. announced positive developments in retail performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:40.924962",
+          "timestamp": "2025-07-17T16:06:40.924976"
+        },
+        {
+          "title": "Walmart Inc. Reports Strong E-commerce growth",
+          "link": "https://finance.yahoo.com/news/wmt-e-commerce-growth-20250717",
+          "summary": "Walmart Inc. announced positive developments in e-commerce growth, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:40.924983",
+          "timestamp": "2025-07-17T16:06:40.924985"
+        },
+        {
+          "title": "Walmart Inc. Reports Strong Supply chain",
+          "link": "https://finance.yahoo.com/news/wmt-supply-chain-20250717",
+          "summary": "Walmart Inc. announced positive developments in supply chain, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:40.924990",
+          "timestamp": "2025-07-17T16:06:40.924992"
+        }
+      ],
+      "updated": "2025-07-17T16:06:40.924995"
+    },
+    "LLY": {
+      "symbol": "LLY",
+      "name": "Eli Lilly and Co.",
+      "news": [
+        {
+          "title": "Eli Lilly and Co. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/lly-business-performance-20250717",
+          "summary": "Eli Lilly and Co. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:41.027543",
+          "timestamp": "2025-07-17T16:06:41.027554"
+        },
+        {
+          "title": "Eli Lilly and Co. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/lly-market-updates-20250717",
+          "summary": "Eli Lilly and Co. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:41.027561",
+          "timestamp": "2025-07-17T16:06:41.027563"
+        },
+        {
+          "title": "Eli Lilly and Co. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/lly-financial-results-20250717",
+          "summary": "Eli Lilly and Co. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:41.027571",
+          "timestamp": "2025-07-17T16:06:41.027573"
+        }
+      ],
+      "updated": "2025-07-17T16:06:41.027576"
+    },
+    "V": {
+      "symbol": "V",
+      "name": "Visa Inc.",
+      "news": [
+        {
+          "title": "Visa Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/v-business-performance-20250717",
+          "summary": "Visa Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:41.132303",
+          "timestamp": "2025-07-17T16:06:41.132360"
+        },
+        {
+          "title": "Visa Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/v-market-updates-20250717",
+          "summary": "Visa Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:41.132406",
+          "timestamp": "2025-07-17T16:06:41.132413"
+        },
+        {
+          "title": "Visa Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/v-financial-results-20250717",
+          "summary": "Visa Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:41.132427",
+          "timestamp": "2025-07-17T16:06:41.132431"
+        }
+      ],
+      "updated": "2025-07-17T16:06:41.132437"
+    },
+    "ORCL": {
+      "symbol": "ORCL",
+      "name": "Oracle Corporation",
+      "news": [
+        {
+          "title": "Oracle Corporation Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/orcl-business-performance-20250717",
+          "summary": "Oracle Corporation announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:41.237322",
+          "timestamp": "2025-07-17T16:06:41.237339"
+        },
+        {
+          "title": "Oracle Corporation Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/orcl-market-updates-20250717",
+          "summary": "Oracle Corporation announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:41.237353",
+          "timestamp": "2025-07-17T16:06:41.237358"
+        },
+        {
+          "title": "Oracle Corporation Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/orcl-financial-results-20250717",
+          "summary": "Oracle Corporation announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:41.237371",
+          "timestamp": "2025-07-17T16:06:41.237375"
+        }
+      ],
+      "updated": "2025-07-17T16:06:41.237380"
+    },
+    "NFLX": {
+      "symbol": "NFLX",
+      "name": "Netflix Inc.",
+      "news": [
+        {
+          "title": "Netflix Inc. Reports Strong Streaming content",
+          "link": "https://finance.yahoo.com/news/nflx-streaming-content-20250717",
+          "summary": "Netflix Inc. announced positive developments in streaming content, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:41.342077",
+          "timestamp": "2025-07-17T16:06:41.342097"
+        },
+        {
+          "title": "Netflix Inc. Reports Strong Subscriber growth",
+          "link": "https://finance.yahoo.com/news/nflx-subscriber-growth-20250717",
+          "summary": "Netflix Inc. announced positive developments in subscriber growth, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:41.342115",
+          "timestamp": "2025-07-17T16:06:41.342120"
+        },
+        {
+          "title": "Netflix Inc. Reports Strong Global expansion",
+          "link": "https://finance.yahoo.com/news/nflx-global-expansion-20250717",
+          "summary": "Netflix Inc. announced positive developments in global expansion, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:41.342134",
+          "timestamp": "2025-07-17T16:06:41.342138"
+        }
+      ],
+      "updated": "2025-07-17T16:06:41.342145"
+    },
+    "XOM": {
+      "symbol": "XOM",
+      "name": "Exxon Mobil Corporation",
+      "news": [
+        {
+          "title": "Exxon Mobil Corporation Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/xom-business-performance-20250717",
+          "summary": "Exxon Mobil Corporation announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:41.444299",
+          "timestamp": "2025-07-17T16:06:41.444314"
+        },
+        {
+          "title": "Exxon Mobil Corporation Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/xom-market-updates-20250717",
+          "summary": "Exxon Mobil Corporation announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:41.444329",
+          "timestamp": "2025-07-17T16:06:41.444334"
+        },
+        {
+          "title": "Exxon Mobil Corporation Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/xom-financial-results-20250717",
+          "summary": "Exxon Mobil Corporation announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:41.444346",
+          "timestamp": "2025-07-17T16:06:41.444350"
+        }
+      ],
+      "updated": "2025-07-17T16:06:41.444355"
+    },
+    "MA": {
+      "symbol": "MA",
+      "name": "Mastercard Inc.",
+      "news": [
+        {
+          "title": "Mastercard Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/ma-business-performance-20250717",
+          "summary": "Mastercard Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:41.549093",
+          "timestamp": "2025-07-17T16:06:41.549110"
+        },
+        {
+          "title": "Mastercard Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/ma-market-updates-20250717",
+          "summary": "Mastercard Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:41.549124",
+          "timestamp": "2025-07-17T16:06:41.549129"
+        },
+        {
+          "title": "Mastercard Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/ma-financial-results-20250717",
+          "summary": "Mastercard Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:41.549140",
+          "timestamp": "2025-07-17T16:06:41.549144"
+        }
+      ],
+      "updated": "2025-07-17T16:06:41.549149"
+    },
+    "COST": {
+      "symbol": "COST",
+      "name": "Costco Wholesale Corp.",
+      "news": [
+        {
+          "title": "Costco Wholesale Corp. Reports Strong Same-store sales",
+          "link": "https://finance.yahoo.com/news/cost-same-store-sales-20250717",
+          "summary": "Costco Wholesale Corp. announced positive developments in same-store sales, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:41.650068",
+          "timestamp": "2025-07-17T16:06:41.650083"
+        },
+        {
+          "title": "Costco Wholesale Corp. Reports Strong Membership growth",
+          "link": "https://finance.yahoo.com/news/cost-membership-growth-20250717",
+          "summary": "Costco Wholesale Corp. announced positive developments in membership growth, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:41.650097",
+          "timestamp": "2025-07-17T16:06:41.650101"
+        },
+        {
+          "title": "Costco Wholesale Corp. Reports Strong Retail expansion",
+          "link": "https://finance.yahoo.com/news/cost-retail-expansion-20250717",
+          "summary": "Costco Wholesale Corp. announced positive developments in retail expansion, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:41.650112",
+          "timestamp": "2025-07-17T16:06:41.650116"
+        }
+      ],
+      "updated": "2025-07-17T16:06:41.650121"
+    },
+    "JNJ": {
+      "symbol": "JNJ",
+      "name": "Johnson & Johnson",
+      "news": [
+        {
+          "title": "Johnson & Johnson Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/jnj-business-performance-20250717",
+          "summary": "Johnson & Johnson announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:41.753905",
+          "timestamp": "2025-07-17T16:06:41.753917"
+        },
+        {
+          "title": "Johnson & Johnson Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/jnj-market-updates-20250717",
+          "summary": "Johnson & Johnson announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:41.753924",
+          "timestamp": "2025-07-17T16:06:41.753926"
+        },
+        {
+          "title": "Johnson & Johnson Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/jnj-financial-results-20250717",
+          "summary": "Johnson & Johnson announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:41.753930",
+          "timestamp": "2025-07-17T16:06:41.753932"
+        }
+      ],
+      "updated": "2025-07-17T16:06:41.753934"
+    },
+    "PG": {
+      "symbol": "PG",
+      "name": "Procter & Gamble Co.",
+      "news": [
+        {
+          "title": "Procter & Gamble Co. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/pg-business-performance-20250717",
+          "summary": "Procter & Gamble Co. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:41.858415",
+          "timestamp": "2025-07-17T16:06:41.858436"
+        },
+        {
+          "title": "Procter & Gamble Co. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/pg-market-updates-20250717",
+          "summary": "Procter & Gamble Co. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:41.858453",
+          "timestamp": "2025-07-17T16:06:41.858459"
+        },
+        {
+          "title": "Procter & Gamble Co. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/pg-financial-results-20250717",
+          "summary": "Procter & Gamble Co. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:41.858472",
+          "timestamp": "2025-07-17T16:06:41.858477"
+        }
+      ],
+      "updated": "2025-07-17T16:06:41.858483"
+    },
+    "HD": {
+      "symbol": "HD",
+      "name": "Home Depot Inc.",
+      "news": [
+        {
+          "title": "Home Depot Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/hd-business-performance-20250717",
+          "summary": "Home Depot Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:41.962361",
+          "timestamp": "2025-07-17T16:06:41.962384"
+        },
+        {
+          "title": "Home Depot Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/hd-market-updates-20250717",
+          "summary": "Home Depot Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:41.962405",
+          "timestamp": "2025-07-17T16:06:41.962411"
+        },
+        {
+          "title": "Home Depot Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/hd-financial-results-20250717",
+          "summary": "Home Depot Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:41.962432",
+          "timestamp": "2025-07-17T16:06:41.962437"
+        }
+      ],
+      "updated": "2025-07-17T16:06:41.962443"
+    },
+    "BAC": {
+      "symbol": "BAC",
+      "name": "Bank of America Corp",
+      "news": [
+        {
+          "title": "Bank of America Corp Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/bac-business-performance-20250717",
+          "summary": "Bank of America Corp announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:42.067573",
+          "timestamp": "2025-07-17T16:06:42.067589"
+        },
+        {
+          "title": "Bank of America Corp Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/bac-market-updates-20250717",
+          "summary": "Bank of America Corp announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:42.067606",
+          "timestamp": "2025-07-17T16:06:42.067611"
+        },
+        {
+          "title": "Bank of America Corp Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/bac-financial-results-20250717",
+          "summary": "Bank of America Corp announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:42.067624",
+          "timestamp": "2025-07-17T16:06:42.067628"
+        }
+      ],
+      "updated": "2025-07-17T16:06:42.067634"
+    },
+    "ABBV": {
+      "symbol": "ABBV",
+      "name": "AbbVie Inc.",
+      "news": [
+        {
+          "title": "AbbVie Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/abbv-business-performance-20250717",
+          "summary": "AbbVie Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:42.172552",
+          "timestamp": "2025-07-17T16:06:42.172567"
+        },
+        {
+          "title": "AbbVie Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/abbv-market-updates-20250717",
+          "summary": "AbbVie Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:42.172581",
+          "timestamp": "2025-07-17T16:06:42.172592"
+        },
+        {
+          "title": "AbbVie Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/abbv-financial-results-20250717",
+          "summary": "AbbVie Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:42.172604",
+          "timestamp": "2025-07-17T16:06:42.172609"
+        }
+      ],
+      "updated": "2025-07-17T16:06:42.172614"
+    },
+    "KO": {
+      "symbol": "KO",
+      "name": "Coca-Cola Co.",
+      "news": [
+        {
+          "title": "Coca-Cola Co. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/ko-business-performance-20250717",
+          "summary": "Coca-Cola Co. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:42.277771",
+          "timestamp": "2025-07-17T16:06:42.277792"
+        },
+        {
+          "title": "Coca-Cola Co. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/ko-market-updates-20250717",
+          "summary": "Coca-Cola Co. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:42.277810",
+          "timestamp": "2025-07-17T16:06:42.277816"
+        },
+        {
+          "title": "Coca-Cola Co. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/ko-financial-results-20250717",
+          "summary": "Coca-Cola Co. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:42.277831",
+          "timestamp": "2025-07-17T16:06:42.277836"
+        }
+      ],
+      "updated": "2025-07-17T16:06:42.277847"
+    },
+    "PM": {
+      "symbol": "PM",
+      "name": "Philip Morris International Inc.",
+      "news": [
+        {
+          "title": "Philip Morris International Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/pm-business-performance-20250717",
+          "summary": "Philip Morris International Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:42.382928",
+          "timestamp": "2025-07-17T16:06:42.382945"
+        },
+        {
+          "title": "Philip Morris International Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/pm-market-updates-20250717",
+          "summary": "Philip Morris International Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:42.382960",
+          "timestamp": "2025-07-17T16:06:42.382965"
+        },
+        {
+          "title": "Philip Morris International Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/pm-financial-results-20250717",
+          "summary": "Philip Morris International Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:42.382976",
+          "timestamp": "2025-07-17T16:06:42.382980"
+        }
+      ],
+      "updated": "2025-07-17T16:06:42.382985"
+    },
+    "UNH": {
+      "symbol": "UNH",
+      "name": "UnitedHealth Group Inc.",
+      "news": [
+        {
+          "title": "UnitedHealth Group Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/unh-business-performance-20250717",
+          "summary": "UnitedHealth Group Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:42.488242",
+          "timestamp": "2025-07-17T16:06:42.488282"
+        },
+        {
+          "title": "UnitedHealth Group Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/unh-market-updates-20250717",
+          "summary": "UnitedHealth Group Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:42.488361",
+          "timestamp": "2025-07-17T16:06:42.488372"
+        },
+        {
+          "title": "UnitedHealth Group Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/unh-financial-results-20250717",
+          "summary": "UnitedHealth Group Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:42.488396",
+          "timestamp": "2025-07-17T16:06:42.488404"
+        }
+      ],
+      "updated": "2025-07-17T16:06:42.488416"
+    },
+    "GE": {
+      "symbol": "GE",
+      "name": "General Electric Co.",
+      "news": [
+        {
+          "title": "General Electric Co. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/ge-business-performance-20250717",
+          "summary": "General Electric Co. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:42.592342",
+          "timestamp": "2025-07-17T16:06:42.592357"
+        },
+        {
+          "title": "General Electric Co. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/ge-market-updates-20250717",
+          "summary": "General Electric Co. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:42.592371",
+          "timestamp": "2025-07-17T16:06:42.592376"
+        },
+        {
+          "title": "General Electric Co. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/ge-financial-results-20250717",
+          "summary": "General Electric Co. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:42.592387",
+          "timestamp": "2025-07-17T16:06:42.592391"
+        }
+      ],
+      "updated": "2025-07-17T16:06:42.592397"
+    },
+    "CVX": {
+      "symbol": "CVX",
+      "name": "Chevron Corporation",
+      "news": [
+        {
+          "title": "Chevron Corporation Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/cvx-business-performance-20250717",
+          "summary": "Chevron Corporation announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:42.697576",
+          "timestamp": "2025-07-17T16:06:42.697594"
+        },
+        {
+          "title": "Chevron Corporation Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/cvx-market-updates-20250717",
+          "summary": "Chevron Corporation announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:42.697626",
+          "timestamp": "2025-07-17T16:06:42.697631"
+        },
+        {
+          "title": "Chevron Corporation Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/cvx-financial-results-20250717",
+          "summary": "Chevron Corporation announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:42.697644",
+          "timestamp": "2025-07-17T16:06:42.697648"
+        }
+      ],
+      "updated": "2025-07-17T16:06:42.697654"
+    },
+    "CSCO": {
+      "symbol": "CSCO",
+      "name": "Cisco Systems Inc.",
+      "news": [
+        {
+          "title": "Cisco Systems Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/csco-business-performance-20250717",
+          "summary": "Cisco Systems Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:42.802823",
+          "timestamp": "2025-07-17T16:06:42.802848"
+        },
+        {
+          "title": "Cisco Systems Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/csco-market-updates-20250717",
+          "summary": "Cisco Systems Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:42.802870",
+          "timestamp": "2025-07-17T16:06:42.802877"
+        },
+        {
+          "title": "Cisco Systems Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/csco-financial-results-20250717",
+          "summary": "Cisco Systems Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:42.802895",
+          "timestamp": "2025-07-17T16:06:42.802900"
+        }
+      ],
+      "updated": "2025-07-17T16:06:42.802908"
+    },
+    "WFC": {
+      "symbol": "WFC",
+      "name": "Wells Fargo & Co.",
+      "news": [
+        {
+          "title": "Wells Fargo & Co. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/wfc-business-performance-20250717",
+          "summary": "Wells Fargo & Co. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:42.904945",
+          "timestamp": "2025-07-17T16:06:42.904966"
+        },
+        {
+          "title": "Wells Fargo & Co. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/wfc-market-updates-20250717",
+          "summary": "Wells Fargo & Co. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:42.904980",
+          "timestamp": "2025-07-17T16:06:42.904985"
+        },
+        {
+          "title": "Wells Fargo & Co. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/wfc-financial-results-20250717",
+          "summary": "Wells Fargo & Co. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:42.904996",
+          "timestamp": "2025-07-17T16:06:42.905000"
+        }
+      ],
+      "updated": "2025-07-17T16:06:42.905006"
+    },
+    "IBM": {
+      "symbol": "IBM",
+      "name": "International Business Machines Corp",
+      "news": [
+        {
+          "title": "International Business Machines Corp Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/ibm-business-performance-20250717",
+          "summary": "International Business Machines Corp announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:43.005984",
+          "timestamp": "2025-07-17T16:06:43.006002"
+        },
+        {
+          "title": "International Business Machines Corp Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/ibm-market-updates-20250717",
+          "summary": "International Business Machines Corp announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:43.006016",
+          "timestamp": "2025-07-17T16:06:43.006021"
+        },
+        {
+          "title": "International Business Machines Corp Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/ibm-financial-results-20250717",
+          "summary": "International Business Machines Corp announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:43.006032",
+          "timestamp": "2025-07-17T16:06:43.006036"
+        }
+      ],
+      "updated": "2025-07-17T16:06:43.006041"
+    },
+    "CRM": {
+      "symbol": "CRM",
+      "name": "Salesforce Inc.",
+      "news": [
+        {
+          "title": "Salesforce Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/crm-business-performance-20250717",
+          "summary": "Salesforce Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:43.108425",
+          "timestamp": "2025-07-17T16:06:43.108441"
+        },
+        {
+          "title": "Salesforce Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/crm-market-updates-20250717",
+          "summary": "Salesforce Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:43.108455",
+          "timestamp": "2025-07-17T16:06:43.108459"
+        },
+        {
+          "title": "Salesforce Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/crm-financial-results-20250717",
+          "summary": "Salesforce Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:43.108471",
+          "timestamp": "2025-07-17T16:06:43.108475"
+        }
+      ],
+      "updated": "2025-07-17T16:06:43.108480"
+    },
+    "AMD": {
+      "symbol": "AMD",
+      "name": "Advanced Micro Devices Inc.",
+      "news": [
+        {
+          "title": "Advanced Micro Devices Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/amd-business-performance-20250717",
+          "summary": "Advanced Micro Devices Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:43.209861",
+          "timestamp": "2025-07-17T16:06:43.209881"
+        },
+        {
+          "title": "Advanced Micro Devices Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/amd-market-updates-20250717",
+          "summary": "Advanced Micro Devices Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:43.209922",
+          "timestamp": "2025-07-17T16:06:43.209930"
+        },
+        {
+          "title": "Advanced Micro Devices Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/amd-financial-results-20250717",
+          "summary": "Advanced Micro Devices Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:43.209949",
+          "timestamp": "2025-07-17T16:06:43.209955"
+        }
+      ],
+      "updated": "2025-07-17T16:06:43.209963"
+    },
+    "ABT": {
+      "symbol": "ABT",
+      "name": "Abbott Laboratories",
+      "news": [
+        {
+          "title": "Abbott Laboratories Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/abt-business-performance-20250717",
+          "summary": "Abbott Laboratories announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:43.314529",
+          "timestamp": "2025-07-17T16:06:43.314545"
+        },
+        {
+          "title": "Abbott Laboratories Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/abt-market-updates-20250717",
+          "summary": "Abbott Laboratories announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:43.314576",
+          "timestamp": "2025-07-17T16:06:43.314581"
+        },
+        {
+          "title": "Abbott Laboratories Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/abt-financial-results-20250717",
+          "summary": "Abbott Laboratories announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:43.314593",
+          "timestamp": "2025-07-17T16:06:43.314597"
+        }
+      ],
+      "updated": "2025-07-17T16:06:43.314602"
+    },
+    "MS": {
+      "symbol": "MS",
+      "name": "Morgan Stanley",
+      "news": [
+        {
+          "title": "Morgan Stanley Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/ms-business-performance-20250717",
+          "summary": "Morgan Stanley announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:43.417717",
+          "timestamp": "2025-07-17T16:06:43.417733"
+        },
+        {
+          "title": "Morgan Stanley Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/ms-market-updates-20250717",
+          "summary": "Morgan Stanley announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:43.417747",
+          "timestamp": "2025-07-17T16:06:43.417752"
+        },
+        {
+          "title": "Morgan Stanley Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/ms-financial-results-20250717",
+          "summary": "Morgan Stanley announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:43.417763",
+          "timestamp": "2025-07-17T16:06:43.417767"
+        }
+      ],
+      "updated": "2025-07-17T16:06:43.417772"
+    },
+    "AXP": {
+      "symbol": "AXP",
+      "name": "American Express Co.",
+      "news": [
+        {
+          "title": "American Express Co. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/axp-business-performance-20250717",
+          "summary": "American Express Co. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:43.522369",
+          "timestamp": "2025-07-17T16:06:43.522397"
+        },
+        {
+          "title": "American Express Co. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/axp-market-updates-20250717",
+          "summary": "American Express Co. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:43.522430",
+          "timestamp": "2025-07-17T16:06:43.522440"
+        },
+        {
+          "title": "American Express Co. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/axp-financial-results-20250717",
+          "summary": "American Express Co. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:43.522465",
+          "timestamp": "2025-07-17T16:06:43.522474"
+        }
+      ],
+      "updated": "2025-07-17T16:06:43.522486"
+    },
+    "LIN": {
+      "symbol": "LIN",
+      "name": "Linde PLC",
+      "news": [
+        {
+          "title": "Linde PLC Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/lin-business-performance-20250717",
+          "summary": "Linde PLC announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:43.627596",
+          "timestamp": "2025-07-17T16:06:43.627604"
+        },
+        {
+          "title": "Linde PLC Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/lin-market-updates-20250717",
+          "summary": "Linde PLC announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:43.627611",
+          "timestamp": "2025-07-17T16:06:43.627613"
+        },
+        {
+          "title": "Linde PLC Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/lin-financial-results-20250717",
+          "summary": "Linde PLC announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:43.627619",
+          "timestamp": "2025-07-17T16:06:43.627620"
+        }
+      ],
+      "updated": "2025-07-17T16:06:43.627623"
+    },
+    "GS": {
+      "symbol": "GS",
+      "name": "Goldman Sachs Group Inc.",
+      "news": [
+        {
+          "title": "Goldman Sachs Group Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/gs-business-performance-20250717",
+          "summary": "Goldman Sachs Group Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:43.731741",
+          "timestamp": "2025-07-17T16:06:43.731764"
+        },
+        {
+          "title": "Goldman Sachs Group Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/gs-market-updates-20250717",
+          "summary": "Goldman Sachs Group Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:43.731782",
+          "timestamp": "2025-07-17T16:06:43.731787"
+        },
+        {
+          "title": "Goldman Sachs Group Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/gs-financial-results-20250717",
+          "summary": "Goldman Sachs Group Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:43.731798",
+          "timestamp": "2025-07-17T16:06:43.731802"
+        }
+      ],
+      "updated": "2025-07-17T16:06:43.731808"
+    },
+    "DIS": {
+      "symbol": "DIS",
+      "name": "Walt Disney Co.",
+      "news": [
+        {
+          "title": "Walt Disney Co. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/dis-business-performance-20250717",
+          "summary": "Walt Disney Co. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:43.835142",
+          "timestamp": "2025-07-17T16:06:43.835161"
+        },
+        {
+          "title": "Walt Disney Co. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/dis-market-updates-20250717",
+          "summary": "Walt Disney Co. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:43.835178",
+          "timestamp": "2025-07-17T16:06:43.835183"
+        },
+        {
+          "title": "Walt Disney Co. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/dis-financial-results-20250717",
+          "summary": "Walt Disney Co. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:43.835198",
+          "timestamp": "2025-07-17T16:06:43.835203"
+        }
+      ],
+      "updated": "2025-07-17T16:06:43.835210"
+    },
+    "MCD": {
+      "symbol": "MCD",
+      "name": "McDonald's Corp.",
+      "news": [
+        {
+          "title": "McDonald's Corp. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/mcd-business-performance-20250717",
+          "summary": "McDonald's Corp. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:43.940254",
+          "timestamp": "2025-07-17T16:06:43.940262"
+        },
+        {
+          "title": "McDonald's Corp. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/mcd-market-updates-20250717",
+          "summary": "McDonald's Corp. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:43.940270",
+          "timestamp": "2025-07-17T16:06:43.940272"
+        },
+        {
+          "title": "McDonald's Corp. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/mcd-financial-results-20250717",
+          "summary": "McDonald's Corp. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:43.940277",
+          "timestamp": "2025-07-17T16:06:43.940278"
+        }
+      ],
+      "updated": "2025-07-17T16:06:43.940281"
+    },
+    "TXN": {
+      "symbol": "TXN",
+      "name": "Texas Instruments Inc.",
+      "news": [
+        {
+          "title": "Texas Instruments Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/txn-business-performance-20250717",
+          "summary": "Texas Instruments Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:44.041677",
+          "timestamp": "2025-07-17T16:06:44.041685"
+        },
+        {
+          "title": "Texas Instruments Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/txn-market-updates-20250717",
+          "summary": "Texas Instruments Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:44.041691",
+          "timestamp": "2025-07-17T16:06:44.041692"
+        },
+        {
+          "title": "Texas Instruments Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/txn-financial-results-20250717",
+          "summary": "Texas Instruments Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:44.041696",
+          "timestamp": "2025-07-17T16:06:44.041698"
+        }
+      ],
+      "updated": "2025-07-17T16:06:44.041699"
+    },
+    "RTX": {
+      "symbol": "RTX",
+      "name": "Raytheon Technologies Corp.",
+      "news": [
+        {
+          "title": "Raytheon Technologies Corp. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/rtx-business-performance-20250717",
+          "summary": "Raytheon Technologies Corp. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:44.144110",
+          "timestamp": "2025-07-17T16:06:44.144118"
+        },
+        {
+          "title": "Raytheon Technologies Corp. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/rtx-market-updates-20250717",
+          "summary": "Raytheon Technologies Corp. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:44.144125",
+          "timestamp": "2025-07-17T16:06:44.144127"
+        },
+        {
+          "title": "Raytheon Technologies Corp. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/rtx-financial-results-20250717",
+          "summary": "Raytheon Technologies Corp. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:44.144132",
+          "timestamp": "2025-07-17T16:06:44.144133"
+        }
+      ],
+      "updated": "2025-07-17T16:06:44.144135"
+    },
+    "NOW": {
+      "symbol": "NOW",
+      "name": "ServiceNow Inc.",
+      "news": [
+        {
+          "title": "ServiceNow Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/now-business-performance-20250717",
+          "summary": "ServiceNow Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:44.249250",
+          "timestamp": "2025-07-17T16:06:44.249269"
+        },
+        {
+          "title": "ServiceNow Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/now-market-updates-20250717",
+          "summary": "ServiceNow Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:44.249282",
+          "timestamp": "2025-07-17T16:06:44.249287"
+        },
+        {
+          "title": "ServiceNow Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/now-financial-results-20250717",
+          "summary": "ServiceNow Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:44.249297",
+          "timestamp": "2025-07-17T16:06:44.249301"
+        }
+      ],
+      "updated": "2025-07-17T16:06:44.249306"
+    },
+    "T": {
+      "symbol": "T",
+      "name": "AT&T Inc.",
+      "news": [
+        {
+          "title": "AT&T Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/t-business-performance-20250717",
+          "summary": "AT&T Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:44.352017",
+          "timestamp": "2025-07-17T16:06:44.352033"
+        },
+        {
+          "title": "AT&T Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/t-market-updates-20250717",
+          "summary": "AT&T Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:44.352047",
+          "timestamp": "2025-07-17T16:06:44.352052"
+        },
+        {
+          "title": "AT&T Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/t-financial-results-20250717",
+          "summary": "AT&T Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:44.352063",
+          "timestamp": "2025-07-17T16:06:44.352067"
+        }
+      ],
+      "updated": "2025-07-17T16:06:44.352073"
+    },
+    "ACN": {
+      "symbol": "ACN",
+      "name": "Accenture PLC",
+      "news": [
+        {
+          "title": "Accenture PLC Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/acn-business-performance-20250717",
+          "summary": "Accenture PLC announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:44.454512",
+          "timestamp": "2025-07-17T16:06:44.454536"
+        },
+        {
+          "title": "Accenture PLC Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/acn-market-updates-20250717",
+          "summary": "Accenture PLC announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:44.454564",
+          "timestamp": "2025-07-17T16:06:44.454573"
+        },
+        {
+          "title": "Accenture PLC Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/acn-financial-results-20250717",
+          "summary": "Accenture PLC announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:44.454596",
+          "timestamp": "2025-07-17T16:06:44.454604"
+        }
+      ],
+      "updated": "2025-07-17T16:06:44.454614"
+    },
+    "CAT": {
+      "symbol": "CAT",
+      "name": "Caterpillar Inc.",
+      "news": [
+        {
+          "title": "Caterpillar Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/cat-business-performance-20250717",
+          "summary": "Caterpillar Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:44.558963",
+          "timestamp": "2025-07-17T16:06:44.558981"
+        },
+        {
+          "title": "Caterpillar Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/cat-market-updates-20250717",
+          "summary": "Caterpillar Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:44.559018",
+          "timestamp": "2025-07-17T16:06:44.559023"
+        },
+        {
+          "title": "Caterpillar Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/cat-financial-results-20250717",
+          "summary": "Caterpillar Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:44.559036",
+          "timestamp": "2025-07-17T16:06:44.559041"
+        }
+      ],
+      "updated": "2025-07-17T16:06:44.559047"
+    },
+    "PEP": {
+      "symbol": "PEP",
+      "name": "PepsiCo Inc.",
+      "news": [
+        {
+          "title": "PepsiCo Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/pep-business-performance-20250717",
+          "summary": "PepsiCo Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:44.663858",
+          "timestamp": "2025-07-17T16:06:44.663874"
+        },
+        {
+          "title": "PepsiCo Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/pep-market-updates-20250717",
+          "summary": "PepsiCo Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:44.663888",
+          "timestamp": "2025-07-17T16:06:44.663892"
+        },
+        {
+          "title": "PepsiCo Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/pep-financial-results-20250717",
+          "summary": "PepsiCo Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:44.663903",
+          "timestamp": "2025-07-17T16:06:44.663907"
+        }
+      ],
+      "updated": "2025-07-17T16:06:44.663912"
+    },
+    "ISRG": {
+      "symbol": "ISRG",
+      "name": "Intuitive Surgical Inc.",
+      "news": [
+        {
+          "title": "Intuitive Surgical Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/isrg-business-performance-20250717",
+          "summary": "Intuitive Surgical Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:44.765082",
+          "timestamp": "2025-07-17T16:06:44.765101"
+        },
+        {
+          "title": "Intuitive Surgical Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/isrg-market-updates-20250717",
+          "summary": "Intuitive Surgical Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:44.765122",
+          "timestamp": "2025-07-17T16:06:44.765129"
+        },
+        {
+          "title": "Intuitive Surgical Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/isrg-financial-results-20250717",
+          "summary": "Intuitive Surgical Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:44.765145",
+          "timestamp": "2025-07-17T16:06:44.765151"
+        }
+      ],
+      "updated": "2025-07-17T16:06:44.765159"
+    },
+    "VZ": {
+      "symbol": "VZ",
+      "name": "Verizon Communications Inc.",
+      "news": [
+        {
+          "title": "Verizon Communications Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/vz-business-performance-20250717",
+          "summary": "Verizon Communications Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:44.866437",
+          "timestamp": "2025-07-17T16:06:44.866444"
+        },
+        {
+          "title": "Verizon Communications Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/vz-market-updates-20250717",
+          "summary": "Verizon Communications Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:44.866449",
+          "timestamp": "2025-07-17T16:06:44.866451"
+        },
+        {
+          "title": "Verizon Communications Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/vz-financial-results-20250717",
+          "summary": "Verizon Communications Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:44.866455",
+          "timestamp": "2025-07-17T16:06:44.866456"
+        }
+      ],
+      "updated": "2025-07-17T16:06:44.866458"
+    },
+    "QCOM": {
+      "symbol": "QCOM",
+      "name": "Qualcomm Inc.",
+      "news": [
+        {
+          "title": "Qualcomm Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/qcom-business-performance-20250717",
+          "summary": "Qualcomm Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:44.971401",
+          "timestamp": "2025-07-17T16:06:44.971422"
+        },
+        {
+          "title": "Qualcomm Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/qcom-market-updates-20250717",
+          "summary": "Qualcomm Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:44.971443",
+          "timestamp": "2025-07-17T16:06:44.971450"
+        },
+        {
+          "title": "Qualcomm Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/qcom-financial-results-20250717",
+          "summary": "Qualcomm Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:44.971466",
+          "timestamp": "2025-07-17T16:06:44.971472"
+        }
+      ],
+      "updated": "2025-07-17T16:06:44.971480"
+    },
+    "BA": {
+      "symbol": "BA",
+      "name": "Boeing Co.",
+      "news": [
+        {
+          "title": "Boeing Co. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/ba-business-performance-20250717",
+          "summary": "Boeing Co. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:45.076737",
+          "timestamp": "2025-07-17T16:06:45.076756"
+        },
+        {
+          "title": "Boeing Co. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/ba-market-updates-20250717",
+          "summary": "Boeing Co. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:45.076779",
+          "timestamp": "2025-07-17T16:06:45.076785"
+        },
+        {
+          "title": "Boeing Co. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/ba-financial-results-20250717",
+          "summary": "Boeing Co. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:45.076799",
+          "timestamp": "2025-07-17T16:06:45.076804"
+        }
+      ],
+      "updated": "2025-07-17T16:06:45.076811"
+    },
+    "BLK": {
+      "symbol": "BLK",
+      "name": "BlackRock Inc.",
+      "news": [
+        {
+          "title": "BlackRock Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/blk-business-performance-20250717",
+          "summary": "BlackRock Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:45.178522",
+          "timestamp": "2025-07-17T16:06:45.178538"
+        },
+        {
+          "title": "BlackRock Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/blk-market-updates-20250717",
+          "summary": "BlackRock Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:45.178552",
+          "timestamp": "2025-07-17T16:06:45.178557"
+        },
+        {
+          "title": "BlackRock Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/blk-financial-results-20250717",
+          "summary": "BlackRock Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:45.178568",
+          "timestamp": "2025-07-17T16:06:45.178572"
+        }
+      ],
+      "updated": "2025-07-17T16:06:45.178577"
+    },
+    "TMO": {
+      "symbol": "TMO",
+      "name": "Thermo Fisher Scientific Inc.",
+      "news": [
+        {
+          "title": "Thermo Fisher Scientific Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/tmo-business-performance-20250717",
+          "summary": "Thermo Fisher Scientific Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:45.280252",
+          "timestamp": "2025-07-17T16:06:45.280269"
+        },
+        {
+          "title": "Thermo Fisher Scientific Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/tmo-market-updates-20250717",
+          "summary": "Thermo Fisher Scientific Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:45.280284",
+          "timestamp": "2025-07-17T16:06:45.280289"
+        },
+        {
+          "title": "Thermo Fisher Scientific Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/tmo-financial-results-20250717",
+          "summary": "Thermo Fisher Scientific Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:45.280300",
+          "timestamp": "2025-07-17T16:06:45.280304"
+        }
+      ],
+      "updated": "2025-07-17T16:06:45.280310"
+    },
+    "C": {
+      "symbol": "C",
+      "name": "Citigroup Inc.",
+      "news": [
+        {
+          "title": "Citigroup Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/c-business-performance-20250717",
+          "summary": "Citigroup Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:45.385310",
+          "timestamp": "2025-07-17T16:06:45.385327"
+        },
+        {
+          "title": "Citigroup Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/c-market-updates-20250717",
+          "summary": "Citigroup Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:45.385344",
+          "timestamp": "2025-07-17T16:06:45.385349"
+        },
+        {
+          "title": "Citigroup Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/c-financial-results-20250717",
+          "summary": "Citigroup Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:45.385362",
+          "timestamp": "2025-07-17T16:06:45.385367"
+        }
+      ],
+      "updated": "2025-07-17T16:06:45.385373"
+    },
+    "SPGI": {
+      "symbol": "SPGI",
+      "name": "S&P Global Inc.",
+      "news": [
+        {
+          "title": "S&P Global Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/spgi-business-performance-20250717",
+          "summary": "S&P Global Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:45.487297",
+          "timestamp": "2025-07-17T16:06:45.487321"
+        },
+        {
+          "title": "S&P Global Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/spgi-market-updates-20250717",
+          "summary": "S&P Global Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:45.487350",
+          "timestamp": "2025-07-17T16:06:45.487359"
+        },
+        {
+          "title": "S&P Global Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/spgi-financial-results-20250717",
+          "summary": "S&P Global Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:45.487382",
+          "timestamp": "2025-07-17T16:06:45.487390"
+        }
+      ],
+      "updated": "2025-07-17T16:06:45.487400"
+    },
+    "AMGN": {
+      "symbol": "AMGN",
+      "name": "Amgen Inc.",
+      "news": [
+        {
+          "title": "Amgen Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/amgn-business-performance-20250717",
+          "summary": "Amgen Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:45.588962",
+          "timestamp": "2025-07-17T16:06:45.588970"
+        },
+        {
+          "title": "Amgen Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/amgn-market-updates-20250717",
+          "summary": "Amgen Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:45.588978",
+          "timestamp": "2025-07-17T16:06:45.588980"
+        },
+        {
+          "title": "Amgen Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/amgn-financial-results-20250717",
+          "summary": "Amgen Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:45.588985",
+          "timestamp": "2025-07-17T16:06:45.588986"
+        }
+      ],
+      "updated": "2025-07-17T16:06:45.588989"
+    },
+    "ADBE": {
+      "symbol": "ADBE",
+      "name": "Adobe Inc.",
+      "news": [
+        {
+          "title": "Adobe Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/adbe-business-performance-20250717",
+          "summary": "Adobe Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:45.692540",
+          "timestamp": "2025-07-17T16:06:45.692557"
+        },
+        {
+          "title": "Adobe Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/adbe-market-updates-20250717",
+          "summary": "Adobe Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:45.692574",
+          "timestamp": "2025-07-17T16:06:45.692579"
+        },
+        {
+          "title": "Adobe Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/adbe-financial-results-20250717",
+          "summary": "Adobe Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:45.692593",
+          "timestamp": "2025-07-17T16:06:45.692597"
+        }
+      ],
+      "updated": "2025-07-17T16:06:45.692604"
+    },
+    "NEE": {
+      "symbol": "NEE",
+      "name": "NextEra Energy Inc.",
+      "news": [
+        {
+          "title": "NextEra Energy Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/nee-business-performance-20250717",
+          "summary": "NextEra Energy Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:45.796382",
+          "timestamp": "2025-07-17T16:06:45.796399"
+        },
+        {
+          "title": "NextEra Energy Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/nee-market-updates-20250717",
+          "summary": "NextEra Energy Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:45.796415",
+          "timestamp": "2025-07-17T16:06:45.796420"
+        },
+        {
+          "title": "NextEra Energy Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/nee-financial-results-20250717",
+          "summary": "NextEra Energy Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:45.796433",
+          "timestamp": "2025-07-17T16:06:45.796437"
+        }
+      ],
+      "updated": "2025-07-17T16:06:45.796444"
+    },
+    "HON": {
+      "symbol": "HON",
+      "name": "Honeywell International Inc.",
+      "news": [
+        {
+          "title": "Honeywell International Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/hon-business-performance-20250717",
+          "summary": "Honeywell International Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:45.898063",
+          "timestamp": "2025-07-17T16:06:45.898073"
+        },
+        {
+          "title": "Honeywell International Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/hon-market-updates-20250717",
+          "summary": "Honeywell International Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:45.898079",
+          "timestamp": "2025-07-17T16:06:45.898081"
+        },
+        {
+          "title": "Honeywell International Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/hon-financial-results-20250717",
+          "summary": "Honeywell International Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:45.898085",
+          "timestamp": "2025-07-17T16:06:45.898086"
+        }
+      ],
+      "updated": "2025-07-17T16:06:45.898089"
+    },
+    "DHR": {
+      "symbol": "DHR",
+      "name": "Danaher Corp.",
+      "news": [
+        {
+          "title": "Danaher Corp. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/dhr-business-performance-20250717",
+          "summary": "Danaher Corp. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:46.003240",
+          "timestamp": "2025-07-17T16:06:46.003264"
+        },
+        {
+          "title": "Danaher Corp. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/dhr-market-updates-20250717",
+          "summary": "Danaher Corp. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:46.003313",
+          "timestamp": "2025-07-17T16:06:46.003323"
+        },
+        {
+          "title": "Danaher Corp. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/dhr-financial-results-20250717",
+          "summary": "Danaher Corp. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:46.003347",
+          "timestamp": "2025-07-17T16:06:46.003356"
+        }
+      ],
+      "updated": "2025-07-17T16:06:46.003366"
+    },
+    "PFE": {
+      "symbol": "PFE",
+      "name": "Pfizer Inc.",
+      "news": [
+        {
+          "title": "Pfizer Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/pfe-business-performance-20250717",
+          "summary": "Pfizer Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:46.107331",
+          "timestamp": "2025-07-17T16:06:46.107346"
+        },
+        {
+          "title": "Pfizer Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/pfe-market-updates-20250717",
+          "summary": "Pfizer Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:46.107360",
+          "timestamp": "2025-07-17T16:06:46.107389"
+        },
+        {
+          "title": "Pfizer Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/pfe-financial-results-20250717",
+          "summary": "Pfizer Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:46.107401",
+          "timestamp": "2025-07-17T16:06:46.107405"
+        }
+      ],
+      "updated": "2025-07-17T16:06:46.107410"
+    },
+    "COF": {
+      "symbol": "COF",
+      "name": "Capital One Financial Corp.",
+      "news": [
+        {
+          "title": "Capital One Financial Corp. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/cof-business-performance-20250717",
+          "summary": "Capital One Financial Corp. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:46.207721",
+          "timestamp": "2025-07-17T16:06:46.207745"
+        },
+        {
+          "title": "Capital One Financial Corp. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/cof-market-updates-20250717",
+          "summary": "Capital One Financial Corp. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:46.207774",
+          "timestamp": "2025-07-17T16:06:46.207783"
+        },
+        {
+          "title": "Capital One Financial Corp. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/cof-financial-results-20250717",
+          "summary": "Capital One Financial Corp. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:46.207805",
+          "timestamp": "2025-07-17T16:06:46.207813"
+        }
+      ],
+      "updated": "2025-07-17T16:06:46.207824"
+    },
+    "UNP": {
+      "symbol": "UNP",
+      "name": "Union Pacific Corp.",
+      "news": [
+        {
+          "title": "Union Pacific Corp. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/unp-business-performance-20250717",
+          "summary": "Union Pacific Corp. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:46.311658",
+          "timestamp": "2025-07-17T16:06:46.311674"
+        },
+        {
+          "title": "Union Pacific Corp. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/unp-market-updates-20250717",
+          "summary": "Union Pacific Corp. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:46.311688",
+          "timestamp": "2025-07-17T16:06:46.311692"
+        },
+        {
+          "title": "Union Pacific Corp. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/unp-financial-results-20250717",
+          "summary": "Union Pacific Corp. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:46.311703",
+          "timestamp": "2025-07-17T16:06:46.311707"
+        }
+      ],
+      "updated": "2025-07-17T16:06:46.311712"
+    },
+    "DE": {
+      "symbol": "DE",
+      "name": "Deere & Co.",
+      "news": [
+        {
+          "title": "Deere & Co. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/de-business-performance-20250717",
+          "summary": "Deere & Co. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:46.416877",
+          "timestamp": "2025-07-17T16:06:46.416901"
+        },
+        {
+          "title": "Deere & Co. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/de-market-updates-20250717",
+          "summary": "Deere & Co. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:46.416929",
+          "timestamp": "2025-07-17T16:06:46.416939"
+        },
+        {
+          "title": "Deere & Co. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/de-financial-results-20250717",
+          "summary": "Deere & Co. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:46.416962",
+          "timestamp": "2025-07-17T16:06:46.416970"
+        }
+      ],
+      "updated": "2025-07-17T16:06:46.416980"
+    },
+    "TJX": {
+      "symbol": "TJX",
+      "name": "TJX Companies Inc.",
+      "news": [
+        {
+          "title": "TJX Companies Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/tjx-business-performance-20250717",
+          "summary": "TJX Companies Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:46.521918",
+          "timestamp": "2025-07-17T16:06:46.521937"
+        },
+        {
+          "title": "TJX Companies Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/tjx-market-updates-20250717",
+          "summary": "TJX Companies Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:46.521970",
+          "timestamp": "2025-07-17T16:06:46.521978"
+        },
+        {
+          "title": "TJX Companies Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/tjx-financial-results-20250717",
+          "summary": "TJX Companies Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:46.521995",
+          "timestamp": "2025-07-17T16:06:46.522001"
+        }
+      ],
+      "updated": "2025-07-17T16:06:46.522008"
+    },
+    "GILD": {
+      "symbol": "GILD",
+      "name": "Gilead Sciences Inc.",
+      "news": [
+        {
+          "title": "Gilead Sciences Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/gild-business-performance-20250717",
+          "summary": "Gilead Sciences Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:46.627139",
+          "timestamp": "2025-07-17T16:06:46.627154"
+        },
+        {
+          "title": "Gilead Sciences Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/gild-market-updates-20250717",
+          "summary": "Gilead Sciences Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:46.627168",
+          "timestamp": "2025-07-17T16:06:46.627172"
+        },
+        {
+          "title": "Gilead Sciences Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/gild-financial-results-20250717",
+          "summary": "Gilead Sciences Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:46.627184",
+          "timestamp": "2025-07-17T16:06:46.627188"
+        }
+      ],
+      "updated": "2025-07-17T16:06:46.627193"
+    },
+    "CMCSA": {
+      "symbol": "CMCSA",
+      "name": "Comcast Corp.",
+      "news": [
+        {
+          "title": "Comcast Corp. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/cmcsa-business-performance-20250717",
+          "summary": "Comcast Corp. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:46.727957",
+          "timestamp": "2025-07-17T16:06:46.727972"
+        },
+        {
+          "title": "Comcast Corp. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/cmcsa-market-updates-20250717",
+          "summary": "Comcast Corp. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:46.727987",
+          "timestamp": "2025-07-17T16:06:46.727991"
+        },
+        {
+          "title": "Comcast Corp. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/cmcsa-financial-results-20250717",
+          "summary": "Comcast Corp. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:46.728003",
+          "timestamp": "2025-07-17T16:06:46.728006"
+        }
+      ],
+      "updated": "2025-07-17T16:06:46.728011"
+    },
+    "LOW": {
+      "symbol": "LOW",
+      "name": "Lowe's Companies Inc.",
+      "news": [
+        {
+          "title": "Lowe's Companies Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/low-business-performance-20250717",
+          "summary": "Lowe's Companies Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:46.830123",
+          "timestamp": "2025-07-17T16:06:46.830144"
+        },
+        {
+          "title": "Lowe's Companies Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/low-market-updates-20250717",
+          "summary": "Lowe's Companies Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:46.830177",
+          "timestamp": "2025-07-17T16:06:46.830184"
+        },
+        {
+          "title": "Lowe's Companies Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/low-financial-results-20250717",
+          "summary": "Lowe's Companies Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:46.830201",
+          "timestamp": "2025-07-17T16:06:46.830207"
+        }
+      ],
+      "updated": "2025-07-17T16:06:46.830239"
+    },
+    "ADP": {
+      "symbol": "ADP",
+      "name": "Automatic Data Processing Inc.",
+      "news": [
+        {
+          "title": "Automatic Data Processing Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/adp-business-performance-20250717",
+          "summary": "Automatic Data Processing Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:46.931673",
+          "timestamp": "2025-07-17T16:06:46.931688"
+        },
+        {
+          "title": "Automatic Data Processing Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/adp-market-updates-20250717",
+          "summary": "Automatic Data Processing Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:46.931702",
+          "timestamp": "2025-07-17T16:06:46.931707"
+        },
+        {
+          "title": "Automatic Data Processing Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/adp-financial-results-20250717",
+          "summary": "Automatic Data Processing Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:46.931718",
+          "timestamp": "2025-07-17T16:06:46.931721"
+        }
+      ],
+      "updated": "2025-07-17T16:06:46.931727"
+    },
+    "COP": {
+      "symbol": "COP",
+      "name": "ConocoPhillips",
+      "news": [
+        {
+          "title": "ConocoPhillips Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/cop-business-performance-20250717",
+          "summary": "ConocoPhillips announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:47.035847",
+          "timestamp": "2025-07-17T16:06:47.035856"
+        },
+        {
+          "title": "ConocoPhillips Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/cop-market-updates-20250717",
+          "summary": "ConocoPhillips announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:47.035861",
+          "timestamp": "2025-07-17T16:06:47.035863"
+        },
+        {
+          "title": "ConocoPhillips Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/cop-financial-results-20250717",
+          "summary": "ConocoPhillips announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:47.035867",
+          "timestamp": "2025-07-17T16:06:47.035869"
+        }
+      ],
+      "updated": "2025-07-17T16:06:47.035871"
+    },
+    "SBUX": {
+      "symbol": "SBUX",
+      "name": "Starbucks Corp.",
+      "news": [
+        {
+          "title": "Starbucks Corp. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/sbux-business-performance-20250717",
+          "summary": "Starbucks Corp. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:47.138140",
+          "timestamp": "2025-07-17T16:06:47.138158"
+        },
+        {
+          "title": "Starbucks Corp. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/sbux-market-updates-20250717",
+          "summary": "Starbucks Corp. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:47.138173",
+          "timestamp": "2025-07-17T16:06:47.138177"
+        },
+        {
+          "title": "Starbucks Corp. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/sbux-financial-results-20250717",
+          "summary": "Starbucks Corp. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:47.138189",
+          "timestamp": "2025-07-17T16:06:47.138192"
+        }
+      ],
+      "updated": "2025-07-17T16:06:47.138207"
+    },
+    "NKE": {
+      "symbol": "NKE",
+      "name": "Nike Inc.",
+      "news": [
+        {
+          "title": "Nike Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/nke-business-performance-20250717",
+          "summary": "Nike Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:47.240835",
+          "timestamp": "2025-07-17T16:06:47.240852"
+        },
+        {
+          "title": "Nike Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/nke-market-updates-20250717",
+          "summary": "Nike Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:47.240889",
+          "timestamp": "2025-07-17T16:06:47.240895"
+        },
+        {
+          "title": "Nike Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/nke-financial-results-20250717",
+          "summary": "Nike Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:47.240909",
+          "timestamp": "2025-07-17T16:06:47.240914"
+        }
+      ],
+      "updated": "2025-07-17T16:06:47.240921"
+    },
+    "MMC": {
+      "symbol": "MMC",
+      "name": "Marsh & McLennan Companies Inc.",
+      "news": [
+        {
+          "title": "Marsh & McLennan Companies Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/mmc-business-performance-20250717",
+          "summary": "Marsh & McLennan Companies Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:47.342386",
+          "timestamp": "2025-07-17T16:06:47.342402"
+        },
+        {
+          "title": "Marsh & McLennan Companies Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/mmc-market-updates-20250717",
+          "summary": "Marsh & McLennan Companies Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:47.342415",
+          "timestamp": "2025-07-17T16:06:47.342419"
+        },
+        {
+          "title": "Marsh & McLennan Companies Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/mmc-financial-results-20250717",
+          "summary": "Marsh & McLennan Companies Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:47.342430",
+          "timestamp": "2025-07-17T16:06:47.342433"
+        }
+      ],
+      "updated": "2025-07-17T16:06:47.342438"
+    },
+    "ICE": {
+      "symbol": "ICE",
+      "name": "Intercontinental Exchange Inc.",
+      "news": [
+        {
+          "title": "Intercontinental Exchange Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/ice-business-performance-20250717",
+          "summary": "Intercontinental Exchange Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:47.458172",
+          "timestamp": "2025-07-17T16:06:47.458180"
+        },
+        {
+          "title": "Intercontinental Exchange Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/ice-market-updates-20250717",
+          "summary": "Intercontinental Exchange Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:47.458185",
+          "timestamp": "2025-07-17T16:06:47.458187"
+        },
+        {
+          "title": "Intercontinental Exchange Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/ice-financial-results-20250717",
+          "summary": "Intercontinental Exchange Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:47.458207",
+          "timestamp": "2025-07-17T16:06:47.458208"
+        }
+      ],
+      "updated": "2025-07-17T16:06:47.458211"
+    },
+    "INTC": {
+      "symbol": "INTC",
+      "name": "Intel Corporation",
+      "news": [
+        {
+          "title": "Intel Corporation Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/intc-business-performance-20250717",
+          "summary": "Intel Corporation announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:47.562180",
+          "timestamp": "2025-07-17T16:06:47.562196"
+        },
+        {
+          "title": "Intel Corporation Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/intc-market-updates-20250717",
+          "summary": "Intel Corporation announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:47.562210",
+          "timestamp": "2025-07-17T16:06:47.562214"
+        },
+        {
+          "title": "Intel Corporation Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/intc-financial-results-20250717",
+          "summary": "Intel Corporation announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:47.562244",
+          "timestamp": "2025-07-17T16:06:47.562248"
+        }
+      ],
+      "updated": "2025-07-17T16:06:47.562253"
+    },
+    "SO": {
+      "symbol": "SO",
+      "name": "Southern Co.",
+      "news": [
+        {
+          "title": "Southern Co. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/so-business-performance-20250717",
+          "summary": "Southern Co. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:47.666730",
+          "timestamp": "2025-07-17T16:06:47.666746"
+        },
+        {
+          "title": "Southern Co. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/so-market-updates-20250717",
+          "summary": "Southern Co. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:47.666764",
+          "timestamp": "2025-07-17T16:06:47.666769"
+        },
+        {
+          "title": "Southern Co. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/so-financial-results-20250717",
+          "summary": "Southern Co. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:47.666782",
+          "timestamp": "2025-07-17T16:06:47.666787"
+        }
+      ],
+      "updated": "2025-07-17T16:06:47.666793"
+    },
+    "CME": {
+      "symbol": "CME",
+      "name": "CME Group Inc.",
+      "news": [
+        {
+          "title": "CME Group Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/cme-business-performance-20250717",
+          "summary": "CME Group Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:47.771531",
+          "timestamp": "2025-07-17T16:06:47.771549"
+        },
+        {
+          "title": "CME Group Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/cme-market-updates-20250717",
+          "summary": "CME Group Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:47.771566",
+          "timestamp": "2025-07-17T16:06:47.771571"
+        },
+        {
+          "title": "CME Group Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/cme-financial-results-20250717",
+          "summary": "CME Group Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:47.771613",
+          "timestamp": "2025-07-17T16:06:47.771618"
+        }
+      ],
+      "updated": "2025-07-17T16:06:47.771625"
+    },
+    "BMY": {
+      "symbol": "BMY",
+      "name": "Bristol-Myers Squibb Co.",
+      "news": [
+        {
+          "title": "Bristol-Myers Squibb Co. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/bmy-business-performance-20250717",
+          "summary": "Bristol-Myers Squibb Co. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:47.874037",
+          "timestamp": "2025-07-17T16:06:47.874055"
+        },
+        {
+          "title": "Bristol-Myers Squibb Co. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/bmy-market-updates-20250717",
+          "summary": "Bristol-Myers Squibb Co. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:47.874070",
+          "timestamp": "2025-07-17T16:06:47.874074"
+        },
+        {
+          "title": "Bristol-Myers Squibb Co. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/bmy-financial-results-20250717",
+          "summary": "Bristol-Myers Squibb Co. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:47.874085",
+          "timestamp": "2025-07-17T16:06:47.874089"
+        }
+      ],
+      "updated": "2025-07-17T16:06:47.874094"
+    },
+    "DUK": {
+      "symbol": "DUK",
+      "name": "Duke Energy Corp.",
+      "news": [
+        {
+          "title": "Duke Energy Corp. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/duk-business-performance-20250717",
+          "summary": "Duke Energy Corp. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:47.979183",
+          "timestamp": "2025-07-17T16:06:47.979192"
+        },
+        {
+          "title": "Duke Energy Corp. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/duk-market-updates-20250717",
+          "summary": "Duke Energy Corp. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:47.979197",
+          "timestamp": "2025-07-17T16:06:47.979199"
+        },
+        {
+          "title": "Duke Energy Corp. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/duk-financial-results-20250717",
+          "summary": "Duke Energy Corp. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:47.979211",
+          "timestamp": "2025-07-17T16:06:47.979212"
+        }
+      ],
+      "updated": "2025-07-17T16:06:47.979215"
+    },
+    "MCO": {
+      "symbol": "MCO",
+      "name": "Moody's Corp.",
+      "news": [
+        {
+          "title": "Moody's Corp. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/mco-business-performance-20250717",
+          "summary": "Moody's Corp. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:48.082317",
+          "timestamp": "2025-07-17T16:06:48.082334"
+        },
+        {
+          "title": "Moody's Corp. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/mco-market-updates-20250717",
+          "summary": "Moody's Corp. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:48.082349",
+          "timestamp": "2025-07-17T16:06:48.082354"
+        },
+        {
+          "title": "Moody's Corp. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/mco-financial-results-20250717",
+          "summary": "Moody's Corp. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:48.082365",
+          "timestamp": "2025-07-17T16:06:48.082369"
+        }
+      ],
+      "updated": "2025-07-17T16:06:48.082374"
+    },
+    "MDLZ": {
+      "symbol": "MDLZ",
+      "name": "Mondelez International Inc.",
+      "news": [
+        {
+          "title": "Mondelez International Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/mdlz-business-performance-20250717",
+          "summary": "Mondelez International Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:48.187496",
+          "timestamp": "2025-07-17T16:06:48.187512"
+        },
+        {
+          "title": "Mondelez International Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/mdlz-market-updates-20250717",
+          "summary": "Mondelez International Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:48.187526",
+          "timestamp": "2025-07-17T16:06:48.187531"
+        },
+        {
+          "title": "Mondelez International Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/mdlz-financial-results-20250717",
+          "summary": "Mondelez International Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:48.187542",
+          "timestamp": "2025-07-17T16:06:48.187545"
+        }
+      ],
+      "updated": "2025-07-17T16:06:48.187551"
+    },
+    "SHW": {
+      "symbol": "SHW",
+      "name": "Sherwin-Williams Co.",
+      "news": [
+        {
+          "title": "Sherwin-Williams Co. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/shw-business-performance-20250717",
+          "summary": "Sherwin-Williams Co. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:48.288497",
+          "timestamp": "2025-07-17T16:06:48.288522"
+        },
+        {
+          "title": "Sherwin-Williams Co. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/shw-market-updates-20250717",
+          "summary": "Sherwin-Williams Co. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:48.288565",
+          "timestamp": "2025-07-17T16:06:48.288575"
+        },
+        {
+          "title": "Sherwin-Williams Co. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/shw-financial-results-20250717",
+          "summary": "Sherwin-Williams Co. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:48.288599",
+          "timestamp": "2025-07-17T16:06:48.288607"
+        }
+      ],
+      "updated": "2025-07-17T16:06:48.288617"
+    },
+    "UPS": {
+      "symbol": "UPS",
+      "name": "United Parcel Service Inc.",
+      "news": [
+        {
+          "title": "United Parcel Service Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/ups-business-performance-20250717",
+          "summary": "United Parcel Service Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:48.395438",
+          "timestamp": "2025-07-17T16:06:48.395446"
+        },
+        {
+          "title": "United Parcel Service Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/ups-market-updates-20250717",
+          "summary": "United Parcel Service Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:48.395453",
+          "timestamp": "2025-07-17T16:06:48.395455"
+        },
+        {
+          "title": "United Parcel Service Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/ups-financial-results-20250717",
+          "summary": "United Parcel Service Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:48.395459",
+          "timestamp": "2025-07-17T16:06:48.395460"
+        }
+      ],
+      "updated": "2025-07-17T16:06:48.395463"
+    },
+    "MMM": {
+      "symbol": "MMM",
+      "name": "3M Co.",
+      "news": [
+        {
+          "title": "3M Co. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/mmm-business-performance-20250717",
+          "summary": "3M Co. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:48.498903",
+          "timestamp": "2025-07-17T16:06:48.498913"
+        },
+        {
+          "title": "3M Co. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/mmm-market-updates-20250717",
+          "summary": "3M Co. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:48.498919",
+          "timestamp": "2025-07-17T16:06:48.498921"
+        },
+        {
+          "title": "3M Co. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/mmm-financial-results-20250717",
+          "summary": "3M Co. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:48.498925",
+          "timestamp": "2025-07-17T16:06:48.498926"
+        }
+      ],
+      "updated": "2025-07-17T16:06:48.498929"
+    },
+    "CVS": {
+      "symbol": "CVS",
+      "name": "CVS Health Corp.",
+      "news": [
+        {
+          "title": "CVS Health Corp. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/cvs-business-performance-20250717",
+          "summary": "CVS Health Corp. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:48.604037",
+          "timestamp": "2025-07-17T16:06:48.604052"
+        },
+        {
+          "title": "CVS Health Corp. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/cvs-market-updates-20250717",
+          "summary": "CVS Health Corp. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:48.604066",
+          "timestamp": "2025-07-17T16:06:48.604070"
+        },
+        {
+          "title": "CVS Health Corp. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/cvs-financial-results-20250717",
+          "summary": "CVS Health Corp. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:48.604081",
+          "timestamp": "2025-07-17T16:06:48.604085"
+        }
+      ],
+      "updated": "2025-07-17T16:06:48.604090"
+    },
+    "GD": {
+      "symbol": "GD",
+      "name": "General Dynamics Corp.",
+      "news": [
+        {
+          "title": "General Dynamics Corp. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/gd-business-performance-20250717",
+          "summary": "General Dynamics Corp. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:48.709165",
+          "timestamp": "2025-07-17T16:06:48.709184"
+        },
+        {
+          "title": "General Dynamics Corp. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/gd-market-updates-20250717",
+          "summary": "General Dynamics Corp. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:48.709198",
+          "timestamp": "2025-07-17T16:06:48.709203"
+        },
+        {
+          "title": "General Dynamics Corp. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/gd-financial-results-20250717",
+          "summary": "General Dynamics Corp. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:48.709215",
+          "timestamp": "2025-07-17T16:06:48.709218"
+        }
+      ],
+      "updated": "2025-07-17T16:06:48.709224"
+    },
+    "EMR": {
+      "symbol": "EMR",
+      "name": "Emerson Electric Co.",
+      "news": [
+        {
+          "title": "Emerson Electric Co. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/emr-business-performance-20250717",
+          "summary": "Emerson Electric Co. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:48.814243",
+          "timestamp": "2025-07-17T16:06:48.814266"
+        },
+        {
+          "title": "Emerson Electric Co. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/emr-market-updates-20250717",
+          "summary": "Emerson Electric Co. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:48.814283",
+          "timestamp": "2025-07-17T16:06:48.814288"
+        },
+        {
+          "title": "Emerson Electric Co. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/emr-financial-results-20250717",
+          "summary": "Emerson Electric Co. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:48.814302",
+          "timestamp": "2025-07-17T16:06:48.814306"
+        }
+      ],
+      "updated": "2025-07-17T16:06:48.814313"
+    },
+    "PNC": {
+      "symbol": "PNC",
+      "name": "PNC Financial Services Group Inc.",
+      "news": [
+        {
+          "title": "PNC Financial Services Group Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/pnc-business-performance-20250717",
+          "summary": "PNC Financial Services Group Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:48.918040",
+          "timestamp": "2025-07-17T16:06:48.918060"
+        },
+        {
+          "title": "PNC Financial Services Group Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/pnc-market-updates-20250717",
+          "summary": "PNC Financial Services Group Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:48.918077",
+          "timestamp": "2025-07-17T16:06:48.918081"
+        },
+        {
+          "title": "PNC Financial Services Group Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/pnc-financial-results-20250717",
+          "summary": "PNC Financial Services Group Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:48.918102",
+          "timestamp": "2025-07-17T16:06:48.918106"
+        }
+      ],
+      "updated": "2025-07-17T16:06:48.918113"
+    },
+    "AON": {
+      "symbol": "AON",
+      "name": "Aon PLC",
+      "news": [
+        {
+          "title": "Aon PLC Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/aon-business-performance-20250717",
+          "summary": "Aon PLC announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:49.018344",
+          "timestamp": "2025-07-17T16:06:49.018354"
+        },
+        {
+          "title": "Aon PLC Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/aon-market-updates-20250717",
+          "summary": "Aon PLC announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:49.018365",
+          "timestamp": "2025-07-17T16:06:49.018368"
+        },
+        {
+          "title": "Aon PLC Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/aon-financial-results-20250717",
+          "summary": "Aon PLC announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:49.018373",
+          "timestamp": "2025-07-17T16:06:49.018375"
+        }
+      ],
+      "updated": "2025-07-17T16:06:49.018378"
+    },
+    "ITW": {
+      "symbol": "ITW",
+      "name": "Illinois Tool Works Inc.",
+      "news": [
+        {
+          "title": "Illinois Tool Works Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/itw-business-performance-20250717",
+          "summary": "Illinois Tool Works Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:49.123468",
+          "timestamp": "2025-07-17T16:06:49.123477"
+        },
+        {
+          "title": "Illinois Tool Works Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/itw-market-updates-20250717",
+          "summary": "Illinois Tool Works Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:49.123484",
+          "timestamp": "2025-07-17T16:06:49.123486"
+        },
+        {
+          "title": "Illinois Tool Works Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/itw-financial-results-20250717",
+          "summary": "Illinois Tool Works Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:49.123491",
+          "timestamp": "2025-07-17T16:06:49.123493"
+        }
+      ],
+      "updated": "2025-07-17T16:06:49.123496"
+    },
+    "CMG": {
+      "symbol": "CMG",
+      "name": "Chipotle Mexican Grill Inc.",
+      "news": [
+        {
+          "title": "Chipotle Mexican Grill Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/cmg-business-performance-20250717",
+          "summary": "Chipotle Mexican Grill Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:49.228608",
+          "timestamp": "2025-07-17T16:06:49.228624"
+        },
+        {
+          "title": "Chipotle Mexican Grill Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/cmg-market-updates-20250717",
+          "summary": "Chipotle Mexican Grill Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:49.228641",
+          "timestamp": "2025-07-17T16:06:49.228646"
+        },
+        {
+          "title": "Chipotle Mexican Grill Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/cmg-financial-results-20250717",
+          "summary": "Chipotle Mexican Grill Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:49.228659",
+          "timestamp": "2025-07-17T16:06:49.228669"
+        }
+      ],
+      "updated": "2025-07-17T16:06:49.228675"
+    },
+    "USB": {
+      "symbol": "USB",
+      "name": "U.S. Bancorp",
+      "news": [
+        {
+          "title": "U.S. Bancorp Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/usb-business-performance-20250717",
+          "summary": "U.S. Bancorp announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:49.330248",
+          "timestamp": "2025-07-17T16:06:49.330268"
+        },
+        {
+          "title": "U.S. Bancorp Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/usb-market-updates-20250717",
+          "summary": "U.S. Bancorp announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:49.330289",
+          "timestamp": "2025-07-17T16:06:49.330310"
+        },
+        {
+          "title": "U.S. Bancorp Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/usb-financial-results-20250717",
+          "summary": "U.S. Bancorp announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:49.330328",
+          "timestamp": "2025-07-17T16:06:49.330334"
+        }
+      ],
+      "updated": "2025-07-17T16:06:49.330342"
+    },
+    "CL": {
+      "symbol": "CL",
+      "name": "Colgate-Palmolive Co.",
+      "news": [
+        {
+          "title": "Colgate-Palmolive Co. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/cl-business-performance-20250717",
+          "summary": "Colgate-Palmolive Co. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:49.435464",
+          "timestamp": "2025-07-17T16:06:49.435481"
+        },
+        {
+          "title": "Colgate-Palmolive Co. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/cl-market-updates-20250717",
+          "summary": "Colgate-Palmolive Co. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:49.435496",
+          "timestamp": "2025-07-17T16:06:49.435501"
+        },
+        {
+          "title": "Colgate-Palmolive Co. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/cl-financial-results-20250717",
+          "summary": "Colgate-Palmolive Co. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:49.435512",
+          "timestamp": "2025-07-17T16:06:49.435517"
+        }
+      ],
+      "updated": "2025-07-17T16:06:49.435522"
+    },
+    "PYPL": {
+      "symbol": "PYPL",
+      "name": "PayPal Holdings Inc.",
+      "news": [
+        {
+          "title": "PayPal Holdings Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/pypl-business-performance-20250717",
+          "summary": "PayPal Holdings Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:49.537703",
+          "timestamp": "2025-07-17T16:06:49.537730"
+        },
+        {
+          "title": "PayPal Holdings Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/pypl-market-updates-20250717",
+          "summary": "PayPal Holdings Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:49.537763",
+          "timestamp": "2025-07-17T16:06:49.537773"
+        },
+        {
+          "title": "PayPal Holdings Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/pypl-financial-results-20250717",
+          "summary": "PayPal Holdings Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:49.537798",
+          "timestamp": "2025-07-17T16:06:49.537806"
+        }
+      ],
+      "updated": "2025-07-17T16:06:49.537817"
+    },
+    "EOG": {
+      "symbol": "EOG",
+      "name": "EOG Resources Inc.",
+      "news": [
+        {
+          "title": "EOG Resources Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/eog-business-performance-20250717",
+          "summary": "EOG Resources Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:49.642908",
+          "timestamp": "2025-07-17T16:06:49.642917"
+        },
+        {
+          "title": "EOG Resources Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/eog-market-updates-20250717",
+          "summary": "EOG Resources Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:49.642924",
+          "timestamp": "2025-07-17T16:06:49.642926"
+        },
+        {
+          "title": "EOG Resources Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/eog-financial-results-20250717",
+          "summary": "EOG Resources Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:49.642931",
+          "timestamp": "2025-07-17T16:06:49.642933"
+        }
+      ],
+      "updated": "2025-07-17T16:06:49.642935"
+    },
+    "APD": {
+      "symbol": "APD",
+      "name": "Air Products and Chemicals Inc.",
+      "news": [
+        {
+          "title": "Air Products and Chemicals Inc. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/apd-business-performance-20250717",
+          "summary": "Air Products and Chemicals Inc. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:49.747367",
+          "timestamp": "2025-07-17T16:06:49.747404"
+        },
+        {
+          "title": "Air Products and Chemicals Inc. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/apd-market-updates-20250717",
+          "summary": "Air Products and Chemicals Inc. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:49.747450",
+          "timestamp": "2025-07-17T16:06:49.747456"
+        },
+        {
+          "title": "Air Products and Chemicals Inc. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/apd-financial-results-20250717",
+          "summary": "Air Products and Chemicals Inc. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:49.747473",
+          "timestamp": "2025-07-17T16:06:49.747478"
+        }
+      ],
+      "updated": "2025-07-17T16:06:49.747485"
+    },
+    "NSC": {
+      "symbol": "NSC",
+      "name": "Norfolk Southern Corp.",
+      "news": [
+        {
+          "title": "Norfolk Southern Corp. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/nsc-business-performance-20250717",
+          "summary": "Norfolk Southern Corp. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:49.851587",
+          "timestamp": "2025-07-17T16:06:49.851628"
+        },
+        {
+          "title": "Norfolk Southern Corp. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/nsc-market-updates-20250717",
+          "summary": "Norfolk Southern Corp. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:49.851644",
+          "timestamp": "2025-07-17T16:06:49.851649"
+        },
+        {
+          "title": "Norfolk Southern Corp. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/nsc-financial-results-20250717",
+          "summary": "Norfolk Southern Corp. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:49.851661",
+          "timestamp": "2025-07-17T16:06:49.851665"
+        }
+      ],
+      "updated": "2025-07-17T16:06:49.851672"
+    },
+    "TFC": {
+      "symbol": "TFC",
+      "name": "Truist Financial Corp.",
+      "news": [
+        {
+          "title": "Truist Financial Corp. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/tfc-business-performance-20250717",
+          "summary": "Truist Financial Corp. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:49.956827",
+          "timestamp": "2025-07-17T16:06:49.956846"
+        },
+        {
+          "title": "Truist Financial Corp. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/tfc-market-updates-20250717",
+          "summary": "Truist Financial Corp. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:49.956861",
+          "timestamp": "2025-07-17T16:06:49.956865"
+        },
+        {
+          "title": "Truist Financial Corp. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/tfc-financial-results-20250717",
+          "summary": "Truist Financial Corp. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:49.956899",
+          "timestamp": "2025-07-17T16:06:49.956903"
+        }
+      ],
+      "updated": "2025-07-17T16:06:49.956908"
+    },
+    "FDX": {
+      "symbol": "FDX",
+      "name": "FedEx Corp.",
+      "news": [
+        {
+          "title": "FedEx Corp. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/fdx-business-performance-20250717",
+          "summary": "FedEx Corp. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:50.060679",
+          "timestamp": "2025-07-17T16:06:50.060694"
+        },
+        {
+          "title": "FedEx Corp. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/fdx-market-updates-20250717",
+          "summary": "FedEx Corp. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:50.060708",
+          "timestamp": "2025-07-17T16:06:50.060713"
+        },
+        {
+          "title": "FedEx Corp. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/fdx-financial-results-20250717",
+          "summary": "FedEx Corp. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:50.060724",
+          "timestamp": "2025-07-17T16:06:50.060728"
+        }
+      ],
+      "updated": "2025-07-17T16:06:50.060733"
+    },
+    "SLB": {
+      "symbol": "SLB",
+      "name": "Schlumberger NV",
+      "news": [
+        {
+          "title": "Schlumberger NV Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/slb-business-performance-20250717",
+          "summary": "Schlumberger NV announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:50.165760",
+          "timestamp": "2025-07-17T16:06:50.165784"
+        },
+        {
+          "title": "Schlumberger NV Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/slb-market-updates-20250717",
+          "summary": "Schlumberger NV announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:50.165812",
+          "timestamp": "2025-07-17T16:06:50.165822"
+        },
+        {
+          "title": "Schlumberger NV Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/slb-financial-results-20250717",
+          "summary": "Schlumberger NV announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:50.165845",
+          "timestamp": "2025-07-17T16:06:50.165853"
+        }
+      ],
+      "updated": "2025-07-17T16:06:50.165863"
+    },
+    "TGT": {
+      "symbol": "TGT",
+      "name": "Target Corp.",
+      "news": [
+        {
+          "title": "Target Corp. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/tgt-business-performance-20250717",
+          "summary": "Target Corp. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:50.270313",
+          "timestamp": "2025-07-17T16:06:50.270330"
+        },
+        {
+          "title": "Target Corp. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/tgt-market-updates-20250717",
+          "summary": "Target Corp. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:50.270356",
+          "timestamp": "2025-07-17T16:06:50.270361"
+        },
+        {
+          "title": "Target Corp. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/tgt-financial-results-20250717",
+          "summary": "Target Corp. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:50.270374",
+          "timestamp": "2025-07-17T16:06:50.270378"
+        }
+      ],
+      "updated": "2025-07-17T16:06:50.270383"
+    },
+    "CNC": {
+      "symbol": "CNC",
+      "name": "Centene Corp.",
+      "news": [
+        {
+          "title": "Centene Corp. Reports Strong Business performance",
+          "link": "https://finance.yahoo.com/news/cnc-business-performance-20250717",
+          "summary": "Centene Corp. announced positive developments in business performance, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-16T16:06:50.375640",
+          "timestamp": "2025-07-17T16:06:50.375665"
+        },
+        {
+          "title": "Centene Corp. Reports Strong Market updates",
+          "link": "https://finance.yahoo.com/news/cnc-market-updates-20250717",
+          "summary": "Centene Corp. announced positive developments in market updates, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-15T16:06:50.375680",
+          "timestamp": "2025-07-17T16:06:50.375685"
+        },
+        {
+          "title": "Centene Corp. Reports Strong Financial results",
+          "link": "https://finance.yahoo.com/news/cnc-financial-results-20250717",
+          "summary": "Centene Corp. announced positive developments in financial results, showing continued growth and market leadership in this sector...",
+          "source": "Financial News",
+          "published": "2025-07-14T16:06:50.375698",
+          "timestamp": "2025-07-17T16:06:50.377131"
+        }
+      ],
+      "updated": "2025-07-17T16:06:50.377145"
+    }
+  },
+  "total_companies": 102,
+  "total_articles": 306
+}

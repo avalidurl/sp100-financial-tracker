@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fetch Test</title>
+</head>
+<body>
+    <h1>Testing Data Fetch</h1>
+    <div id="results"></div>
+    
+    <script>
+        async function testFetch() {
+            const results = document.getElementById('results');
+            
+            // Test different paths
+            const paths = [
+                './data/capex_data.json',
+                './public/data/capex_data.json',
+                '/data/capex_data.json',
+                '/public/data/capex_data.json'
+            ];
+            
+            for (const path of paths) {
+                try {
+                    const response = await fetch(path);
+                    const data = await response.json();
+                    results.innerHTML += `<p>✅ ${path} - SUCCESS - ${data.length} companies</p>`;
+                } catch (error) {
+                    results.innerHTML += `<p>❌ ${path} - ERROR: ${error.message}</p>`;
+                }
+            }
+        }
+        
+        testFetch();
+    </script>
+</body>
+</html>
