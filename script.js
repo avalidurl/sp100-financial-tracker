@@ -1192,7 +1192,7 @@ async function openNewsModal(symbol, companyName) {
         <button class="news-refresh-btn" onclick="refreshNews('${symbol}', '${companyName.replace(/'/g, "\\'")}'); event.stopPropagation();" 
                 title="Refresh news">🔄</button>
     `;
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
     
     // Store current symbol and company for refresh
@@ -1563,7 +1563,7 @@ function openPriceModal(symbol, companyName) {
     title.innerHTML = `📈 ${companyName} (${symbol}) - Live Price`;
     
     // Show modal and loading
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
     loading.style.display = 'block';
     
     // Clear previous content
@@ -1751,7 +1751,7 @@ async function openNewsModalNew(symbol, companyName) {
     newsArticles = [];
 
     // Show modal and loading state
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
     title.innerHTML = `📰 ${companyName} (${symbol}) News Feed`;
     
     // Reset states
@@ -1999,7 +1999,7 @@ async function openFilingsModal(symbol, companyName) {
     filingsItems = [];
 
     // Show modal and loading state
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
     title.innerHTML = `📋 ${companyName} (${symbol}) SEC Filings`;
     
     // Reset states
@@ -2387,7 +2387,7 @@ async function openStatementsModal(symbol, companyName) {
     statementsItems = [];
 
     // Show modal and loading state
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
     title.innerHTML = `📊 ${companyName} (${symbol}) Financial Data`;
     
     // Reset states

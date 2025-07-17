@@ -700,6 +700,8 @@ footer {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
+    align-items: center;
+    justify-content: center;
 }
 
 .news-header {
@@ -770,7 +772,6 @@ footer {
 
 .news-modal-content {
     background-color: white;
-    margin: 5% auto;
     padding: 0;
     border-radius: 12px;
     width: 90%;
@@ -1114,11 +1115,12 @@ footer {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
+    align-items: center;
+    justify-content: center;
 }
 
 .price-modal-content {
     background-color: white;
-    margin: 3% auto;
     padding: 0;
     border-radius: 12px;
     width: 95%;
@@ -1247,7 +1249,6 @@ footer {
 /* Mobile responsiveness for price modal */
 @media (max-width: 768px) {
     .price-modal-content {
-        margin: 5px;
         width: calc(100% - 10px);
         max-height: 95vh;
     }
@@ -1269,7 +1270,6 @@ footer {
 /* Mobile responsiveness for news modal */
 @media (max-width: 768px) {
     .news-modal-content {
-        margin: 10px;
         width: calc(100% - 20px);
         max-height: 90vh;
     }
