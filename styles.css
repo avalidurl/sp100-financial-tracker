@@ -702,6 +702,16 @@ footer {
     backdrop-filter: blur(2px);
     align-items: center;
     justify-content: center;
+    /* Ensure modal is always centered in current viewport */
+    overflow: auto;
+}
+
+/* Modal shown state - ensures proper centering */
+.news-modal.modal-shown,
+.price-modal.modal-shown {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .news-header {
@@ -1117,6 +1127,8 @@ footer {
     backdrop-filter: blur(2px);
     align-items: center;
     justify-content: center;
+    /* Ensure modal is always centered in current viewport */
+    overflow: auto;
 }
 
 .price-modal-content {

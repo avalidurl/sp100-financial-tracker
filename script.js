@@ -1192,8 +1192,17 @@ async function openNewsModal(symbol, companyName) {
         <button class="news-refresh-btn" onclick="refreshNews('${symbol}', '${companyName.replace(/'/g, "\\'")}'); event.stopPropagation();" 
                 title="Refresh news">🔄</button>
     `;
+    // Ensure modal is displayed with proper flexbox centering
     modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    modal.style.alignItems = 'center';
+    modal.style.justifyContent = 'center';
+    modal.classList.add('modal-shown');
+    
+    // Prevent background scrolling and ensure viewport positioning
+    document.body.style.overflow = 'hidden';
+    
+    // Force reflow to ensure proper centering in current viewport
+    modal.offsetHeight;
     
     // Store current symbol and company for refresh
     modal.setAttribute('data-symbol', symbol);
@@ -1260,7 +1269,8 @@ async function refreshNews(symbol, companyName) {
 function closeNewsModal() {
     const modal = document.getElementById('news-modal');
     modal.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restore scrolling
+    modal.classList.remove('modal-shown');
+    document.body.style.overflow = ''; // Restore default scrolling
     
     // Stop the news stream
     if (newsStreamInterval) {
@@ -1562,8 +1572,18 @@ function openPriceModal(symbol, companyName) {
     // Set modal title
     title.innerHTML = `📈 ${companyName} (${symbol}) - Live Price`;
     
-    // Show modal and loading
+    // Show modal with proper flexbox centering
     modal.style.display = 'flex';
+    modal.style.alignItems = 'center';
+    modal.style.justifyContent = 'center';
+    modal.classList.add('modal-shown');
+    
+    // Prevent background scrolling and ensure viewport positioning
+    document.body.style.overflow = 'hidden';
+    
+    // Force reflow to ensure proper centering in current viewport
+    modal.offsetHeight;
+    
     loading.style.display = 'block';
     
     // Clear previous content
@@ -1651,6 +1671,8 @@ function closePriceModal() {
     const body = document.getElementById('price-modal-body');
     
     modal.style.display = 'none';
+    modal.classList.remove('modal-shown');
+    document.body.style.overflow = ''; // Restore default scrolling
     
     // Clean up iframe containers
     const iframeContainer = body.querySelector('.price-iframe-container');
@@ -1667,12 +1689,20 @@ function closePriceModal() {
 document.addEventListener('click', (e) => {
     const newsModal = document.getElementById('news-modal');
     const priceModal = document.getElementById('price-modal');
+    const filingsModal = document.getElementById('filings-modal');
+    const statementsModal = document.getElementById('statements-modal');
     
     if (e.target === newsModal) {
         closeNewsModal();
     }
     if (e.target === priceModal) {
         closePriceModal();
+    }
+    if (e.target === filingsModal) {
+        closeFilingsModal();
+    }
+    if (e.target === statementsModal) {
+        closeStatementsModal();
     }
 });
 
@@ -1681,6 +1711,8 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeNewsModal();
         closePriceModal();
+        closeFilingsModal();
+        closeStatementsModal();
     }
 });
 
@@ -1750,8 +1782,18 @@ async function openNewsModalNew(symbol, companyName) {
     currentNewsSymbol = symbol;
     newsArticles = [];
 
-    // Show modal and loading state
+    // Show modal with proper flexbox centering
     modal.style.display = 'flex';
+    modal.style.alignItems = 'center';
+    modal.style.justifyContent = 'center';
+    modal.classList.add('modal-shown');
+    
+    // Prevent background scrolling and ensure viewport positioning
+    document.body.style.overflow = 'hidden';
+    
+    // Force reflow to ensure proper centering in current viewport
+    modal.offsetHeight;
+    
     title.innerHTML = `📰 ${companyName} (${symbol}) News Feed`;
     
     // Reset states
@@ -1998,8 +2040,18 @@ async function openFilingsModal(symbol, companyName) {
     currentFilingsSymbol = symbol;
     filingsItems = [];
 
-    // Show modal and loading state
+    // Show modal with proper flexbox centering
     modal.style.display = 'flex';
+    modal.style.alignItems = 'center';
+    modal.style.justifyContent = 'center';
+    modal.classList.add('modal-shown');
+    
+    // Prevent background scrolling and ensure viewport positioning
+    document.body.style.overflow = 'hidden';
+    
+    // Force reflow to ensure proper centering in current viewport
+    modal.offsetHeight;
+    
     title.innerHTML = `📋 ${companyName} (${symbol}) SEC Filings`;
     
     // Reset states
@@ -2386,8 +2438,18 @@ async function openStatementsModal(symbol, companyName) {
     currentStatementsSymbol = symbol;
     statementsItems = [];
 
-    // Show modal and loading state
+    // Show modal with proper flexbox centering
     modal.style.display = 'flex';
+    modal.style.alignItems = 'center';
+    modal.style.justifyContent = 'center';
+    modal.classList.add('modal-shown');
+    
+    // Prevent background scrolling and ensure viewport positioning
+    document.body.style.overflow = 'hidden';
+    
+    // Force reflow to ensure proper centering in current viewport
+    modal.offsetHeight;
+    
     title.innerHTML = `📊 ${companyName} (${symbol}) Financial Data`;
     
     // Reset states
@@ -2725,7 +2787,10 @@ function formatTimeAgo(dateString) {
 
 // Modal close functions
 function closeFilingsModal() {
-    document.getElementById('filings-modal').style.display = 'none';
+    const modal = document.getElementById('filings-modal');
+    modal.style.display = 'none';
+    modal.classList.remove('modal-shown');
+    document.body.style.overflow = ''; // Restore default scrolling
     
     // Stop the filings stream
     if (filingsStreamInterval) {
@@ -2737,7 +2802,10 @@ function closeFilingsModal() {
 }
 
 function closeStatementsModal() {
-    document.getElementById('statements-modal').style.display = 'none';
+    const modal = document.getElementById('statements-modal');
+    modal.style.display = 'none';
+    modal.classList.remove('modal-shown');
+    document.body.style.overflow = ''; // Restore default scrolling
     
     // Stop the statements stream
     if (statementsStreamInterval) {
