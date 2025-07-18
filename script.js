@@ -2869,9 +2869,25 @@ function checkPrivacyNotice() {
     }
 }
 
+// Make modal functions globally available
+window.openPriceModal = openPriceModal;
+window.openDataModal = openDataModal;
+window.openNewsModal = openNewsModal;
+window.openNewsModalNew = openNewsModalNew;
+window.openFilingsModal = openFilingsModal;
+window.openStatementsModal = openStatementsModal;
+window.closePriceModal = closePriceModal;
+window.closeNewsModal = closeNewsModal;
+window.closeFilingsModal = closeFilingsModal;
+window.closeStatementsModal = closeStatementsModal;
+
 document.addEventListener('DOMContentLoaded', () => {
     // Ensure scrolling is enabled on page load
     document.body.style.overflow = '';
+    
+    console.log('🔥 DOM LOADED - Testing modal functions...');
+    console.log('🔥 openPriceModal available:', typeof window.openPriceModal);
+    console.log('🔥 openDataModal available:', typeof window.openDataModal);
     
     window.app = new SP100CapexApp();
     // Load pre-fetched data on page load
