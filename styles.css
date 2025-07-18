@@ -700,13 +700,9 @@ footer {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
-    align-items: center;
-    justify-content: center;
-    /* Ensure modal is always centered in current viewport */
-    overflow: auto;
 }
 
-/* Modal shown state - ensures proper centering */
+/* When modal is shown, use flexbox centering */
 .news-modal.modal-shown,
 .price-modal.modal-shown {
     display: flex !important;
@@ -1125,10 +1121,6 @@ footer {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(2px);
-    align-items: center;
-    justify-content: center;
-    /* Ensure modal is always centered in current viewport */
-    overflow: auto;
 }
 
 .price-modal-content {
