@@ -1427,6 +1427,13 @@ async function createNewsWidgets(symbol, companyName) {
 async function fetchCompanyNews(symbol, companyName) {
     console.log(`📰 Loading news for ${symbol}...`);
     
+    // Clear all news cache to force fresh data with new link handling
+    Object.keys(localStorage).forEach(key => {
+        if (key.startsWith('news_')) {
+            localStorage.removeItem(key);
+        }
+    });
+    
     // Smart cache: 2 minutes for real news, 5 minutes for curated (reduced for better UX)
     const cacheKey = `news_${symbol}`;
     const cached = localStorage.getItem(cacheKey);
