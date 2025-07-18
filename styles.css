@@ -706,8 +706,8 @@ footer {
 /* When modal is shown, use flexbox centering */
 .news-modal.modal-shown,
 .price-modal.modal-shown,
-.filings-modal.modal-shown,
-.statements-modal.modal-shown {
+.news-modal.filings-modal.modal-shown,
+.news-modal.statements-modal.modal-shown {
     display: flex !important;
 }
 
