@@ -2841,6 +2841,9 @@ function checkPrivacyNotice() {
     }
 }
 
+// Fix scroll position immediately on script load
+window.scrollTo({ top: 0, behavior: 'instant' });
+
 // Make modal functions globally available
 window.openPriceModal = openPriceModal;
 window.openDataModal = openDataModal;
@@ -2856,6 +2859,14 @@ window.closeStatementsModal = closeStatementsModal;
 document.addEventListener('DOMContentLoaded', () => {
     // Ensure scrolling is enabled on page load
     document.body.style.overflow = '';
+    
+    // Force scroll to top on page load
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    
+    // Prevent browser scroll restoration
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
     
     console.log('✅ Modal functions loaded successfully');
     
