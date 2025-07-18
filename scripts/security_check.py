@@ -12,12 +12,14 @@ from pathlib import Path
 
 # Patterns that should never appear in code
 DANGEROUS_PATTERNS = [
-    r'[API_KEY_REMOVED]',  # Our actual API key
-    r'3qVHln8e7oTHcwPQ9teUL5bS3qEwOXwo',  # Old leaked key
+    r'[A-Za-z0-9]{32}',  # 32-character API keys (FMP pattern)
+    r'[A-Za-z0-9]{40}',  # 40-character API keys  
     r'api_key\s*=\s*["\'][^"\']+["\']',  # Hardcoded API keys
     r'secret\s*=\s*["\'][^"\']+["\']',  # Hardcoded secrets
     r'token\s*=\s*["\'][^"\']+["\']',  # Hardcoded tokens
     r'password\s*=\s*["\'][^"\']+["\']',  # Hardcoded passwords
+    r'FMP_API_KEY\s*=\s*["\'][^"\']+["\']',  # Hardcoded FMP keys
+    r'os\.environ\.get\(["\']FMP_API_KEY["\'],\s*["\'][^"\']+["\']',  # Fallback API keys
 ]
 
 # Patterns to ignore (known safe patterns)

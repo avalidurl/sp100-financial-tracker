@@ -1,5 +1,12 @@
 # SP100 CapEx Tracker - Claude Code Context
 
+## 🚨 SECURITY ALERT - IMMEDIATE ACTION REQUIRED
+**CRITICAL**: If you are setting up this project, you MUST rotate the FMP API key immediately.
+- The previous API key `[API_KEY_REMOVED]` has been exposed in git history
+- Generate a new API key from https://financialmodelingprep.com/developer/docs
+- Update your `.env` file with the new key
+- Update GitHub Actions secrets if using automation
+
 ## Project Overview
 A real-time S&P 100 Capital Expenditure tracking dashboard that displays company investment data with market cap integration. Built with vanilla JavaScript frontend and Python data collection scripts.
 
