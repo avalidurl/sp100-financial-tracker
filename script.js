@@ -1340,7 +1340,7 @@ async function fetchActualNews(symbol, companyName) {
         try {
             console.log(`Trying ${source.name}...`);
             const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+            const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 second timeout (faster)
             
             const response = await fetch(source.url, { 
                 signal: controller.signal,
@@ -1360,7 +1360,7 @@ async function fetchActualNews(symbol, companyName) {
             }
         } catch (error) {
             if (error.name === 'AbortError') {
-                console.warn(`${source.name} timeout after 5s`);
+                console.warn(`${source.name} timeout after 3s`);
             } else {
                 console.warn(`${source.name} failed:`, error.message);
             }
@@ -1427,13 +1427,6 @@ async function createNewsWidgets(symbol, companyName) {
 async function fetchCompanyNews(symbol, companyName) {
     console.log(`📰 Loading news for ${symbol}...`);
     
-    // Clear all news cache to force fresh data with new link handling
-    Object.keys(localStorage).forEach(key => {
-        if (key.startsWith('news_')) {
-            localStorage.removeItem(key);
-        }
-    });
-    
     // Smart cache: 2 minutes for real news, 5 minutes for curated (reduced for better UX)
     const cacheKey = `news_${symbol}`;
     const cached = localStorage.getItem(cacheKey);
@@ -1447,9 +1440,18 @@ async function fetchCompanyNews(symbol, companyName) {
         }
     }
     
-    // Always try to fetch real news first
+    // Always try to fetch real news first with timeout
     try {
-        const realNews = await fetchActualNews(symbol, companyName);
+        // Add timeout wrapper to prevent infinite loading
+        const fetchTimeout = new Promise((_, reject) =>
+            setTimeout(() => reject(new Error('Fetch timeout')), 8000) // 8 second max
+        );
+        
+        const realNews = await Promise.race([
+            fetchActualNews(symbol, companyName),
+            fetchTimeout
+        ]);
+        
         if (realNews && realNews.length > 0) {
             // Cache the real results
             localStorage.setItem(cacheKey, JSON.stringify({
@@ -1461,7 +1463,7 @@ async function fetchCompanyNews(symbol, companyName) {
             return realNews;
         }
     } catch (error) {
-        console.warn('⚠️ Real news fetch failed, using fallback:', error);
+        console.warn('⚠️ Real news fetch failed, using fallback:', error.message);
     }
     
     // Curated news sources (when real-time APIs fail) - Better targeted links
