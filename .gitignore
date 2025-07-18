@@ -35,3 +35,34 @@ Thumbs.db
 *token*
 config/secrets.json
 .vercel
+
+# Debug and Test Files
+*debug*
+*test*
+*TEST*
+*DEBUG*
+debug-*.js
+test-*.js
+test-*.html
+comprehensive_*_test.js
+edge_case_test.js
+*_test_report.md
+*_debug_report.md
+*_audit_report.md
+server.log
+*.log
+
+# Reports and Documentation - Internal Use Only
+*_REPORT.md
+*_SUMMARY.md
+*_TASKS.md
+*_SCHEDULE.md
+*_SECURITY.md
+*_SETUP*.md
+BUTTON_FIX_SUMMARY.md
+EXCHANGE_MAPPING_REPORT.md
+NEWS_BUTTON_OPTIONS.md
+NEWS_FEATURE_TASKS.md
+PRICE_CHART_TEST_REPORT.md
+STOCK_PRICE_FIX_REPORT.md
+AUTOMATION_SCHEDULE.md
