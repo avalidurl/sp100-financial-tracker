@@ -2863,6 +2863,9 @@ function checkPrivacyNotice() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Ensure scrolling is enabled on page load
+    document.body.style.overflow = '';
+    
     window.app = new SP100CapexApp();
     // Load pre-fetched data on page load
     loadPreFetchedData();
