@@ -1848,16 +1848,21 @@ async function openNewsModalNew(symbol, companyName) {
     }
 
     try {
-        // Initialize with existing data
-        await loadInitialNews(symbol, companyName);
+        // Load real news data using the same function as the old modal
+        const articles = await fetchCompanyNews(symbol, companyName);
         
-        // News rain disabled for performance
-        
-        loading.classList.add('hidden');
-        newsList.classList.remove('hidden');
+        if (articles && articles.length > 0) {
+            // Use the fixed renderNewsArticles function instead of renderNewsRain
+            renderNewsArticles(articles);
+            loading.classList.add('hidden');
+            newsList.classList.remove('hidden');
+        } else {
+            loading.classList.add('hidden');
+            empty.classList.remove('hidden');
+        }
         
     } catch (err) {
-        console.error('❌ Error loading news stream:', err);
+        console.error('❌ Error loading news:', err);
         loading.classList.add('hidden');
         error.classList.remove('hidden');
     }
@@ -2024,12 +2029,14 @@ function renderNewsRain() {
                 <div class="news-item-number">${index + 1}</div>
                 <div class="news-item-title-container">
                     <h3 class="news-item-title">
-                        <a href="${article.link || '#'}" target="_blank" rel="noopener" class="news-title-link">
+                        <a href="${article.link || '#'}" target="_blank" rel="noopener noreferrer" class="news-title-link" 
+                           onclick="event.preventDefault(); window.open('${(article.link || '#').replace(/'/g, "\\'"))}', '_blank', 'noopener,noreferrer'); return false;">
                             ${article.title}
                         </a>
                     </h3>
                     <div class="news-item-meta-inline">
-                        <a href="${article.link || '#'}" target="_blank" rel="noopener" class="news-source-link">
+                        <a href="${article.link || '#'}" target="_blank" rel="noopener noreferrer" class="news-source-link" 
+                           onclick="event.preventDefault(); window.open('${(article.link || '#').replace(/'/g, "\\'"))}', '_blank', 'noopener,noreferrer'); return false;">
                             ${article.source}
                         </a> • 
                         <span class="news-item-time">${formatTimeAgo(article.timestamp)}</span>
@@ -2038,7 +2045,8 @@ function renderNewsRain() {
             </div>
             <p class="news-item-summary">${article.summary}</p>
             <div class="news-item-actions">
-                <a href="${article.link || '#'}" target="_blank" rel="noopener" class="news-action-link">
+                <a href="${article.link || '#'}" target="_blank" rel="noopener noreferrer" class="news-action-link" 
+                   onclick="event.preventDefault(); window.open('${(article.link || '#').replace(/'/g, "\\'"))}', '_blank', 'noopener,noreferrer'); return false;">
                     🔗 Read Full Article
                 </a>
             </div>
@@ -2418,12 +2426,14 @@ function renderFilingsRain() {
                 <div class="news-item-number">${index + 1}</div>
                 <div class="news-item-title-container">
                     <h3 class="news-item-title">
-                        <a href="${filing.url || '#'}" target="_blank" rel="noopener" class="news-title-link">
+                        <a href="${filing.url || '#'}" target="_blank" rel="noopener noreferrer" class="news-title-link" 
+                           onclick="event.preventDefault(); window.open('${(filing.url || '#').replace(/'/g, "\\'"))}', '_blank', 'noopener,noreferrer'); return false;">
                             Form ${filing.form}: ${filing.title}
                         </a>
                     </h3>
                     <div class="news-item-meta-inline">
-                        <a href="${filing.url || 'https://www.sec.gov/edgar'}" target="_blank" rel="noopener" class="news-source-link">
+                        <a href="${filing.url || 'https://www.sec.gov/edgar'}" target="_blank" rel="noopener noreferrer" class="news-source-link" 
+                           onclick="event.preventDefault(); window.open('${(filing.url || 'https://www.sec.gov/edgar').replace(/'/g, "\\'"))}', '_blank', 'noopener,noreferrer'); return false;">
                             ${filing.source}
                         </a> • 
                         <span class="news-item-time">${formatTimeAgo(filing.timestamp)}</span>
@@ -2432,7 +2442,8 @@ function renderFilingsRain() {
             </div>
             <p class="news-item-summary">${filing.description}</p>
             <div class="news-item-actions">
-                <a href="${filing.url || '#'}" target="_blank" rel="noopener" class="news-action-link">
+                <a href="${filing.url || '#'}" target="_blank" rel="noopener noreferrer" class="news-action-link" 
+                   onclick="event.preventDefault(); window.open('${(filing.url || '#').replace(/'/g, "\\'"))}', '_blank', 'noopener,noreferrer'); return false;">
                     📋 View SEC Filing
                 </a>
             </div>
@@ -2669,12 +2680,14 @@ function renderStatementsRain() {
                 <div class="news-item-number">${index + 1}</div>
                 <div class="news-item-title-container">
                     <h3 class="news-item-title">
-                        <a href="${sourceLink}" target="_blank" rel="noopener" class="news-title-link">
+                        <a href="${sourceLink}" target="_blank" rel="noopener noreferrer" class="news-title-link" 
+                           onclick="event.preventDefault(); window.open('${sourceLink.replace(/'/g, "\\'")}', '_blank', 'noopener,noreferrer'); return false;">
                             ${statement.title}
                         </a>
                     </h3>
                     <div class="news-item-meta-inline">
-                        <a href="${sourceLink}" target="_blank" rel="noopener" class="news-source-link">
+                        <a href="${sourceLink}" target="_blank" rel="noopener noreferrer" class="news-source-link" 
+                           onclick="event.preventDefault(); window.open('${sourceLink.replace(/'/g, "\\'")}', '_blank', 'noopener,noreferrer'); return false;">
                             ${statement.source}
                         </a> • 
                         <span class="news-item-time">${formatTimeAgo(statement.timestamp)}</span>
@@ -2692,7 +2705,8 @@ function renderStatementsRain() {
             </div>
             <p class="news-item-summary">${statement.description}</p>
             <div class="news-item-actions">
-                <a href="${sourceLink}" target="_blank" rel="noopener" class="news-action-link">
+                <a href="${sourceLink}" target="_blank" rel="noopener noreferrer" class="news-action-link" 
+                   onclick="event.preventDefault(); window.open('${sourceLink.replace(/'/g, "\\'")}', '_blank', 'noopener,noreferrer'); return false;">
                     📊 View Financial Data
                 </a>
             </div>
@@ -2724,7 +2738,8 @@ function renderNewsItems(newsItems, container) {
                 <div class="news-item-number">${index + 1}</div>
                 <div class="news-item-title-container">
                     <h3 class="news-item-title">
-                        <a href="${article.link}" target="_blank" rel="noopener" class="news-title-link">
+                        <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="news-title-link" 
+                           onclick="event.preventDefault(); window.open('${(article.link || '#').replace(/'/g, "\\'"))}', '_blank', 'noopener,noreferrer'); return false;">
                             ${article.title}
                         </a>
                     </h3>
