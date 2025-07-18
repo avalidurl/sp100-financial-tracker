@@ -1522,6 +1522,14 @@ async function fetchCompanyNews(symbol, companyName) {
 function renderNewsArticles(articles) {
     const newsList = document.getElementById('news-list');
     
+    // Debug logging
+    console.log('🔍 Rendering news articles:', articles.map(a => ({
+        title: a.title.substring(0, 50) + '...',
+        link: a.link,
+        isReal: a.isReal,
+        isCurated: a.isCurated
+    })));
+    
     // Determine content type (real news vs curated sources)
     const hasRealNews = articles.some(article => article.isReal);
     const allCurated = articles.every(article => article.isCurated);
@@ -1546,14 +1554,20 @@ function renderNewsArticles(articles) {
             <div class="news-count">${headerIcon} ${headerText}</div>
             <div class="news-timestamp">Updated: ${new Date().toLocaleTimeString()}</div>
         </div>
-        ${articles.map((article, index) => `
+        ${articles.map((article, index) => {
+            // Ensure link is absolute URL and validate it
+            const articleLink = article.link || '#';
+            const safeLink = articleLink.startsWith('http') ? articleLink : `https://${articleLink}`;
+            
+            return `
             <div class="news-item">
                 <div class="news-item-header">
                     <div class="news-item-number">${index + 1}</div>
                     <div class="news-item-icon">${article.isReal ? '📰' : '🔗'}</div>
                     <div class="news-item-title-container">
                         <h3 class="news-item-title">
-                            <a href="${article.link}" target="_blank" rel="noopener" class="news-title-link">
+                            <a href="${safeLink}" target="_blank" rel="noopener noreferrer" class="news-title-link" 
+                               onclick="console.log('🔗 Clicking link:', '${safeLink.replace(/'/g, "\\'")}'); return true;">
                                 ${article.title}
                             </a>
                         </h3>
@@ -1565,7 +1579,8 @@ function renderNewsArticles(articles) {
                 </div>
                 <p class="news-item-summary">${article.summary}</p>
             </div>
-        `).join('')}
+            `;
+        }).join('')}
         <div class="news-footer">
             <p><small>${footerText}</small></p>
         </div>
