@@ -1554,21 +1554,28 @@ function getTimeAgo(date) {
 
 // Price Modal Functions
 function openPriceModal(symbol, companyName) {
-    console.log('Opening price modal for:', symbol, companyName);
+    console.log('🔥 DEBUG: Opening price modal for:', symbol, companyName);
     
     const modal = document.getElementById('price-modal');
     const title = document.getElementById('price-modal-title');
     const body = document.getElementById('price-modal-body');
     const loading = document.getElementById('price-loading');
     
+    console.log('🔥 DEBUG: Modal element found:', !!modal);
+    console.log('🔥 DEBUG: Title element found:', !!title);
+    console.log('🔥 DEBUG: Body element found:', !!body);
+    
     // Set modal title
     title.innerHTML = `📈 ${companyName} (${symbol}) - Live Price`;
     
     // Show modal with proper flexbox centering
+    console.log('🔥 DEBUG: Adding modal-shown class');
     modal.classList.add('modal-shown');
+    console.log('🔥 DEBUG: Modal classes after add:', modal.className);
     
     // Prevent background scrolling and ensure viewport positioning
     document.body.style.overflow = 'hidden';
+    console.log('🔥 DEBUG: Set overflow hidden');
     
     // Force reflow to ensure proper centering in current viewport
     modal.offsetHeight;
