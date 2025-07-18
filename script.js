@@ -1567,7 +1567,7 @@ function renderNewsArticles(articles) {
                     <div class="news-item-title-container">
                         <h3 class="news-item-title">
                             <a href="${safeLink}" target="_blank" rel="noopener noreferrer" class="news-title-link" 
-                               onclick="console.log('🔗 Clicking link:', '${safeLink.replace(/'/g, "\\'")}'); return true;">
+                               onclick="event.preventDefault(); window.open('${safeLink.replace(/'/g, "\\'")}', '_blank', 'noopener,noreferrer'); return false;">
                                 ${article.title}
                             </a>
                         </h3>
