@@ -67,3 +67,19 @@ PRICE_CHART_TEST_REPORT.md
 STOCK_PRICE_FIX_REPORT.md
 AUTOMATION_SCHEDULE.md
 CLAUDE.md
+
+# Vercel Configuration - NEVER COMMIT
+.vercel/
+.vercel
+*.vercel
+vercel.json
+
+# Claude Configuration - NEVER COMMIT
+.claude/
+.claude
+*.claude
+settings.local.json
+
+# Additional Security Exclusions
+project.json
+README.txt
