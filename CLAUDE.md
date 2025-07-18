@@ -1,8 +1,7 @@
 # SP100 CapEx Tracker - Claude Code Context
 
-## 🚨 SECURITY ALERT - IMMEDIATE ACTION REQUIRED
-**CRITICAL**: If you are setting up this project, you MUST rotate the FMP API key immediately.
-- The previous API key `[API_KEY_REMOVED]` has been exposed in git history
+## 🚨 SECURITY SETUP REQUIRED
+**CRITICAL**: If you are setting up this project, you MUST configure a new FMP API key.
 - Generate a new API key from https://financialmodelingprep.com/developer/docs
 - Update your `.env` file with the new key
 - Update GitHub Actions secrets if using automation
