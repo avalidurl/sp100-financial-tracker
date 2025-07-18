@@ -644,10 +644,7 @@ class SP100CapexApp {
             const promises = batch.map(symbol => this.loadSingleStockPrice(symbol));
             await Promise.allSettled(promises);
             
-            // Add delay between batches (except for the last one)
-            if (i < batches.length - 1) {
-                await new Promise(resolve => setTimeout(resolve, 1000));
-            }
+            // Batch delay removed for performance
         }
         
         console.log('Stock price loading completed');
@@ -828,7 +825,7 @@ class SP100CapexApp {
 
     async fetchFromYahooFinance(symbol) {
         try {
-            // Add delay to prevent rate limiting
+            // Add delay to prevent rate limiting on third-party APIs
             await new Promise(resolve => setTimeout(resolve, 300));
             
             // Method 1: Try Yahoo Finance via CORS proxy
@@ -1101,8 +1098,7 @@ class SP100CapexApp {
             const price = mockData.base * (1 + randomFactor * mockData.volatility);
             const changePercent = randomFactor * mockData.volatility * 100;
             
-            // Add some delay to simulate API call
-            await new Promise(resolve => setTimeout(resolve, 150));
+            // Mock data - no artificial delay needed
             
             return {
                 price: Math.max(1, price), // Ensure price is at least $1
@@ -1193,9 +1189,6 @@ async function openNewsModal(symbol, companyName) {
                 title="Refresh news">🔄</button>
     `;
     // Ensure modal is displayed with proper flexbox centering
-    modal.style.display = 'flex';
-    modal.style.alignItems = 'center';
-    modal.style.justifyContent = 'center';
     modal.classList.add('modal-shown');
     
     // Prevent background scrolling and ensure viewport positioning
@@ -1268,7 +1261,6 @@ async function refreshNews(symbol, companyName) {
 
 function closeNewsModal() {
     const modal = document.getElementById('news-modal');
-    modal.style.display = 'none';
     modal.classList.remove('modal-shown');
     document.body.style.overflow = ''; // Restore default scrolling
     
@@ -1573,9 +1565,6 @@ function openPriceModal(symbol, companyName) {
     title.innerHTML = `📈 ${companyName} (${symbol}) - Live Price`;
     
     // Show modal with proper flexbox centering
-    modal.style.display = 'flex';
-    modal.style.alignItems = 'center';
-    modal.style.justifyContent = 'center';
     modal.classList.add('modal-shown');
     
     // Prevent background scrolling and ensure viewport positioning
@@ -1670,7 +1659,6 @@ function closePriceModal() {
     const modal = document.getElementById('price-modal');
     const body = document.getElementById('price-modal-body');
     
-    modal.style.display = 'none';
     modal.classList.remove('modal-shown');
     document.body.style.overflow = ''; // Restore default scrolling
     
@@ -1783,9 +1771,6 @@ async function openNewsModalNew(symbol, companyName) {
     newsArticles = [];
 
     // Show modal with proper flexbox centering
-    modal.style.display = 'flex';
-    modal.style.alignItems = 'center';
-    modal.style.justifyContent = 'center';
     modal.classList.add('modal-shown');
     
     // Prevent background scrolling and ensure viewport positioning
@@ -1811,8 +1796,7 @@ async function openNewsModalNew(symbol, companyName) {
         // Initialize with existing data
         await loadInitialNews(symbol, companyName);
         
-        // Start the news rain
-        startNewsRain(symbol, companyName);
+        // News rain disabled for performance
         
         loading.classList.add('hidden');
         newsList.classList.remove('hidden');
@@ -2041,9 +2025,6 @@ async function openFilingsModal(symbol, companyName) {
     filingsItems = [];
 
     // Show modal with proper flexbox centering
-    modal.style.display = 'flex';
-    modal.style.alignItems = 'center';
-    modal.style.justifyContent = 'center';
     modal.classList.add('modal-shown');
     
     // Prevent background scrolling and ensure viewport positioning
@@ -2069,8 +2050,7 @@ async function openFilingsModal(symbol, companyName) {
         // Initialize with existing data
         await loadInitialFilings(symbol, companyName);
         
-        // Start the filings rain
-        startFilingsRain(symbol, companyName);
+        // Filings rain disabled for performance
         
         loading.classList.add('hidden');
         filingsList.classList.remove('hidden');
@@ -2439,9 +2419,6 @@ async function openStatementsModal(symbol, companyName) {
     statementsItems = [];
 
     // Show modal with proper flexbox centering
-    modal.style.display = 'flex';
-    modal.style.alignItems = 'center';
-    modal.style.justifyContent = 'center';
     modal.classList.add('modal-shown');
     
     // Prevent background scrolling and ensure viewport positioning
@@ -2467,8 +2444,7 @@ async function openStatementsModal(symbol, companyName) {
         // Initialize with financial data
         await loadInitialStatements(symbol, companyName);
         
-        // Start the statements rain
-        startStatementsRain(symbol, companyName);
+        // Statements rain disabled for performance
         
         loading.classList.add('hidden');
         statementsList.classList.remove('hidden');
@@ -2788,7 +2764,6 @@ function formatTimeAgo(dateString) {
 // Modal close functions
 function closeFilingsModal() {
     const modal = document.getElementById('filings-modal');
-    modal.style.display = 'none';
     modal.classList.remove('modal-shown');
     document.body.style.overflow = ''; // Restore default scrolling
     
@@ -2803,7 +2778,6 @@ function closeFilingsModal() {
 
 function closeStatementsModal() {
     const modal = document.getElementById('statements-modal');
-    modal.style.display = 'none';
     modal.classList.remove('modal-shown');
     document.body.style.overflow = ''; // Restore default scrolling
     
