@@ -1295,46 +1295,79 @@ async function fetchRealNews(symbol, companyName) {
 async function fetchActualNews(symbol, companyName) {
     console.log(`🔄 Fetching news for ${symbol}...`);
     
-    // Prioritize fastest, most reliable source first
-    try {
-        console.log('Trying RSS2JSON (fastest)...');
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 second timeout
-        
-        const freeNewsUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent('https://news.google.com/rss/search?q=' + encodeURIComponent(companyName + ' ' + symbol) + '&hl=en-US&gl=US&ceid=US:en')}`;
-        const response = await fetch(freeNewsUrl, { 
-            signal: controller.signal,
-            headers: { 'Accept': 'application/json' }
-        });
-        
-        clearTimeout(timeoutId);
-        
-        if (response.ok) {
-            const data = await response.json();
-            if (data.status === 'ok' && data.items && data.items.length > 0) {
-                const articles = data.items.slice(0, 5).map(item => ({
-                    title: item.title,
-                    summary: item.description || item.content || 'No summary available',
-                    link: item.link,
-                    source: item.source || 'Google News',
-                    publishedDate: new Date(item.pubDate),
-                    timeAgo: getTimeAgo(new Date(item.pubDate)),
-                    isReal: true
-                }));
-                
-                console.log(`✅ Fast: ${articles.length} articles from RSS2JSON`);
-                return articles;
+    // Try multiple news sources with actual article links
+    const newsSources = [
+        {
+            name: 'Yahoo Finance News',
+            url: `https://query1.finance.yahoo.com/v1/finance/search?q=${symbol}&lang=en-US&region=US&quotesCount=1&newsCount=10&enableFuzzyQuery=false`,
+            parser: (data) => {
+                if (data.news && data.news.length > 0) {
+                    return data.news.slice(0, 5).map(item => ({
+                        title: item.title,
+                        summary: item.summary || 'No summary available',
+                        link: item.link,
+                        source: item.publisher || 'Yahoo Finance',
+                        publishedDate: new Date(item.providerPublishTime * 1000),
+                        timeAgo: getTimeAgo(new Date(item.providerPublishTime * 1000)),
+                        isReal: true
+                    }));
+                }
+                return null;
+            }
+        },
+        {
+            name: 'RSS2JSON Google News',
+            url: `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent('https://news.google.com/rss/search?q=' + encodeURIComponent(companyName + ' ' + symbol) + '&hl=en-US&gl=US&ceid=US:en')}`,
+            parser: (data) => {
+                if (data.status === 'ok' && data.items && data.items.length > 0) {
+                    return data.items.slice(0, 5).map(item => ({
+                        title: item.title,
+                        summary: item.description || item.content || 'No summary available',
+                        link: item.link,
+                        source: item.source || 'Google News',
+                        publishedDate: new Date(item.pubDate),
+                        timeAgo: getTimeAgo(new Date(item.pubDate)),
+                        isReal: true
+                    }));
+                }
+                return null;
             }
         }
-    } catch (error) {
-        if (error.name === 'AbortError') {
-            console.warn('RSS2JSON timeout after 3s');
-        } else {
-            console.warn('RSS2JSON failed:', error.message);
+    ];
+    
+    // Try each source with timeout
+    for (const source of newsSources) {
+        try {
+            console.log(`Trying ${source.name}...`);
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+            
+            const response = await fetch(source.url, { 
+                signal: controller.signal,
+                headers: { 'Accept': 'application/json' }
+            });
+            
+            clearTimeout(timeoutId);
+            
+            if (response.ok) {
+                const data = await response.json();
+                const articles = source.parser(data);
+                
+                if (articles && articles.length > 0) {
+                    console.log(`✅ Success: ${articles.length} articles from ${source.name}`);
+                    return articles;
+                }
+            }
+        } catch (error) {
+            if (error.name === 'AbortError') {
+                console.warn(`${source.name} timeout after 5s`);
+            } else {
+                console.warn(`${source.name} failed:`, error.message);
+            }
         }
     }
     
-    console.log('⚠️ Fast news source failed, using curated sources');
+    console.log('⚠️ All news sources failed, using curated sources');
     return null;
 }
 
@@ -1394,12 +1427,12 @@ async function createNewsWidgets(symbol, companyName) {
 async function fetchCompanyNews(symbol, companyName) {
     console.log(`📰 Loading news for ${symbol}...`);
     
-    // Smart cache: 2 minutes for real news, 10 minutes for curated
+    // Smart cache: 2 minutes for real news, 5 minutes for curated (reduced for better UX)
     const cacheKey = `news_${symbol}`;
     const cached = localStorage.getItem(cacheKey);
     if (cached) {
         const { data, timestamp, isReal } = JSON.parse(cached);
-        const cacheTime = isReal ? 2 * 60 * 1000 : 10 * 60 * 1000; // 2min for real, 10min for curated
+        const cacheTime = isReal ? 2 * 60 * 1000 : 5 * 60 * 1000; // 2min for real, 5min for curated
         const isExpired = Date.now() - timestamp > cacheTime;
         if (!isExpired) {
             console.log(`⚡ Cached: ${data.length} items (${isReal ? 'real' : 'curated'})`);
@@ -1424,51 +1457,51 @@ async function fetchCompanyNews(symbol, companyName) {
         console.warn('⚠️ Real news fetch failed, using fallback:', error);
     }
     
-    // Curated news sources (when real-time APIs fail)
+    // Curated news sources (when real-time APIs fail) - Better targeted links
     const curatedSources = [
         {
-            title: `${companyName} News Search`,
-            summary: `Browse latest news articles about ${companyName} from various financial news sources.`,
-            link: `https://www.google.com/search?q=${encodeURIComponent(companyName + ' ' + symbol + ' news')}&tbm=nws`,
+            title: `${companyName} Recent News`,
+            summary: `Latest breaking news and developments for ${companyName} (${symbol}) from major financial publications.`,
+            link: `https://www.google.com/search?q=${encodeURIComponent(companyName + ' ' + symbol + ' news')}&tbm=nws&tbs=qdr:w`,
             source: 'Google News',
             publishedDate: new Date(),
-            timeAgo: 'News Search',
+            timeAgo: 'This Week',
             isCurated: true
         },
         {
-            title: `${symbol} Financial Coverage`,
-            summary: `Access ${companyName} earnings reports, analyst coverage, and financial news.`,
+            title: `${symbol} Live News Feed`,
+            summary: `Real-time financial news, earnings updates, and market analysis for ${companyName}.`,
             link: `https://finance.yahoo.com/quote/${symbol}/news/`,
             source: 'Yahoo Finance',
             publishedDate: new Date(),
-            timeAgo: 'News Section',
+            timeAgo: 'Live Feed',
             isCurated: true
         },
         {
-            title: `${companyName} Business News`,
-            summary: `Read business news coverage and market analysis for ${companyName}.`,
-            link: `https://www.cnbc.com/quotes/${symbol}?tab=news`,
-            source: 'CNBC',
-            publishedDate: new Date(),
-            timeAgo: 'News Section',
-            isCurated: true
-        },
-        {
-            title: `${symbol} Investment Research`,
-            summary: `View investment analysis, ratings, and research reports for ${companyName}.`,
-            link: `https://seekingalpha.com/symbol/${symbol}/news`,
-            source: 'Seeking Alpha',
-            publishedDate: new Date(),
-            timeAgo: 'Research Hub',
-            isCurated: true
-        },
-        {
-            title: `${companyName} Market Data`,
-            summary: `Access ${companyName} stock data, charts, and professional market analysis.`,
+            title: `${companyName} Earnings & Reports`,
+            summary: `Quarterly earnings, analyst reports, and corporate filings for ${symbol}.`,
             link: `https://www.marketwatch.com/investing/stock/${symbol.toLowerCase()}`,
             source: 'MarketWatch',
             publishedDate: new Date(),
-            timeAgo: 'Market Data',
+            timeAgo: 'Reports',
+            isCurated: true
+        },
+        {
+            title: `${symbol} Business Headlines`,
+            summary: `Breaking business news and market-moving developments for ${companyName}.`,
+            link: `https://www.cnbc.com/quotes/${symbol}?tab=news`,
+            source: 'CNBC',
+            publishedDate: new Date(),
+            timeAgo: 'Headlines',
+            isCurated: true
+        },
+        {
+            title: `${companyName} SEC Filings`,
+            summary: `Official SEC filings, 10-K reports, and regulatory submissions for ${symbol}.`,
+            link: `https://www.sec.gov/edgar/search/#/q=${encodeURIComponent(companyName)}&dateRange=1y`,
+            source: 'SEC Edgar',
+            publishedDate: new Date(),
+            timeAgo: 'Official',
             isCurated: true
         }
     ];
