@@ -1673,7 +1673,7 @@ function closePriceModal() {
     containers.forEach(container => container.remove());
 }
 
-// Close modal when clicking outside
+// Close modal when clicking outside - CONSOLIDATED
 document.addEventListener('click', (e) => {
     const newsModal = document.getElementById('news-modal');
     const priceModal = document.getElementById('price-modal');
@@ -1694,7 +1694,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Close modal with Escape key
+// Close modal with Escape key - CONSOLIDATED
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeNewsModal();
@@ -2790,28 +2790,7 @@ function closeStatementsModal() {
     statementsItems = [];
 }
 
-// Add event listeners for new modals
-document.addEventListener('click', (e) => {
-    const filingsModal = document.getElementById('filings-modal');
-    const statementsModal = document.getElementById('statements-modal');
-    
-    if (e.target === filingsModal) {
-        closeFilingsModal();
-    }
-    if (e.target === statementsModal) {
-        closeStatementsModal();
-    }
-});
-
-// Close modals with Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        closeNewsModal();
-        closePriceModal();
-        closeFilingsModal();
-        closeStatementsModal();
-    }
-});
+// REMOVED: Duplicate event listeners consolidated above
 
 // Smooth scroll to section function
 function scrollToSection(sectionId) {

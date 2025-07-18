@@ -12,7 +12,6 @@ html {
 
 /* Hardware acceleration for better performance */
 body {
-    transform: translateZ(0);
     will-change: scroll-position;
 }
 
@@ -74,7 +73,6 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
-    transform: translateZ(0); /* Force hardware acceleration */
 }
 
 .controls {
@@ -694,10 +692,18 @@ footer {
     display: none;
     position: fixed;
     z-index: 1000;
+    /* Fallback for older browsers */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Modern browsers */
     inset: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
+    /* Add vendor prefixes */
+    -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
     align-items: center;
     justify-content: center;
@@ -1116,10 +1122,18 @@ footer {
     display: none;
     position: fixed;
     z-index: 1000;
+    /* Fallback for older browsers */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Modern browsers */
     inset: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
+    /* Add vendor prefixes */
+    -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
     align-items: center;
     justify-content: center;
