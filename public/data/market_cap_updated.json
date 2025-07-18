@@ -1,9 +1,0 @@
-{
-  "timestamp": "2025-07-12T17:13:38.150076",
-  "total_companies": 102,
-  "successful_updates": 101,
-  "failed_updates": [
-    "BRK.B"
-  ],
-  "update_type": "market_cap_only"
-}
