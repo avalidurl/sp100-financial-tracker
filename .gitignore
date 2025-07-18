@@ -83,3 +83,10 @@ settings.local.json
 # Additional Security Exclusions
 project.json
 README.txt
+
+# Development and Repository Files - NEVER DEPLOY
+requirements.txt
+README.md
+scripts/
+venv/
+.env.example
