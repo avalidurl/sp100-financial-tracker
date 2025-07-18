@@ -7,7 +7,7 @@
 /* Smooth scrolling and performance optimization */
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* Account for fixed top nav */
+    scroll-padding-top: 20px; /* Reduced padding to prevent auto-scroll */
 }
 
 /* Hardware acceleration for better performance */
