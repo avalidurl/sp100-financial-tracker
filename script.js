@@ -44,6 +44,13 @@ class SP100CapexApp {
 
         this.data = await capexResponse.json();
         this.filteredData = [...this.data];
+        // Apply default sort by capex on initial load
+        this.sortData('capex');
+        // Ensure dropdown shows the correct default value
+        const sortDropdown = document.getElementById('sort-by');
+        if (sortDropdown) {
+            sortDropdown.value = 'capex';
+        }
         this.updateDisplayedData();
         
         // Try to get update timestamp, but don't fail if it's missing
