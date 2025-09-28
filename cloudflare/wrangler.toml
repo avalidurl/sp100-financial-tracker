@@ -14,3 +14,12 @@ crons = [
 GITHUB_OWNER = "avalidurl"
 GITHUB_REPO_NAME = "sp100-capex"
 
+[[routes]]
+pattern = "sp500-capex.pages.dev/ping"
+
+[[routes]]
+pattern = "sp500-capex.pages.dev/diag"
+
+[[routes]]
+pattern = "sp500-capex.pages.dev/update-*"
+
