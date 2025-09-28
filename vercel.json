@@ -1,4 +1,9 @@
 {
+  "functions": {
+    "api/**/*.{js,ts}": {
+      "runtime": "nodejs18.x"
+    }
+  },
   "crons": [
     { "path": "/api/cron/update-data", "schedule": "0 6 * * 1,4" },
     { "path": "/api/cron/update-market-caps", "schedule": "0 18 * * 1-5" },

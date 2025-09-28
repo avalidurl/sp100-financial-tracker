@@ -12,7 +12,10 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 
-REPO_FULL_NAME = os.environ.get("GITHUB_REPO", "")  # e.g. owner/repo
+REPO_FULL_NAME = (
+    f"{os.environ.get('GITHUB_OWNER', '').strip()}/" \
+    f"{os.environ.get('GITHUB_REPO_NAME', '').strip()}"
+)
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 
 
