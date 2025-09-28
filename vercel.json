@@ -1,0 +1,9 @@
+{
+  "crons": [
+    { "path": "/api/cron/update-data", "schedule": "0 6 * * 1,4" },
+    { "path": "/api/cron/update-market-caps", "schedule": "0 18 * * 1-5" },
+    { "path": "/api/cron/update-news", "schedule": "*/30 13-22 * * 1-5" },
+    { "path": "/api/cron/update-news-offhours", "schedule": "0 */2 * * *" }
+  ]
+}
+
