@@ -1,0 +1,17 @@
+name = "sp500-capex-scheduler"
+main = "src/worker.js"
+compatibility_date = "2024-09-01"
+
+[triggers]
+crons = [
+  "0 6 * * 1,4",     # update-data
+  "0 18 * * 1-5",    # update-market-caps
+  "*/30 13-22 * * 1-5", # update-news (market hours)
+  "0 */2 * * *"       # update-news (offhours)
+]
+
+[vars]
+GITHUB_OWNER = "avalidurl"
+GITHUB_REPO_NAME = "sp500-capex"
+
+
