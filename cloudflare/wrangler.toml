@@ -12,5 +12,5 @@ crons = [
 
 [vars]
 GITHUB_OWNER = "avalidurl"
-GITHUB_REPO_NAME = "sp500-capex"
+GITHUB_REPO_NAME = "sp100-capex"
 

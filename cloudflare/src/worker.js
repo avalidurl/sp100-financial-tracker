@@ -19,7 +19,7 @@ async function putFile(env, path, contentString, message, branch = 'master') {
   const getShaUrl = `${url}?ref=${encodeURIComponent(branch)}`;
   let sha = null;
   {
-    const r = await fetch(getShaUrl, { headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json' } });
+    const r = await fetch(getShaUrl, { headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'User-Agent': 'sp500-capex-scheduler/1.0' } });
     if (r.status === 200) sha = (await r.json()).sha || null;
   }
   const body = {
@@ -33,7 +33,8 @@ async function putFile(env, path, contentString, message, branch = 'master') {
     headers: {
       Authorization: `Bearer ${token}`,
       Accept: 'application/vnd.github+json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'User-Agent': 'sp500-capex-scheduler/1.0'
     },
     body: JSON.stringify(body)
   });
@@ -97,7 +98,7 @@ export default {
       let githubAuthOk = null;
       if (hasToken) {
         const r = await fetch('https://api.github.com/rate_limit', {
-          headers: { Authorization: `Bearer ${env.GITHUB_TOKEN}`, Accept: 'application/vnd.github+json' }
+          headers: { Authorization: `Bearer ${env.GITHUB_TOKEN}`, Accept: 'application/vnd.github+json', 'User-Agent': 'sp500-capex-scheduler/1.0' }
         });
         githubAuthOk = r.status;
       }
