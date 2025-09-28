@@ -14,4 +14,3 @@ crons = [
 GITHUB_OWNER = "avalidurl"
 GITHUB_REPO_NAME = "sp500-capex"
 
-
