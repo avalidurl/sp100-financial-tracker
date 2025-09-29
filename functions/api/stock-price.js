@@ -1,4 +1,5 @@
 import { checkRateLimit } from './rate-limit.js';
+import { getCachedPrice, setCachedPrice } from './cache.js';
 
 export async function onRequest({ request, env }) {
   // Rate limiting
@@ -19,31 +20,49 @@ export async function onRequest({ request, env }) {
     });
   }
 
+  // Check cache first
+  const cachedData = getCachedPrice(symbol);
+  if (cachedData) {
+    return new Response(JSON.stringify({
+      ...cachedData,
+      cached: true
+    }), {
+      headers: { 'content-type': 'application/json' }
+    });
+  }
+
   try {
+    let resultData = null;
+
     // Try Alpha Vantage first
     if (env.ALPHA_VANTAGE_API_KEY) {
       const alphaData = await fetchFromAlphaVantage(symbol, env.ALPHA_VANTAGE_API_KEY);
       if (alphaData) {
-        return new Response(JSON.stringify(alphaData), {
-          headers: { 'content-type': 'application/json' }
-        });
+        resultData = alphaData;
       }
     }
 
     // Try Finnhub as backup
-    if (env.FINNHUB_API_KEY) {
+    if (!resultData && env.FINNHUB_API_KEY) {
       const finnhubData = await fetchFromFinnhub(symbol, env.FINNHUB_API_KEY);
       if (finnhubData) {
-        return new Response(JSON.stringify(finnhubData), {
-          headers: { 'content-type': 'application/json' }
-        });
+        resultData = finnhubData;
       }
     }
 
     // Fallback to free Yahoo Finance (no key needed)
-    const yahooData = await fetchFromYahoo(symbol);
-    if (yahooData) {
-      return new Response(JSON.stringify(yahooData), {
+    if (!resultData) {
+      const yahooData = await fetchFromYahoo(symbol);
+      if (yahooData) {
+        resultData = yahooData;
+      }
+    }
+
+    if (resultData) {
+      // Cache the result
+      setCachedPrice(symbol, resultData);
+      
+      return new Response(JSON.stringify(resultData), {
         headers: { 'content-type': 'application/json' }
       });
     }
