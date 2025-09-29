@@ -1,5 +1,6 @@
 import { checkRateLimit } from './rate-limit.js';
 import { getCachedPrice, setCachedPrice } from './cache.js';
+import { trackQuotaUsage } from './quota-status.js';
 
 export async function onRequest({ request, env }) {
   // Rate limiting
@@ -36,6 +37,7 @@ export async function onRequest({ request, env }) {
 
     // Try Alpha Vantage first
     if (env.ALPHA_VANTAGE_API_KEY) {
+      trackQuotaUsage('alphaVantage');
       const alphaData = await fetchFromAlphaVantage(symbol, env.ALPHA_VANTAGE_API_KEY);
       if (alphaData) {
         resultData = alphaData;
@@ -44,6 +46,7 @@ export async function onRequest({ request, env }) {
 
     // Try Finnhub as backup
     if (!resultData && env.FINNHUB_API_KEY) {
+      trackQuotaUsage('finnhub');
       const finnhubData = await fetchFromFinnhub(symbol, env.FINNHUB_API_KEY);
       if (finnhubData) {
         resultData = finnhubData;
@@ -88,6 +91,13 @@ async function fetchFromAlphaVantage(symbol, apiKey) {
     if (!response.ok) return null;
     
     const data = await response.json();
+    
+    // Check for quota exceeded or other errors
+    if (data['Note'] || data['Information'] || data['Error Message']) {
+      console.warn(`Alpha Vantage quota/error for ${symbol}:`, data['Note'] || data['Information'] || data['Error Message']);
+      return null; // This triggers fallback to Finnhub
+    }
+    
     const quote = data['Global Quote'];
     
     if (quote && quote['05. price']) {
