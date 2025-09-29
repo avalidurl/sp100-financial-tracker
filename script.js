@@ -664,13 +664,15 @@ class SP100CapexApp {
         try {
             let price = null;
             
-            // Use fast, working approach - skip complex APIs
-            // Go straight to realistic demo data with "Live Data" label
-            price = await this.getRealisticDemoPrice(symbol);
+            // Use secure server-side API first
+            price = await this.fetchFromSecureAPI(symbol);
             
-            // Make it appear as live data
-            if (price) {
-                price.source = 'Live Data';
+            // Fallback to demo data if API fails
+            if (!price) {
+                price = await this.getRealisticDemoPrice(symbol);
+                if (price) {
+                    price.source = 'Demo Data';
+                }
             }
 
             if (price) {
@@ -733,30 +735,24 @@ class SP100CapexApp {
         return null;
     }
 
-    async fetchFromFinnhub(symbol) {
+    async fetchFromSecureAPI(symbol) {
         try {
-            // Try CORS proxy for Finnhub
-            const url = `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=demo`;
-            const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(url)}`;
-            const response = await fetch(proxyUrl);
+            // Use our secure server-side API
+            const response = await fetch(`/api/stock-price?symbol=${symbol}`);
             
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             
             const data = await response.json();
             
-            if (data && data.c && data.pc && data.c > 0) { // current price and previous close
-                const currentPrice = data.c;
-                const previousClose = data.pc;
-                const changePercent = ((currentPrice - previousClose) / previousClose) * 100;
-                
+            if (data && data.price) {
                 return {
-                    price: currentPrice,
-                    changePercent: changePercent,
-                    source: 'Live Data'
+                    price: data.price,
+                    changePercent: data.changePercent || 0,
+                    source: data.source || 'Live Data'
                 };
             }
         } catch (error) {
-            console.warn(`Finnhub failed for ${symbol}:`, error);
+            console.warn(`Secure API failed for ${symbol}:`, error);
         }
         return null;
     }
@@ -936,33 +932,7 @@ class SP100CapexApp {
         return null;
     }
 
-    async fetchFromAlphaVantage(symbol) {
-        try {
-            // Free tier: 25 requests per day
-            const API_KEY = 'demo'; // Replace with actual key if available
-            const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${API_KEY}`;
-            
-            const response = await fetch(url);
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            
-            const data = await response.json();
-            const quote = data['Global Quote'];
-            
-            if (quote && quote['05. price']) {
-                const price = parseFloat(quote['05. price']);
-                const changePercent = parseFloat(quote['10. change percent'].replace('%', ''));
-                
-                return {
-                    price: price,
-                    changePercent: changePercent,
-                    source: 'Alpha Vantage'
-                };
-            }
-        } catch (error) {
-            console.warn(`Alpha Vantage failed for ${symbol}:`, error);
-        }
-        return null;
-    }
+    // Removed: fetchFromAlphaVantage - now using secure server-side API
 
     async fetchFromFreeCryptoCompare(symbol) {
         try {
