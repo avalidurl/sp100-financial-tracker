@@ -1,4 +1,14 @@
+import { checkRateLimit } from './rate-limit.js';
+
 export async function onRequest({ request, env }) {
+  // Rate limiting
+  if (!checkRateLimit(request)) {
+    return new Response(JSON.stringify({ error: 'Rate limit exceeded' }), {
+      status: 429,
+      headers: { 'content-type': 'application/json' }
+    });
+  }
+
   const url = new URL(request.url);
   const symbol = url.searchParams.get('symbol');
   
