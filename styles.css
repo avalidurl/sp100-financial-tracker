@@ -7,7 +7,7 @@
 /* Smooth scrolling and performance optimization */
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 20px; /* Reduced padding to prevent auto-scroll */
+    scroll-padding-top: 80px; /* Account for sticky ticker + top nav */
 }
 
 /* Hardware acceleration for better performance */
@@ -20,6 +20,21 @@ body {
     line-height: 1.6;
     color: #333;
     background: #fafafa;
+}
+
+/* Polymarket Ticker */
+.polymarket-ticker-container {
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    width: 100%;
+    background: #1a1a1a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.polymarket-ticker-container iframe {
+    display: block;
+    width: 100%;
 }
 
 /* Top Navigation Bar */
