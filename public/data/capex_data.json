@@ -5,6 +5,7 @@
     "capex": -1069000000,
     "year": 2024,
     "revenue": 79774000000,
+    "earnings": 29760000000,
     "sector": "Technology",
     "market_cap": 4024048000000,
     "market_cap_updated": "2025-07-12T17:11:47.551179"
@@ -15,6 +16,7 @@
     "capex": -28300000000,
     "year": 2024,
     "revenue": 245122000000,
+    "earnings": 88136000000,
     "sector": "Technology",
     "market_cap": 3740946032800,
     "market_cap_updated": "2025-07-12T17:11:48.627520"
@@ -25,6 +27,7 @@
     "capex": -11100000000,
     "year": 2024,
     "revenue": 394328000000,
+    "earnings": 101956000000,
     "sector": "Technology",
     "market_cap": 3153843528000,
     "market_cap_updated": "2025-07-12T17:11:49.685247"
@@ -35,6 +38,7 @@
     "capex": -63061000000,
     "year": 2024,
     "revenue": 574785000000,
+    "earnings": 30425000000,
     "sector": "Consumer Discretionary",
     "market_cap": 2388902328000,
     "market_cap_updated": "2025-07-12T17:11:50.757126"
@@ -45,6 +49,7 @@
     "capex": -32250000000,
     "year": 2024,
     "revenue": 330697000000,
+    "earnings": 73795000000,
     "sector": "Technology",
     "market_cap": 2191650248519,
     "market_cap_updated": "2025-07-12T17:11:51.848492"
@@ -55,6 +60,7 @@
     "capex": -27830000000,
     "year": 2024,
     "revenue": 134902000000,
+    "earnings": 39098000000,
     "sector": "Technology",
     "market_cap": 1803926319282,
     "market_cap_updated": "2025-07-12T17:11:52.930506"
@@ -67,7 +73,8 @@
     "revenue": 51041000000,
     "sector": "Technology",
     "market_cap": 1290538098600,
-    "market_cap_updated": "2025-07-12T17:11:57.743701"
+    "market_cap_updated": "2025-07-12T17:11:57.743701",
+    "earnings": 5895000000
   },
   {
     "symbol": "TSLA",
@@ -77,7 +84,8 @@
     "revenue": 96773000000,
     "sector": "Consumer Discretionary",
     "market_cap": 1008411185200,
-    "market_cap_updated": "2025-07-12T17:11:53.992515"
+    "market_cap_updated": "2025-07-12T17:11:53.992515",
+    "earnings": 7091000000
   },
   {
     "symbol": "BRK.B",
@@ -96,7 +104,8 @@
     "revenue": 173500000000,
     "sector": "Financials",
     "market_cap": 797209757400,
-    "market_cap_updated": "2025-07-12T17:11:58.830651"
+    "market_cap_updated": "2025-07-12T17:11:58.830651",
+    "earnings": 58471000000
   },
   {
     "symbol": "WMT",
@@ -106,7 +115,8 @@
     "revenue": 648125000000,
     "sector": "Consumer Staples",
     "market_cap": 753351648000,
-    "market_cap_updated": "2025-07-12T17:12:02.146424"
+    "market_cap_updated": "2025-07-12T17:12:02.146424",
+    "earnings": 19436000000
   },
   {
     "symbol": "LLY",
@@ -116,7 +126,8 @@
     "revenue": 34124000000,
     "sector": "Healthcare",
     "market_cap": 751564125360,
-    "market_cap_updated": "2025-07-12T17:11:56.684396"
+    "market_cap_updated": "2025-07-12T17:11:56.684396",
+    "earnings": 10590000000
   },
   {
     "symbol": "V",
@@ -126,7 +137,8 @@
     "revenue": 32653000000,
     "sector": "Financial Services",
     "market_cap": 674691670198,
-    "market_cap_updated": "2025-07-12T17:12:00.962454"
+    "market_cap_updated": "2025-07-12T17:12:00.962454",
+    "earnings": 19743000000
   },
   {
     "symbol": "ORCL",
@@ -136,7 +148,8 @@
     "revenue": 50077000000,
     "sector": "Technology",
     "market_cap": 647603844800,
-    "market_cap_updated": "2025-07-12T17:12:09.911222"
+    "market_cap_updated": "2025-07-12T17:12:09.911222",
+    "earnings": 12443000000
   },
   {
     "symbol": "NFLX",
@@ -146,7 +159,8 @@
     "revenue": 33723000000,
     "sector": "Technology",
     "market_cap": 529882707810,
-    "market_cap_updated": "2025-07-12T17:12:28.277374"
+    "market_cap_updated": "2025-07-12T17:12:28.277374",
+    "earnings": 8711631000
   },
   {
     "symbol": "XOM",
@@ -156,7 +170,8 @@
     "revenue": 413680000000,
     "sector": "Energy",
     "market_cap": 497461745200,
-    "market_cap_updated": "2025-07-12T17:12:03.210101"
+    "market_cap_updated": "2025-07-12T17:12:03.210101",
+    "earnings": 33680000000
   },
   {
     "symbol": "MA",
@@ -166,7 +181,8 @@
     "revenue": 25100000000,
     "sector": "Financial Services",
     "market_cap": 495856877340,
-    "market_cap_updated": "2025-07-12T17:12:05.344904"
+    "market_cap_updated": "2025-07-12T17:12:05.344904",
+    "earnings": 3116000000
   },
   {
     "symbol": "COST",
@@ -176,7 +192,8 @@
     "revenue": 249632000000,
     "sector": "Consumer Staples",
     "market_cap": 430319037410,
-    "market_cap_updated": "2025-07-12T17:12:07.656224"
+    "market_cap_updated": "2025-07-12T17:12:07.656224",
+    "earnings": 7367000000
   },
   {
     "symbol": "JNJ",
@@ -186,7 +203,8 @@
     "revenue": 85159000000,
     "sector": "Healthcare",
     "market_cap": 377512383000,
-    "market_cap_updated": "2025-07-12T17:12:04.271261"
+    "market_cap_updated": "2025-07-12T17:12:04.271261",
+    "earnings": 14066000000
   },
   {
     "symbol": "PG",
@@ -196,7 +214,8 @@
     "revenue": 84039000000,
     "sector": "Consumer Staples",
     "market_cap": 368210007000,
-    "market_cap_updated": "2025-07-12T17:12:08.843698"
+    "market_cap_updated": "2025-07-12T17:12:08.843698",
+    "earnings": 15974000000
   },
   {
     "symbol": "HD",
@@ -206,7 +225,8 @@
     "revenue": 157403000000,
     "sector": "Consumer Discretionary",
     "market_cap": 368193004960,
-    "market_cap_updated": "2025-07-12T17:12:06.478457"
+    "market_cap_updated": "2025-07-12T17:12:06.478457",
+    "earnings": 14806000000
   },
   {
     "symbol": "BAC",
@@ -216,7 +236,8 @@
     "revenue": 91000000000,
     "sector": "Financials",
     "market_cap": 351964752400,
-    "market_cap_updated": "2025-07-12T17:12:11.000190"
+    "market_cap_updated": "2025-07-12T17:12:11.000190",
+    "earnings": 27132000000
   },
   {
     "symbol": "ABBV",
@@ -226,7 +247,8 @@
     "revenue": 58054000000,
     "sector": "Healthcare",
     "market_cap": 339943680000,
-    "market_cap_updated": "2025-07-12T17:12:12.079080"
+    "market_cap_updated": "2025-07-12T17:12:12.079080",
+    "earnings": 4278000000
   },
   {
     "symbol": "KO",
@@ -236,7 +258,8 @@
     "revenue": 45754000000,
     "sector": "Consumer Staples",
     "market_cap": 300739344900,
-    "market_cap_updated": "2025-07-12T17:12:14.247086"
+    "market_cap_updated": "2025-07-12T17:12:14.247086",
+    "earnings": 10631000000
   },
   {
     "symbol": "PM",
@@ -246,7 +269,8 @@
     "revenue": 33277000000,
     "sector": "Consumer Staples",
     "market_cap": 280033513200,
-    "market_cap_updated": "2025-07-12T17:12:40.241111"
+    "market_cap_updated": "2025-07-12T17:12:40.241111",
+    "earnings": 7057000000
   },
   {
     "symbol": "UNH",
@@ -256,7 +280,8 @@
     "revenue": 371622000000,
     "sector": "Healthcare",
     "market_cap": 275861274000,
-    "market_cap_updated": "2025-07-12T17:11:59.892675"
+    "market_cap_updated": "2025-07-12T17:11:59.892675",
+    "earnings": 14405000000
   },
   {
     "symbol": "GE",
@@ -266,7 +291,8 @@
     "revenue": 68235000000,
     "sector": "Industrials",
     "market_cap": 272377333800,
-    "market_cap_updated": "2025-07-12T17:12:27.185123"
+    "market_cap_updated": "2025-07-12T17:12:27.185123",
+    "earnings": 6556000000
   },
   {
     "symbol": "CVX",
@@ -276,7 +302,8 @@
     "revenue": 200494000000,
     "sector": "Energy",
     "market_cap": 271231830900,
-    "market_cap_updated": "2025-07-12T17:12:13.169438"
+    "market_cap_updated": "2025-07-12T17:12:13.169438",
+    "earnings": 17661000000
   },
   {
     "symbol": "CSCO",
@@ -286,7 +313,8 @@
     "revenue": 57592000000,
     "sector": "Technology",
     "market_cap": 269082000000,
-    "market_cap_updated": "2025-07-12T17:12:25.005955"
+    "market_cap_updated": "2025-07-12T17:12:25.005955",
+    "earnings": 10180000000
   },
   {
     "symbol": "WFC",
@@ -296,7 +324,8 @@
     "revenue": 76000000000,
     "sector": "Financials",
     "market_cap": 268632559000,
-    "market_cap_updated": "2025-07-12T17:12:21.775353"
+    "market_cap_updated": "2025-07-12T17:12:21.775353",
+    "earnings": 19722000000
   },
   {
     "symbol": "IBM",
@@ -306,7 +335,8 @@
     "revenue": 62742000000,
     "sector": "Technology",
     "market_cap": 263567695230,
-    "market_cap_updated": "2025-07-12T17:12:35.858411"
+    "market_cap_updated": "2025-07-12T17:12:35.858411",
+    "earnings": 6023000000
   },
   {
     "symbol": "CRM",
@@ -316,7 +346,8 @@
     "revenue": 31352000000,
     "sector": "Technology",
     "market_cap": 246714920000,
-    "market_cap_updated": "2025-07-12T17:12:15.323545"
+    "market_cap_updated": "2025-07-12T17:12:15.323545",
+    "earnings": 6197000000
   },
   {
     "symbol": "AMD",
@@ -326,7 +357,8 @@
     "revenue": 25353000000,
     "sector": "Technology",
     "market_cap": 237405388000,
-    "market_cap_updated": "2025-07-12T17:12:19.621571"
+    "market_cap_updated": "2025-07-12T17:12:19.621571",
+    "earnings": 1641000000
   },
   {
     "symbol": "ABT",
@@ -336,7 +368,8 @@
     "revenue": 40101000000,
     "sector": "Healthcare",
     "market_cap": 229693676800,
-    "market_cap_updated": "2025-07-12T17:12:31.537203"
+    "market_cap_updated": "2025-07-12T17:12:31.537203",
+    "earnings": 13402000000
   },
   {
     "symbol": "MS",
@@ -346,7 +379,8 @@
     "revenue": 54071000000,
     "sector": "Financials",
     "market_cap": 228262649600,
-    "market_cap_updated": "2025-07-12T17:12:50.100392"
+    "market_cap_updated": "2025-07-12T17:12:50.100392",
+    "earnings": 13390000000
   },
   {
     "symbol": "AXP",
@@ -356,7 +390,8 @@
     "revenue": 64035000000,
     "sector": "Financial Services",
     "market_cap": 223817167830,
-    "market_cap_updated": "2025-07-12T17:12:38.087489"
+    "market_cap_updated": "2025-07-12T17:12:38.087489",
+    "earnings": 10129000000
   },
   {
     "symbol": "LIN",
@@ -366,7 +401,8 @@
     "revenue": 33584000000,
     "sector": "Materials",
     "market_cap": 220680118440,
-    "market_cap_updated": "2025-07-12T17:12:20.699444"
+    "market_cap_updated": "2025-07-12T17:12:20.699444",
+    "earnings": 6565000000
   },
   {
     "symbol": "GS",
@@ -376,7 +412,8 @@
     "revenue": 46900000000,
     "sector": "Financials",
     "market_cap": 216307562950,
-    "market_cap_updated": "2025-07-12T17:12:51.190386"
+    "market_cap_updated": "2025-07-12T17:12:51.190386",
+    "earnings": 14276000000
   },
   {
     "symbol": "DIS",
@@ -386,7 +423,8 @@
     "revenue": 88898000000,
     "sector": "Consumer Discretionary",
     "market_cap": 215496292500,
-    "market_cap_updated": "2025-07-12T17:12:34.773661"
+    "market_cap_updated": "2025-07-12T17:12:34.773661",
+    "earnings": 4972000000
   },
   {
     "symbol": "MCD",
@@ -396,7 +434,8 @@
     "revenue": 25494000000,
     "sector": "Consumer Discretionary",
     "market_cap": 214445547030,
-    "market_cap_updated": "2025-07-12T17:12:17.465722"
+    "market_cap_updated": "2025-07-12T17:12:17.465722",
+    "earnings": 8223000000
   },
   {
     "symbol": "TXN",
@@ -406,7 +445,8 @@
     "revenue": 17521000000,
     "sector": "Technology",
     "market_cap": 200999430000,
-    "market_cap_updated": "2025-07-12T17:12:30.451019"
+    "market_cap_updated": "2025-07-12T17:12:30.451019",
+    "earnings": 4799000000
   },
   {
     "symbol": "RTX",
@@ -416,7 +456,8 @@
     "revenue": 79017000000,
     "sector": "Industrials",
     "market_cap": 196210976500,
-    "market_cap_updated": "2025-07-12T17:12:49.019407"
+    "market_cap_updated": "2025-07-12T17:12:49.019407",
+    "earnings": 4774000000
   },
   {
     "symbol": "NOW",
@@ -426,7 +467,8 @@
     "revenue": 8970000000,
     "sector": "Technology",
     "market_cap": 194470154560,
-    "market_cap_updated": "2025-07-12T17:12:43.580539"
+    "market_cap_updated": "2025-07-12T17:12:43.580539",
+    "earnings": 1425000000
   },
   {
     "symbol": "T",
@@ -436,7 +478,8 @@
     "revenue": 122428000000,
     "sector": "Telecommunications",
     "market_cap": 194065332000,
-    "market_cap_updated": "2025-07-12T17:12:44.693073"
+    "market_cap_updated": "2025-07-12T17:12:44.693073",
+    "earnings": 10948000000
   },
   {
     "symbol": "ACN",
@@ -446,7 +489,8 @@
     "revenue": 64112000000,
     "sector": "Technology",
     "market_cap": 191217203580,
-    "market_cap_updated": "2025-07-12T17:12:22.855229"
+    "market_cap_updated": "2025-07-12T17:12:22.855229",
+    "earnings": 7264787000
   },
   {
     "symbol": "CAT",
@@ -456,7 +500,8 @@
     "revenue": 67060000000,
     "sector": "Industrials",
     "market_cap": 190910264800,
-    "market_cap_updated": "2025-07-12T17:12:36.943284"
+    "market_cap_updated": "2025-07-12T17:12:36.943284",
+    "earnings": 2700000000
   },
   {
     "symbol": "PEP",
@@ -466,7 +511,8 @@
     "revenue": 91471000000,
     "sector": "Consumer Staples",
     "market_cap": 185452280800,
-    "market_cap_updated": "2025-07-12T17:12:16.396628"
+    "market_cap_updated": "2025-07-12T17:12:16.396628",
+    "earnings": 9578000000
   },
   {
     "symbol": "ISRG",
@@ -476,7 +522,8 @@
     "revenue": 7672000000,
     "sector": "Healthcare",
     "market_cap": 183531521080,
-    "market_cap_updated": "2025-07-12T17:12:56.591160"
+    "market_cap_updated": "2025-07-12T17:12:56.591160",
+    "earnings": 2322600000
   },
   {
     "symbol": "VZ",
@@ -486,7 +533,8 @@
     "revenue": 134000000000,
     "sector": "Telecommunications",
     "market_cap": 175480741200,
-    "market_cap_updated": "2025-07-12T17:12:33.701712"
+    "market_cap_updated": "2025-07-12T17:12:33.701712",
+    "earnings": 17506000000
   },
   {
     "symbol": "QCOM",
@@ -496,7 +544,8 @@
     "revenue": 38731000000,
     "sector": "Technology",
     "market_cap": 172891080000,
-    "market_cap_updated": "2025-07-12T17:12:26.087966"
+    "market_cap_updated": "2025-07-12T17:12:26.087966",
+    "earnings": 10142000000
   },
   {
     "symbol": "BA",
@@ -506,7 +555,8 @@
     "revenue": 77794000000,
     "sector": "Industrials",
     "market_cap": 171038494200,
-    "market_cap_updated": "2025-07-12T17:12:45.763833"
+    "market_cap_updated": "2025-07-12T17:12:45.763833",
+    "earnings": -11817000000
   },
   {
     "symbol": "BLK",
@@ -516,7 +566,8 @@
     "revenue": 20218000000,
     "sector": "Financials",
     "market_cap": 170672678640,
-    "market_cap_updated": "2025-07-12T17:13:03.218271"
+    "market_cap_updated": "2025-07-12T17:13:03.218271",
+    "earnings": 6369000000
   },
   {
     "symbol": "TMO",
@@ -526,7 +577,8 @@
     "revenue": 42475000000,
     "sector": "Healthcare",
     "market_cap": 164157040840,
-    "market_cap_updated": "2025-07-12T17:12:23.935932"
+    "market_cap_updated": "2025-07-12T17:12:23.935932",
+    "earnings": 1273300000
   },
   {
     "symbol": "C",
@@ -536,7 +588,8 @@
     "revenue": 75338000000,
     "sector": "Financials",
     "market_cap": 161988222900,
-    "market_cap_updated": "2025-07-12T17:12:58.826751"
+    "market_cap_updated": "2025-07-12T17:12:58.826751",
+    "earnings": 12682000000
   },
   {
     "symbol": "SPGI",
@@ -546,7 +599,8 @@
     "revenue": 10190000000,
     "sector": "Financials",
     "market_cap": 161652369000,
-    "market_cap_updated": "2025-07-12T17:12:55.510430"
+    "market_cap_updated": "2025-07-12T17:12:55.510430",
+    "earnings": 2626000000
   },
   {
     "symbol": "AMGN",
@@ -556,7 +610,8 @@
     "revenue": 28235000000,
     "sector": "Healthcare",
     "market_cap": 158768450620,
-    "market_cap_updated": "2025-07-12T17:12:46.845752"
+    "market_cap_updated": "2025-07-12T17:12:46.845752",
+    "earnings": 4090000000
   },
   {
     "symbol": "ADBE",
@@ -566,7 +621,8 @@
     "revenue": 21051000000,
     "sector": "Technology",
     "market_cap": 154133070000,
-    "market_cap_updated": "2025-07-12T17:12:18.542463"
+    "market_cap_updated": "2025-07-12T17:12:18.542463",
+    "earnings": 5560000000
   },
   {
     "symbol": "NEE",
@@ -576,7 +632,8 @@
     "revenue": 28114000000,
     "sector": "Utilities",
     "market_cap": 153162072000,
-    "market_cap_updated": "2025-07-12T17:12:42.391605"
+    "market_cap_updated": "2025-07-12T17:12:42.391605",
+    "earnings": 6946000000
   },
   {
     "symbol": "HON",
@@ -586,7 +643,8 @@
     "revenue": 38527000000,
     "sector": "Industrials",
     "market_cap": 151628200190,
-    "market_cap_updated": "2025-07-12T17:12:53.340937"
+    "market_cap_updated": "2025-07-12T17:12:53.340937",
+    "earnings": 5705000000
   },
   {
     "symbol": "DHR",
@@ -596,7 +654,8 @@
     "revenue": 31471000000,
     "sector": "Healthcare",
     "market_cap": 146604999500,
-    "market_cap_updated": "2025-07-12T17:12:32.622067"
+    "market_cap_updated": "2025-07-12T17:12:32.622067",
+    "earnings": 3899000000
   },
   {
     "symbol": "PFE",
@@ -606,7 +665,8 @@
     "revenue": 58496000000,
     "sector": "Healthcare",
     "market_cap": 145829740500,
-    "market_cap_updated": "2025-07-12T17:12:39.175270"
+    "market_cap_updated": "2025-07-12T17:12:39.175270",
+    "earnings": 8031000000
   },
   {
     "symbol": "COF",
@@ -616,7 +676,8 @@
     "revenue": 35015000000,
     "sector": "Financials",
     "market_cap": 140695931020,
-    "market_cap_updated": "2025-07-12T17:13:33.374955"
+    "market_cap_updated": "2025-07-12T17:13:33.374955",
+    "earnings": 4750000000
   },
   {
     "symbol": "UNP",
@@ -626,7 +687,8 @@
     "revenue": 24119000000,
     "sector": "Industrials",
     "market_cap": 140466607600,
-    "market_cap_updated": "2025-07-12T17:12:54.427559"
+    "market_cap_updated": "2025-07-12T17:12:54.427559",
+    "earnings": 6747000000
   },
   {
     "symbol": "DE",
@@ -636,7 +698,8 @@
     "revenue": 53266000000,
     "sector": "Industrials",
     "market_cap": 138774463070,
-    "market_cap_updated": "2025-07-12T17:13:04.315598"
+    "market_cap_updated": "2025-07-12T17:13:04.315598",
+    "earnings": 7100000000
   },
   {
     "symbol": "TJX",
@@ -646,7 +709,8 @@
     "revenue": 54215000000,
     "sector": "Consumer Discretionary",
     "market_cap": 138013350200,
-    "market_cap_updated": "2025-07-12T17:13:06.453388"
+    "market_cap_updated": "2025-07-12T17:13:06.453388",
+    "earnings": 4864000000
   },
   {
     "symbol": "GILD",
@@ -656,7 +720,8 @@
     "revenue": 26274000000,
     "sector": "Healthcare",
     "market_cap": 136384485200,
-    "market_cap_updated": "2025-07-12T17:13:09.649538"
+    "market_cap_updated": "2025-07-12T17:13:09.649538",
+    "earnings": 480000000
   },
   {
     "symbol": "CMCSA",
@@ -666,7 +731,8 @@
     "revenue": 121427000000,
     "sector": "Telecommunications",
     "market_cap": 130311857400,
-    "market_cap_updated": "2025-07-12T17:12:41.315321"
+    "market_cap_updated": "2025-07-12T17:12:41.315321",
+    "earnings": 16192000000
   },
   {
     "symbol": "LOW",
@@ -676,7 +742,8 @@
     "revenue": 86377000000,
     "sector": "Consumer Discretionary",
     "market_cap": 125610968940,
-    "market_cap_updated": "2025-07-12T17:12:52.271617"
+    "market_cap_updated": "2025-07-12T17:12:52.271617",
+    "earnings": 6957000000
   },
   {
     "symbol": "ADP",
@@ -686,7 +753,8 @@
     "revenue": 18615000000,
     "sector": "Technology",
     "market_cap": 122852595950,
-    "market_cap_updated": "2025-07-12T17:13:05.388591"
+    "market_cap_updated": "2025-07-12T17:13:05.388591",
+    "earnings": 4079700000
   },
   {
     "symbol": "COP",
@@ -696,7 +764,8 @@
     "revenue": 61594000000,
     "sector": "Energy",
     "market_cap": 120699020100,
-    "market_cap_updated": "2025-07-12T17:12:47.928230"
+    "market_cap_updated": "2025-07-12T17:12:47.928230",
+    "earnings": 9245000000
   },
   {
     "symbol": "SBUX",
@@ -706,7 +775,8 @@
     "revenue": 36017000000,
     "sector": "Consumer Discretionary",
     "market_cap": 107889816000,
-    "market_cap_updated": "2025-07-12T17:12:59.909090"
+    "market_cap_updated": "2025-07-12T17:12:59.909090",
+    "earnings": 3760900000
   },
   {
     "symbol": "NKE",
@@ -716,7 +786,8 @@
     "revenue": 51362000000,
     "sector": "Consumer Discretionary",
     "market_cap": 107201211877,
-    "market_cap_updated": "2025-07-12T17:12:57.749420"
+    "market_cap_updated": "2025-07-12T17:12:57.749420",
+    "earnings": 3219000000
   },
   {
     "symbol": "MMC",
@@ -726,7 +797,8 @@
     "revenue": 23491000000,
     "sector": "Financials",
     "market_cap": 104330226720,
-    "market_cap_updated": "2025-07-12T17:13:08.574662"
+    "market_cap_updated": "2025-07-12T17:13:08.574662",
+    "earnings": 4060000000
   },
   {
     "symbol": "ICE",
@@ -736,7 +808,8 @@
     "revenue": 8971000000,
     "sector": "Financials",
     "market_cap": 103545229260,
-    "market_cap_updated": "2025-07-12T17:13:13.925968"
+    "market_cap_updated": "2025-07-12T17:13:13.925968",
+    "earnings": 2754000000
   },
   {
     "symbol": "INTC",
@@ -746,7 +819,8 @@
     "revenue": 71900000000,
     "sector": "Technology",
     "market_cap": 102201660000,
-    "market_cap_updated": "2025-07-12T17:12:29.368581"
+    "market_cap_updated": "2025-07-12T17:12:29.368581",
+    "earnings": -18756000000
   },
   {
     "symbol": "SO",
@@ -756,7 +830,8 @@
     "revenue": 25876000000,
     "sector": "Utilities",
     "market_cap": 101838899600,
-    "market_cap_updated": "2025-07-12T17:13:14.983077"
+    "market_cap_updated": "2025-07-12T17:13:14.983077",
+    "earnings": 440000000
   },
   {
     "symbol": "CME",
@@ -766,7 +841,8 @@
     "revenue": 5900000000,
     "sector": "Financials",
     "market_cap": 99126728480,
-    "market_cap_updated": "2025-07-12T17:13:12.858146"
+    "market_cap_updated": "2025-07-12T17:13:12.858146",
+    "earnings": 3525800000
   },
   {
     "symbol": "BMY",
@@ -776,7 +852,8 @@
     "revenue": 45006000000,
     "sector": "Healthcare",
     "market_cap": 95363848800,
-    "market_cap_updated": "2025-07-12T17:13:00.977699"
+    "market_cap_updated": "2025-07-12T17:13:00.977699",
+    "earnings": -8948000000
   },
   {
     "symbol": "DUK",
@@ -786,7 +863,8 @@
     "revenue": 29552000000,
     "sector": "Utilities",
     "market_cap": 91296607220,
-    "market_cap_updated": "2025-07-12T17:13:11.803972"
+    "market_cap_updated": "2025-07-12T17:13:11.803972",
+    "earnings": 4524000000
   },
   {
     "symbol": "MCO",
@@ -796,7 +874,8 @@
     "revenue": 6200000000,
     "sector": "Financials",
     "market_cap": 89865447000,
-    "market_cap_updated": "2025-07-12T17:13:19.462488"
+    "market_cap_updated": "2025-07-12T17:13:19.462488",
+    "earnings": 2058000000
   },
   {
     "symbol": "MDLZ",
@@ -806,7 +885,8 @@
     "revenue": 36015000000,
     "sector": "Consumer Staples",
     "market_cap": 86986007600,
-    "market_cap_updated": "2025-07-12T17:13:07.515957"
+    "market_cap_updated": "2025-07-12T17:13:07.515957",
+    "earnings": 4611000000
   },
   {
     "symbol": "SHW",
@@ -816,7 +896,8 @@
     "revenue": 22150000000,
     "sector": "Materials",
     "market_cap": 86690403930,
-    "market_cap_updated": "2025-07-12T17:13:10.720311"
+    "market_cap_updated": "2025-07-12T17:13:10.720311",
+    "earnings": 2681400000
   },
   {
     "symbol": "UPS",
@@ -826,7 +907,8 @@
     "revenue": 90958000000,
     "sector": "Industrials",
     "market_cap": 85755211484,
-    "market_cap_updated": "2025-07-12T17:13:02.113940"
+    "market_cap_updated": "2025-07-12T17:13:02.113940",
+    "earnings": 5782000000
   },
   {
     "symbol": "MMM",
@@ -836,7 +918,8 @@
     "revenue": 32681000000,
     "sector": "Industrials",
     "market_cap": 83870127040,
-    "market_cap_updated": "2025-07-12T17:13:25.860049"
+    "market_cap_updated": "2025-07-12T17:13:25.860049",
+    "earnings": 4173000000
   },
   {
     "symbol": "CVS",
@@ -846,7 +929,8 @@
     "revenue": 322467000000,
     "sector": "Healthcare",
     "market_cap": 81947995600,
-    "market_cap_updated": "2025-07-12T17:13:27.998337"
+    "market_cap_updated": "2025-07-12T17:13:27.998337",
+    "earnings": 4614000000
   },
   {
     "symbol": "GD",
@@ -856,7 +940,8 @@
     "revenue": 42295000000,
     "sector": "Industrials",
     "market_cap": 81109271200,
-    "market_cap_updated": "2025-07-12T17:13:17.137411"
+    "market_cap_updated": "2025-07-12T17:13:17.137411",
+    "earnings": 3782000000
   },
   {
     "symbol": "EMR",
@@ -866,7 +951,8 @@
     "revenue": 16781000000,
     "sector": "Industrials",
     "market_cap": 78806250000,
-    "market_cap_updated": "2025-07-12T17:13:32.295034"
+    "market_cap_updated": "2025-07-12T17:13:32.295034",
+    "earnings": 1968000000
   },
   {
     "symbol": "PNC",
@@ -886,7 +972,8 @@
     "revenue": 13398000000,
     "sector": "Financials",
     "market_cap": 76803379800,
-    "market_cap_updated": "2025-07-12T17:13:16.053884"
+    "market_cap_updated": "2025-07-12T17:13:16.053884",
+    "earnings": 2654000000
   },
   {
     "symbol": "ITW",
@@ -896,7 +983,8 @@
     "revenue": 16113000000,
     "sector": "Industrials",
     "market_cap": 76092100000,
-    "market_cap_updated": "2025-07-12T17:13:18.231244"
+    "market_cap_updated": "2025-07-12T17:13:18.231244",
+    "earnings": 3488000000
   },
   {
     "symbol": "CMG",
@@ -906,7 +994,8 @@
     "revenue": 8982000000,
     "sector": "Consumer Discretionary",
     "market_cap": 75452160000,
-    "market_cap_updated": "2025-07-12T17:13:24.795586"
+    "market_cap_updated": "2025-07-12T17:13:24.795586",
+    "earnings": 1534110000
   },
   {
     "symbol": "USB",
@@ -916,7 +1005,8 @@
     "revenue": 23872000000,
     "sector": "Financials",
     "market_cap": 73445534200,
-    "market_cap_updated": "2025-07-12T17:13:30.146826"
+    "market_cap_updated": "2025-07-12T17:13:30.146826",
+    "earnings": 6299000000
   },
   {
     "symbol": "CL",
@@ -926,7 +1016,8 @@
     "revenue": 19457000000,
     "sector": "Consumer Staples",
     "market_cap": 72597423600,
-    "market_cap_updated": "2025-07-12T17:13:22.665085"
+    "market_cap_updated": "2025-07-12T17:13:22.665085",
+    "earnings": 2889000000
   },
   {
     "symbol": "PYPL",
@@ -936,7 +1027,8 @@
     "revenue": 31543000000,
     "sector": "Financial Services",
     "market_cap": 69399954880,
-    "market_cap_updated": "2025-07-12T17:13:20.537493"
+    "market_cap_updated": "2025-07-12T17:13:20.537493",
+    "earnings": 4147000000
   },
   {
     "symbol": "EOG",
@@ -946,7 +1038,8 @@
     "revenue": 24598000000,
     "sector": "Energy",
     "market_cap": 67153632480,
-    "market_cap_updated": "2025-07-12T17:13:23.729358"
+    "market_cap_updated": "2025-07-12T17:13:23.729358",
+    "earnings": 6403000000
   },
   {
     "symbol": "APD",
@@ -956,7 +1049,8 @@
     "revenue": 12604000000,
     "sector": "Materials",
     "market_cap": 64976171680,
-    "market_cap_updated": "2025-07-12T17:13:34.436557"
+    "market_cap_updated": "2025-07-12T17:13:34.436557",
+    "earnings": 3828200000
   },
   {
     "symbol": "NSC",
@@ -966,7 +1060,8 @@
     "revenue": 12703000000,
     "sector": "Industrials",
     "market_cap": 60096340510,
-    "market_cap_updated": "2025-07-12T17:13:35.509770"
+    "market_cap_updated": "2025-07-12T17:13:35.509770",
+    "earnings": 2622000000
   },
   {
     "symbol": "TFC",
@@ -986,7 +1081,8 @@
     "revenue": 87692000000,
     "sector": "Industrials",
     "market_cap": 56559739940,
-    "market_cap_updated": "2025-07-12T17:13:21.608416"
+    "market_cap_updated": "2025-07-12T17:13:21.608416",
+    "earnings": 4092000000
   },
   {
     "symbol": "SLB",
@@ -996,7 +1092,8 @@
     "revenue": 33135000000,
     "sector": "Energy",
     "market_cap": 50747569600,
-    "market_cap_updated": "2025-07-12T17:13:29.079254"
+    "market_cap_updated": "2025-07-12T17:13:29.079254",
+    "earnings": 4461000000
   },
   {
     "symbol": "TGT",
@@ -1006,7 +1103,8 @@
     "revenue": 107588000000,
     "sector": "Consumer Discretionary",
     "market_cap": 47363111840,
-    "market_cap_updated": "2025-07-12T17:13:26.927486"
+    "market_cap_updated": "2025-07-12T17:13:26.927486",
+    "earnings": 4091000000
   },
   {
     "symbol": "CNC",
@@ -1016,6 +1114,7 @@
     "revenue": 154218000000,
     "sector": "Healthcare",
     "market_cap": 15644638320,
-    "market_cap_updated": "2025-07-12T17:13:37.643798"
+    "market_cap_updated": "2025-07-12T17:13:37.643798",
+    "earnings": 3305000000
   }
 ]
