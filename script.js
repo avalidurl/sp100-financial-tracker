@@ -138,6 +138,11 @@ class SP100CapexApp {
                     return a.sector.localeCompare(b.sector);
                 case 'revenue':
                     return b.revenue - a.revenue;
+                case 'earnings':
+                    // Sort by earnings, handling missing values
+                    const earningsA = a.earnings || 0;
+                    const earningsB = b.earnings || 0;
+                    return earningsB - earningsA;
                 default:
                     return 0;
             }
@@ -309,6 +314,7 @@ class SP100CapexApp {
                         <div class="capex-amount">${this.formatCurrency(company.capex)}</div>
                         <div class="company-year">${company.period || company.year + ' Annual'}</div>
                         <div class="revenue-amount">Revenue: ${this.formatCurrency(company.revenue)}</div>
+                        ${company.earnings ? `<div class="earnings-amount">Earnings: ${this.formatCurrency(company.earnings)}</div>` : ''}
                         <div class="market-cap-amount">Current Market Cap: ${this.formatCurrency(company.market_cap)}</div>
                         <div class="company-actions">
                             <button class="action-btn price-btn" onclick="openPriceModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Live price chart">
@@ -373,6 +379,7 @@ class SP100CapexApp {
                                 <div class="capex-amount">${this.formatCurrency(company.capex)}</div>
                                 <div class="company-year">${company.period || company.year + ' Annual'}</div>
                                 <div class="revenue-amount">Revenue: ${this.formatCurrency(company.revenue)}</div>
+                                ${company.earnings ? `<div class="earnings-amount">Earnings: ${this.formatCurrency(company.earnings)}</div>` : ''}
                                 <div class="market-cap-amount">Current Market Cap: ${this.formatCurrency(company.market_cap)}</div>
                                 <div class="company-actions">
                                     <button class="action-btn price-btn" onclick="openPriceModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Live price chart">

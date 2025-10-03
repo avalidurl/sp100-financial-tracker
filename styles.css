@@ -261,6 +261,13 @@ main {
     margin-top: 0.25rem;
 }
 
+.earnings-amount {
+    color: #7c3aed;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 0.25rem;
+}
+
 .market-cap-amount {
     color: #059669;
     font-size: 0.85rem;
