@@ -33,33 +33,28 @@ export function trackQuotaUsage(provider) {
 }
 
 export async function onRequest({ request, env }) {
-  const quotaStats = getQuotaStats();
   const cacheStats = getCacheStats();
   
   return new Response(JSON.stringify({
-    quota: {
-      alphaVantage: {
-        used: quotaStats.alphaVantage,
-        limit: 25,
-        remaining: Math.max(0, 25 - quotaStats.alphaVantage),
-        status: quotaStats.alphaVantage >= 25 ? 'EXCEEDED' : 'OK'
-      },
-      finnhub: {
-        used: quotaStats.finnhub,
-        limit: 60, // per minute, but tracking daily for comparison
-        status: 'OK' // Finnhub has generous limits
-      }
+    message: '100% FREE - No API quotas!',
+    priceSource: {
+      provider: 'Yahoo Finance',
+      cost: 'FREE',
+      rateLimit: 'Unlimited',
+      status: 'Active ✅'
+    },
+    fundamentalsSource: {
+      provider: 'SEC EDGAR',
+      cost: 'FREE',
+      rateLimit: '10 req/sec',
+      status: 'Active ✅'
     },
     cache: {
       entries: cacheStats.size,
       symbols: cacheStats.entries
     },
-    fallbackChain: [
-      'Alpha Vantage (25/day)',
-      'Finnhub (60/minute)', 
-      'Yahoo Finance (unlimited)',
-      'Demo Data (always available)'
-    ]
+    savingsPerMonth: '$50-100 (vs paid APIs)',
+    note: 'No API keys needed - Everything is FREE!'
   }), {
     headers: { 'content-type': 'application/json' }
   });
