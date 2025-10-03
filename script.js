@@ -305,17 +305,79 @@ class SP100CapexApp {
             console.log(`Rendering list view: ${this.displayedData.length} companies`);
             list.innerHTML = this.displayedData.map((company, index) => `
                 <div class="company-card">
-                    <div class="rank-number">#${index + 1}</div>
-                    <div class="company-info">
-                        <div class="company-name">${company.name}</div>
-                        <div class="company-symbol">${company.symbol} • ${company.sector}</div>
+                    <div class="card-header">
+                        <div class="rank-number">#${index + 1}</div>
+                        <div class="company-info">
+                            <div class="company-name">${company.name}</div>
+                            <div class="company-symbol">${company.symbol} • ${company.sector}</div>
+                        </div>
                     </div>
-                    <div class="company-metrics">
-                        <div class="capex-amount">${this.formatCurrency(company.capex)}</div>
-                        <div class="company-year">${company.period || company.year + ' Annual'}</div>
-                        <div class="revenue-amount">Revenue: ${this.formatCurrency(company.revenue)}</div>
-                        ${company.earnings ? `<div class="earnings-amount">Earnings: ${this.formatCurrency(company.earnings)}</div>` : ''}
-                        <div class="market-cap-amount">Current Market Cap: ${this.formatCurrency(company.market_cap)}</div>
+                    
+                    <div class="card-body">
+                        <div class="metrics-grid">
+                            <div class="metric-group">
+                                <div class="metric-label">💰 Revenue</div>
+                                <div class="metric-value">${this.formatCurrency(company.revenue)}</div>
+                            </div>
+                            
+                            ${company.earnings ? `
+                            <div class="metric-group">
+                                <div class="metric-label">💵 Earnings</div>
+                                <div class="metric-value earnings">${this.formatCurrency(company.earnings)}</div>
+                            </div>
+                            ` : ''}
+                            
+                            ${company.operating_income ? `
+                            <div class="metric-group">
+                                <div class="metric-label">⚙️ Operating Income</div>
+                                <div class="metric-value">${this.formatCurrency(company.operating_income)}</div>
+                            </div>
+                            ` : ''}
+                            
+                            ${company.free_cash_flow ? `
+                            <div class="metric-group">
+                                <div class="metric-label">💸 Free Cash Flow</div>
+                                <div class="metric-value fcf">${this.formatCurrency(company.free_cash_flow)}</div>
+                            </div>
+                            ` : ''}
+                            
+                            <div class="metric-group">
+                                <div class="metric-label">🏗️ CapEx</div>
+                                <div class="metric-value capex">${this.formatCurrency(company.capex)}</div>
+                            </div>
+                            
+                            ${company.total_assets ? `
+                            <div class="metric-group">
+                                <div class="metric-label">📊 Total Assets</div>
+                                <div class="metric-value">${this.formatCurrency(company.total_assets)}</div>
+                            </div>
+                            ` : ''}
+                            
+                            ${company.debt_to_equity !== undefined ? `
+                            <div class="metric-group">
+                                <div class="metric-label">📈 Debt/Equity</div>
+                                <div class="metric-value ratio">${company.debt_to_equity}x</div>
+                            </div>
+                            ` : ''}
+                            
+                            ${company.profit_margin !== undefined ? `
+                            <div class="metric-group">
+                                <div class="metric-label">📉 Profit Margin</div>
+                                <div class="metric-value margin">${company.profit_margin}%</div>
+                            </div>
+                            ` : ''}
+                            
+                            <div class="metric-group market-cap-group">
+                                <div class="metric-label">💎 Market Cap</div>
+                                <div class="metric-value market-cap">${this.formatCurrency(company.market_cap)}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-meta">
+                            <span class="data-year">${company.period || company.year + ' Annual'}</span>
+                            <span class="data-source">📄 SEC EDGAR</span>
+                        </div>
+                        
                         <div class="company-actions">
                             <button class="action-btn price-btn" onclick="openPriceModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Live price chart">
                                 📈 Price
@@ -370,17 +432,79 @@ class SP100CapexApp {
                 <div class="sector-companies" id="sector-${sector.replace(/[^a-zA-Z0-9]/g, '-')}">
                     ${companies.map((company, index) => `
                         <div class="company-card sector-company">
-                            <div class="rank-number">#${index + 1}</div>
-                            <div class="company-info">
-                                <div class="company-name">${company.name}</div>
-                                <div class="company-symbol">${company.symbol}</div>
+                            <div class="card-header">
+                                <div class="rank-number">#${index + 1}</div>
+                                <div class="company-info">
+                                    <div class="company-name">${company.name}</div>
+                                    <div class="company-symbol">${company.symbol}</div>
+                                </div>
                             </div>
-                            <div class="company-metrics">
-                                <div class="capex-amount">${this.formatCurrency(company.capex)}</div>
-                                <div class="company-year">${company.period || company.year + ' Annual'}</div>
-                                <div class="revenue-amount">Revenue: ${this.formatCurrency(company.revenue)}</div>
-                                ${company.earnings ? `<div class="earnings-amount">Earnings: ${this.formatCurrency(company.earnings)}</div>` : ''}
-                                <div class="market-cap-amount">Current Market Cap: ${this.formatCurrency(company.market_cap)}</div>
+                            
+                            <div class="card-body">
+                                <div class="metrics-grid">
+                                    <div class="metric-group">
+                                        <div class="metric-label">💰 Revenue</div>
+                                        <div class="metric-value">${this.formatCurrency(company.revenue)}</div>
+                                    </div>
+                                    
+                                    ${company.earnings ? `
+                                    <div class="metric-group">
+                                        <div class="metric-label">💵 Earnings</div>
+                                        <div class="metric-value earnings">${this.formatCurrency(company.earnings)}</div>
+                                    </div>
+                                    ` : ''}
+                                    
+                                    ${company.operating_income ? `
+                                    <div class="metric-group">
+                                        <div class="metric-label">⚙️ Operating Income</div>
+                                        <div class="metric-value">${this.formatCurrency(company.operating_income)}</div>
+                                    </div>
+                                    ` : ''}
+                                    
+                                    ${company.free_cash_flow ? `
+                                    <div class="metric-group">
+                                        <div class="metric-label">💸 Free Cash Flow</div>
+                                        <div class="metric-value fcf">${this.formatCurrency(company.free_cash_flow)}</div>
+                                    </div>
+                                    ` : ''}
+                                    
+                                    <div class="metric-group">
+                                        <div class="metric-label">🏗️ CapEx</div>
+                                        <div class="metric-value capex">${this.formatCurrency(company.capex)}</div>
+                                    </div>
+                                    
+                                    ${company.total_assets ? `
+                                    <div class="metric-group">
+                                        <div class="metric-label">📊 Total Assets</div>
+                                        <div class="metric-value">${this.formatCurrency(company.total_assets)}</div>
+                                    </div>
+                                    ` : ''}
+                                    
+                                    ${company.debt_to_equity !== undefined ? `
+                                    <div class="metric-group">
+                                        <div class="metric-label">📈 Debt/Equity</div>
+                                        <div class="metric-value ratio">${company.debt_to_equity}x</div>
+                                    </div>
+                                    ` : ''}
+                                    
+                                    ${company.profit_margin !== undefined ? `
+                                    <div class="metric-group">
+                                        <div class="metric-label">📉 Profit Margin</div>
+                                        <div class="metric-value margin">${company.profit_margin}%</div>
+                                    </div>
+                                    ` : ''}
+                                    
+                                    <div class="metric-group market-cap-group">
+                                        <div class="metric-label">💎 Market Cap</div>
+                                        <div class="metric-value market-cap">${this.formatCurrency(company.market_cap)}</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card-meta">
+                                    <span class="data-year">${company.period || company.year + ' Annual'}</span>
+                                    <span class="data-source">📄 SEC EDGAR</span>
+                                </div>
+                                
                                 <div class="company-actions">
                                     <button class="action-btn price-btn" onclick="openPriceModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Live price chart">
                                         📈 Price

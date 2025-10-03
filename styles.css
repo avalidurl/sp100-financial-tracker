@@ -200,19 +200,33 @@ main {
 .company-card {
     background: white;
     border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 1rem 1.5rem 3rem 1.5rem;
-    transition: box-shadow 0.2s;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: box-shadow 0.3s, transform 0.2s;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    min-height: 80px;
+    flex-direction: column;
+    gap: 1rem;
     transform: translateZ(0); /* Force hardware acceleration */
     will-change: transform; /* Optimize for potential transforms */
 }
 
 .company-card:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .company-info {
@@ -220,59 +234,86 @@ main {
 }
 
 .company-name {
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
     margin-bottom: 0.25rem;
 }
 
 .company-symbol {
     color: #666;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 500;
 }
 
-.company-metrics {
+/* Enhanced metrics grid layout */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    padding: 0.5rem 0;
+}
+
+.metric-group {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
+    gap: 0.25rem;
 }
 
-.capex-amount {
-    font-size: 1.3rem;
+.metric-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.metric-value {
+    font-size: 1.1rem;
     font-weight: 700;
-    color: #2563eb;
-    margin-bottom: 0.25rem;
+    color: #1a1a1a;
 }
 
-.company-sector {
-    color: #666;
-    font-size: 0.85rem;
-    margin-bottom: 0.25rem;
-}
-
-.company-year {
-    color: #888;
-    font-size: 0.8rem;
-}
-
-.revenue-amount {
-    color: #666;
-    font-size: 0.85rem;
-    margin-top: 0.25rem;
-}
-
-.earnings-amount {
+/* Specific metric value colors */
+.metric-value.earnings {
     color: #7c3aed;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-top: 0.25rem;
 }
 
-.market-cap-amount {
+.metric-value.fcf {
     color: #059669;
-    font-size: 0.85rem;
+}
+
+.metric-value.capex {
+    color: #2563eb;
+}
+
+.metric-value.market-cap {
+    color: #ea580c;
+}
+
+.metric-value.ratio,
+.metric-value.margin {
+    color: #0891b2;
+}
+
+/* Card metadata */
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.75rem;
+    border-top: 1px solid #f0f0f0;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.data-year {
+    font-weight: 500;
+}
+
+.data-source {
     font-weight: 600;
-    margin-top: 0.25rem;
+    color: #059669;
 }
 
 .rank-number {

@@ -1,0 +1,113 @@
+name: Update Financial Data from SEC EDGAR
+
+# When to run:
+# - Every Monday at 6 AM UTC (after weekend SEC filings)
+# - Manual trigger option
+on:
+  schedule:
+    # Run every Monday at 6 AM UTC (after companies file 10-K/10-Q)
+    - cron: '0 6 * * 1'
+  
+  workflow_dispatch: # Allow manual trigger
+    inputs:
+      force_update:
+        description: 'Force update even if no changes'
+        required: false
+        default: 'false'
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+      
+      - name: Fetch comprehensive financial data from SEC EDGAR
+        run: |
+          echo "🏛️ Fetching latest financial data from SEC EDGAR..."
+          python3 fetch-comprehensive-data.py
+        env:
+          PYTHONUNBUFFERED: 1
+      
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet data/capex_data.json public/data/capex_data.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "📊 No changes detected in financial data"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "✅ Financial data has been updated!"
+          fi
+      
+      - name: Commit and push if changed
+        if: steps.check_changes.outputs.changed == 'true' || github.event.inputs.force_update == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          git add data/capex_data.json public/data/capex_data.json data/last_updated.json public/data/last_updated.json
+          
+          # Get summary of changes
+          CHANGES=$(git diff --cached --stat)
+          
+          git commit -m "🤖 Auto-update: SEC EDGAR financial data
+
+📊 Updated: $(date -u +"%Y-%m-%d %H:%M UTC")
+📄 Source: SEC EDGAR (FREE)
+
+Changes:
+$CHANGES
+
+This update was automatically fetched from SEC EDGAR and includes:
+- Revenue, Earnings, CapEx
+- Operating Income, Free Cash Flow
+- Balance Sheet data (Assets, Liabilities, Equity)
+- Calculated metrics (Debt/Equity, Margins)
+" || echo "No changes to commit"
+          
+          git push
+      
+      - name: Create update summary
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          echo "## 📊 Financial Data Updated!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Successfully fetched and updated comprehensive financial data" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Data Source" >> $GITHUB_STEP_SUMMARY
+          echo "- 🏛️ **SEC EDGAR** (Official U.S. Securities filings)" >> $GITHUB_STEP_SUMMARY
+          echo "- 💰 **Cost**: FREE" >> $GITHUB_STEP_SUMMARY
+          echo "- 🔄 **Updated**: $(date -u +"%Y-%m-%d %H:%M UTC")" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Metrics Updated" >> $GITHUB_STEP_SUMMARY
+          echo "- Revenue & Earnings" >> $GITHUB_STEP_SUMMARY
+          echo "- Operating Income & Cash Flow" >> $GITHUB_STEP_SUMMARY
+          echo "- Free Cash Flow (calculated)" >> $GITHUB_STEP_SUMMARY
+          echo "- Assets, Liabilities, Equity" >> $GITHUB_STEP_SUMMARY
+          echo "- Debt-to-Equity & Profit Margins" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🚀 Changes have been committed and will deploy automatically via Cloudflare Pages" >> $GITHUB_STEP_SUMMARY
+      
+      - name: No changes summary
+        if: steps.check_changes.outputs.changed == 'false' && github.event.inputs.force_update != 'true'
+        run: |
+          echo "## ✅ Data is up to date" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "No new financial data available from SEC EDGAR." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📅 Next scheduled check: Next Monday at 6 AM UTC" >> $GITHUB_STEP_SUMMARY
+
