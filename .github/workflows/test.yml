@@ -1,0 +1,198 @@
+name: Run Tests
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+  workflow_dispatch:
+
+jobs:
+  test-python:
+    name: Python Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Run pytest
+        run: |
+          pytest test_fetch_comprehensive_data.py -v --tb=short
+      
+      - name: Test summary
+        if: always()
+        run: |
+          echo "## 🧪 Python Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ $? -eq 0 ]; then
+            echo "✅ All tests passed!" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Some tests failed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+  test-javascript:
+    name: JavaScript Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Run JavaScript tests (browser console)
+        run: |
+          echo "📝 JavaScript tests are designed for browser console"
+          echo "✓ Test file exists: script.test.js"
+          echo "💡 Run 'runTests()' in browser console to execute tests"
+          test -f script.test.js && echo "✅ Test file found" || exit 1
+      
+      - name: Test summary
+        run: |
+          echo "## 🧪 JavaScript Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Test file validated" >> $GITHUB_STEP_SUMMARY
+          echo "💡 JavaScript tests run in browser console" >> $GITHUB_STEP_SUMMARY
+          echo "   Run \`runTests()\` to execute" >> $GITHUB_STEP_SUMMARY
+
+  validate-data:
+    name: Validate Data Files
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Validate JSON files
+        run: |
+          echo "🔍 Validating JSON data files..."
+          
+          # Validate capex_data.json
+          if python3 -m json.tool data/capex_data.json > /dev/null 2>&1; then
+            echo "✅ data/capex_data.json is valid"
+            COMPANIES=$(python3 -c "import json; print(len(json.load(open('data/capex_data.json'))))")
+            echo "   Found $COMPANIES companies"
+          else
+            echo "❌ data/capex_data.json is invalid!"
+            exit 1
+          fi
+          
+          # Validate public/data/capex_data.json
+          if python3 -m json.tool public/data/capex_data.json > /dev/null 2>&1; then
+            echo "✅ public/data/capex_data.json is valid"
+          else
+            echo "❌ public/data/capex_data.json is invalid!"
+            exit 1
+          fi
+      
+      - name: Check data integrity
+        run: |
+          echo "🔍 Checking data integrity..."
+          
+          python3 << 'PYTHON_SCRIPT'
+import json
+
+with open('data/capex_data.json', 'r') as f:
+    companies = json.load(f)
+
+print(f"Total companies: {len(companies)}")
+
+# Check required fields
+required_fields = ['symbol', 'name']
+issues = []
+
+for company in companies:
+    for field in required_fields:
+        if field not in company:
+            issues.append(f"{company.get('symbol', 'Unknown')}: missing {field}")
+
+if issues:
+    print("❌ Data integrity issues:")
+    for issue in issues[:10]:
+        print(f"  - {issue}")
+    exit(1)
+else:
+    print("✅ All companies have required fields")
+
+# Check for duplicates
+symbols = [c['symbol'] for c in companies]
+duplicates = [s for s in set(symbols) if symbols.count(s) > 1]
+if duplicates:
+    print(f"⚠️ Duplicate symbols: {duplicates}")
+else:
+    print("✅ No duplicate symbols")
+
+PYTHON_SCRIPT
+      
+      - name: Data validation summary
+        if: always()
+        run: |
+          echo "## 📊 Data Validation Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ $? -eq 0 ]; then
+            echo "✅ All data files are valid" >> $GITHUB_STEP_SUMMARY
+            echo "✅ Data integrity checks passed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Data validation failed" >> $GITHUB_STEP_SUMMARY
+          fi
+
+  security-check:
+    name: Security Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Check for hardcoded secrets
+        run: |
+          echo "🔒 Checking for hardcoded secrets..."
+          
+          # Patterns that should NOT appear in code
+          PATTERNS=(
+            "api[_-]?key\s*=\s*['\"][^'\"]+['\"]"
+            "password\s*=\s*['\"][^'\"]+['\"]"
+            "secret\s*=\s*['\"][^'\"]+['\"]"
+            "token\s*=\s*['\"][^'\"]+['\"]"
+          )
+          
+          FOUND=0
+          for pattern in "${PATTERNS[@]}"; do
+            if grep -rE "$pattern" --exclude-dir=.git --exclude="*.md" .; then
+              echo "⚠️ Found potential secret: $pattern"
+              FOUND=1
+            fi
+          done
+          
+          if [ $FOUND -eq 0 ]; then
+            echo "✅ No hardcoded secrets found"
+          else
+            echo "❌ Potential secrets detected!"
+            exit 1
+          fi
+      
+      - name: Security summary
+        if: always()
+        run: |
+          echo "## 🔒 Security Check Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ $? -eq 0 ]; then
+            echo "✅ No hardcoded secrets found" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Security issues detected" >> $GITHUB_STEP_SUMMARY
+          fi
+

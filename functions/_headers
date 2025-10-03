@@ -1,10 +1,13 @@
 /*
+  # Security Headers
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://s.tradingview.com https://corsproxy.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://api.github.com https://corsproxy.io https://query1.finance.yahoo.com https://finnhub.io https://www.alphavantage.co; frame-src https://s.tradingview.com;
+  
+  # Content Security Policy (strict, only current APIs)
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://s.tradingview.com https://corsproxy.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://api.github.com https://corsproxy.io https://query1.finance.yahoo.com https://data.sec.gov; frame-src https://s.tradingview.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none';
 
 /api/*
   X-Robots-Tag: noindex
