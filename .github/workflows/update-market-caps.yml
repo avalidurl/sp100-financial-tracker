@@ -128,4 +128,19 @@ PYTHON_SCRIPT
             echo "📊 Source: Yahoo Finance (FREE)" >> $GITHUB_STEP_SUMMARY
             echo "🕐 Updated: $(date -u +"%Y-%m-%d %H:%M UTC")" >> $GITHUB_STEP_SUMMARY
           fi
+      
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "## ❌ Workflow Failed!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The market cap update workflow has failed." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Error Details:**" >> $GITHUB_STEP_SUMMARY
+          echo "- Workflow: ${{ github.workflow }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Run: ${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Commit: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🔍 Check the logs above for details." >> $GITHUB_STEP_SUMMARY
+          echo "💡 You can manually trigger a retry from the Actions tab." >> $GITHUB_STEP_SUMMARY
 
