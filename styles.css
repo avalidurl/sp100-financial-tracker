@@ -2159,3 +2159,42 @@ footer {
         padding: 1rem;
     }
 }
+
+/* Disclaimer Footnote */
+.disclaimer-footnote {
+    background: #fef3c7;
+    border-top: 2px solid #f59e0b;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.disclaimer-footnote p {
+    margin: 0;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: #92400e;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.disclaimer-footnote strong {
+    color: #d97706;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .disclaimer-footnote {
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .disclaimer-footnote p {
+        font-size: 0.7rem;
+    }
+    
+    .disclaimer-footnote strong {
+        font-size: 0.75rem;
+    }
+}
