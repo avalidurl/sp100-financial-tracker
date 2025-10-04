@@ -1,12 +1,9 @@
 name: Update Market Caps
 
-# Update market caps more frequently (daily after market close)
 on:
   schedule:
-    # Run weekdays at 22:00 UTC (after US market close: 4 PM ET = 8-9 PM UTC)
-    - cron: '0 22 * * 1-5'
-
-  workflow_dispatch: # Allow manual trigger
+    - cron: '0 22 * * 1-5'  # Weekdays at 22:00 UTC (after US market close)
+  workflow_dispatch:
 
 jobs:
   update-market-caps:
