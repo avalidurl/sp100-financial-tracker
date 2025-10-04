@@ -94,7 +94,7 @@ class ChartDashboard {
         ctx.fillStyle = '#333';
         ctx.font = 'bold 18px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText('Top 10 Companies by Capital Expenditure', canvas.width / 2, 30);
+        ctx.fillText('Top 10 Companies by CapEx', canvas.width / 2, 30);
 
         top10.forEach((company, index) => {
             const barWidth = Math.max((Math.abs(company.capex) / maxCapex) * chartWidth, 5);
@@ -155,7 +155,7 @@ class ChartDashboard {
         ctx.fillStyle = '#333';
         ctx.font = 'bold 18px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText('Capital Expenditure by Sector', centerX, 30);
+        ctx.fillText('CapEx by Sector', centerX, 30);
 
         let currentAngle = -Math.PI / 2;
 
@@ -224,7 +224,7 @@ class ChartDashboard {
         ctx.fillStyle = '#333';
         ctx.font = 'bold 18px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText('Capital Expenditure vs Revenue', canvas.width / 2, 30);
+        ctx.fillText('CapEx vs Revenue', canvas.width / 2, 30);
 
         // Axes
         ctx.strokeStyle = '#666';
@@ -251,7 +251,7 @@ class ChartDashboard {
         ctx.save();
         ctx.translate(20, canvas.height / 2);
         ctx.rotate(-Math.PI / 2);
-        ctx.fillText('Capital Expenditure', 0, 0);
+        ctx.fillText('CapEx', 0, 0);
         ctx.restore();
 
         // Plot points
@@ -289,7 +289,7 @@ class ChartDashboard {
         ctx.fillStyle = '#333';
         ctx.font = 'bold 18px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText('Market Cap vs Capital Expenditure (Bubble Size = Market Cap)', canvas.width / 2, 30);
+        ctx.fillText('Market Cap vs CapEx (Bubble Size = Market Cap)', canvas.width / 2, 30);
 
         // Axes
         ctx.strokeStyle = '#666';
@@ -360,7 +360,7 @@ class ChartDashboard {
         ctx.fillStyle = '#333';
         ctx.font = 'bold 18px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText('Total Capital Expenditure by Sector', canvas.width / 2, 30);
+        ctx.fillText('Total CapEx by Sector', canvas.width / 2, 30);
 
         sectors.forEach(([sector, total], index) => {
             const barWidth = (total / maxTotal) * chartWidth;

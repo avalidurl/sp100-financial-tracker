@@ -231,7 +231,7 @@ class SP100CapexApp {
         ctx.fillStyle = '#333';
         ctx.font = 'bold 24px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText('Top 10 Companies by Capital Expenditure', canvas.width / 2, 40);
+        ctx.fillText('Top 10 Companies by CapEx', canvas.width / 2, 40);
 
         // Draw bars
         top10.forEach((company, index) => {
