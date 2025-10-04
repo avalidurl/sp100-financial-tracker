@@ -162,21 +162,31 @@ else:
         run: |
           echo "🔒 Checking for hardcoded secrets..."
           
-          # Patterns that should NOT appear in code
-          PATTERNS=(
-            "api[_-]?key\s*=\s*['\"][^'\"]+['\"]"
-            "password\s*=\s*['\"][^'\"]+['\"]"
-            "secret\s*=\s*['\"][^'\"]+['\"]"
-            "token\s*=\s*['\"][^'\"]+['\"]"
-          )
-          
           FOUND=0
-          for pattern in "${PATTERNS[@]}"; do
-            if grep -rE "$pattern" --exclude-dir=.git --exclude="*.md" .; then
-              echo "⚠️ Found potential secret: $pattern"
-              FOUND=1
-            fi
-          done
+          
+          # Check for API keys
+          if grep -rE "api[_-]?key\s*=\s*['\"][^'\"]+['\"]" --exclude-dir=.git --exclude="*.md" . 2>/dev/null; then
+            echo "⚠️ Found potential API key"
+            FOUND=1
+          fi
+          
+          # Check for passwords
+          if grep -rE "password\s*=\s*['\"][^'\"]+['\"]" --exclude-dir=.git --exclude="*.md" . 2>/dev/null; then
+            echo "⚠️ Found potential password"
+            FOUND=1
+          fi
+          
+          # Check for secrets
+          if grep -rE "secret\s*=\s*['\"][^'\"]+['\"]" --exclude-dir=.git --exclude="*.md" . 2>/dev/null; then
+            echo "⚠️ Found potential secret"
+            FOUND=1
+          fi
+          
+          # Check for tokens
+          if grep -rE "token\s*=\s*['\"][^'\"]+['\"]" --exclude-dir=.git --exclude="*.md" . 2>/dev/null; then
+            echo "⚠️ Found potential token"
+            FOUND=1
+          fi
           
           if [ $FOUND -eq 0 ]; then
             echo "✅ No hardcoded secrets found"
