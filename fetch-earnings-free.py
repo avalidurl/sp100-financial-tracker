@@ -26,7 +26,7 @@ class EarningsFetcher:
         self.session = requests.Session()
         # SEC requires user agent
         self.session.headers.update({
-            'User-Agent': 'sp500-capex earnings-fetcher contact@example.com'
+            'User-Agent': 'sp100-financial-tracker earnings-fetcher contact@example.com'
         })
     
     def fetch_from_sec_edgar(self, symbol: str, cik: Optional[str] = None) -> Optional[Dict]:

@@ -39,7 +39,7 @@ class ComprehensiveDataFetcher:
         self.failed = []
         self.session = requests.Session()
         self.session.headers.update({
-            'User-Agent': 'sp500-capex comprehensive-fetcher contact@example.com'
+            'User-Agent': 'sp100-financial-tracker comprehensive-fetcher contact@example.com'
         })
         
         # Map friendly names to SEC EDGAR GAAP fields

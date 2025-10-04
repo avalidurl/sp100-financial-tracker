@@ -19,7 +19,7 @@ export async function putFile(env, path, contentString, message, branch = 'maste
   const getShaUrl = `${url}?ref=${encodeURIComponent(branch)}`;
   let sha = null;
   {
-    const r = await fetch(getShaUrl, { headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'User-Agent': 'sp500-capex-scheduler/1.0' } });
+    const r = await fetch(getShaUrl, { headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'User-Agent': 'sp100-financial-tracker/1.0' } });
     if (r.status === 200) sha = (await r.json()).sha || null;
   }
   const body = {
@@ -34,7 +34,7 @@ export async function putFile(env, path, contentString, message, branch = 'maste
       Authorization: `Bearer ${token}`,
       Accept: 'application/vnd.github+json',
       'Content-Type': 'application/json',
-      'User-Agent': 'sp500-capex-scheduler/1.0'
+      'User-Agent': 'sp100-financial-tracker/1.0'
     },
     body: JSON.stringify(body)
   });

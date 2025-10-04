@@ -11,7 +11,7 @@ import sys
 def get_company_cik(symbol):
     """Get CIK for a ticker symbol"""
     url = "https://www.sec.gov/files/company_tickers.json"
-    headers = {'User-Agent': 'sp500-capex explorer contact@example.com'}
+    headers = {'User-Agent': 'sp100-financial-tracker explorer contact@example.com'}
     response = requests.get(url, headers=headers, timeout=10)
     
     if response.ok:
@@ -39,7 +39,7 @@ def explore_company_data(symbol):
     
     # Get company facts
     url = f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json"
-    headers = {'User-Agent': 'sp500-capex explorer contact@example.com'}
+    headers = {'User-Agent': 'sp100-financial-tracker explorer contact@example.com'}
     
     print(f"📡 Fetching data from SEC EDGAR...")
     response = requests.get(url, headers=headers, timeout=10)

@@ -63,8 +63,8 @@ Each company displays **8+ financial metrics**:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/avalidurl/sp100-capex.git
-   cd sp100-capex
+   git clone https://github.com/avalidurl/sp100-financial-tracker.git
+   cd sp100-financial-tracker
    ```
 
 2. **Start local server**
@@ -98,7 +98,7 @@ python3 -c "exec(open('.github/workflows/update-market-caps.yml').read().split('
 ## 📁 Project Structure
 
 ```
-sp100-capex/
+sp100-financial-tracker/
 ├── 🏠 Frontend
 │   ├── index.html                    # Main dashboard
 │   ├── chart.html                    # Chart visualizations
@@ -281,9 +281,9 @@ python3 -c "import json; data=json.load(open('data/capex_data.json')); print(f'�
 ### Monitoring
 
 Check automation status:
-- GitHub Actions: https://github.com/avalidurl/sp100-capex/actions
+- GitHub Actions: https://github.com/avalidurl/sp100-financial-tracker/actions
 - Cloudflare Pages: https://dash.cloudflare.com/
-- API Quota Status: https://[your-domain]/api/quota-status
+- API Quota Status: https://sp100-financial-tracker.pages.dev/api/quota-status
 
 ## 🐛 Troubleshooting
 
@@ -304,7 +304,7 @@ python3 -c "import json; json.load(open('data/capex_data.json'))"
 **GitHub Actions Failing**
 ```bash
 # Check workflow runs
-# Visit: https://github.com/avalidurl/sp100-capex/actions
+# Visit: https://github.com/avalidurl/sp100-financial-tracker/actions
 
 # Test locally
 python3 fetch-comprehensive-data.py
@@ -328,7 +328,7 @@ python3 -c "import requests; r=requests.get('https://query1.finance.yahoo.com/v8
 **Cloudflare Pages Not Deploying**
 ```bash
 # Check deployment status
-# Visit: Cloudflare Dashboard → Pages → sp100-capex
+# Visit: Cloudflare Dashboard → Pages → sp100-financial-tracker
 
 # Verify git push succeeded
 git log --oneline -5
@@ -408,7 +408,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**[🚀 Live Dashboard](https://sp100-capex.pages.dev)** • **[📖 Documentation](./SEC-EDGAR-GUIDE.md)** • **[🏛️ SEC EDGAR](https://www.sec.gov/edgar)**
+**[🚀 Live Dashboard](https://sp100-financial-tracker.pages.dev)** • **[📖 Documentation](./SEC-EDGAR-GUIDE.md)** • **[🏛️ SEC EDGAR](https://www.sec.gov/edgar)**
 
 Made with 💰 for financial analysis and 📊 powered by 100% FREE data sources
 

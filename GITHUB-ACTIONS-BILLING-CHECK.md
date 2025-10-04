@@ -67,7 +67,7 @@ jobs:
 
 ```bash
 # Check your repo visibility
-# Go to: https://github.com/avalidurl/sp100-capex/settings
+# Go to: https://github.com/avalidurl/sp100-financial-tracker/settings
 
 # Should show: 🔓 Public
 ```
@@ -90,7 +90,7 @@ This will:
 
 ```bash
 # Check what workflows exist
-# Go to: https://github.com/avalidurl/sp100-capex/actions
+# Go to: https://github.com/avalidurl/sp100-financial-tracker/actions
 
 # Look for:
 - Any workflows using macOS/Windows
@@ -104,7 +104,7 @@ This will:
 
 ### Option 1: GitHub Web UI
 
-1. Go to: https://github.com/avalidurl/sp100-capex/actions
+1. Go to: https://github.com/avalidurl/sp100-financial-tracker/actions
 2. Click **"Usage"** tab
 3. See breakdown by workflow and runner type
 
