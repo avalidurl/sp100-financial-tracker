@@ -81,21 +81,21 @@ jobs:
         run: |
           echo "🔍 Validating JSON data files..."
           
-          # Validate capex_data.json
-          if python3 -m json.tool data/capex_data.json > /dev/null 2>&1; then
-            echo "✅ data/capex_data.json is valid"
-            COMPANIES=$(python3 -c "import json; print(len(json.load(open('data/capex_data.json'))))")
+          # Validate financial_data.json
+          if python3 -m json.tool data/financial_data.json > /dev/null 2>&1; then
+            echo "✅ data/financial_data.json is valid"
+            COMPANIES=$(python3 -c "import json; print(len(json.load(open('data/financial_data.json'))))")
             echo "   Found $COMPANIES companies"
           else
-            echo "❌ data/capex_data.json is invalid!"
+            echo "❌ data/financial_data.json is invalid!"
             exit 1
           fi
           
-          # Validate public/data/capex_data.json
-          if python3 -m json.tool public/data/capex_data.json > /dev/null 2>&1; then
-            echo "✅ public/data/capex_data.json is valid"
+          # Validate public/data/financial_data.json
+          if python3 -m json.tool public/data/financial_data.json > /dev/null 2>&1; then
+            echo "✅ public/data/financial_data.json is valid"
           else
-            echo "❌ public/data/capex_data.json is invalid!"
+            echo "❌ public/data/financial_data.json is invalid!"
             exit 1
           fi
       
@@ -106,7 +106,7 @@ jobs:
           python3 << 'PYTHON_SCRIPT'
 import json
 
-with open('data/capex_data.json', 'r') as f:
+with open('data/financial_data.json', 'r') as f:
     companies = json.load(f)
 
 print(f"Total companies: {len(companies)}")
