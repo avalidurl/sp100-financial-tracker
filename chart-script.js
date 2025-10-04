@@ -34,7 +34,13 @@ class ChartDashboard {
                 const updateResponse = await fetch('/data/last_updated.json');
                 if (updateResponse.ok) {
                     const updateInfo = await updateResponse.json();
-                    this.updateLastUpdated(updateInfo.timestamp);
+                    // Handle different timestamp field names
+                    const timestamp = updateInfo.timestamp || updateInfo.quarterly || updateInfo.market_caps || updateInfo.news_offhours;
+                    if (timestamp) {
+                        this.updateLastUpdated(timestamp);
+                    } else {
+                        this.updateLastUpdated(new Date().toISOString());
+                    }
                 } else {
                     this.updateLastUpdated(new Date().toISOString());
                 }
@@ -547,8 +553,13 @@ class ChartDashboard {
 
     updateLastUpdated(timestamp) {
         const date = new Date(timestamp);
-        document.getElementById('last-updated').textContent = 
-            `Last updated: ${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+        // Check if date is valid
+        if (isNaN(date.getTime())) {
+            document.getElementById('last-updated').textContent = 'Last updated: Recently';
+        } else {
+            document.getElementById('last-updated').textContent = 
+                `Last updated: ${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+        }
     }
 
     showError() {
