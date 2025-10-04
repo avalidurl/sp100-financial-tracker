@@ -323,6 +323,17 @@ class SP100CapexApp {
         return `${amount.toLocaleString()}`;
     }
 
+    getRatingClass(recommendation) {
+        const rec = recommendation.toLowerCase();
+        if (rec.includes('buy') || rec.includes('outperform') || rec.includes('overweight')) {
+            return 'rating-buy';
+        } else if (rec.includes('sell') || rec.includes('underperform') || rec.includes('underweight')) {
+            return 'rating-sell';
+        } else {
+            return 'rating-hold';
+        }
+    }
+
     updateLastUpdated(timestamp) {
         const date = new Date(timestamp);
         document.getElementById('last-updated').textContent = 
@@ -418,6 +429,41 @@ class SP100CapexApp {
                                 <div class="metric-value market-cap">${this.formatCurrency(company.market_cap)}</div>
                             </div>
                         </div>
+                        
+                        ${company.analyst_estimates ? `
+                        <div class="analyst-forecasts">
+                            <div class="forecast-header">📈 Analyst Forecasts</div>
+                            <div class="forecast-grid">
+                                ${company.analyst_estimates.estimated_revenue ? `
+                                <div class="forecast-item">
+                                    <div class="forecast-label">Revenue Est.</div>
+                                    <div class="forecast-value">${this.formatCurrency(company.analyst_estimates.estimated_revenue)}</div>
+                                </div>
+                                ` : ''}
+                                ${company.analyst_estimates.estimated_eps ? `
+                                <div class="forecast-item">
+                                    <div class="forecast-label">EPS Est.</div>
+                                    <div class="forecast-value">$${company.analyst_estimates.estimated_eps.toFixed(2)}</div>
+                                </div>
+                                ` : ''}
+                                ${company.analyst_estimates.target_price ? `
+                                <div class="forecast-item">
+                                    <div class="forecast-label">Price Target</div>
+                                    <div class="forecast-value">$${company.analyst_estimates.target_price.toFixed(2)}</div>
+                                </div>
+                                ` : ''}
+                                ${company.analyst_estimates.recommendation ? `
+                                <div class="forecast-item">
+                                    <div class="forecast-label">Rating</div>
+                                    <div class="forecast-value rating ${this.getRatingClass(company.analyst_estimates.recommendation)}">${company.analyst_estimates.recommendation}</div>
+                                </div>
+                                ` : ''}
+                            </div>
+                            ${company.analyst_estimates.number_of_analysts > 0 ? `
+                            <div class="forecast-meta">${company.analyst_estimates.number_of_analysts} analysts</div>
+                            ` : ''}
+                        </div>
+                        ` : ''}
                         
                         <div class="card-meta">
                             <span class="data-year">${company.period || company.year + ' Annual'}</span>

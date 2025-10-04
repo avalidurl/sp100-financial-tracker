@@ -42,6 +42,14 @@ jobs:
         env:
           PYTHONUNBUFFERED: 1
       
+      - name: Fetch analyst estimates and forecasts
+        run: |
+          echo "📈 Fetching analyst estimates and price targets..."
+          python3 fetch-analyst-estimates.py
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+          PYTHONUNBUFFERED: 1
+      
       - name: Check for changes
         id: check_changes
         run: |
@@ -64,19 +72,18 @@ jobs:
           # Get summary of changes
           CHANGES=$(git diff --cached --stat)
           
-          git commit -m "🤖 Auto-update: SEC EDGAR financial data
+          git commit -m "🤖 Auto-update: Financial data + analyst forecasts
 
 📊 Updated: $(date -u +"%Y-%m-%d %H:%M UTC")
-📄 Source: SEC EDGAR (FREE)
+📄 Sources: SEC EDGAR (FREE) + FMP API (FREE)
 
 Changes:
 $CHANGES
 
-This update was automatically fetched from SEC EDGAR and includes:
-- Revenue, Earnings, CapEx
-- Operating Income, Free Cash Flow
-- Balance Sheet data (Assets, Liabilities, Equity)
-- Calculated metrics (Debt/Equity, Margins)
+This update includes:
+- SEC EDGAR: Revenue, Earnings, CapEx, Cash Flow, Balance Sheet
+- FMP API: Analyst revenue/EPS estimates, price targets, recommendations
+- Calculated metrics (Debt/Equity, Margins, Free Cash Flow)
 " || echo "No changes to commit"
           
           git push
