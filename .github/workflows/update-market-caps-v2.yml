@@ -47,13 +47,16 @@ jobs:
 📊 Updated: $(date -u +"%Y-%m-%d %H:%M UTC")
 💰 Source: Yahoo Finance (FREE)"
             git push
-
-            echo "## 💰 Market Caps Updated!" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "✅ Successfully updated market capitalizations" >> $GITHUB_STEP_SUMMARY
-            echo "📊 Source: Yahoo Finance (FREE)" >> $GITHUB_STEP_SUMMARY
-            echo "🕐 Updated: $(date -u +"%Y-%m-%d %H:%M UTC")" >> $GITHUB_STEP_SUMMARY
           fi
+
+      - name: Update summary
+        if: success()
+        run: |
+          echo "## 💰 Market Caps Updated!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Successfully updated market capitalizations" >> $GITHUB_STEP_SUMMARY
+          echo "📊 Source: Yahoo Finance (FREE)" >> $GITHUB_STEP_SUMMARY
+          echo "🕐 Updated: $(date -u +"%Y-%m-%d %H:%M UTC")" >> $GITHUB_STEP_SUMMARY
 
       - name: Notify on failure
         if: failure()
