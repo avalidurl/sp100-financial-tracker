@@ -17,6 +17,7 @@ class SP100CapexApp {
         this.displayedData = [];
         this.itemsPerPage = 10;
         this.currentPage = 1;
+        this.sortDirection = 'desc'; // 'desc' for descending (highest first), 'asc' for ascending (lowest first)
         console.log('SP100CapexApp initialized with pagination:', this.itemsPerPage, 'items per page');
         this.init();
     }
@@ -75,6 +76,7 @@ class SP100CapexApp {
         const search = document.getElementById('search');
         const sortBy = document.getElementById('sort-by');
         const filterSector = document.getElementById('filter-sector');
+        const sortDirection = document.getElementById('sort-direction');
         const ethAddress = document.getElementById('eth-address');
 
         if (search) {
@@ -86,6 +88,12 @@ class SP100CapexApp {
         if (sortBy) {
             sortBy.addEventListener('change', (e) => {
                 this.sortData(e.target.value);
+            });
+        }
+
+        if (sortDirection) {
+            sortDirection.addEventListener('click', () => {
+                this.toggleSortDirection();
             });
         }
 
@@ -125,28 +133,66 @@ class SP100CapexApp {
         this.render();
     }
 
+    toggleSortDirection() {
+        this.sortDirection = this.sortDirection === 'desc' ? 'asc' : 'desc';
+        
+        // Update button UI
+        const btn = document.getElementById('sort-direction');
+        const icon = btn.querySelector('.sort-icon');
+        const label = btn.querySelector('.sort-label');
+        
+        if (this.sortDirection === 'asc') {
+            btn.classList.add('ascending');
+            icon.textContent = '↑';
+            label.textContent = 'Lowest First';
+        } else {
+            btn.classList.remove('ascending');
+            icon.textContent = '↓';
+            label.textContent = 'Highest First';
+        }
+        
+        // Re-sort with new direction
+        const sortBy = document.getElementById('sort-by')?.value || 'capex';
+        this.sortData(sortBy);
+    }
+
     sortData(sortBy) {
+        const direction = this.sortDirection === 'desc' ? 1 : -1; // Multiplier for sort direction
+        
         this.filteredData.sort((a, b) => {
+            let comparison = 0;
+            
             switch (sortBy) {
                 case 'capex':
-                    return Math.abs(b.capex) - Math.abs(a.capex);
+                    comparison = Math.abs(b.capex) - Math.abs(a.capex);
+                    break;
                 case 'market_cap':
-                    return b.market_cap - a.market_cap;
+                    comparison = b.market_cap - a.market_cap;
+                    break;
                 case 'name':
-                    return a.name.localeCompare(b.name);
+                    comparison = a.name.localeCompare(b.name);
+                    // For name sorting, desc means Z-A, asc means A-Z
+                    return comparison * -direction;
                 case 'sector':
-                    return a.sector.localeCompare(b.sector);
+                    comparison = a.sector.localeCompare(b.sector);
+                    // For sector sorting, keep alphabetical regardless of direction
+                    return comparison;
                 case 'revenue':
-                    return b.revenue - a.revenue;
+                    comparison = b.revenue - a.revenue;
+                    break;
                 case 'earnings':
                     // Sort by earnings, handling missing values
                     const earningsA = a.earnings || 0;
                     const earningsB = b.earnings || 0;
-                    return earningsB - earningsA;
+                    comparison = earningsB - earningsA;
+                    break;
                 default:
-                    return 0;
+                    comparison = 0;
             }
+            
+            return comparison * direction;
         });
+        
         // Reset pagination when sorting
         this.currentPage = 1;
         this.updateDisplayedData();
