@@ -107,7 +107,7 @@ class HighResolutionChartDashboard {
         ctx.fillStyle = '#1f2937';
         ctx.font = 'bold 28px system-ui, -apple-system, sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('Top 10 Companies by Capital Expenditure', displayWidth / 2, 50);
+        ctx.fillText('Top 10 Companies by CapEx', displayWidth / 2, 50);
 
         // Subtitle
         ctx.fillStyle = '#6b7280';
@@ -188,7 +188,7 @@ class HighResolutionChartDashboard {
         ctx.fillStyle = '#1f2937';
         ctx.font = 'bold 28px system-ui, -apple-system, sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('Capital Expenditure by Sector', displayWidth / 2, 40);
+        ctx.fillText('CapEx by Sector', displayWidth / 2, 40);
 
         // Total amount subtitle
         ctx.fillStyle = '#6b7280';
@@ -282,7 +282,7 @@ class HighResolutionChartDashboard {
         ctx.fillStyle = '#1f2937';
         ctx.font = 'bold 28px system-ui, -apple-system, sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('Capital Expenditure vs Revenue', displayWidth / 2, 40);
+        ctx.fillText('CapEx vs Revenue', displayWidth / 2, 40);
 
         // Grid lines for better readability
         ctx.strokeStyle = '#e5e7eb';
@@ -331,7 +331,7 @@ class HighResolutionChartDashboard {
         ctx.save();
         ctx.translate(30, displayHeight / 2);
         ctx.rotate(-Math.PI / 2);
-        ctx.fillText('Capital Expenditure', 0, 0);
+        ctx.fillText('CapEx', 0, 0);
         ctx.restore();
 
         // Plot enhanced points
@@ -383,7 +383,7 @@ class HighResolutionChartDashboard {
         ctx.fillStyle = '#1f2937';
         ctx.font = 'bold 28px system-ui, -apple-system, sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('Market Cap vs Capital Expenditure', displayWidth / 2, 40);
+        ctx.fillText('Market Cap vs CapEx', displayWidth / 2, 40);
 
         ctx.fillStyle = '#6b7280';
         ctx.font = '16px system-ui, -apple-system, sans-serif';

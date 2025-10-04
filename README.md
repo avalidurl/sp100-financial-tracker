@@ -1,4 +1,4 @@
-# 📊 S&P 100 Capital Expenditure Tracker
+# 📊 S&P 100 Financial Tracker
 
 > Real-time dashboard tracking comprehensive financial metrics and market capitalizations for S&P 100 companies with automated updates. **100% FREE** data sources!
 
