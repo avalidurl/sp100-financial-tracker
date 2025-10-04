@@ -7,7 +7,7 @@ on:
   schedule:
     # Run every Monday at 6 AM UTC (after companies file 10-K/10-Q)
     - cron: '0 6 * * 1'
-  
+
   workflow_dispatch: # Allow manual trigger
     inputs:
       force_update:
@@ -18,30 +18,30 @@ on:
 jobs:
   update-data:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-      
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests
-      
+
       - name: Fetch comprehensive financial data from SEC EDGAR
         run: |
           echo "🏛️ Fetching latest financial data from SEC EDGAR..."
           python3 fetch-comprehensive-data.py
         env:
           PYTHONUNBUFFERED: 1
-      
+
       - name: Fetch analyst estimates and forecasts
         run: |
           echo "📈 Fetching analyst estimates and price targets..."
@@ -49,7 +49,7 @@ jobs:
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
           PYTHONUNBUFFERED: 1
-      
+
       - name: Check for changes
         id: check_changes
         run: |
@@ -60,15 +60,15 @@ jobs:
             echo "changed=true" >> $GITHUB_OUTPUT
             echo "✅ Financial data has been updated!"
           fi
-      
+
       - name: Commit and push if changed
         if: steps.check_changes.outputs.changed == 'true' || github.event.inputs.force_update == 'true'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          
+
           git add data/financial_data.json public/data/financial_data.json data/last_updated.json public/data/last_updated.json
-          
+
           # Commit with message
           git commit -m "🤖 Auto-update: Financial data + analyst forecasts
 
@@ -79,9 +79,9 @@ This update includes:
 - SEC EDGAR: Revenue, Earnings, CapEx, Cash Flow, Balance Sheet
 - FMP API: Analyst revenue/EPS estimates, price targets, recommendations
 - Calculated metrics (Debt/Equity, Margins, Free Cash Flow)" || echo "No changes to commit"
-          
+
           git push
-      
+
       - name: Create update summary
         if: steps.check_changes.outputs.changed == 'true'
         run: |
@@ -102,7 +102,7 @@ This update includes:
           echo "- Debt-to-Equity & Profit Margins" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "🚀 Changes have been committed and will deploy automatically via Cloudflare Pages" >> $GITHUB_STEP_SUMMARY
-      
+
       - name: No changes summary
         if: steps.check_changes.outputs.changed == 'false' && github.event.inputs.force_update != 'true'
         run: |
@@ -111,7 +111,7 @@ This update includes:
           echo "No new financial data available from SEC EDGAR." >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "📅 Next scheduled check: Next Monday at 6 AM UTC" >> $GITHUB_STEP_SUMMARY
-      
+
       - name: Notify on failure
         if: failure()
         run: |
