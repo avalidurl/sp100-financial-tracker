@@ -42,10 +42,7 @@ jobs:
             echo "No market cap changes"
           else
             git add data/financial_data.json public/data/financial_data.json data/last_updated.json public/data/last_updated.json
-            git commit -m "🤖 Auto-update: Market caps from Yahoo Finance
-
-📊 Updated: $(date -u +"%Y-%m-%d %H:%M UTC")
-💰 Source: Yahoo Finance (FREE)"
+            git commit -m "🤖 Auto-update: Market caps from Yahoo Finance - $(date -u +"%Y-%m-%d %H:%M UTC")"
             git push
           fi
 
