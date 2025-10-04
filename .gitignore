@@ -27,7 +27,5 @@ Thumbs.db
 
 # Deployment - Keep Development Files Local
 .vercel/
-requirements.txt
 scripts/
 CLAUDE.md
-README.md
