@@ -1,0 +1,10 @@
+name = "sp100-financial-tracker"
+compatibility_date = "2025-10-04"
+
+# This is a Pages project with static assets and Functions
+pages_build_output_dir = "."
+
+[env.production]
+# Static files will be served from the root directory
+# Cloudflare Pages Functions will be served from the /functions directory
+
