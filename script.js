@@ -1598,7 +1598,7 @@ async function fetchCompanyNews(symbol, companyName) {
     try {
         // Add timeout wrapper to prevent infinite loading
         const fetchTimeout = new Promise((_, reject) =>
-            setTimeout(() => reject(new Error('Fetch timeout')), 8000) // 8 second max
+            setTimeout(() => reject(new Error('Fetch timeout')), 2000) // 2 second max (reduced from 8s)
         );
         
         const realNews = await Promise.race([
@@ -1617,7 +1617,7 @@ async function fetchCompanyNews(symbol, companyName) {
             return realNews;
         }
     } catch (error) {
-        console.warn('⚠️ Real news fetch failed, using fallback:', error.message);
+        console.warn('⚠️ Real news fetch failed quickly, using fallback:', error.message);
     }
     
     // Curated news sources (when real-time APIs fail) - Better targeted links

@@ -899,6 +899,8 @@ footer {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     animation: modalSlideIn 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
 }
 
 @keyframes modalSlideIn {
@@ -920,6 +922,8 @@ footer {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #e5e7eb;
+    border-radius: 12px 12px 0 0;
+    flex-shrink: 0;
 }
 
 .news-modal-title {
@@ -976,6 +980,8 @@ footer {
     padding: 24px;
     max-height: 60vh;
     overflow-y: auto;
+    flex: 1;
+    min-height: 0;
 }
 
 .news-loading {
