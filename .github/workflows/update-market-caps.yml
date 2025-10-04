@@ -118,8 +118,7 @@ jobs:
             git commit -m "🤖 Auto-update: Market caps from Yahoo Finance
 
 📊 Updated: $(date -u +"%Y-%m-%d %H:%M UTC")
-💰 Source: Yahoo Finance (FREE)
-"
+💰 Source: Yahoo Finance (FREE)"
             git push
             
             echo "## 💰 Market Caps Updated!" >> $GITHUB_STEP_SUMMARY
