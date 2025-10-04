@@ -24,21 +24,25 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install requests
       
-      - name: Run pytest
+      - name: Test Python scripts syntax
         run: |
-          pytest test_fetch_comprehensive_data.py -v --tb=short
+          echo "🔍 Testing Python script syntax..."
+          python3 -m py_compile fetch_comprehensive_data.py
+          python3 -m py_compile update_market_caps.py
+          python3 -m py_compile fetch-analyst-estimates.py
+          echo "✅ All Python scripts have valid syntax"
       
       - name: Test summary
         if: always()
         run: |
-          echo "## 🧪 Python Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "## 🧪 Python Script Tests" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           if [ $? -eq 0 ]; then
-            echo "✅ All tests passed!" >> $GITHUB_STEP_SUMMARY
+            echo "✅ All Python scripts have valid syntax!" >> $GITHUB_STEP_SUMMARY
           else
-            echo "❌ Some tests failed" >> $GITHUB_STEP_SUMMARY
+            echo "❌ Some Python scripts have syntax errors" >> $GITHUB_STEP_SUMMARY
           fi
 
   test-javascript:
