@@ -38,7 +38,7 @@ jobs:
       - name: Fetch comprehensive financial data from SEC EDGAR
         run: |
           echo "🏛️ Fetching latest financial data from SEC EDGAR..."
-          python3 fetch-comprehensive-data.py
+          python3 fetch_comprehensive_data.py
         env:
           PYTHONUNBUFFERED: 1
 
