@@ -3,18 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S&P 100 Financial Tracker - Chart Dashboard</title>
+    <title>S&P 100 Financial Tracker - Interactive Charts</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        .chart-controls {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .control-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .control-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .control-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #374151;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .control-select {
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .control-select:hover {
+            border-color: #2563eb;
+        }
+        
+        .control-select:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .chart-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chart-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .chart-description {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+        }
+        
+        .generate-btn {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3);
+        }
+        
+        .generate-btn:hover {
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.4);
+        }
+        
+        .generate-btn:active {
+            transform: translateY(0);
+        }
+        
+        .metric-info {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #f0f9ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #1e40af;
+            margin-bottom: 1rem;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #2563eb;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        
+        .back-link:hover {
+            background: #2563eb;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <!-- Polymarket Ticker -->
-    <div class="polymarket-ticker-container">
-        <iframe src="https://ticker.polymarket.com/embed?category=Business&theme=dark" width="100%" height="60" frameborder="0" scrolling="no" style="border: none; overflow: hidden;"></iframe>
-    </div>
-    
     <header>
-        <h1><a href="/" style="text-decoration: none; color: inherit; cursor: pointer;">📊 S&P 100 Financial Tracker Dashboard</a></h1>
-        <p>Comprehensive visual analysis of financial data</p>
+        <h1><a href="/" style="text-decoration: none; color: inherit; cursor: pointer;">📊 S&P 100 Financial Charts</a></h1>
+        <p>Interactive analysis with customizable visualizations across all financial metrics</p>
         <div id="last-updated"></div>
     </header>
 
@@ -22,100 +161,191 @@
         <div class="controls">
             <a href="index.html" class="nav-btn">📋 Back to List</a>
             <a href="insights.html" class="nav-btn">🔍 Insights</a>
-            <a href="charts-interactive.html" class="nav-btn">🎨 Interactive Charts</a>
         </div>
-
-        <div id="loading">Loading charts...</div>
-        <div id="error" class="hidden">Error loading data</div>
         
-        <div id="charts-container" class="hidden">
-            <!-- Top Spenders Bar Chart -->
-            <div class="chart-section">
-                <h2>🏆 Top 10 CapEx Leaders</h2>
-                <div class="chart-wrapper">
-                    <canvas id="top-spenders-chart"></canvas>
+        <!-- Metric Explorer Chart -->
+        <div class="chart-section">
+            <h2 class="chart-title">📈 Top Companies by Metric</h2>
+            <p class="chart-description">Compare top-performing companies across different financial metrics</p>
+            
+            <div class="chart-controls">
+                <div class="control-row">
+                    <div class="control-group">
+                        <label class="control-label">Select Metric</label>
+                        <select id="metric-selector" class="control-select">
+                            <option value="capex">Capital Expenditures (CapEx)</option>
+                            <option value="revenue">Revenue</option>
+                            <option value="earnings">Earnings (Net Income)</option>
+                            <option value="market_cap">Market Capitalization</option>
+                            <option value="operating_income">Operating Income</option>
+                            <option value="free_cash_flow">Free Cash Flow</option>
+                            <option value="operating_cash_flow">Operating Cash Flow</option>
+                            <option value="total_assets">Total Assets</option>
+                            <option value="stockholders_equity">Stockholders Equity</option>
+                            <option value="long_term_debt">Long-term Debt</option>
+                            <option value="profit_margin">Profit Margin (%)</option>
+                            <option value="debt_to_equity">Debt-to-Equity Ratio</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Top</label>
+                        <select id="top-count" class="control-select">
+                            <option value="5">Top 5</option>
+                            <option value="10" selected>Top 10</option>
+                            <option value="15">Top 15</option>
+                            <option value="20">Top 20</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Sector Filter</label>
+                        <select id="sector-filter" class="control-select">
+                            <option value="all">All Sectors</option>
+                        </select>
+                    </div>
                 </div>
             </div>
-
-            <!-- Sector Pie Chart -->
-            <div class="chart-section">
-                <h2>🥧 CapEx by Sector</h2>
-                <div class="chart-wrapper">
-                    <canvas id="sector-pie-chart"></canvas>
-                </div>
-            </div>
-
-            <!-- Capex vs Revenue Scatter Plot -->
-            <div class="chart-section">
-                <h2>📈 Investment vs Revenue Analysis</h2>
-                <div class="chart-wrapper">
-                    <canvas id="scatter-chart"></canvas>
-                </div>
-            </div>
-
-            <!-- Market Cap vs Capex Bubble Chart -->
-            <div class="chart-section">
-                <h2>💰 Market Cap vs Investment Bubble Chart</h2>
-                <div class="chart-wrapper">
-                    <canvas id="bubble-chart"></canvas>
-                </div>
-            </div>
-
-            <!-- Sector Rankings Bar Chart -->
-            <div class="chart-section">
-                <h2>🏭 Sector Investment Rankings</h2>
-                <div class="chart-wrapper">
-                    <canvas id="sector-rankings-chart"></canvas>
-                </div>
-            </div>
-
-            <!-- Investment Efficiency Chart -->
-            <div class="chart-section">
-                <h2>⚡ Investment Intensity (Capex/Market Cap)</h2>
-                <div class="chart-wrapper">
-                    <canvas id="efficiency-chart"></canvas>
-                </div>
-            </div>
-
-            <!-- Investment Heatmap -->
-            <div class="chart-section">
-                <h2>🔥 Sector Investment Intensity Heatmap</h2>
-                <div class="chart-wrapper">
-                    <canvas id="heatmap-chart"></canvas>
-                </div>
+            
+            <div class="chart-wrapper">
+                <canvas id="metric-chart"></canvas>
             </div>
         </div>
+
+        <!-- Sector Comparison Chart -->
+        <div class="chart-section">
+            <h2 class="chart-title">🥧 Sector Analysis</h2>
+            <p class="chart-description">Compare total values across sectors for any metric</p>
+            
+            <div class="chart-controls">
+                <div class="control-row">
+                    <div class="control-group">
+                        <label class="control-label">Select Metric</label>
+                        <select id="sector-metric-selector" class="control-select">
+                            <option value="capex">Capital Expenditures (CapEx)</option>
+                            <option value="revenue">Revenue</option>
+                            <option value="earnings">Earnings (Net Income)</option>
+                            <option value="market_cap">Market Capitalization</option>
+                            <option value="operating_income">Operating Income</option>
+                            <option value="free_cash_flow">Free Cash Flow</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Chart Type</label>
+                        <select id="sector-chart-type" class="control-select">
+                            <option value="pie">Pie Chart</option>
+                            <option value="bar">Bar Chart</option>
+                            <option value="doughnut">Doughnut Chart</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chart-wrapper">
+                <canvas id="sector-chart"></canvas>
+            </div>
+        </div>
+
+        <!-- Custom Scatter Plot -->
+        <div class="chart-section">
+            <h2 class="chart-title">🎯 Custom Scatter Plot</h2>
+            <p class="chart-description">Build your own correlation analysis by selecting X and Y axis metrics</p>
+            
+            <div class="chart-controls">
+                <div class="control-row">
+                    <div class="control-group">
+                        <label class="control-label">X-Axis (Horizontal)</label>
+                        <select id="scatter-x-axis" class="control-select">
+                            <option value="capex">CapEx</option>
+                            <option value="revenue">Revenue</option>
+                            <option value="market_cap" selected>Market Cap</option>
+                            <option value="total_assets">Total Assets</option>
+                            <option value="operating_cash_flow">Operating Cash Flow</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Y-Axis (Vertical)</label>
+                        <select id="scatter-y-axis" class="control-select">
+                            <option value="capex" selected>CapEx</option>
+                            <option value="revenue">Revenue</option>
+                            <option value="earnings">Earnings</option>
+                            <option value="profit_margin">Profit Margin</option>
+                            <option value="free_cash_flow">Free Cash Flow</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Sector Filter</label>
+                        <select id="scatter-sector-filter" class="control-select">
+                            <option value="all">All Sectors</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button id="generate-scatter" class="generate-btn">🎨 Generate Chart</button>
+            </div>
+            
+            <div class="chart-wrapper">
+                <canvas id="scatter-chart"></canvas>
+            </div>
+        </div>
+
+        <!-- Comparison Chart -->
+        <div class="chart-section">
+            <h2 class="chart-title">⚖️ Metric Comparison</h2>
+            <p class="chart-description">Compare two metrics side-by-side for the same companies</p>
+            
+            <div class="chart-controls">
+                <div class="control-row">
+                    <div class="control-group">
+                        <label class="control-label">First Metric</label>
+                        <select id="compare-metric-1" class="control-select">
+                            <option value="revenue" selected>Revenue</option>
+                            <option value="earnings">Earnings</option>
+                            <option value="capex">CapEx</option>
+                            <option value="market_cap">Market Cap</option>
+                            <option value="free_cash_flow">Free Cash Flow</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Second Metric</label>
+                        <select id="compare-metric-2" class="control-select">
+                            <option value="earnings" selected>Earnings</option>
+                            <option value="revenue">Revenue</option>
+                            <option value="capex">CapEx</option>
+                            <option value="profit_margin">Profit Margin</option>
+                            <option value="operating_income">Operating Income</option>
+                        </select>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Companies to Show</label>
+                        <select id="compare-count" class="control-select">
+                            <option value="5">Top 5</option>
+                            <option value="10" selected>Top 10</option>
+                            <option value="15">Top 15</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chart-wrapper">
+                <canvas id="comparison-chart"></canvas>
+            </div>
+        </div>
+
     </main>
 
     <footer>
-        <p>Data: <a href="https://financialmodelingprep.com/" target="_blank" rel="noopener">Financial Modeling Prep</a>, <a href="https://www.alphavantage.co/" target="_blank" rel="noopener">Alpha Vantage</a>, <a href="https://finance.yahoo.com/" target="_blank" rel="noopener">Yahoo Finance</a> • Charts: <a href="https://www.tradingview.com/" target="_blank" rel="noopener">TradingView</a> • Hosting: <a href="https://www.cloudflare.com/" target="_blank" rel="noopener">Cloudflare Pages</a></p>
-        <div class="donate">
-            <p><strong>Support this project so the dev can subscribe to real-time data tiers to serve your needs the best:</strong></p>
-            <div class="crypto-addresses">
-                <div class="address-item">
-                    <span class="chain-label">EVM:</span>
-                    <code class="crypto-address" onclick="copyToClipboard('0x36De990133D36d7E3DF9a820aA3eDE5a2320De71', this)">0x36De990133D36d7E3DF9a820aA3eDE5a2320De71</code>
-                </div>
-                <div class="address-item">
-                    <span class="chain-label">SOL:</span>
-                    <code class="crypto-address" onclick="copyToClipboard('J1ALikLy5TZ9tqZq5zxSem5P9G4Wo6fXXWSGGjEvd9Pg', this)">J1ALikLy5TZ9tqZq5zxSem5P9G4Wo6fXXWSGGjEvd9Pg</code>
-                </div>
-            </div>
-        </div>
         <div class="credit">
             <p>Made by <a href="https://x.com/0xgokhan" target="_blank" rel="noopener">0xgokhan</a></p>
         </div>
-        
-        <div class="disclaimer">
-            <p><strong>⚠️ Financial Disclaimer:</strong> Nothing on this website constitutes financial investment advice or recommendations whatsoever. All data is provided for informational and educational purposes only. Always consult with a qualified financial advisor before making investment decisions.</p>
-        </div>
     </footer>
-
-    <!-- Disclaimer Footnote -->
-    <div class="disclaimer-footnote">
-        <p><strong>⚠️ Important Disclaimer:</strong> All information provided on this website is for informational and educational purposes only. Nothing on this site constitutes financial, investment, trading, or any other type of advice or recommendation. You should not treat any of the website's content as such. Always conduct your own research and consult with qualified financial advisors before making any investment decisions. Past performance does not guarantee future results.</p>
-    </div>
 
     <script src="chart-script.js"></script>
 </body>
 </html>
+
