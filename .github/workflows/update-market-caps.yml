@@ -30,7 +30,7 @@ jobs:
 
       - name: Update market caps from Yahoo Finance
         run: |
-          python3 << 'PYTHON_SCRIPT'
+          python3 << 'EOF'
           import json
           import requests
           import time
@@ -104,7 +104,7 @@ jobs:
           print(f"\n✅ Updated {updated_count}/{len(companies)} companies")
           if failed:
               print(f"❌ Failed: {', '.join(failed[:5])}")
-          PYTHON_SCRIPT
+          EOF
 
       - name: Commit and push
         run: |
