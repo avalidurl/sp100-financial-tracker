@@ -104,38 +104,38 @@ jobs:
           echo "🔍 Checking data integrity..."
           
           python3 << 'PYTHON_SCRIPT'
-import json
-
-with open('data/financial_data.json', 'r') as f:
-    companies = json.load(f)
-
-print(f"Total companies: {len(companies)}")
-
-# Check required fields
-required_fields = ['symbol', 'name']
-issues = []
-
-for company in companies:
-    for field in required_fields:
-        if field not in company:
-            issues.append(f"{company.get('symbol', 'Unknown')}: missing {field}")
-
-if issues:
-    print("❌ Data integrity issues:")
-    for issue in issues[:10]:
-        print(f"  - {issue}")
-    exit(1)
-else:
-    print("✅ All companies have required fields")
-
-# Check for duplicates
-symbols = [c['symbol'] for c in companies]
-duplicates = [s for s in set(symbols) if symbols.count(s) > 1]
-if duplicates:
-    print(f"⚠️ Duplicate symbols: {duplicates}")
-else:
-    print("✅ No duplicate symbols")
-
+          import json
+          
+          with open('data/financial_data.json', 'r') as f:
+              companies = json.load(f)
+          
+          print(f"Total companies: {len(companies)}")
+          
+          # Check required fields
+          required_fields = ['symbol', 'name']
+          issues = []
+          
+          for company in companies:
+              for field in required_fields:
+                  if field not in company:
+                      issues.append(f"{company.get('symbol', 'Unknown')}: missing {field}")
+          
+          if issues:
+              print("❌ Data integrity issues:")
+              for issue in issues[:10]:
+                  print(f"  - {issue}")
+              exit(1)
+          else:
+              print("✅ All companies have required fields")
+          
+          # Check for duplicates
+          symbols = [c['symbol'] for c in companies]
+          duplicates = [s for s in set(symbols) if symbols.count(s) > 1]
+          if duplicates:
+              print(f"⚠️ Duplicate symbols: {duplicates}")
+          else:
+              print("✅ No duplicate symbols")
+          
           PYTHON_SCRIPT
       
       - name: Data validation summary
