@@ -74,7 +74,7 @@ async function fetchFromYahoo(symbol) {
     const url = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}`;
     const response = await fetch(url, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; sp500-capex/1.0)'
+        'User-Agent': 'Mozilla/5.0 (compatible; sp100-financial-tracker/1.0)'
       }
     });
     

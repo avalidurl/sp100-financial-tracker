@@ -9,7 +9,7 @@ export async function onRequest({ env }) {
       headers: { 
         Authorization: `Bearer ${env.GITHUB_TOKEN}`, 
         Accept: 'application/vnd.github+json',
-        'User-Agent': 'sp500-capex-scheduler/1.0'
+        'User-Agent': 'sp100-financial-tracker/1.0'
       }
     });
     githubAuthOk = r.status;
