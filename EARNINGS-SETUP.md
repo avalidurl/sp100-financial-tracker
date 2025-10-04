@@ -41,7 +41,7 @@ node fetch-earnings.js
 
 The script will:
 - ✅ Fetch earnings for all 102 companies
-- ✅ Save to both `data/capex_data.json` and `public/data/capex_data.json`
+- ✅ Save to both `data/financial_data.json` and `public/data/financial_data.json`
 - ✅ Show progress and summary
 
 Then deploy:
@@ -55,7 +55,7 @@ git push
 
 ## 📋 What the Script Does
 
-1. **Reads** your existing `capex_data.json`
+1. **Reads** your existing `financial_data.json`
 2. **Fetches** net income (earnings) for each company from FMP API
 3. **Adds** `earnings` field to each company object
 4. **Skips** companies that already have earnings data
@@ -140,7 +140,7 @@ After fetching earnings data:
 git status
 
 # 2. Stage all changes
-git add data/capex_data.json public/data/capex_data.json
+git add data/financial_data.json public/data/financial_data.json
 
 # 3. Commit
 git commit -m "Add earnings data for all companies"

@@ -231,9 +231,9 @@ class TestDataIntegrity:
     """Test data integrity and validation"""
     
     def test_load_capex_data_json(self):
-        """Test that capex_data.json is valid"""
+        """Test that financial_data.json is valid"""
         try:
-            with open('data/capex_data.json', 'r') as f:
+            with open('data/financial_data.json', 'r') as f:
                 data = json.load(f)
             
             assert isinstance(data, list)
@@ -246,12 +246,12 @@ class TestDataIntegrity:
                 assert 'name' in company
                 assert 'capex' in company or 'revenue' in company
         except FileNotFoundError:
-            pytest.skip("capex_data.json not found")
+            pytest.skip("financial_data.json not found")
     
     def test_data_types(self):
         """Test that data types are correct"""
         try:
-            with open('data/capex_data.json', 'r') as f:
+            with open('data/financial_data.json', 'r') as f:
                 data = json.load(f)
             
             if len(data) > 0:
@@ -269,7 +269,7 @@ class TestDataIntegrity:
                 if 'market_cap' in company:
                     assert isinstance(company['market_cap'], (int, float))
         except FileNotFoundError:
-            pytest.skip("capex_data.json not found")
+            pytest.skip("financial_data.json not found")
 
 
 if __name__ == '__main__':

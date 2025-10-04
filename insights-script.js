@@ -18,7 +18,7 @@ class InsightsApp {
 
     async loadData() {
         try {
-            const capexResponse = await fetch('/data/capex_data.json');
+            const capexResponse = await fetch('/data/financial_data.json');
             
             if (!capexResponse.ok) {
                 throw new Error(`Failed to fetch capex data: ${capexResponse.status}`);

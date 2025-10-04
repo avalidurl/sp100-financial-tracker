@@ -38,8 +38,8 @@ load_env()
 
 # Load configuration
 FMP_API_KEY = os.environ.get('FMP_API_KEY', '')
-DATA_FILE = './data/capex_data.json'
-PUBLIC_DATA_FILE = './public/data/capex_data.json'
+DATA_FILE = './data/financial_data.json'
+PUBLIC_DATA_FILE = './public/data/financial_data.json'
 
 # Rate limiting
 RATE_LIMIT_DELAY = 0.2  # 200ms between calls (5 calls/second max)
