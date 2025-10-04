@@ -1,0 +1,44 @@
+name: Notify on Workflow Failure
+
+on:
+  workflow_run:
+    workflows: ["Update Financial Data from SEC EDGAR", "Update Market Caps"]
+    types:
+      - completed
+
+jobs:
+  notify-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    
+    steps:
+      - name: Send failure notification
+        run: |
+          echo "::error::Workflow ${{ github.event.workflow_run.name }} failed!"
+          echo "::notice::Check workflow logs: ${{ github.event.workflow_run.html_url }}"
+          
+      - name: Create issue on failure
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const workflowName = context.payload.workflow_run.name;
+            const runUrl = context.payload.workflow_run.html_url;
+            
+            // Check if issue already exists
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'automated-workflow-failure'
+            });
+            
+            if (issues.data.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `🚨 Automated Workflow Failed: ${workflowName}`,
+                body: `## Workflow Failure Alert\n\n**Workflow:** ${workflowName}\n**Run:** ${runUrl}\n**Time:** ${new Date().toISOString()}\n\n### Action Required\n\nThe automated data update workflow has failed. Please check the logs and fix any issues.\n\n### Common Issues:\n- API rate limits\n- Network timeouts\n- Data format changes\n- GitHub token expiration\n\n*This issue will auto-close when the workflow succeeds.*`,
+                labels: ['automated-workflow-failure', 'bug', 'monitoring']
+              });
+            }
+
