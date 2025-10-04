@@ -4,7 +4,12 @@ compatibility_date = "2025-10-04"
 # This is a Pages project with static assets and Functions
 pages_build_output_dir = "."
 
-[env.production]
-# Static files will be served from the root directory
-# Cloudflare Pages Functions will be served from the /functions directory
+# Environment variables for GitHub integration
+# Non-sensitive values can be defined here
+[vars]
+GITHUB_OWNER = "avalidurl"
+GITHUB_REPO_NAME = "sp100-financial-tracker"
+
+# GITHUB_TOKEN should remain as an encrypted secret in the Cloudflare Dashboard
+# Don't add it here - keep it encrypted in Settings → Environment Variables
 
