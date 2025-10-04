@@ -38,7 +38,7 @@ function loadEnv() {
 loadEnv();
 
 // Load existing data
-const capexData = JSON.parse(fs.readFileSync('./data/capex_data.json', 'utf8'));
+const capexData = JSON.parse(fs.readFileSync('./data/financial_data.json', 'utf8'));
 
 // API Keys (loaded from .env file)
 const FMP_API_KEY = process.env.FMP_API_KEY || '';
@@ -266,11 +266,11 @@ async function main() {
     console.log('SAVING DATA...');
     console.log('='.repeat(60));
     
-    fs.writeFileSync('./data/capex_data.json', JSON.stringify(capexData, null, 2));
-    fs.writeFileSync('./public/data/capex_data.json', JSON.stringify(capexData, null, 2));
+    fs.writeFileSync('./data/financial_data.json', JSON.stringify(capexData, null, 2));
+    fs.writeFileSync('./public/data/financial_data.json', JSON.stringify(capexData, null, 2));
     
-    console.log('✓ Saved to ./data/capex_data.json');
-    console.log('✓ Saved to ./public/data/capex_data.json');
+    console.log('✓ Saved to ./data/financial_data.json');
+    console.log('✓ Saved to ./public/data/financial_data.json');
     
     // Summary
     console.log('\n' + '='.repeat(60));

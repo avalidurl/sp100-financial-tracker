@@ -75,7 +75,7 @@
 **Enable Health Checks:**
 1. Go to your Cloudflare account
 2. Traffic → Health Checks
-3. Add health check for: `https://sp100-financial-tracker.pages.dev/data/capex_data.json`
+3. Add health check for: `https://sp100-financial-tracker.pages.dev/data/financial_data.json`
 4. Get alerts if data file becomes unavailable
 
 ---

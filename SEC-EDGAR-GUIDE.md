@@ -239,7 +239,7 @@ def fetch_comprehensive_data(symbol):
 
 ### Step 2: Add to JSON
 
-Update `capex_data.json` structure:
+Update `financial_data.json` structure:
 
 ```json
 {

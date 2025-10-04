@@ -28,8 +28,8 @@ import time
 import requests
 from typing import Optional, Dict
 
-DATA_FILE = './data/capex_data.json'
-PUBLIC_DATA_FILE = './public/data/capex_data.json'
+DATA_FILE = './data/financial_data.json'
+PUBLIC_DATA_FILE = './public/data/financial_data.json'
 RATE_LIMIT_DELAY = 0.15
 
 class ComprehensiveDataFetcher:

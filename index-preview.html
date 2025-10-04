@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S&P 100 Financial Tracker - PREVIEW</title>
+    <link rel="stylesheet" href="styles-preview.css">
+</head>
+<body>
+    <!-- Polymarket Ticker -->
+    <div class="polymarket-ticker-container">
+        <iframe src="https://ticker.polymarket.com/embed?category=Business&theme=dark" width="100%" height="60" frameborder="0" scrolling="no" style="border: none; overflow: hidden;"></iframe>
+    </div>
+    
+    <div class="top-nav">
+        <div class="top-nav-content">
+            <div class="header-actions">
+                <button onclick="scrollToSection('community-section')" class="header-btn community-btn">💬 Community</button>
+                <button onclick="scrollToSection('donate')" class="header-btn donate-btn">💰 Donate</button>
+                <button onclick="scrollToSection('disclaimer')" class="header-btn disclaimer-btn">⚠️ Disclaimer</button>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <h1><a href="/" style="text-decoration: none; color: inherit; cursor: pointer;">S&P 100 Financial Tracker</a></h1>
+        <p>Comprehensive financial metrics for top 100 S&P companies</p>
+        <div id="last-updated"></div>
+        <div id="market-status"></div>
+    </header>
+
+    <main>
+        <div class="controls">
+            <input type="text" id="search" placeholder="Search companies...">
+            <select id="sort-by">
+                <option value="capex">Sort by Capex</option>
+                <option value="market_cap">Sort by Market Cap</option>
+                <option value="name">Sort by Name</option>
+                <option value="sector">Sort by Sector</option>
+                <option value="revenue">Sort by Revenue</option>
+                <option value="earnings">Sort by Earnings</option>
+            </select>
+            <button id="sort-direction" class="sort-direction-btn" title="Toggle sort direction">
+                <span class="sort-icon">↓</span>
+                <span class="sort-label">Highest First</span>
+            </button>
+            <select id="filter-sector">
+                <option value="">All Sectors</option>
+                <option value="Technology">Technology</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Financials">Financials</option>
+                <option value="Consumer Discretionary">Consumer Discretionary</option>
+                <option value="Consumer Staples">Consumer Staples</option>
+                <option value="Energy">Energy</option>
+                <option value="Industrials">Industrials</option>
+                <option value="Telecommunications">Telecommunications</option>
+                <option value="Financial Services">Financial Services</option>
+            </select>
+            <a href="chart.html" class="nav-btn">📊 Chart View</a>
+            <a href="insights.html" class="nav-btn">🔍 Insights</a>
+        </div>
+
+        <div class="info-note">
+            <p><strong>💡 Note:</strong> Negative numbers represent capital investments (money spent on infrastructure, facilities, and growth). Larger negative numbers indicate bigger investments in future growth.</p>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-label">Total Companies:</span>
+                <span id="total-companies">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Total Capex:</span>
+                <span id="total-capex">$0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Avg Capex:</span>
+                <span id="avg-capex">$0</span>
+            </div>
+        </div>
+
+        <div id="loading">Loading data...</div>
+        <div id="error" class="hidden">Error loading data</div>
+        
+        <div id="company-list" class="hidden"></div>
+    </main>
+
+    <footer>
+        <div class="credit">
+            <p>Made by <a href="https://x.com/0xgokhan" target="_blank" rel="noopener">0xgokhan</a></p>
+        </div>
+        
+        <div class="disclaimer" id="disclaimer">
+            <p><strong>⚠️ Financial Disclaimer:</strong> Nothing on this website constitutes financial investment advice or recommendations whatsoever. All data is provided for informational and educational purposes only. Always consult with a qualified financial advisor before making investment decisions.</p>
+        </div>
+
+        <div class="community-section" id="community-section">
+            <h3>💬 Join Our Community</h3>
+            <div class="community-links">
+                <a href="https://t.me/markets_company" target="_blank" rel="noopener" class="community-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.11.02-1.91 1.21-5.4 3.57-.51.35-.97.52-1.38.52-.45-.01-1.32-.26-1.97-.47-.8-.26-1.43-.4-1.38-.85.03-.23.36-.47.99-.72 3.88-1.69 6.47-2.8 7.77-3.35 3.7-1.55 4.47-1.82 4.97-1.83.11 0 .36.03.52.17.13.12.17.27.19.38.01.08.02.29 0 .44z"/>
+                    </svg>
+                    <span>Telegram Channel</span>
+                </a>
+                <a href="https://t.me/marketresearchbox" target="_blank" rel="noopener" class="community-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.11.02-1.91 1.21-5.4 3.57-.51.35-.97.52-1.38.52-.45-.01-1.32-.26-1.97-.47-.8-.26-1.43-.4-1.38-.85.03-.23.36-.47.99-.72 3.88-1.69 6.47-2.8 7.77-3.35 3.7-1.55 4.47-1.82 4.97-1.83.11 0 .36.03.52.17.13.12.17.27.19.38.01.08.02.29 0 .44z"/>
+                    </svg>
+                    <span>Telegram Group</span>
+                </a>
+                <a href="https://discord.gg/ZJpnhF3bDn" target="_blank" rel="noopener" class="community-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                    </svg>
+                    <span>Discord Server</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="donate" id="donate">
+            <p><strong>Support this project so the dev can subscribe to real-time data tiers to serve your needs the best:</strong></p>
+            <div class="crypto-addresses">
+                <div class="address-item">
+                    <span class="chain-label">BTC:</span>
+                    <code class="crypto-address" onclick="copyToClipboard('bc1q8emnjcdj6hwyfg074c0sulr739gvmwula9359n', this)">bc1q8emnjcdj6hwyfg074c0sulr739gvmwula9359n</code>
+                </div>
+                <div class="address-item">
+                    <span class="chain-label">EVM:</span>
+                    <code class="crypto-address" onclick="copyToClipboard('0x36De990133D36d7E3DF9a820aA3eDE5a2320De71', this)">0x36De990133D36d7E3DF9a820aA3eDE5a2320De71</code>
+                </div>
+                <div class="address-item">
+                    <span class="chain-label">SOL:</span>
+                    <code class="crypto-address" onclick="copyToClipboard('J1ALikLy5TZ9tqZq5zxSem5P9G4Wo6fXXWSGGjEvd9Pg', this)">J1ALikLy5TZ9tqZq5zxSem5P9G4Wo6fXXWSGGjEvd9Pg</code>
+                </div>
+                <div class="address-item">
+                    <span class="chain-label">ZCash:</span>
+                    <code class="crypto-address" onclick="copyToClipboard('t1KGW4ttsi4Dk9NpMMXacuo1BGq51qMHPDh', this)">t1KGW4ttsi4Dk9NpMMXacuo1BGq51qMHPDh</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="resources-section">
+            <h3>Data Sources & API Providers</h3>
+            <div class="resources-grid">
+                <div class="resource-category">
+                    <h4>📊 Primary Data APIs</h4>
+                    <ul>
+                        <li><a href="https://financialmodelingprep.com/" target="_blank" rel="noopener">Financial Modeling Prep</a> - Company financials & capex data</li>
+                        <li><a href="https://www.sec.gov/edgar" target="_blank" rel="noopener">SEC EDGAR</a> - Official financial statements & fundamentals (FREE)</li>
+                        <li><a href="https://finance.yahoo.com/" target="_blank" rel="noopener">Yahoo Finance</a> - Real-time stock prices & market data (FREE)</li>
+                    </ul>
+                </div>
+                <div class="resource-category">
+                    <h4>📰 News & Information</h4>
+                    <ul>
+                        <li><a href="https://www.sec.gov/edgar" target="_blank" rel="noopener">SEC EDGAR</a> - Official SEC filings & disclosures</li>
+                        <li><a href="https://www.polymarket.com/" target="_blank" rel="noopener">Polymarket</a> - Prediction market insights</li>
+                        <li><a href="https://news.google.com/" target="_blank" rel="noopener">Google News</a> - Financial news aggregation</li>
+                    </ul>
+                </div>
+                <div class="resource-category">
+                    <h4>📈 Visualization & Charts</h4>
+                    <ul>
+                        <li><a href="https://www.tradingview.com/" target="_blank" rel="noopener">TradingView</a> - Interactive trading charts & widgets</li>
+                        <li><a href="https://www.chartjs.org/" target="_blank" rel="noopener">Chart.js</a> - Data visualization library</li>
+                    </ul>
+                </div>
+                <div class="resource-category">
+                    <h4>🚀 Infrastructure & Tools</h4>
+                    <ul>
+                        <li><a href="https://www.cloudflare.com/" target="_blank" rel="noopener">Cloudflare Pages</a> - Web hosting & edge deployment</li>
+                        <li><a href="https://workers.cloudflare.com/" target="_blank" rel="noopener">Cloudflare Workers</a> - Serverless cron automation</li>
+                        <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a> - Code repository & version control</li>
+                        <li><a href="https://corsproxy.io/" target="_blank" rel="noopener">CORS Proxy</a> - Cross-origin API access</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Price Modal -->
+    <div id="price-modal" class="price-modal">
+        <div class="price-modal-content">
+            <div class="price-modal-header">
+                <h2 class="price-modal-title" id="price-modal-title">
+                    📈 Live Stock Price
+                </h2>
+                <button class="price-modal-close" onclick="closePriceModal()">&times;</button>
+            </div>
+            <div class="price-modal-body" id="price-modal-body">
+                <div class="price-loading" id="price-loading">
+                    <div class="price-loading-spinner"></div>
+                    <p>Loading live price data...</p>
+                </div>
+                <!-- TradingView widget will be inserted here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- News Modal -->
+    <div id="news-modal" class="news-modal">
+        <div class="news-modal-content">
+            <div class="news-modal-header">
+                <h2 class="news-modal-title" id="news-modal-title">
+                    📰 Company News
+                </h2>
+                <button class="news-modal-close" onclick="closeNewsModal()">&times;</button>
+            </div>
+            <div class="news-modal-body" id="news-modal-body">
+                <div class="news-loading" id="news-loading">
+                    <div class="news-loading-spinner"></div>
+                    <p>Loading latest news...</p>
+                </div>
+                <div class="news-error hidden" id="news-error">
+                    <div class="news-error-icon">⚠️</div>
+                    <p>Unable to load news at this time</p>
+                    <p><small>Please try again later</small></p>
+                </div>
+                <div class="news-list hidden" id="news-list">
+                    <!-- News articles will be populated here -->
+                </div>
+                <div class="news-empty hidden" id="news-empty">
+                    <div class="news-empty-icon">📰</div>
+                    <p>No recent news found</p>
+                    <p><small>Try checking back later for updates</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filings Modal -->
+    <div id="filings-modal" class="news-modal filings-modal">
+        <div class="news-modal-content">
+            <div class="news-modal-header">
+                <h2 class="news-modal-title" id="filings-modal-title">
+                    📋 SEC Filings
+                </h2>
+                <button class="news-modal-close" onclick="closeFilingsModal()">&times;</button>
+            </div>
+            <div class="news-modal-body" id="filings-modal-body">
+                <div class="news-loading" id="filings-loading">
+                    <div class="news-loading-spinner"></div>
+                    <p>Loading SEC filings...</p>
+                </div>
+                <div class="news-error hidden" id="filings-error">
+                    <div class="news-error-icon">⚠️</div>
+                    <p>Unable to load filings at this time</p>
+                    <p><small>Please try again later</small></p>
+                </div>
+                <div class="news-list hidden" id="filings-list">
+                    <!-- Filings will be populated here -->
+                </div>
+                <div class="news-empty hidden" id="filings-empty">
+                    <div class="news-empty-icon">📋</div>
+                    <p>No recent filings found</p>
+                    <p><small>Check SEC EDGAR database for historical filings</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statements Modal -->
+    <div id="statements-modal" class="news-modal statements-modal">
+        <div class="news-modal-content">
+            <div class="news-modal-header">
+                <h2 class="news-modal-title" id="statements-modal-title">
+                    📊 Financial Statements
+                </h2>
+                <button class="news-modal-close" onclick="closeStatementsModal()">&times;</button>
+            </div>
+            <div class="news-modal-body" id="statements-modal-body">
+                <div class="news-loading" id="statements-loading">
+                    <div class="news-loading-spinner"></div>
+                    <p>Loading financial data...</p>
+                </div>
+                <div class="news-error hidden" id="statements-error">
+                    <div class="news-error-icon">⚠️</div>
+                    <p>Financial statements will be available soon</p>
+                    <p><small>Coming in next update</small></p>
+                </div>
+                <div class="news-list hidden" id="statements-list">
+                    <!-- Statements will be populated here -->
+                </div>
+                <div class="news-empty hidden" id="statements-empty">
+                    <div class="news-empty-icon">📊</div>
+                    <p>Financial statements coming soon</p>
+                    <p><small>Check back for quarterly earnings data</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Notice Popup -->
+    <div id="privacy-notice" class="privacy-notice">
+        <div class="privacy-notice-content">
+            <div class="privacy-notice-header">
+                <h3>🔒 Privacy Notice</h3>
+            </div>
+            <div class="privacy-notice-body">
+                <p><strong>We respect your privacy!</strong></p>
+                <p>This website has <strong>limited data collection</strong>:</p>
+                <ul>
+                    <li>✅ No first-party cookies or tracking</li>
+                    <li>✅ No personal information collected</li>
+                    <li>✅ No analytics or advertising networks</li>
+                    <li>⚠️ Basic server logs (IP addresses, timestamps)</li>
+                    <li>⚠️ Local storage for preferences and caching</li>
+                    <li>⚠️ Third-party services may track usage:</li>
+                    <ul>
+                        <li>• TradingView widgets (charts)</li>
+                        <li>• CORS proxy services (stock prices)</li>
+                    </ul>
+                </ul>
+                <p>Your browsing is largely private, though some data may be shared with third-party services.</p>
+            </div>
+            <div class="privacy-notice-footer">
+                <button onclick="closePrivacyNotice()" class="privacy-accept-btn">Got it! 👍</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Disclaimer Footnote -->
+    <div class="disclaimer-footnote">
+        <p><strong>⚠️ Important Disclaimer:</strong> All information provided on this website is for informational and educational purposes only. Nothing on this site constitutes financial, investment, trading, or any other type of advice or recommendation. You should not treat any of the website's content as such. Always conduct your own research and consult with qualified financial advisors before making any investment decisions. Past performance does not guarantee future results.</p>
+    </div>
+
+    <!-- Error Monitoring -->
+    <script src="error-monitor.js"></script>
+    
+    <!-- Main Application -->
+    <script src="script.js?v=15"></script>
+</body>
+</html>
