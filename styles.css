@@ -133,6 +133,44 @@ main {
     color: white;
 }
 
+.sort-direction-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.sort-direction-btn:hover {
+    background: #f8fafc;
+    border-color: #2563eb;
+}
+
+.sort-direction-btn:active {
+    transform: scale(0.98);
+}
+
+.sort-direction-btn .sort-icon {
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.sort-direction-btn.ascending .sort-icon {
+    transform: rotate(180deg);
+}
+
+.sort-direction-btn .sort-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
 .info-note {
     background: #f0f9ff;
     border: 1px solid #bfdbfe;
@@ -538,6 +576,11 @@ footer {
     
     .controls {
         flex-direction: column;
+    }
+    
+    .sort-direction-btn {
+        width: 100%;
+        justify-content: center;
     }
     
     .company-card {
