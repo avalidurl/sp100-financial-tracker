@@ -136,7 +136,7 @@ if duplicates:
 else:
     print("✅ No duplicate symbols")
 
-PYTHON_SCRIPT
+          PYTHON_SCRIPT
       
       - name: Data validation summary
         if: always()
