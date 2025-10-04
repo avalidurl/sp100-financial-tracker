@@ -54,10 +54,10 @@ jobs:
         id: check_changes
         run: |
           if git diff --quiet data/financial_data.json public/data/financial_data.json; then
-            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "📊 No changes detected in financial data"
           else
-            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "changed=true" >> "$GITHUB_OUTPUT"
             echo "✅ Financial data has been updated!"
           fi
 
