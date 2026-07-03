@@ -78,6 +78,8 @@ jobs:
           # Commit with message
           git commit -m "🤖 Auto-update: Financial data + analyst forecasts - $(date -u +"%Y-%m-%d %H:%M UTC")" || echo "No changes to commit"
 
+          # Rebase onto any concurrent push (e.g. the market-caps job) so overlapping runs self-heal.
+          git pull --rebase origin master || true
           git push
 
       - name: Create update summary

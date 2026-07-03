@@ -45,6 +45,7 @@ jobs:
           else
             git add data/financial_data.json public/data/financial_data.json data/last_updated.json public/data/last_updated.json
             git commit -m "🤖 Auto-update: Market caps from Yahoo Finance - $(date -u +"%Y-%m-%d %H:%M UTC")"
+            git pull --rebase origin master || true  # self-heal if a concurrent job pushed first
             git push
           fi
 
