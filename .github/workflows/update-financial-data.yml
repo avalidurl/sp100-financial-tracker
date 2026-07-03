@@ -18,6 +18,8 @@ on:
 jobs:
   update-data:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # required so the "Commit and push" step can push the refreshed data (was 403)
 
     steps:
       - name: Checkout repository
@@ -43,8 +45,12 @@ jobs:
           PYTHONUNBUFFERED: 1
 
       - name: Fetch analyst estimates and forecasts
+        # Enrichment only — needs the optional FMP_API_KEY secret. Don't fail the whole run
+        # (and block the SEC-EDGAR core data commit) when the key is absent; skip gracefully.
+        continue-on-error: true
         run: |
           echo "📈 Fetching analyst estimates and price targets..."
+          if [ -z "$FMP_API_KEY" ]; then echo "⏭️  FMP_API_KEY not set — skipping analyst estimates (optional enrichment)."; exit 0; fi
           python3 fetch-analyst-estimates.py
         env:
           FMP_API_KEY: ${{ secrets.FMP_API_KEY }}

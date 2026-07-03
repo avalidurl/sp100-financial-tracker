@@ -13,6 +13,8 @@ on:
 jobs:
   update-market-caps:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # required so the "Commit and push" step can push the refreshed data (was 403)
 
     steps:
       - name: Checkout repository
