@@ -90,7 +90,7 @@ def update_data():
         "status": "ok",
         "type": "quarterly",
     }
-    _write_json_if_changed("public/data/last_updated.json", {"quarterly": result["last_run"]})
+    _write_json_if_changed("public/data/last_updated.json", {"timestamp": result["last_run"], "quarterly": result["last_run"]})
     return jsonify(result)
 
 
@@ -104,7 +104,7 @@ def update_market_caps():
         "status": "ok",
         "type": "market_caps",
     }
-    _write_json_if_changed("public/data/last_updated.json", {"market_caps": result["last_run"]})
+    _write_json_if_changed("public/data/last_updated.json", {"timestamp": result["last_run"], "market_caps": result["last_run"]})
     return jsonify(result)
 
 
@@ -118,7 +118,7 @@ def update_news():
         "status": "ok",
         "type": "news",
     }
-    _write_json_if_changed("data/last_updated.json", {"news": result["last_run"]})
+    _write_json_if_changed("data/last_updated.json", {"timestamp": result["last_run"], "news": result["last_run"]})
     return jsonify(result)
 
 

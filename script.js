@@ -59,7 +59,12 @@ class SP100CapexApp {
             const updateResponse = await fetch('./data/last_updated.json');
             if (updateResponse.ok) {
                 const updateInfo = await updateResponse.json();
-                this.updateLastUpdated(updateInfo.timestamp);
+                const timestamp = updateInfo.timestamp || updateInfo.quarterly || updateInfo.market_caps || updateInfo.news || updateInfo.news_offhours;
+                if (timestamp) {
+                    this.updateLastUpdated(timestamp);
+                } else {
+                    this.updateLastUpdated(new Date().toISOString());
+                }
             } else {
                 this.updateLastUpdated(new Date().toISOString());
             }
@@ -335,9 +340,14 @@ class SP100CapexApp {
     }
 
     updateLastUpdated(timestamp) {
+        const el = document.getElementById('last-updated');
+        if (!el) return;
         const date = new Date(timestamp);
-        document.getElementById('last-updated').textContent = 
-            `Last updated: ${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+        if (!timestamp || Number.isNaN(date.getTime())) {
+            el.textContent = '';
+            return;
+        }
+        el.textContent = `Last updated: ${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
     }
 
     render() {
@@ -1965,29 +1975,11 @@ document.addEventListener('keydown', (e) => {
 let newsData = null;
 let filingsData = null;
 
-// Load pre-fetched data
+// company_news.json and company_filings.json were never published.
+// News and filings modals already fall back to generated / live SEC data.
 async function loadPreFetchedData() {
-    try {
-        // Load news data
-        const newsResponse = await fetch('./data/company_news.json');
-        if (newsResponse.ok) {
-            newsData = await newsResponse.json();
-            console.log('✅ Loaded pre-fetched news data:', newsData.total_articles, 'articles');
-        } else {
-            console.warn('⚠️ Could not load news data');
-        }
-
-        // Load filings data
-        const filingsResponse = await fetch('./data/company_filings.json');
-        if (filingsResponse.ok) {
-            filingsData = await filingsResponse.json();
-            console.log('✅ Loaded pre-fetched filings data:', filingsData.total_filings, 'filings');
-        } else {
-            console.warn('⚠️ Could not load filings data');
-        }
-    } catch (error) {
-        console.error('❌ Error loading pre-fetched data:', error);
-    }
+    newsData = null;
+    filingsData = null;
 }
 
 // Main data modal handler
@@ -3143,8 +3135,6 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('✅ Modal functions loaded successfully');
     
     window.app = new SP100CapexApp();
-    // Load pre-fetched data on page load
-    loadPreFetchedData();
     // Check if privacy notice should be shown
     checkPrivacyNotice();
 });
