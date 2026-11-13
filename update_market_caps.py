@@ -63,12 +63,14 @@ with open('data/financial_data.json', 'w') as f:
 with open('public/data/financial_data.json', 'w') as f:
     json.dump(companies, f, indent=2)
 
-# Update timestamp
+# Update timestamp (timestamp + job-specific field, so the UI can read either)
+_now = time.strftime('%Y-%m-%dT%H:%M:%S')
+_stamp = {'timestamp': _now, 'market_caps': _now}
 with open('data/last_updated.json', 'w') as f:
-    json.dump({'market_caps': time.strftime('%Y-%m-%dT%H:%M:%S')}, f)
+    json.dump(_stamp, f)
 
 with open('public/data/last_updated.json', 'w') as f:
-    json.dump({'market_caps': time.strftime('%Y-%m-%dT%H:%M:%S')}, f)
+    json.dump(_stamp, f)
 
 print(f"\n✅ Updated {updated_count}/{len(companies)} companies")
 if failed:

@@ -3,7 +3,7 @@ import { writeJsonIfChanged } from './_utils.js';
 export async function onRequest({ env }) {
   const now = new Date().toISOString();
   try {
-    await writeJsonIfChanged(env, 'public/data/last_updated.json', { market_caps: now });
+    await writeJsonIfChanged(env, 'public/data/last_updated.json', { timestamp: now, market_caps: now });
     return new Response(JSON.stringify({ status: 'ok', type: 'market_caps', last_run: now }), {
       headers: { 'content-type': 'application/json' }
     });
