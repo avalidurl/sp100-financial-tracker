@@ -27,13 +27,13 @@ $env:FMP_API_KEY="your_api_key_here"
 
 **Option A: Python (Recommended)** 
 ```bash
-cd /Users/gokhanturhan/Documents/GitHub/sp100-financial-tracker
+# from the repository root
 python3 fetch-earnings.py
 ```
 
 **Option B: Node.js**
 ```bash
-cd /Users/gokhanturhan/Documents/GitHub/sp100-financial-tracker
+# from the repository root
 node fetch-earnings.js
 ```
 
