@@ -2380,7 +2380,7 @@ async function fetchRealSECFilings(symbol, companyName) {
         const url = `https://data.sec.gov/submissions/CIK${cik.padStart(10, '0')}.json`;
         const response = await fetch(url, {
             headers: {
-                'User-Agent': 'SP100-CapEx-Tracker contact@yoursite.com',
+                'User-Agent': 'SP100-CapEx-Tracker contact@gokhan.vc',
                 'Accept': 'application/json'
             }
         });
