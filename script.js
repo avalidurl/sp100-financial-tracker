@@ -9,6 +9,22 @@ function createTradingViewSymbol(symbol) {
   return `${exchange}:${symbol}`;
 }
 
+// One escape for JS-in-HTML onclick values. Backslash first, then quotes,
+// newlines, and angle brackets. HTML entities are applied after "&".
+function escapeForOnclick(value) {
+  return String(value ?? '')
+    .replace(/\\/g, '\\\\')
+    .replace(/\r/g, '\\r')
+    .replace(/\n/g, '\\n')
+    .replace(/\u2028/g, '\\u2028')
+    .replace(/\u2029/g, '\\u2029')
+    .replace(/'/g, "\\'")
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 class SP100CapexApp {
     constructor() {
         this.data = [];
@@ -481,16 +497,16 @@ class SP100CapexApp {
                         </div>
                         
                         <div class="company-actions">
-                            <button class="action-btn price-btn" onclick="openPriceModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Live price chart">
+                            <button class="action-btn price-btn" onclick="openPriceModal('${company.symbol}', '${escapeForOnclick(company.name)}'); event.stopPropagation();" title="Live price chart">
                                 📈 Price
                             </button>
-                            <button class="action-btn news-btn" onclick="openDataModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}', 'news'); event.stopPropagation();" title="Latest news">
+                            <button class="action-btn news-btn" onclick="openDataModal('${company.symbol}', '${escapeForOnclick(company.name)}', 'news'); event.stopPropagation();" title="Latest news">
                                 📰 News
                             </button>
-                            <button class="action-btn filings-btn" onclick="openDataModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}', 'filings'); event.stopPropagation();" title="SEC filings">
+                            <button class="action-btn filings-btn" onclick="openDataModal('${company.symbol}', '${escapeForOnclick(company.name)}', 'filings'); event.stopPropagation();" title="SEC filings">
                                 📋 Filings
                             </button>
-                            <button class="action-btn statements-btn" onclick="openDataModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}', 'statements'); event.stopPropagation();" title="Financial statements">
+                            <button class="action-btn statements-btn" onclick="openDataModal('${company.symbol}', '${escapeForOnclick(company.name)}', 'statements'); event.stopPropagation();" title="Financial statements">
                                 📊 Data
                             </button>
                         </div>
@@ -524,7 +540,7 @@ class SP100CapexApp {
 
         list.innerHTML = sortedSectors.map(({sector, companies, totalCapex, count}) => `
             <div class="sector-group">
-                <div class="sector-header" onclick="toggleSector('${sector.replace(/'/g, "\\'")}')"> 
+                <div class="sector-header" onclick="toggleSector('${escapeForOnclick(sector)}')">
                     <div class="sector-toggle">▼</div>
                     <div class="sector-info">
                         <div class="sector-name">${sector}</div>
@@ -608,16 +624,16 @@ class SP100CapexApp {
                                 </div>
                                 
                                 <div class="company-actions">
-                                    <button class="action-btn price-btn" onclick="openPriceModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}'); event.stopPropagation();" title="Live price chart">
+                                    <button class="action-btn price-btn" onclick="openPriceModal('${company.symbol}', '${escapeForOnclick(company.name)}'); event.stopPropagation();" title="Live price chart">
                                         📈 Price
                                     </button>
-                                    <button class="action-btn news-btn" onclick="openDataModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}', 'news'); event.stopPropagation();" title="Latest news">
+                                    <button class="action-btn news-btn" onclick="openDataModal('${company.symbol}', '${escapeForOnclick(company.name)}', 'news'); event.stopPropagation();" title="Latest news">
                                         📰 News
                                     </button>
-                                    <button class="action-btn filings-btn" onclick="openDataModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}', 'filings'); event.stopPropagation();" title="SEC filings">
+                                    <button class="action-btn filings-btn" onclick="openDataModal('${company.symbol}', '${escapeForOnclick(company.name)}', 'filings'); event.stopPropagation();" title="SEC filings">
                                         📋 Filings
                                     </button>
-                                    <button class="action-btn statements-btn" onclick="openDataModal('${company.symbol}', '${company.name.replace(/'/g, "\\'")}', 'statements'); event.stopPropagation();" title="Financial statements">
+                                    <button class="action-btn statements-btn" onclick="openDataModal('${company.symbol}', '${escapeForOnclick(company.name)}', 'statements'); event.stopPropagation();" title="Financial statements">
                                         📊 Data
                                     </button>
                                 </div>
@@ -1395,7 +1411,7 @@ async function openNewsModal(symbol, companyName) {
     // Update title with refresh button
     title.innerHTML = `
         📰 ${companyName} (${symbol}) - Latest News
-        <button class="news-refresh-btn" onclick="refreshNews('${symbol}', '${companyName.replace(/'/g, "\\'")}'); event.stopPropagation();" 
+        <button class="news-refresh-btn" onclick="refreshNews('${symbol}', '${escapeForOnclick(companyName)}'); event.stopPropagation();"
                 title="Refresh news">🔄</button>
     `;
     // Ensure modal is displayed with proper flexbox centering
@@ -1786,7 +1802,7 @@ function renderNewsArticles(articles) {
                     <div class="news-item-title-container">
                         <h3 class="news-item-title">
                             <a href="${safeLink}" target="_blank" rel="noopener noreferrer" class="news-title-link" 
-                               onclick="event.preventDefault(); window.open('${safeLink.replace(/'/g, "\\'")}', '_blank', 'noopener,noreferrer'); return false;">
+                               onclick="event.preventDefault(); window.open('${escapeForOnclick(safeLink)}', '_blank', 'noopener,noreferrer'); return false;">
                                 ${article.title}
                             </a>
                         </h3>
@@ -2875,13 +2891,13 @@ function renderStatementsRain() {
                 <div class="news-item-title-container">
                     <h3 class="news-item-title">
                         <a href="${sourceLink}" target="_blank" rel="noopener noreferrer" class="news-title-link" 
-                           onclick="event.preventDefault(); window.open('${sourceLink.replace(/'/g, "\\'")}', '_blank', 'noopener,noreferrer'); return false;">
+                           onclick="event.preventDefault(); window.open('${escapeForOnclick(sourceLink)}', '_blank', 'noopener,noreferrer'); return false;">
                             ${statement.title}
                         </a>
                     </h3>
                     <div class="news-item-meta-inline">
                         <a href="${sourceLink}" target="_blank" rel="noopener noreferrer" class="news-source-link" 
-                           onclick="event.preventDefault(); window.open('${sourceLink.replace(/'/g, "\\'")}', '_blank', 'noopener,noreferrer'); return false;">
+                           onclick="event.preventDefault(); window.open('${escapeForOnclick(sourceLink)}', '_blank', 'noopener,noreferrer'); return false;">
                             ${statement.source}
                         </a> • 
                         <span class="news-item-time">${formatTimeAgo(statement.timestamp)}</span>
@@ -2900,7 +2916,7 @@ function renderStatementsRain() {
             <p class="news-item-summary">${statement.description}</p>
             <div class="news-item-actions">
                 <a href="${sourceLink}" target="_blank" rel="noopener noreferrer" class="news-action-link" 
-                   onclick="event.preventDefault(); window.open('${sourceLink.replace(/'/g, "\\'")}', '_blank', 'noopener,noreferrer'); return false;">
+                   onclick="event.preventDefault(); window.open('${escapeForOnclick(sourceLink)}', '_blank', 'noopener,noreferrer'); return false;">
                     📊 View Financial Data
                 </a>
             </div>

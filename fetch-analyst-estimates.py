@@ -36,10 +36,14 @@ class AnalystEstimatesFetcher:
         
     def fetch_analyst_estimates(self, symbol: str) -> Optional[Dict]:
         """Fetch analyst estimates from FMP"""
-        url = f"https://financialmodelingprep.com/api/v3/analyst-estimates/{symbol}?limit=1&apikey={self.api_key}"
+        url = f"https://financialmodelingprep.com/api/v3/analyst-estimates/{symbol}"
         
         try:
-            response = requests.get(url, timeout=10)
+            response = requests.get(
+                url,
+                params={"limit": 1, "apikey": self.api_key},
+                timeout=10,
+            )
             response.raise_for_status()
             data = response.json()
             
@@ -57,17 +61,26 @@ class AnalystEstimatesFetcher:
                     'number_of_analysts': estimate.get('numberAnalystEstimatedRevenue', 0),
                     'forecast_date': estimate.get('date')
                 }
-        except Exception as e:
-            print(f"    ❌ Analyst estimates error: {str(e)}")
+        except requests.HTTPError as e:
+            status = e.response.status_code if e.response is not None else "error"
+            print(f"    ❌ Analyst estimates error: HTTP {status}")
+        except requests.RequestException:
+            print("    ❌ Analyst estimates error: request failed")
+        except Exception:
+            print("    ❌ Analyst estimates error")
         
         return None
     
     def fetch_price_target(self, symbol: str) -> Optional[Dict]:
         """Fetch analyst price target consensus"""
-        url = f"https://financialmodelingprep.com/api/v3/price-target-consensus?symbol={symbol}&apikey={self.api_key}"
+        url = "https://financialmodelingprep.com/api/v3/price-target-consensus"
         
         try:
-            response = requests.get(url, timeout=10)
+            response = requests.get(
+                url,
+                params={"symbol": symbol, "apikey": self.api_key},
+                timeout=10,
+            )
             response.raise_for_status()
             data = response.json()
             
@@ -81,17 +94,26 @@ class AnalystEstimatesFetcher:
                     'target_low': target.get('targetLow'),
                     'target_median': target.get('targetMedian')
                 }
-        except Exception as e:
-            print(f"    ❌ Price target error: {str(e)}")
+        except requests.HTTPError as e:
+            status = e.response.status_code if e.response is not None else "error"
+            print(f"    ❌ Price target error: HTTP {status}")
+        except requests.RequestException:
+            print("    ❌ Price target error: request failed")
+        except Exception:
+            print("    ❌ Price target error")
         
         return None
     
     def fetch_analyst_recommendation(self, symbol: str) -> Optional[str]:
         """Fetch analyst recommendation (Buy/Hold/Sell)"""
-        url = f"https://financialmodelingprep.com/api/v3/grade/{symbol}?limit=1&apikey={self.api_key}"
+        url = f"https://financialmodelingprep.com/api/v3/grade/{symbol}"
         
         try:
-            response = requests.get(url, timeout=10)
+            response = requests.get(
+                url,
+                params={"limit": 1, "apikey": self.api_key},
+                timeout=10,
+            )
             response.raise_for_status()
             data = response.json()
             
@@ -100,8 +122,13 @@ class AnalystEstimatesFetcher:
             if data and len(data) > 0:
                 grade = data[0]
                 return grade.get('newGrade', 'N/A')
-        except Exception as e:
-            print(f"    ❌ Recommendation error: {str(e)}")
+        except requests.HTTPError as e:
+            status = e.response.status_code if e.response is not None else "error"
+            print(f"    ❌ Recommendation error: HTTP {status}")
+        except requests.RequestException:
+            print("    ❌ Recommendation error: request failed")
+        except Exception:
+            print("    ❌ Recommendation error")
         
         return None
     
@@ -161,9 +188,10 @@ class AnalystEstimatesFetcher:
                     if estimates and estimates['estimated_revenue_avg']:
                         print(f"       Revenue forecast: ${estimates['estimated_revenue_avg'] / 1e9:.2f}B")
                     if price_target and price_target['target_price']:
-                        print(f"       Price target: ${price_target['target_price']:.2f}")
+                        target_price = float(price_target['target_price'])
+                        print(f"       Price target: ${target_price:.2f}")
                     if recommendation:
-                        print(f"       Recommendation: {recommendation}")
+                        print("       Recommendation recorded")
                     
                     self.processed.append(symbol)
                 else:

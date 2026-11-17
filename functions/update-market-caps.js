@@ -7,8 +7,9 @@ export async function onRequest({ env }) {
     return new Response(JSON.stringify({ status: 'ok', type: 'market_caps', last_run: now }), {
       headers: { 'content-type': 'application/json' }
     });
-  } catch (e) {
-    return new Response(JSON.stringify({ error: String(e) }), {
+  } catch {
+    console.error('market cap update failed');
+    return new Response(JSON.stringify({ error: 'Internal server error' }), {
       status: 500,
       headers: { 'content-type': 'application/json' }
     });

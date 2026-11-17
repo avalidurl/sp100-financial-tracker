@@ -55,9 +55,10 @@ export async function onRequest({ request, env }) {
       headers: { 'content-type': 'application/json' }
     });
 
-  } catch (error) {
-    return new Response(JSON.stringify({ 
-      error: String(error) 
+  } catch {
+    console.error('stock price request failed');
+    return new Response(JSON.stringify({
+      error: 'Internal server error'
     }), {
       status: 500,
       headers: { 'content-type': 'application/json' }

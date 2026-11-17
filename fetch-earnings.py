@@ -57,10 +57,14 @@ class EarningsFetcher:
         if not self.api_key:
             raise ValueError("FMP_API_KEY not set")
         
-        url = f"https://financialmodelingprep.com/api/v3/income-statement/{symbol}?limit=1&apikey={self.api_key}"
+        url = f"https://financialmodelingprep.com/api/v3/income-statement/{symbol}"
         
         try:
-            response = requests.get(url, timeout=10)
+            response = requests.get(
+                url,
+                params={"limit": 1, "apikey": self.api_key},
+                timeout=10,
+            )
             response.raise_for_status()
             data = response.json()
             
@@ -71,8 +75,13 @@ class EarningsFetcher:
                     'year': data[0].get('calendarYear', 2024),
                     'source': 'FMP'
                 }
-        except Exception as e:
-            print(f"    FMP API error: {str(e)}")
+        except requests.HTTPError as e:
+            status = e.response.status_code if e.response is not None else "error"
+            print(f"    FMP API error: HTTP {status}")
+        except requests.RequestException:
+            print("    FMP API error: request failed")
+        except Exception:
+            print("    FMP API error")
         
         return None
     
@@ -118,7 +127,8 @@ class EarningsFetcher:
                 if result:
                     company['earnings'] = result['earnings']
                     earnings_b = result['earnings'] / 1_000_000_000
-                    print(f"  ✓ Fetched: ${earnings_b:.2f}B (FY{result['year']})")
+                    year = int(result['year'])
+                    print(f"  ✓ Fetched: ${earnings_b:.2f}B (FY{year})")
                     self.processed.append(symbol)
                 else:
                     print(f"  ✗ No data available")

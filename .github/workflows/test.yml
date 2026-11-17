@@ -11,7 +11,9 @@ jobs:
   test-python:
     name: Python Tests
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: read
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -48,7 +50,9 @@ jobs:
   test-javascript:
     name: JavaScript Tests
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: read
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -76,7 +80,9 @@ jobs:
   validate-data:
     name: Validate Data Files
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: read
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -157,7 +163,9 @@ jobs:
   security-check:
     name: Security Check
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: read
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
